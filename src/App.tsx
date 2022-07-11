@@ -16,23 +16,25 @@ import PageNotFound from 'app/components/PageNotFound/PageNotFound';
 const DashboardPage = loadComponent(() => import('app/components/DashboardPage/DashboardPage'));
 const CountriesPage = loadComponent(() => import('features/countries/components/CountriesPage/CountriesPage'));
 
-const AUTH_FLAG_NAME = 'is-authenticated';
 
 function App() {
   const toasterRef = useRef<any>();
   const [user, setUser] = useState<{name: string} | undefined>();
   const navigate = useNavigate();
 
-
   const isAuthorized = useMemo(() => !!user, [user]);
 
   useEffect(() => {
-    if (!isAuthorized) {
-      const authUser = sessionStorage.getItem(AUTH_FLAG_NAME);
+    const fetchLogginedUser = async () => {
+      const authUser = await AuthService.init();
       if (authUser) {
-        setUser({name: authUser});
+        setUser({name: authUser})
         navigate(AppRoutes.COUNTRIES.path);
       }
+    }
+
+    if (!isAuthorized) {
+      fetchLogginedUser();
     }
   }, [isAuthorized, navigate]);
 
@@ -41,7 +43,9 @@ function App() {
       return AuthService.login(data)
         .then(() => {
           setUser({name: data.username});
-          navigate(AppRoutes.DASHBOARD.path);
+        })
+        .then(() => {
+          navigate(AppRoutes.COUNTRIES.path);
         })
         .catch((e) => {
           throw Error(e.message);
@@ -59,13 +63,12 @@ function App() {
     []
   );
 
-  const handleLogout = useCallback(
-    () => {
-      sessionStorage.removeItem(AUTH_FLAG_NAME);
+  const handleLogout = useCallback(() => {
+    AuthService.logout().then(() => {
+      setUser(undefined);
       navigate(AppRoutes.LOGIN.path);
-    },
-    [navigate]
-  );
+    });
+  }, [navigate]);
 
   const context = useMemo<IAppContext>(() => ({user, logout: handleLogout}), [user, handleLogout]);
 
@@ -75,7 +78,7 @@ function App() {
         <Suspense fallback={<Spinner />}>
           <Routes>
             <Route path={AppRoutes.LOGIN.path} element={<LoginPage onLogin={handleLogin} onReset={handleReset} />} />
-            <Route path="/" element={<MainLayout />}>
+            <Route path="/" element={<MainLayout isAllowed={isAuthorized} />}>
               <Route path={AppRoutes.DASHBOARD.path} element={<DashboardPage />} />
               <Route path={AppRoutes.COUNTRIES.path} element={<CountriesPage />} />
             </Route>

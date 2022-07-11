@@ -13,25 +13,27 @@ import ListItemIcon from '@mui/material/ListItemIcon';
 import ListItemText from '@mui/material/ListItemText';
 import ArrowRightIcon from '@mui/icons-material/ArrowRight';
 import AppRoutes from 'core/constants/AppRoutes';
+import {useContextSelector} from "use-context-selector";
+import AppContext from "core/components/AppContext";
 
 export const DRAWER_WIDTH = 240;
 
 interface IProps {
   isMobileOpen: boolean;
   drawerToggle: () => void;
-  toolbarTitle?: string;
 }
 
 const menuItems = _.values(AppRoutes).filter((r) => !r.hidden);
 
-const AppDrawer = ({isMobileOpen, drawerToggle, toolbarTitle}: IProps) => {
+const AppDrawer = ({isMobileOpen, drawerToggle}: IProps) => {
   const location = useLocation();
   const match = useMatch(location.pathname);
+  const user = useContextSelector(AppContext, state => state.user);
 
   const content = useMemo(
     () => (
       <>
-        <Toolbar>{toolbarTitle}</Toolbar>
+        <Toolbar>{user?.name}</Toolbar>
         <Divider />
         <List>
           {menuItems.map((item) => (
@@ -48,7 +50,7 @@ const AppDrawer = ({isMobileOpen, drawerToggle, toolbarTitle}: IProps) => {
         </List>
       </>
     ),
-    [toolbarTitle, match?.pathname]
+    [user?.name, match?.pathname]
   );
 
   const container = window !== undefined ? () => document.body : undefined;
