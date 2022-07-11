@@ -10,6 +10,5 @@ declare module 'moxios' {
     stubRequest,
     wait,
     requests: any,
-    // moxiosWait: () => new Promise((r) => moxios.wait(r))
   };
 }

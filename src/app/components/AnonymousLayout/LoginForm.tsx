@@ -67,6 +67,7 @@ const LoginForm = ({onLogin, onForgotPassword}: IProps) => {
                   error={meta.touched && !!meta.error}
                   helperText={meta.touched && !!meta.error ? 'Enter phone number or email' : ''}
                   placeholder="user@gmail.com"
+                  aria-label="user name"
                   {...input}
                 />
               )}
@@ -90,6 +91,7 @@ const LoginForm = ({onLogin, onForgotPassword}: IProps) => {
                   error={meta.touched && !!meta.error}
                   helperText={meta.touched && !!meta.error ? 'Enter password' : ''}
                   placeholder="123"
+                  aria-label="password"
                   {...input}
                 />
               )}
