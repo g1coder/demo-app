@@ -60,6 +60,7 @@ const LoginResetPasswordForm = ({onReset, onBack}: IProps) => (
                 margin="normal"
                 error={meta.touched && !!meta.error}
                 helperText={meta.touched && !!meta.error ? meta.error : ''}
+                aria-label="email for reset"
                 {...input}
               />
             )}

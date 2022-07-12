@@ -65,7 +65,7 @@ const LoginForm = ({onLogin, onForgotPassword}: IProps) => {
                   ref={usernameRef}
                   margin="normal"
                   error={meta.touched && !!meta.error}
-                  helperText={meta.touched && !!meta.error ? 'Enter phone number or email' : ''}
+                  helperText={meta.touched && !!meta.error ? 'Enter your email' : ''}
                   placeholder="user@gmail.com"
                   aria-label="user name"
                   {...input}
