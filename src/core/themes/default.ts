@@ -16,8 +16,8 @@ const defaultTheme = (themeOptions: ThemeOptions = {}): ThemeOptions => {
     {
       primary: {
         main: '#1475ec',
-        light: '#669be1',
-        dark: '#0a4286',
+        light: '#21b6ff',
+        dark: '#002c8f',
       },
       secondary: {
         main: '#b2ebed',
@@ -44,7 +44,17 @@ const defaultTheme = (themeOptions: ThemeOptions = {}): ThemeOptions => {
     themeOptions.breakpoints
   );
 
-  return {palette, breakpoints};
+  const typography = _.merge({}, {
+    fontFamily: [
+      "Merriweather",
+      "Roboto",
+      "Helvetica Neue",
+      "Arial",
+      "sans-serif"
+    ].join(",")
+  })
+
+  return {palette, breakpoints, typography};
 };
 
 export default defaultTheme;

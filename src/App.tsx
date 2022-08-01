@@ -13,6 +13,7 @@ import AppRoutes from 'core/constants/AppRoutes';
 
 import MainLayout from 'app/components/MainLayout/MainLayout';
 import PageNotFound from 'app/components/PageNotFound/PageNotFound';
+import LandingPage from "./app/components/AnonymousLayout/LandingPage/LandingPage";
 const DashboardPage = loadComponent(() => import('app/components/DashboardPage/DashboardPage'));
 const CountriesPage = loadComponent(() => import('features/countries/components/CountriesPage/CountriesPage'));
 
@@ -77,8 +78,9 @@ function App() {
       <AppContext.Provider value={context}>
         <Suspense fallback={<Spinner />}>
           <Routes>
+            <Route index element={<LandingPage />} />
             <Route path={AppRoutes.LOGIN.path} element={<LoginPage onLogin={handleLogin} onReset={handleReset} />} />
-            <Route path="/" element={<MainLayout isAllowed={isAuthorized} />}>
+            <Route path="/profile" element={<MainLayout isAllowed={isAuthorized} />}>
               <Route path={AppRoutes.DASHBOARD.path} element={<DashboardPage />} />
               <Route path={AppRoutes.COUNTRIES.path} element={<CountriesPage />} />
             </Route>
