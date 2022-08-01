@@ -20,9 +20,14 @@ const defaultTheme = (themeOptions: ThemeOptions = {}): ThemeOptions => {
         dark: '#002c8f',
       },
       secondary: {
-        main: '#b2ebed',
+        main: '#aec556',
         light: '#e5ffff',
         dark: '#81b9bb',
+      },
+      text: {
+        primary: '#fff',
+        secondary: '#21b6ff',
+        whitePrimary: 'rgba(255,255,255,0.6)',
       },
     },
     themeOptions.palette
@@ -44,15 +49,12 @@ const defaultTheme = (themeOptions: ThemeOptions = {}): ThemeOptions => {
     themeOptions.breakpoints
   );
 
-  const typography = _.merge({}, {
-    fontFamily: [
-      "Merriweather",
-      "Roboto",
-      "Helvetica Neue",
-      "Arial",
-      "sans-serif"
-    ].join(",")
-  })
+  const typography = _.merge(
+    {},
+    {
+      fontFamily: ['Merriweather', 'Roboto', 'Helvetica Neue', 'Arial', 'sans-serif'].join(','),
+    }
+  );
 
   return {palette, breakpoints, typography};
 };

@@ -46,7 +46,6 @@ export const StyledLeftInnerContainer = styled('div')(() => ({
 }));
 export const StyledInnerFirstTypography = styled(Typography)(() => ({
   textShadow: `1px 1px 0px rgb(17 44 145 / 60%)`,
-  color: '#fff',
   fontWeight: 900,
 }));
 export const StyledInnerSecondTypography = styled(Typography)(({theme: {palette, spacing}}) => ({
@@ -56,7 +55,6 @@ export const StyledInnerSecondTypography = styled(Typography)(({theme: {palette,
   marginTop: spacing(-1),
 }));
 export const StyledInnerSubtitleTypography = styled(Typography)(({theme: {spacing}}) => ({
-  color: '#fff',
   transition: 'color 5s ease',
   fontStyle: 'italic',
   fontSize: 18,

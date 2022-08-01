@@ -1,8 +1,9 @@
 import React from 'react';
 import LandingHeader from './LandingHeader';
-import LandingMainSection from './LandingPageMainSection/LandingMainSection';
 import {styled} from '@mui/material/styles';
 import {LANDING_PAGE_LG_CONTAINER_WIDTH} from 'app/constants/constants';
+import LandingPageMainSection from './LandingPageMainSection/LandingPageMainSection';
+import LandingPageAboutSection from "./LandingPageAboutSection/LandingPageAboutSection";
 
 const StyledMain = styled('main')(({theme: {palette}}) => ({
   backgroundColor: palette.primary.dark,
@@ -20,7 +21,8 @@ const LandingPage = () => {
     <StyledMain>
       <LandingHeader />
       <StyledSectionContainer>
-        <LandingMainSection />
+        <LandingPageMainSection />
+        <LandingPageAboutSection />
       </StyledSectionContainer>
     </StyledMain>
   );

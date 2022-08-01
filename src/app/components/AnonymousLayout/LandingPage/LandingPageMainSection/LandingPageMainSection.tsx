@@ -10,12 +10,12 @@ import {
   StyledInnerSubtitleTypography,
   StyledInnerButtonContainer,
   StyledBottleImage,
-} from './LandingMainSectionStyles';
+} from './LandingPageMainSectionStyles';
 import CircleButton from 'core/components/Buttons/CircleButton';
 
 const slides = [1, 2, 3, 4].map((num) => `${process.env.PUBLIC_URL}/images/landing-page/mountain${num}.jpg`);
 
-const LandingMainSection = () => {
+const LandingPageMainSection = () => {
   const [index, setIndex] = useReducer((state) => (state + 1) % slides.length, 1);
   const transitions = useTransition(index, {
     key: index,
@@ -62,4 +62,4 @@ const LandingMainSection = () => {
   );
 };
 
-export default LandingMainSection;
+export default LandingPageMainSection;
