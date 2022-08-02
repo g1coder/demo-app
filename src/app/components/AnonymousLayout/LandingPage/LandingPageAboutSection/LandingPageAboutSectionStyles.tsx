@@ -110,7 +110,7 @@ export const StyledSectionFooterItem = styled('div')(({theme: {palette, spacing}
   alignItems: 'center',
   width: '25%',
   borderLeft: `1px solid ${palette.secondary.dark}`,
-  '&:nth-last-child(4)': {
+  '&:nth-last-of-type(4)': {
     border: 'none'
   },
   '& > img': {

@@ -25,9 +25,9 @@ const defaultTheme = (themeOptions: ThemeOptions = {}): ThemeOptions => {
         dark: '#81b9bb',
       },
       text: {
-        primary: '#fff',
-        secondary: '#21b6ff',
-        whitePrimary: 'rgba(255,255,255,0.6)',
+        primary: 'rgba(0, 0, 0, 0.87)',
+        secondary: 'rgba(0, 0, 0, 0.6)',
+        whitePrimary: '#fff',
       },
     },
     themeOptions.palette
@@ -53,7 +53,68 @@ const defaultTheme = (themeOptions: ThemeOptions = {}): ThemeOptions => {
     {},
     {
       fontFamily: ['Merriweather', 'Roboto', 'Helvetica Neue', 'Arial', 'sans-serif'].join(','),
-    }
+      h3: {
+        fontSize: 48,
+        fontWeight: 900,
+        lineHeight: '56px',
+        color: palette.text.whitePrimary,
+      },
+      h4: {
+        fontSize: 36,
+        fontWeight: 900,
+        lineHeight: '39px',
+        color: palette.primary.light,
+      },
+      h5: {
+        fontSize: 24,
+        fontWeight: 900,
+        lineHeight: '38px',
+        color: palette.text.whitePrimary,
+      },
+      h6: {
+        fontSize: 20,
+        fontWeight: 500,
+        lineHeight: '26px',
+        letterSpacing: '0.15px',
+      },
+      subtitle1: {
+        fontSize: 18,
+        fontWeight: 700,
+        lineHeight: '28px',
+        color: palette.primary.light,
+      },
+      body1: {
+        fontSize: 16,
+        fontWeight: 400,
+        lineHeight: '26px',
+        color: palette.text.whitePrimary,
+      },
+      body2: {
+        fontSize: 14,
+        fontWeight: 400,
+        lineHeight: '20px',
+        letterSpacing: '0.25px',
+      },
+      button: {
+        fontSize: 14,
+        fontWeight: 500,
+        lineHeight: '16px',
+        letterSpacing: '1.25px',
+      },
+      caption: {
+        fontSize: 12,
+        fontWeight: 400,
+        lineHeight: '16px',
+        letterSpacing: '0.4px',
+      },
+      overline: {
+        fontSize: 10,
+        fontWeight: 400,
+        lineHeight: '16px',
+        letterSpacing: '1.5px',
+      },
+    },
+    themeOptions.typography
   );
 
   return {palette, breakpoints, typography};

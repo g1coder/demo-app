@@ -34,12 +34,12 @@ const LandingPageAboutSection = () => {
 
       <StyledAboutInfoContainer>
         <StyledAboutInfoText>
-          <Typography variant="h4" fontWeight={900} color="text.secondary">
+          <Typography variant="h4">
             Our company was founded in 1965
           </Typography>
-          <Typography variant="h5" fontWeight={900} sx={{paddingTop: 4}}>
+          <Typography variant="h5" sx={{paddingTop: 4}}>
             Aquatiras is ideal for drinking, cooking, sports and even for children. The product is certified in 12
-            countries.5
+            countries.
           </Typography>
           <Typography variant="body1" component="p" sx={{paddingTop: 6, paddingBottom: 6, lineHeight: '26px'}}>
             Sed viverra, lorem in maximus faucibus, odio libero fringilla dolor, convallis vestibulum risus nisi ac
@@ -78,7 +78,7 @@ const LandingPageAboutSection = () => {
 
       <StyledSectionFooter>
         {footerItemNames.map((name, index) => (
-          <StyledSectionFooterItem>
+          <StyledSectionFooterItem key={name}>
             <img src={`${process.env.PUBLIC_URL}/images/landing-page/icon-blue-${index + 1}.png`} alt={name} />
             <Typography variant="h6" fontWeight={900} fontSize={18}>
               {name}

@@ -5,7 +5,7 @@ import {ButtonBase, ButtonBaseProps, Typography} from '@mui/material';
 interface IProps extends ButtonBaseProps {
   title: string;
   size?: 'regular' | 'small';
-  variant?: 'primary' | 'secondary';
+  variant?: 'primary' | 'secondary' | 'action';
   disabled?: boolean;
 }
 
@@ -19,10 +19,12 @@ const StyledCircleButton = styled(ButtonBase)<IProps>(({theme: {spacing, palette
   backgroundColor: variant === 'secondary' ? palette.primary.light : palette.primary.dark,
   color: '#fff',
   transition: 'all .3s ease',
+  boxShadow: '0 10px 30px rgb(17 44 145 / 30%)',
+  opacity: disabled ? 0.5 : 1,
 
   '&:hover': {
-    color: palette.primary.dark,
-    backgroundColor: '#fff',
+    color:  variant === 'action' ? '#fff' : palette.primary.dark,
+    backgroundColor: variant === 'action' ? palette.secondary.main : '#fff'
   },
 }));
 

@@ -46,11 +46,9 @@ export const StyledLeftInnerContainer = styled('div')(() => ({
 }));
 export const StyledInnerFirstTypography = styled(Typography)(() => ({
   textShadow: `1px 1px 0px rgb(17 44 145 / 60%)`,
-  fontWeight: 900,
 }));
 export const StyledInnerSecondTypography = styled(Typography)(({theme: {palette, spacing}}) => ({
   color: palette.primary.dark,
-  fontWeight: 900,
   textTransform: 'uppercase',
   marginTop: spacing(-1),
 }));

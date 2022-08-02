@@ -1,7 +1,7 @@
+import {ReactElement} from 'react';
 import {Button, ButtonProps} from '@mui/material';
 import {OverridableStringUnion} from '@mui/types';
 import {ButtonPropsColorOverrides} from '@mui/material/Button/Button';
-import {ReactElement} from 'react';
 
 interface IProps extends ButtonProps {
   color?: OverridableStringUnion<
