@@ -8,10 +8,10 @@ import {
   StyledSectionContainer,
   StyledSectionFooter,
   StyledSectionFooterItem,
-  StyledSectionHeader,
 } from './LandingPageAboutSectionStyles';
 import {Typography} from '@mui/material';
 import CircleButton from 'core/components/Buttons/CircleButton';
+import LandingPageSectionHeader from 'app/components/AnonymousLayout/LandingPage/LandingPageSectionHeader';
 
 const footerItemNames = ['Full Controll', 'Healthy Composition', '6 Filtration Stages', 'Quality certificates'];
 
@@ -23,20 +23,11 @@ const LandingPageAboutSection = () => {
 
   return (
     <StyledSectionContainer>
-      <StyledSectionHeader>
-        <Typography variant="h6" color="text.secondary">
-          Water Skills
-        </Typography>
-        <Typography variant="h3" fontWeight={900}>
-          About Aquaterias
-        </Typography>
-      </StyledSectionHeader>
+      <LandingPageSectionHeader title="About Aquaterias" subtitle="Water Skills" />
 
       <StyledAboutInfoContainer>
         <StyledAboutInfoText>
-          <Typography variant="h4">
-            Our company was founded in 1965
-          </Typography>
+          <Typography variant="h4">Our company was founded in 1965</Typography>
           <Typography variant="h5" sx={{paddingTop: 4}}>
             Aquatiras is ideal for drinking, cooking, sports and even for children. The product is certified in 12
             countries.

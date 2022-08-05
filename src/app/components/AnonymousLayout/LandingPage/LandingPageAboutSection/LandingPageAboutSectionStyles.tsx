@@ -1,20 +1,10 @@
 import {styled} from '@mui/material/styles';
 import {LANDING_PAGE_HEADER_HEIGHT, LANDING_PAGE_SECTIONS_BOTTOM_PADDING} from 'app/constants/constants';
 
-
 export const StyledSectionContainer = styled('section')(() => ({
   position: 'relative',
   height: `calc(100vh - ${LANDING_PAGE_HEADER_HEIGHT}px)`,
   paddingBottom: LANDING_PAGE_SECTIONS_BOTTOM_PADDING,
-}));
-
-export const StyledSectionHeader = styled('div')(({theme: {spacing}}) => ({
-  margin: 'auto',
-  textAlign: 'center',
-  backgroundImage: `url(${process.env.PUBLIC_URL + '/images/landing-page/heading-bg.png'})`,
-  backgroundPosition: '50% 100%',
-  backgroundRepeat: 'no-repeat',
-  padding: spacing(0, 0, 3),
 }));
 
 export const StyledAboutInfoContainer = styled('div')(({theme: {spacing}}) => ({
