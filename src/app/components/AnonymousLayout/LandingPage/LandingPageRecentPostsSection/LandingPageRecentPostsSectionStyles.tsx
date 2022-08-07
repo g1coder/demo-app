@@ -1,6 +1,6 @@
 import React from 'react';
 import {styled} from '@mui/material/styles';
-import {Card, CardActions, Typography} from '@mui/material';
+import {Card, CardActions, CardMedia, Typography} from '@mui/material';
 import {Link} from 'react-router-dom';
 
 export const StyledLandingPageRecentPostsSection = styled('section')(({theme: {spacing}}) => ({
@@ -19,6 +19,17 @@ export const StyledCard = styled(Card)(({theme: {spacing}}) => ({
   width: '33.3%',
   minHeight: spacing(78),
   cursor: 'pointer',
+}));
+
+export const StyledCardMedia = styled(CardMedia)<{component: string; alt: string}>(() => ({
+  objectFit: 'contain',
+  transition: 'all .5s ease-in',
+  backgroundClip: 'padding-box',
+  overflow: 'hidden',
+  display: 'block',
+  '&:hover': {
+    transform: 'scale(1.1)',
+  }
 }));
 
 interface IStyledTitle {

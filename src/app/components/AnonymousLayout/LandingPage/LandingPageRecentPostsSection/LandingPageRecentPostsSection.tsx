@@ -10,7 +10,7 @@ import {
   StyledTitle,
   StyledIconWithText,
   StyledTextInfoContainer,
-  StyledCardActions, StyledButtonContainer,
+  StyledCardActions, StyledButtonContainer, StyledCardMedia,
 } from './LandingPageRecentPostsSectionStyles';
 import CircleButton from 'core/components/Buttons/CircleButton';
 import VisibilityIcon from '@mui/icons-material/Visibility';
@@ -53,11 +53,10 @@ const LandingPageRecentPostsSection = () => {
       <StyledPostsContainer>
         {posts.map((p) => (
           <StyledCard key={p.id}>
-            <CardMedia
+            <StyledCardMedia
               component="img"
               image={`${process.env.PUBLIC_URL}/images/landing-page/${p.image}`}
               alt="post image"
-              sx={{objectFit: 'contain'}}
             />
             <CardContent sx={{padding: '30px 35px 0', overflow: 'hidden'}}>
               <StyledTitle title={p.title} to="#" />

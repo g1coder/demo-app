@@ -49,6 +49,7 @@ export const StyledButtonContainer = styled((props) => (
   </ul>
 ))(({theme: {spacing, palette}}) => ({
   listStyleType: 'none',
+  padding: 0,
   '& > li': {
     display: 'inline-block',
     margin: spacing(0, 0.75),
