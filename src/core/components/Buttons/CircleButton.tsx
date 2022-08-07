@@ -14,7 +14,7 @@ const StyledCircleButton = styled(ButtonBase)<IProps>(({theme: {spacing, palette
   cursor: disabled ? 'none' : 'pointer',
   maxWidth: size === 'small' ? 112 : 180,
   width: '100%',
-  height: spacing(6),
+  height: size === 'small' ? spacing(4) : spacing(6),
   borderRadius: spacing(4),
   backgroundColor: variant === 'secondary' ? palette.primary.light : palette.primary.dark,
   color: '#fff',
@@ -23,15 +23,15 @@ const StyledCircleButton = styled(ButtonBase)<IProps>(({theme: {spacing, palette
   opacity: disabled ? 0.5 : 1,
 
   '&:hover': {
-    color:  variant === 'action' ? '#fff' : palette.primary.dark,
-    backgroundColor: variant === 'action' ? palette.secondary.main : '#fff'
+    color: variant === 'action' ? '#fff' : palette.primary.dark,
+    backgroundColor: variant === 'action' ? palette.secondary.main : '#fff',
   },
 }));
 
 const CircleButton = (props: IProps) => {
   return (
     <StyledCircleButton {...props}>
-      <Typography component="a" variant="body2">
+      <Typography component="a" variant={props.size === 'small' ? 'caption' : 'body2'}>
         {props.title}
       </Typography>
     </StyledCircleButton>

@@ -8,6 +8,8 @@ import LandingPageDeliverySection from './LandingPageDeliverySection/LandingPage
 import LandingPageMineralDetailsSection from './LandingPageMineralDetailsSection/LandingPageMineralDetailsSection';
 import LandingPageReviewSection
   from 'app/components/AnonymousLayout/LandingPage/LandingPageReviewSection/LandingPageReviewSection';
+import LandingPageRecentPostsSection
+  from 'app/components/AnonymousLayout/LandingPage/LandingPageRecentPostsSection/LandingPageRecentPostsSection';
 
 const StyledMain = styled('main')(({theme: {palette}}) => ({
   backgroundColor: palette.primary.dark,
@@ -30,6 +32,7 @@ const LandingPage = () => {
         <LandingPageDeliverySection />
         <LandingPageMineralDetailsSection />
         <LandingPageReviewSection />
+        <LandingPageRecentPostsSection />
       </StyledSectionContainer>
     </StyledMain>
   );

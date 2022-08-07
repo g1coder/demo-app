@@ -42,7 +42,7 @@ const reviews = [
 const LandingPageReviewSection = () => {
   const slides = useMemo(() => {
     return reviews.map((review) => (
-      <StyledSwiperSlideContent elevation={8}>
+      <StyledSwiperSlideContent elevation={8} key={review.name}>
         <StyledSwiperSlideInnerContainer>
           <StyledAvatarContainer>
             <Avatar src={process.env.PUBLIC_URL + '/images/landing-page/avatar1.jpg'} sx={{width: 100, height: 100}} />
@@ -69,7 +69,7 @@ const LandingPageReviewSection = () => {
       <StyledSwiperContainer>
         <Swiper slides={slides} spaceBetween={50} slidesPerView={1} autoplay loop />
       </StyledSwiperContainer>
-      <CircleButton title="View more" variant="secondary" sx={{marginBottom: 15}} />
+      <CircleButton title="View more" variant="secondary" sx={{marginBottom: 15}} size="small" />
     </StyledLandingPageReviewSection>
   );
 };
