@@ -20,7 +20,7 @@ export const StyledContentColumn = styled('div')(({theme: {spacing}}) => ({
   '& > div': {
     marginBottom: spacing(10),
   },
-  '&:nth-child(3)': {
+  '&:nth-of-type(3)': {
     textAlign: 'right',
   },
 }));
@@ -44,12 +44,12 @@ export const StyledBottleContainer = styled((props) => (
     margin: spacing(-3, 0, 0, 2),
     paddingTop: spacing(15),
 
-    '& > img:nth-child(1)': {
+    '& > img:nth-of-type(1)': {
       position: 'absolute',
       top: spacing(43),
       left: 55,
     },
-    '& > img:nth-child(2)': {
+    '& > img:nth-of-type(2)': {
       animation: 'moving_bottle 3.3s cubic-bezier(.445,.05,.55,.95) infinite',
       marginTop: spacing(-3)
     },

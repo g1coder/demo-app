@@ -13,23 +13,12 @@ const StyledHeader = styled('header')(({theme: {spacing}}) => ({
   minHeight: LANDING_PAGE_HEADER_HEIGHT
 }));
 
-const StyledLogoLink = styled('a')(() => ({
-  '& > img': {
-    border: 0,
-    outline: '0 none',
-  },
-}));
-
-export const StyledLogo = styled('img')(() => ({
-
-}));
-
 const LandingHeader = () => {
   return (
     <StyledHeader>
-      <StyledLogoLink href={AppRoutes.LANDING_PAGE.path}>
-        <StyledLogo src={process.env.PUBLIC_URL + '/images/header-logo.png'} alt="company-logo" />
-      </StyledLogoLink>
+      <a href={AppRoutes.LANDING_PAGE.path}>
+        <img src={process.env.PUBLIC_URL + '/images/header-logo.png'} alt="company-logo" />
+      </a>
     </StyledHeader>
   );
 };

@@ -36,7 +36,7 @@ const posts = [
     comments: 265,
   },
   {
-    id: 1,
+    id: 3,
     image: 'recent_post3.jpg',
     title: 'Drinking Water May Prevent Headaches',
     text: 'Cras mattis cursus tristique. Quisque maximus magna massa. Nulla id rutrum mauris. Donec finibus sit amet odio auctor faucibus.',

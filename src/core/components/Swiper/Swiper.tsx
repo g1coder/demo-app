@@ -22,8 +22,8 @@ const Swiper = (props: IProps) => {
   return (
     <ReactSwiper {...rest}>
       <SwiperButton type="prev" />
-      {slides.map((slide) => (
-        <SwiperSlide>{slide}</SwiperSlide>
+      {slides.map((slide, index) => (
+        <SwiperSlide key={index}>{slide}</SwiperSlide>
       ))}
       <SwiperButton type="next" />
     </ReactSwiper>

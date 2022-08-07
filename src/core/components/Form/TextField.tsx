@@ -1,4 +1,5 @@
-import React from 'react';
+import _ from 'lodash';
+import React, {memo} from 'react';
 import {styled} from '@mui/material/styles';
 import {TextFieldProps} from '@mui/material/TextField/TextField';
 import {TextField as MuiTextField} from '@mui/material';
@@ -9,19 +10,14 @@ const StyledTextField = styled(MuiTextField)(({theme: {palette}}) => ({
     fontWeight: 100,
     '&.Mui-focused .MuiOutlinedInput-notchedOutline': {
       borderColor: palette.primary.light,
-      borderWidth: 1
-    }
+      borderWidth: 1,
+    },
   },
 }));
 
 const TextField = (props: TextFieldProps) => {
-  return (
-    <StyledTextField
-      {...props}
-      InputProps={{sx: {borderRadius: 32, padding: '6px 10px', color: 'primary.dark'}}}
-      variant="outlined"
-    />
-  );
+  const InputProps = _.merge({sx: {borderRadius: 32, padding: '6px 10px', color: 'primary.dark'}}, props.InputProps);
+  return <StyledTextField {...props} InputProps={InputProps} variant="outlined" />;
 };
 
-export default TextField;
+export default memo(TextField);
