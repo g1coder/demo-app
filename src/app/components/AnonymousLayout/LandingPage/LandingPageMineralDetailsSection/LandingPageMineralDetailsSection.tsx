@@ -5,8 +5,9 @@ import {
   StyledContentColumn,
   StyledContentContainer,
   StyledSectionContainer,
-  StyledBottleContainer
+  StyledBottleContainer,
 } from './LandingPageMineralDetailsSectionStyles';
+import {StyledPaddingSectionContainer} from 'app/components/AnonymousLayout/LandingPage/LandingPageStyles';
 
 const details = [
   {
@@ -44,21 +45,23 @@ const details = [
 const LandingPageMineralDetailsSection = () => {
   return (
     <StyledSectionContainer>
-      <LandingPageSectionHeader title="Mineral composition" subtitle="What inside" />
-      <StyledContentContainer>
-        <StyledContentColumn>
-          {details.slice(0, 3).map((item) => (
-            <MineralDetailsInfoItem {...item} />
-          ))}
-        </StyledContentColumn>
-        <img src={`${process.env.PUBLIC_URL}/images/landing-page/bottle-dark-3.png`} alt="bottle bg" />
-        <StyledBottleContainer />
-        <StyledContentColumn>
-          {details.slice(3, 6).map((item) => (
-            <MineralDetailsInfoItem {...item} />
-          ))}
-        </StyledContentColumn>
-      </StyledContentContainer>
+      <StyledPaddingSectionContainer>
+        <LandingPageSectionHeader title="Mineral composition" subtitle="What inside" />
+        <StyledContentContainer>
+          <StyledContentColumn>
+            {details.slice(0, 3).map((item) => (
+              <MineralDetailsInfoItem {...item} key={item.title} />
+            ))}
+          </StyledContentColumn>
+          <img src={`${process.env.PUBLIC_URL}/images/landing-page/bottle-dark-3.png`} alt="bottle bg" />
+          <StyledBottleContainer />
+          <StyledContentColumn>
+            {details.slice(3, 6).map((item) => (
+              <MineralDetailsInfoItem {...item} key={item.title} />
+            ))}
+          </StyledContentColumn>
+        </StyledContentContainer>
+      </StyledPaddingSectionContainer>
     </StyledSectionContainer>
   );
 };

@@ -1,5 +1,5 @@
 import _ from 'lodash';
-import React, {memo} from 'react';
+import React, {ForwardedRef, forwardRef, memo} from 'react';
 import {styled} from '@mui/material/styles';
 import {TextFieldProps} from '@mui/material/TextField/TextField';
 import {TextField as MuiTextField} from '@mui/material';
@@ -15,9 +15,9 @@ const StyledTextField = styled(MuiTextField)(({theme: {palette}}) => ({
   },
 }));
 
-const TextField = (props: TextFieldProps) => {
+const TextField = forwardRef((props: TextFieldProps, ref: ForwardedRef<HTMLDivElement>) => {
   const InputProps = _.merge({sx: {borderRadius: 32, padding: '6px 10px', color: 'primary.dark'}}, props.InputProps);
-  return <StyledTextField {...props} InputProps={InputProps} variant="outlined" />;
-};
+  return <StyledTextField {...props} InputProps={InputProps} variant="outlined" ref={ref} />;
+});
 
 export default memo(TextField);

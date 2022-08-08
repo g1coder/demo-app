@@ -10,6 +10,7 @@ import {
   StyledSwiperSlideInnerContainer,
 } from './LandingPageReviewSectionStyled';
 import CircleButton from 'core/components/Buttons/CircleButton';
+import {StyledPaddingSectionContainer} from 'app/components/AnonymousLayout/LandingPage/LandingPageStyles';
 
 const reviews = [
   {
@@ -65,11 +66,13 @@ const LandingPageReviewSection = () => {
 
   return (
     <StyledLandingPageReviewSection>
-      <LandingPageSectionHeader title="What our clients say" subtitle="Testimonials" />
-      <StyledSwiperContainer>
-        <Swiper slides={slides} spaceBetween={50} slidesPerView={1} autoplay loop />
-      </StyledSwiperContainer>
-      <CircleButton title="View more" variant="secondary" sx={{marginBottom: 15}} size="small" />
+      <StyledPaddingSectionContainer>
+        <LandingPageSectionHeader title="What our clients say" subtitle="Testimonials" />
+        <StyledSwiperContainer>
+          <Swiper slides={slides} spaceBetween={50} slidesPerView={1} autoplay loop />
+        </StyledSwiperContainer>
+        <CircleButton title="View more" variant="secondary" sx={{marginBottom: 15}} size="small" />
+      </StyledPaddingSectionContainer>
     </StyledLandingPageReviewSection>
   );
 };

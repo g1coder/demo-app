@@ -3,10 +3,6 @@ import {styled} from '@mui/material/styles';
 import {Card, CardActions, CardMedia, Typography} from '@mui/material';
 import {Link} from 'react-router-dom';
 
-export const StyledLandingPageRecentPostsSection = styled('section')(({theme: {spacing}}) => ({
-  padding: spacing(10, 0, 25)
-}));
-
 export const StyledPostsContainer = styled('div')(({theme: {spacing}}) => ({
   display: 'flex',
   justifyContent: 'space-between',
@@ -89,7 +85,8 @@ export const StyledIconWithText = styled(Typography)(({theme: {palette, spacing}
   },
 }));
 
-export const StyledButtonContainer = styled('div')(() => ({
+export const StyledButtonContainer = styled('div')(({theme: {spacing}}) => ({
   width: '100%',
-  textAlign: 'center'
+  textAlign: 'center',
+  paddingBottom: spacing(15)
 }));

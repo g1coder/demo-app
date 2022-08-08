@@ -6,7 +6,14 @@ import FacebookOutlinedIcon from '@mui/icons-material/FacebookOutlined';
 import InstagramIcon from '@mui/icons-material/Instagram';
 import GoogleIcon from '@mui/icons-material/Google';
 
-export const StyledFooterSection = styled('section')(() => ({}));
+export const StyledLandingPageFooterSection = styled('footer')(() => ({
+  backgroundColor: '#002579',
+  position: 'relative'
+}));
+
+export const StyledSubscribeContainer = styled('div')(() => ({
+  position: 'relative',
+}));
 
 export const StyledSubscribeSection = styled('div')(({theme: {palette, spacing}}) => ({
   backgroundColor: palette.primary.light,
@@ -16,6 +23,8 @@ export const StyledSubscribeSection = styled('div')(({theme: {palette, spacing}}
   justifyContent: 'center',
   alignItems: 'center',
   width: '100%',
+  position: 'absolute',
+  top: -165
 }));
 export const StyledTextContainer = styled('div')(({theme: {spacing}}) => ({
   display: 'flex',
@@ -33,14 +42,14 @@ export const StyledAboutContainer = styled('div')(({theme: {spacing}}) => ({
   maxWidth: 700,
   margin: `0 auto`,
   textAlign: 'center',
-  padding: spacing(10, 0),
+  paddingTop: spacing(10)
 }));
 
 
 export const StyledButtonContainer = styled((props) => (
   <ul {...props}>
-    {[<TwitterIcon />, <FacebookOutlinedIcon />, <InstagramIcon />, <GoogleIcon />].map((icon) => (
-      <li>
+    {[<TwitterIcon />, <FacebookOutlinedIcon />, <InstagramIcon />, <GoogleIcon />].map((icon, index) => (
+      <li key={index}>
         <Fab sx={{color: 'primary.dark', backgroundColor: '#fff'}} component="a" href={'#'}>
           {icon}
         </Fab>
@@ -50,11 +59,31 @@ export const StyledButtonContainer = styled((props) => (
 ))(({theme: {spacing, palette}}) => ({
   listStyleType: 'none',
   padding: 0,
+  margin: 0,
   '& > li': {
     display: 'inline-block',
     margin: spacing(0, 0.75),
     '& > a:hover': {
       backgroundColor: palette.primary.light
     }
+  },
+}));
+
+
+export const StyledAboutInfoContainer = styled('div')(({theme: {palette, spacing}}) => ({
+  display: 'flex',
+  justifyContent: 'center',
+  backgroundColor: '#001c5c',
+  color: palette.text.whitePrimary,
+  padding: spacing(4, 0),
+  '& > a': {
+    fontFamily: 'sans-serif',
+    textDecoration: 'none',
+    color: palette.primary.light,
+    marginRight: spacing(2),
+    transition: 'color 0.3s ease',
+    '&:hover': {
+      color: palette.text.whitePrimary,
+    },
   },
 }));

@@ -1,12 +1,11 @@
 import {styled} from '@mui/material/styles';
-import {LANDING_PAGE_HEADER_HEIGHT, LANDING_PAGE_SECTIONS_BOTTOM_PADDING} from 'app/constants/constants';
+import {LANDING_PAGE_HEADER_HEIGHT} from 'app/constants/constants';
 import {animated} from '@react-spring/web';
 import {Typography} from '@mui/material';
 
-export const StyledSectionContainer = styled('section')(() => ({
+export const StyledSectionContainer = styled('div')(() => ({
   position: 'relative',
   height: `calc(100vh - ${LANDING_PAGE_HEADER_HEIGHT}px)`,
-  paddingBottom: LANDING_PAGE_SECTIONS_BOTTOM_PADDING,
 }));
 export const StyledSectionBackground = styled('div')(() => ({
   position: 'relative',

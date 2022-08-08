@@ -12,6 +12,7 @@ import {
   StyledBottleImage,
 } from './LandingPageMainSectionStyles';
 import CircleButton from 'core/components/Buttons/CircleButton';
+import {StyledPaddingSectionContainer} from 'app/components/AnonymousLayout/LandingPage/LandingPageStyles';
 
 const slides = [1, 2, 3, 4].map((num) => `${process.env.PUBLIC_URL}/images/landing-page/mountain${num}.jpg`);
 
@@ -35,30 +36,32 @@ const LandingPageMainSection = () => {
   const handleMakeOrder = useCallback(() => {}, []);
 
   return (
-    <StyledSectionContainer>
-      <StyledSectionBackground>
-        {transitions((style, i) => (
-          <StyledSectionBackgroundImage style={style} src={slides[i]} />
-        ))}
-        <StyledBottleImage
-          src={`${process.env.PUBLIC_URL}/images/landing-page/slider-dark-bottle.png`}
-          alt="bottle image"
-        />
-      </StyledSectionBackground>
-      <StyledLeftInnerContainer>
-        <StyledInnerFirstTypography variant="h3">Mineral Water</StyledInnerFirstTypography>
-        <StyledInnerSecondTypography variant="h3">FOR EVERY DAY</StyledInnerSecondTypography>
-        <StyledInnerSubtitleTypography variant="body1">
-          <em>Our delivery service employs more than 100 professional couriers.</em>
-          <br />
-          <em>We will deliver water to your home.</em>
-        </StyledInnerSubtitleTypography>
-        <StyledInnerButtonContainer>
-          <CircleButton title="Read more" onClick={handleReadMore} variant="secondary" />
-          <CircleButton title="Make order" onClick={handleMakeOrder} />
-        </StyledInnerButtonContainer>
-      </StyledLeftInnerContainer>
-    </StyledSectionContainer>
+    <StyledPaddingSectionContainer>
+      <StyledSectionContainer>
+        <StyledSectionBackground>
+          {transitions((style, i) => (
+            <StyledSectionBackgroundImage style={style} src={slides[i]} />
+          ))}
+          <StyledBottleImage
+            src={`${process.env.PUBLIC_URL}/images/landing-page/slider-dark-bottle.png`}
+            alt="bottle image"
+          />
+        </StyledSectionBackground>
+        <StyledLeftInnerContainer>
+          <StyledInnerFirstTypography variant="h3">Mineral Water</StyledInnerFirstTypography>
+          <StyledInnerSecondTypography variant="h3">FOR EVERY DAY</StyledInnerSecondTypography>
+          <StyledInnerSubtitleTypography variant="body1">
+            <em>Our delivery service employs more than 100 professional couriers.</em>
+            <br />
+            <em>We will deliver water to your home.</em>
+          </StyledInnerSubtitleTypography>
+          <StyledInnerButtonContainer>
+            <CircleButton title="Read more" onClick={handleReadMore} variant="secondary" />
+            <CircleButton title="Make order" onClick={handleMakeOrder} />
+          </StyledInnerButtonContainer>
+        </StyledLeftInnerContainer>
+      </StyledSectionContainer>
+    </StyledPaddingSectionContainer>
   );
 };
 

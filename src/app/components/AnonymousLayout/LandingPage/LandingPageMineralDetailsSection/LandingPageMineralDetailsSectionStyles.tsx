@@ -1,10 +1,11 @@
 import React from 'react';
 import {styled} from '@mui/material/styles';
 
-export const StyledSectionContainer = styled('section')(() => ({}));
-export const StyledSectionBg = styled('div')(() => ({
+export const StyledSectionContainer = styled('section')(() => ({
+  position: 'relative',
   backgroundColor: '#002579',
 }));
+
 export const StyledContentContainer = styled('div')(({theme: {spacing}}) => ({
   padding: spacing(14, 0, 25),
   display: 'flex',

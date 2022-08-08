@@ -1,8 +1,10 @@
 import {styled} from '@mui/material/styles';
 import {Paper} from '@mui/material';
 
-export const StyledLandingPageReviewSection = styled('section')(() => ({
-  textAlign: 'center'
+export const StyledLandingPageReviewSection = styled('div')(() => ({
+  textAlign: 'center',
+  background: `url(${process.env.PUBLIC_URL}/images/landing-page/review-section-bg.jpg) no-repeat center center fixed`,
+  backgroundSize: 'cover'
 }));
 
 export const StyledSwiperContainer = styled('div')(({theme: {spacing}}) => ({

@@ -1,10 +1,9 @@
 import {styled} from '@mui/material/styles';
-import {LANDING_PAGE_HEADER_HEIGHT, LANDING_PAGE_SECTIONS_BOTTOM_PADDING} from 'app/constants/constants';
+import {LANDING_PAGE_HEADER_HEIGHT} from 'app/constants/constants';
 
-export const StyledSectionContainer = styled('section')(() => ({
+export const StyledSectionContainer = styled('div')(() => ({
   position: 'relative',
   height: `calc(100vh - ${LANDING_PAGE_HEADER_HEIGHT}px)`,
-  paddingBottom: LANDING_PAGE_SECTIONS_BOTTOM_PADDING,
 }));
 
 export const StyledAboutInfoContainer = styled('div')(({theme: {spacing}}) => ({
@@ -86,7 +85,7 @@ export const StyledPlayButton = styled('span')<{hide: boolean}>(({theme: {palett
   },
 }));
 
-export const StyledSectionFooter = styled('div')(({theme: {spacing}}) => ({
+export const StyledTextImageContainer = styled('div')(({theme: {spacing}}) => ({
   position: 'relative',
   display: 'flex',
   flexFlow: 'row wrap',
@@ -94,13 +93,14 @@ export const StyledSectionFooter = styled('div')(({theme: {spacing}}) => ({
   width: '100%',
   paddingTop: spacing(15)
 }));
-export const StyledSectionFooterItem = styled('div')(({theme: {palette, spacing}}) => ({
+
+export const StyledSectionTextImageItem = styled('div')(({theme: {palette, spacing}}) => ({
   display: 'flex',
   flexDirection: 'column',
   alignItems: 'center',
   width: '25%',
   borderLeft: `1px solid ${palette.secondary.dark}`,
-  '&:nth-last-of-type(4)': {
+  '&:first-child': {
     border: 'none'
   },
   '& > img': {

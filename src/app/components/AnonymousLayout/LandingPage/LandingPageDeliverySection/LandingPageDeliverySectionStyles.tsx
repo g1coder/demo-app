@@ -6,9 +6,7 @@ import ListItemText from '@mui/material/ListItemText';
 import DoneIcon from '@mui/icons-material/Done';
 import Paper from '@mui/material/Paper';
 
-export const StyledSectionContainer = styled('section')(({theme: {spacing}}) => ({
-  padding: spacing(11, 0),
-}));
+
 export const StyledWaterSeparatorImage = styled('div')<{src: string}>(({src}) => ({
   backgroundImage: `url(${src})`,
   backgroundSize: 'contain',

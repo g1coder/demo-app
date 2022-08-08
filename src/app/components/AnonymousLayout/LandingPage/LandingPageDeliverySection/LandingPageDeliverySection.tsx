@@ -1,14 +1,16 @@
 import React, {useCallback} from 'react';
 import {
-  StyledConditions, StyledDeliveryFormContainer,
-  StyledManWithBottleImage, StyledInnerContainer,
-  StyledSectionContainer,
+  StyledConditions,
+  StyledDeliveryFormContainer,
+  StyledManWithBottleImage,
+  StyledInnerContainer,
   StyledTimeInfo,
   StyledWaterSeparatorImage,
 } from './LandingPageDeliverySectionStyles';
 import {Typography} from '@mui/material';
 import CircleButton from 'core/components/Buttons/CircleButton';
 import DeliverySectionForm from './DeliverySectionForm';
+import {StyledPaddingSectionContainer} from 'app/components/AnonymousLayout/LandingPage/LandingPageStyles';
 
 const bgSrc = `${process.env.PUBLIC_URL}/images/landing-page/water_separator.jpg`;
 const imgSrc = `${process.env.PUBLIC_URL}/images/landing-page/delivery-man.png`;
@@ -17,9 +19,8 @@ const LandingPageDeliverySection = () => {
   const handleReadMore = useCallback(() => {}, []);
 
   return (
-    <StyledSectionContainer>
+    <StyledPaddingSectionContainer>
       <StyledWaterSeparatorImage src={bgSrc} />
-
       <StyledInnerContainer>
         <StyledManWithBottleImage src={imgSrc} alt="delivery man" />
         <StyledConditions>
@@ -41,11 +42,13 @@ const LandingPageDeliverySection = () => {
         </StyledConditions>
 
         <StyledDeliveryFormContainer>
-          <Typography variant="h5" color="primary.light" fontWeight={600}>Please, fill delivery form</Typography>
+          <Typography variant="h5" color="primary.light" fontWeight={600}>
+            Please, fill delivery form
+          </Typography>
           <DeliverySectionForm />
         </StyledDeliveryFormContainer>
       </StyledInnerContainer>
-    </StyledSectionContainer>
+    </StyledPaddingSectionContainer>
   );
 };
 

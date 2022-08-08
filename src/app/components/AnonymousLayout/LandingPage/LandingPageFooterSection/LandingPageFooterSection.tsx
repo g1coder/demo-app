@@ -1,20 +1,24 @@
 import React from 'react';
 import {
+  StyledLandingPageFooterSection,
   StyledAboutContainer,
   StyledActionContainer,
-  StyledFooterSection,
   StyledSubscribeSection,
   StyledTextContainer,
-  StyledButtonContainer,
+  StyledButtonContainer, StyledAboutInfoContainer, StyledSubscribeContainer,
 } from './LandingPageFooterSectionStyles';
+import {StyledPaddingSectionContainer} from 'app/components/AnonymousLayout/LandingPage/LandingPageStyles';
 import {Typography} from '@mui/material';
 import TextField from 'core/components/Form/TextField';
 import CircleButton from 'core/components/Buttons/CircleButton';
 import AppRoutes from 'core/constants/AppRoutes';
 
-const LandingPageFooterSection = () => {
-  return (
-    <StyledFooterSection>
+const LandingPageFooterSection = () => (
+  <StyledLandingPageFooterSection>
+    <StyledPaddingSectionContainer>
+
+      <StyledSubscribeContainer>
+
       <StyledSubscribeSection>
         <StyledTextContainer>
           <Typography variant="h5" textTransform="uppercase">
@@ -34,6 +38,8 @@ const LandingPageFooterSection = () => {
         </StyledActionContainer>
       </StyledSubscribeSection>
 
+      </StyledSubscribeContainer>
+
       <StyledAboutContainer>
         <a href={AppRoutes.LANDING_PAGE.path}>
           <img src={process.env.PUBLIC_URL + '/images/header-logo.png'} alt="company-logo" />
@@ -44,8 +50,16 @@ const LandingPageFooterSection = () => {
         </Typography>
         <StyledButtonContainer />
       </StyledAboutContainer>
-    </StyledFooterSection>
-  );
-};
+    </StyledPaddingSectionContainer>
+    <StyledAboutInfoContainer>
+      <Typography variant="body2" component="a" href="#hh-resume-link">
+        vsl
+      </Typography>
+      <Typography variant="body2" fontFamily={'sans-serif'}>
+        © All Rights Reserved - 2022
+      </Typography>
+    </StyledAboutInfoContainer>
+  </StyledLandingPageFooterSection>
+);
 
 export default LandingPageFooterSection;

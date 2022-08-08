@@ -1,20 +1,22 @@
 import React from 'react';
 import dayjs from 'dayjs';
-import {CardContent, CardMedia} from '@mui/material';
+import {CardContent} from '@mui/material';
 import LandingPageSectionHeader from 'app/components/AnonymousLayout/LandingPage/LandingPageSectionHeader';
 import {
   StyledCard,
-  StyledLandingPageRecentPostsSection,
   StyledPostsContainer,
   StyledText,
   StyledTitle,
   StyledIconWithText,
   StyledTextInfoContainer,
-  StyledCardActions, StyledButtonContainer, StyledCardMedia,
+  StyledCardActions,
+  StyledButtonContainer,
+  StyledCardMedia,
 } from './LandingPageRecentPostsSectionStyles';
 import CircleButton from 'core/components/Buttons/CircleButton';
 import VisibilityIcon from '@mui/icons-material/Visibility';
 import CommentOutlinedIcon from '@mui/icons-material/CommentOutlined';
+import {StyledPaddingSectionContainer} from 'app/components/AnonymousLayout/LandingPage/LandingPageStyles';
 
 const posts = [
   {
@@ -46,9 +48,8 @@ const posts = [
   },
 ];
 
-const LandingPageRecentPostsSection = () => {
-  return (
-    <StyledLandingPageRecentPostsSection>
+const LandingPageRecentPostsSection = () => (
+  <StyledPaddingSectionContainer>
       <LandingPageSectionHeader title="Recent posts" subtitle="Our Blog" />
       <StyledPostsContainer>
         {posts.map((p) => (
@@ -84,8 +85,7 @@ const LandingPageRecentPostsSection = () => {
       <StyledButtonContainer>
         <CircleButton title="Read more" variant="secondary" size="small" />
       </StyledButtonContainer>
-    </StyledLandingPageRecentPostsSection>
-  );
-};
+  </StyledPaddingSectionContainer>
+);
 
 export default LandingPageRecentPostsSection;
