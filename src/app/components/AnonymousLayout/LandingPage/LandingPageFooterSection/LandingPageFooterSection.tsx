@@ -7,7 +7,7 @@ import {
   StyledTextContainer,
   StyledButtonContainer, StyledAboutInfoContainer, StyledSubscribeContainer,
 } from './LandingPageFooterSectionStyles';
-import {StyledPaddingSectionContainer} from 'app/components/AnonymousLayout/LandingPage/LandingPageStyles';
+import {StyledSectionPaddingWrapper} from 'app/components/AnonymousLayout/LandingPage/LandingPageStyles';
 import {Typography} from '@mui/material';
 import TextField from 'core/components/Form/TextField';
 import CircleButton from 'core/components/Buttons/CircleButton';
@@ -15,7 +15,7 @@ import AppRoutes from 'core/constants/AppRoutes';
 
 const LandingPageFooterSection = () => (
   <StyledLandingPageFooterSection>
-    <StyledPaddingSectionContainer>
+    <StyledSectionPaddingWrapper>
 
       <StyledSubscribeContainer>
 
@@ -50,7 +50,7 @@ const LandingPageFooterSection = () => (
         </Typography>
         <StyledButtonContainer />
       </StyledAboutContainer>
-    </StyledPaddingSectionContainer>
+    </StyledSectionPaddingWrapper>
     <StyledAboutInfoContainer>
       <Typography variant="body2" component="a" href="#hh-resume-link">
         vsl

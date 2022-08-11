@@ -10,7 +10,7 @@ import {
 import {Typography} from '@mui/material';
 import CircleButton from 'core/components/Buttons/CircleButton';
 import DeliverySectionForm from './DeliverySectionForm';
-import {StyledPaddingSectionContainer} from 'app/components/AnonymousLayout/LandingPage/LandingPageStyles';
+import {StyledSectionPaddingWrapper} from 'app/components/AnonymousLayout/LandingPage/LandingPageStyles';
 
 const bgSrc = `${process.env.PUBLIC_URL}/images/landing-page/water_separator.jpg`;
 const imgSrc = `${process.env.PUBLIC_URL}/images/landing-page/delivery-man.png`;
@@ -19,7 +19,7 @@ const LandingPageDeliverySection = () => {
   const handleReadMore = useCallback(() => {}, []);
 
   return (
-    <StyledPaddingSectionContainer>
+    <StyledSectionPaddingWrapper>
       <StyledWaterSeparatorImage src={bgSrc} />
       <StyledInnerContainer>
         <StyledManWithBottleImage src={imgSrc} alt="delivery man" />
@@ -48,7 +48,7 @@ const LandingPageDeliverySection = () => {
           <DeliverySectionForm />
         </StyledDeliveryFormContainer>
       </StyledInnerContainer>
-    </StyledPaddingSectionContainer>
+    </StyledSectionPaddingWrapper>
   );
 };
 

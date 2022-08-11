@@ -1,5 +1,5 @@
 import React from 'react';
-import LandingHeader from './LandingHeader';
+import LandingHeader from 'app/components/AnonymousLayout/LandingPage/LandingPageHeader/LandingHeader';
 import {styled} from '@mui/material/styles';
 import LandingPageMainSection from './LandingPageMainSection/LandingPageMainSection';
 import LandingPageAboutSection from './LandingPageAboutSection/LandingPageAboutSection';
@@ -12,6 +12,7 @@ import LandingPageFooterSection from 'app/components/AnonymousLayout/LandingPage
 
 const StyledMain = styled('main')(({theme: {palette}}) => ({
   backgroundColor: palette.primary.dark,
+  height: '100vh'
 }));
 
 const LandingPage = () => {
@@ -19,12 +20,12 @@ const LandingPage = () => {
     <StyledMain>
       <LandingHeader />
       <LandingPageMainSection />
-      <LandingPageAboutSection />
-      <LandingPageDeliverySection />
-      <LandingPageMineralDetailsSection />
-      <LandingPageReviewSection />
-      <LandingPageRecentPostsSection />
-      <LandingPageFooterSection />
+      {/*<LandingPageAboutSection />*/}
+      {/*<LandingPageDeliverySection />*/}
+      {/*<LandingPageMineralDetailsSection />*/}
+      {/*<LandingPageReviewSection />*/}
+      {/*<LandingPageRecentPostsSection />*/}
+      {/*<LandingPageFooterSection />*/}
     </StyledMain>
   );
 };

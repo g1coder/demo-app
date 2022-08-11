@@ -1,5 +1,5 @@
 import {ReactNode, useMemo} from 'react';
-import {ThemeProvider as MuiThemeProvider, CssBaseline, StyledEngineProvider, createTheme} from '@mui/material';
+import {ThemeProvider as MuiThemeProvider, CssBaseline, StyledEngineProvider, createTheme, responsiveFontSizes} from '@mui/material';
 import defaultTheme from './default';
 
 interface IProps {
@@ -8,7 +8,7 @@ interface IProps {
 
 const ThemeProvider = (props: IProps) => {
   const theme = useMemo(() => {
-    return createTheme(defaultTheme());
+    return responsiveFontSizes(createTheme(defaultTheme()));
   }, []);
 
   return (

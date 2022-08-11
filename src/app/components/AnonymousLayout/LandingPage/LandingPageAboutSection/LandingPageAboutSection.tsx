@@ -12,7 +12,7 @@ import {
 import {Typography} from '@mui/material';
 import CircleButton from 'core/components/Buttons/CircleButton';
 import LandingPageSectionHeader from 'app/components/AnonymousLayout/LandingPage/LandingPageSectionHeader';
-import {StyledPaddingSectionContainer} from 'app/components/AnonymousLayout/LandingPage/LandingPageStyles';
+import {StyledSectionPaddingWrapper} from 'app/components/AnonymousLayout/LandingPage/LandingPageStyles';
 
 const footerItemNames = ['Full Controll', 'Healthy Composition', '6 Filtration Stages', 'Quality certificates'];
 
@@ -23,7 +23,7 @@ const LandingPageAboutSection = () => {
   const handleReadMore = useCallback(() => {}, []);
 
   return (
-    <StyledPaddingSectionContainer>
+    <StyledSectionPaddingWrapper>
       <StyledSectionContainer>
         <LandingPageSectionHeader title="About Aquaterias" subtitle="Water Skills" />
         <StyledAboutInfoContainer>
@@ -80,7 +80,7 @@ const LandingPageAboutSection = () => {
           ))}
         </StyledTextImageContainer>
       </StyledSectionContainer>
-    </StyledPaddingSectionContainer>
+    </StyledSectionPaddingWrapper>
   );
 };
 

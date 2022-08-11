@@ -2,19 +2,21 @@ import React, {useCallback, useReducer} from 'react';
 import {useTransition} from '@react-spring/web';
 import {
   StyledInnerFirstTypography,
-  StyledLeftInnerContainer,
   StyledInnerSecondTypography,
-  StyledSectionBackground,
-  StyledSectionBackgroundImage,
+  StyledSlideImage,
   StyledSectionContainer,
   StyledInnerSubtitleTypography,
   StyledInnerButtonContainer,
   StyledBottleImage,
+  StyledSliderContainer,
+  StyledTextContainer,
+  StyledTextInnerContainer,
 } from './LandingPageMainSectionStyles';
 import CircleButton from 'core/components/Buttons/CircleButton';
-import {StyledPaddingSectionContainer} from 'app/components/AnonymousLayout/LandingPage/LandingPageStyles';
+import {StyledSectionPaddingWrapper} from 'app/components/AnonymousLayout/LandingPage/LandingPageStyles';
+import BottleImage from './slider-dark-bottle.png';
 
-const slides = [1, 2, 3, 4].map((num) => `${process.env.PUBLIC_URL}/images/landing-page/mountain${num}.jpg`);
+const slides = [1, 2, 3, 4].map((index) => `${process.env.PUBLIC_URL}/images/landing-page/mountain${index}.jpg`);
 
 const LandingPageMainSection = () => {
   const [index, setIndex] = useReducer((state) => (state + 1) % slides.length, 1);
@@ -36,32 +38,36 @@ const LandingPageMainSection = () => {
   const handleMakeOrder = useCallback(() => {}, []);
 
   return (
-    <StyledPaddingSectionContainer>
+    <StyledSectionPaddingWrapper>
       <StyledSectionContainer>
-        <StyledSectionBackground>
+
+        <StyledSliderContainer>
           {transitions((style, i) => (
-            <StyledSectionBackgroundImage style={style} src={slides[i]} />
+            <StyledSlideImage style={style} bg={slides[i]} />
           ))}
-          <StyledBottleImage
-            src={`${process.env.PUBLIC_URL}/images/landing-page/slider-dark-bottle.png`}
-            alt="bottle image"
-          />
-        </StyledSectionBackground>
-        <StyledLeftInnerContainer>
-          <StyledInnerFirstTypography variant="h3">Mineral Water</StyledInnerFirstTypography>
-          <StyledInnerSecondTypography variant="h3">FOR EVERY DAY</StyledInnerSecondTypography>
-          <StyledInnerSubtitleTypography variant="body1">
-            <em>Our delivery service employs more than 100 professional couriers.</em>
-            <br />
-            <em>We will deliver water to your home.</em>
-          </StyledInnerSubtitleTypography>
-          <StyledInnerButtonContainer>
-            <CircleButton title="Read more" onClick={handleReadMore} variant="secondary" />
-            <CircleButton title="Make order" onClick={handleMakeOrder} />
-          </StyledInnerButtonContainer>
-        </StyledLeftInnerContainer>
+          <StyledBottleImage src={BottleImage} alt="bottle image" />
+        </StyledSliderContainer>
+
+        <StyledTextContainer>
+          <StyledTextInnerContainer>
+
+            <StyledInnerFirstTypography variant="h3">Mineral Water</StyledInnerFirstTypography>
+            <StyledInnerSecondTypography variant="h3">FOR EVERY DAY</StyledInnerSecondTypography>
+            <StyledInnerSubtitleTypography variant="body1">
+              <em>Our delivery service employs more than 100 professional couriers.</em>
+              <br />
+              <em>We will deliver water to your home.</em>
+            </StyledInnerSubtitleTypography>
+
+            <StyledInnerButtonContainer>
+              <CircleButton title="Read more" onClick={handleReadMore} variant="secondary" />
+              <CircleButton title="Make order" onClick={handleMakeOrder} />
+            </StyledInnerButtonContainer>
+
+          </StyledTextInnerContainer>
+        </StyledTextContainer>
       </StyledSectionContainer>
-    </StyledPaddingSectionContainer>
+    </StyledSectionPaddingWrapper>
   );
 };
 

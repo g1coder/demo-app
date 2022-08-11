@@ -7,7 +7,7 @@ import {
   StyledSectionContainer,
   StyledBottleContainer,
 } from './LandingPageMineralDetailsSectionStyles';
-import {StyledPaddingSectionContainer} from 'app/components/AnonymousLayout/LandingPage/LandingPageStyles';
+import {StyledSectionPaddingWrapper} from 'app/components/AnonymousLayout/LandingPage/LandingPageStyles';
 
 const details = [
   {
@@ -45,7 +45,7 @@ const details = [
 const LandingPageMineralDetailsSection = () => {
   return (
     <StyledSectionContainer>
-      <StyledPaddingSectionContainer>
+      <StyledSectionPaddingWrapper>
         <LandingPageSectionHeader title="Mineral composition" subtitle="What inside" />
         <StyledContentContainer>
           <StyledContentColumn>
@@ -61,7 +61,7 @@ const LandingPageMineralDetailsSection = () => {
             ))}
           </StyledContentColumn>
         </StyledContentContainer>
-      </StyledPaddingSectionContainer>
+      </StyledSectionPaddingWrapper>
     </StyledSectionContainer>
   );
 };

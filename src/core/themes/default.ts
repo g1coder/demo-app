@@ -56,68 +56,68 @@ const defaultTheme = (themeOptions: ThemeOptions = {}): ThemeOptions => {
       h3: {
         fontSize: 48,
         fontWeight: 900,
-        lineHeight: '56px',
+        lineHeight: 1.2,
         color: palette.text.whitePrimary,
       },
       h4: {
         fontSize: 36,
         fontWeight: 900,
-        lineHeight: '39px',
+        lineHeight: 1.1,
         color: palette.primary.light,
       },
       h5: {
         fontSize: 24,
         fontWeight: 900,
-        lineHeight: '38px',
+        lineHeight: 1.6,
         color: palette.text.whitePrimary,
       },
       h6: {
         fontSize: 20,
         fontWeight: 500,
-        lineHeight: '26px',
+        lineHeight: 1.3,
         letterSpacing: '0.15px',
       },
       subtitle1: {
         fontSize: 18,
         fontWeight: 700,
-        lineHeight: '28px',
+        lineHeight: 1.6,
         color: palette.primary.light,
       },
       body1: {
         fontSize: 16,
         fontWeight: 400,
-        lineHeight: '26px',
+        lineHeight: 1.6,
         color: palette.text.whitePrimary,
       },
       body2: {
         fontSize: 14,
         fontWeight: 400,
-        lineHeight: '20px',
+        lineHeight: 1.4,
         letterSpacing: '0.25px',
       },
       button: {
         fontSize: 14,
         fontWeight: 500,
-        lineHeight: '16px',
+        lineHeight: 1.4,
         letterSpacing: '1.25px',
       },
       caption: {
         fontSize: 12,
         fontWeight: 400,
-        lineHeight: '16px',
+        lineHeight: 1.3,
         letterSpacing: '0.4px',
       },
       overline: {
         fontSize: 10,
         fontWeight: 400,
-        lineHeight: '16px',
+        lineHeight: 1.6,
         letterSpacing: '1.5px',
       },
     },
     themeOptions.typography
   );
 
-  return {palette, breakpoints, typography};
+  return  {palette, breakpoints, typography}
 };
 
 export default defaultTheme;

@@ -16,7 +16,7 @@ import {
 import CircleButton from 'core/components/Buttons/CircleButton';
 import VisibilityIcon from '@mui/icons-material/Visibility';
 import CommentOutlinedIcon from '@mui/icons-material/CommentOutlined';
-import {StyledPaddingSectionContainer} from 'app/components/AnonymousLayout/LandingPage/LandingPageStyles';
+import {StyledSectionPaddingWrapper} from 'app/components/AnonymousLayout/LandingPage/LandingPageStyles';
 
 const posts = [
   {
@@ -49,7 +49,7 @@ const posts = [
 ];
 
 const LandingPageRecentPostsSection = () => (
-  <StyledPaddingSectionContainer>
+  <StyledSectionPaddingWrapper>
       <LandingPageSectionHeader title="Recent posts" subtitle="Our Blog" />
       <StyledPostsContainer>
         {posts.map((p) => (
@@ -85,7 +85,7 @@ const LandingPageRecentPostsSection = () => (
       <StyledButtonContainer>
         <CircleButton title="Read more" variant="secondary" size="small" />
       </StyledButtonContainer>
-  </StyledPaddingSectionContainer>
+  </StyledSectionPaddingWrapper>
 );
 
 export default LandingPageRecentPostsSection;
