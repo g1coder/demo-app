@@ -40,7 +40,6 @@ const LandingPageMainSection = () => {
   return (
     <StyledSectionPaddingWrapper>
       <StyledSectionContainer>
-
         <StyledSliderContainer>
           {transitions((style, i) => (
             <StyledSlideImage style={style} bg={slides[i]} />
@@ -50,7 +49,6 @@ const LandingPageMainSection = () => {
 
         <StyledTextContainer>
           <StyledTextInnerContainer>
-
             <StyledInnerFirstTypography variant="h3">Mineral Water</StyledInnerFirstTypography>
             <StyledInnerSecondTypography variant="h3">FOR EVERY DAY</StyledInnerSecondTypography>
             <StyledInnerSubtitleTypography variant="body1">
@@ -63,7 +61,6 @@ const LandingPageMainSection = () => {
               <CircleButton title="Read more" onClick={handleReadMore} variant="secondary" />
               <CircleButton title="Make order" onClick={handleMakeOrder} />
             </StyledInnerButtonContainer>
-
           </StyledTextInnerContainer>
         </StyledTextContainer>
       </StyledSectionContainer>

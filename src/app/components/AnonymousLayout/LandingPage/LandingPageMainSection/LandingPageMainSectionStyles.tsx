@@ -3,17 +3,15 @@ import {LANDING_PAGE_HEADER_HEIGHT} from 'app/constants/constants';
 import {animated} from '@react-spring/web';
 import {Typography} from '@mui/material';
 
-export const StyledSectionContainer = styled('div')(({theme: {breakpoints}}) => ({
+export const StyledSectionContainer = styled('div')(({theme: {spacing}}) => ({
   position: 'relative',
-  [breakpoints.up('xl')]: {
-    height: `calc(100vh - ${LANDING_PAGE_HEADER_HEIGHT}px)`,
-  },
+  height: '100%',
+  paddingBottom: spacing(4)
 }));
 
-export const StyledSliderContainer = styled('div')(({theme: {spacing, breakpoints}}) => ({
+export const StyledSliderContainer = styled('div')(({theme: {breakpoints}}) => ({
   position: 'relative',
-  height: `calc(90vh - ${LANDING_PAGE_HEADER_HEIGHT + 16}px)`,
-  marginTop: spacing(2),
+  height: `100%`,
   '&::after': {
     content: '" "',
     width: '80%',
@@ -26,7 +24,6 @@ export const StyledSliderContainer = styled('div')(({theme: {spacing, breakpoint
     boxShadow: '0 35px 70px rgba(0,0,0,.45)',
   },
   [breakpoints.up('xl')]: {
-    height: '100%',
     width: '100%',
     margin: 0,
   },
