@@ -12,7 +12,6 @@ import LandingPageFooterSection from 'app/components/AnonymousLayout/LandingPage
 
 const StyledMain = styled('main')(({theme: {palette}}) => ({
   backgroundColor: palette.primary.dark,
-  height: '100vh'
 }));
 
 const LandingPage = () => {
@@ -20,7 +19,7 @@ const LandingPage = () => {
     <StyledMain>
       <LandingHeader />
       <LandingPageMainSection />
-      {/*<LandingPageAboutSection />*/}
+      <LandingPageAboutSection />
       {/*<LandingPageDeliverySection />*/}
       {/*<LandingPageMineralDetailsSection />*/}
       {/*<LandingPageReviewSection />*/}

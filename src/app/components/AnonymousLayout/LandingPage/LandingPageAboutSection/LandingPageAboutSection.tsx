@@ -13,6 +13,7 @@ import {Typography} from '@mui/material';
 import CircleButton from 'core/components/Buttons/CircleButton';
 import LandingPageSectionHeader from 'app/components/AnonymousLayout/LandingPage/LandingPageSectionHeader';
 import {StyledSectionPaddingWrapper} from 'app/components/AnonymousLayout/LandingPage/LandingPageStyles';
+import styles from './LandingPageAboutSection.module.scss';
 
 const footerItemNames = ['Full Controll', 'Healthy Composition', '6 Filtration Stages', 'Quality certificates'];
 
@@ -26,6 +27,7 @@ const LandingPageAboutSection = () => {
     <StyledSectionPaddingWrapper>
       <StyledSectionContainer>
         <LandingPageSectionHeader title="About Aquaterias" subtitle="Water Skills" />
+
         <StyledAboutInfoContainer>
           <StyledAboutInfoText>
             <Typography variant="h4">Our company was founded in 1965</Typography>
@@ -41,6 +43,7 @@ const LandingPageAboutSection = () => {
             </Typography>
             <CircleButton title="READ MORE" onClick={handleReadMore} variant="secondary" />
           </StyledAboutInfoText>
+
           <StyledAboutVideoContainer>
             <iframe
               width="100%"
@@ -69,16 +72,16 @@ const LandingPageAboutSection = () => {
           </StyledAboutVideoContainer>
         </StyledAboutInfoContainer>
 
-        <StyledTextImageContainer>
-          {footerItemNames.map((name, index) => (
-            <StyledSectionTextImageItem key={name}>
-              <img src={`${process.env.PUBLIC_URL}/images/landing-page/icon-blue-${index + 1}.png`} alt={name} />
-              <Typography variant="h6" fontWeight={900} fontSize={18}>
-                {name}
-              </Typography>
-            </StyledSectionTextImageItem>
-          ))}
-        </StyledTextImageContainer>
+        {/*<StyledTextImageContainer>*/}
+        {/*  {footerItemNames.map((name, index) => (*/}
+        {/*    <StyledSectionTextImageItem key={name}>*/}
+        {/*      <img src={`${process.env.PUBLIC_URL}/images/landing-page/icon-blue-${index + 1}.png`} alt={name} />*/}
+        {/*      <Typography variant="h6" fontWeight={900} fontSize={18}>*/}
+        {/*        {name}*/}
+        {/*      </Typography>*/}
+        {/*    </StyledSectionTextImageItem>*/}
+        {/*  ))}*/}
+        {/*</StyledTextImageContainer>*/}
       </StyledSectionContainer>
     </StyledSectionPaddingWrapper>
   );

@@ -7,9 +7,9 @@ import {
 
 export const StyledSectionPaddingWrapper = styled('section')<{padding?: string}>(({theme: {breakpoints, spacing}}) => ({
   padding: spacing(10, 2, 2),
-  height: `100%`,
+  height: `100vh`,
   [breakpoints.up('lg')]: {
-    height: `calc(100% - ${LANDING_PAGE_HEADER_HEIGHT}px)`,
+    height: `calc(100vh - ${LANDING_PAGE_HEADER_HEIGHT}px)`,
     margin: 'auto',
     padding: spacing(5, 2, 0),
   },

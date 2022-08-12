@@ -16,6 +16,7 @@
     "dayjs": "^1.11.4",
     "final-form": "^4.20.7",
     "lodash": "^4.17.21",
+    "node-sass": "^7.0.1",
     "prettier": "^2.7.1",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",

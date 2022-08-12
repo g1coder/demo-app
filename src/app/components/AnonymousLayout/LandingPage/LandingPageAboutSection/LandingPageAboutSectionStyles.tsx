@@ -6,12 +6,14 @@ export const StyledSectionContainer = styled('div')(() => ({
   height: `calc(100vh - ${LANDING_PAGE_HEADER_HEIGHT}px)`,
 }));
 
-export const StyledAboutInfoContainer = styled('div')(({theme: {spacing}}) => ({
+export const StyledAboutInfoContainer = styled('div')(({theme: {spacing, breakpoints}}) => ({
   position: 'relative',
-  display: 'flex',
-  flexFlow: 'row wrap',
   paddingTop: spacing(8),
-  minHeight: 480,
+  [breakpoints.up('lg')]: {
+    display: 'flex',
+    flexFlow: 'row wrap',
+    minHeight: 480,
+  }
 }));
 export const StyledAboutInfoText = styled('div')(({theme: {spacing}}) => ({
   position: 'relative',
