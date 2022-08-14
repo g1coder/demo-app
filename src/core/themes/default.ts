@@ -36,15 +36,6 @@ const defaultTheme = (themeOptions: ThemeOptions = {}): ThemeOptions => {
   const breakpoints = _.merge(
     {},
     {
-      // values: {
-      //   xs: 0,
-      //   sm: 480,
-      //   md: 768,
-      //   lg: 1024, // used as minWidth value for a lot of pages, be careful changing it
-      //   lgz: 1440,
-      //   xl: 1680,
-      //   exl: 1800,
-      // },
       keys: ['xs', 'sm', 'md', 'lg', 'xl', 'exl'],
       values: {
         xs: 0,

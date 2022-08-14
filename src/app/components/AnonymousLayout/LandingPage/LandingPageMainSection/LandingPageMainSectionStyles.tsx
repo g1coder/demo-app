@@ -5,7 +5,7 @@ import {Typography} from '@mui/material';
 
 export const StyledSectionContainer = styled('div')(({theme: {spacing}}) => ({
   position: 'relative',
-  height: '100%',
+  height: `calc(100vh - ${LANDING_PAGE_HEADER_HEIGHT}px)`,
   paddingBottom: spacing(4)
 }));
 
