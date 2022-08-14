@@ -20,7 +20,7 @@ const LandingPage = () => {
       <LandingHeader />
       <LandingPageMainSection />
       <LandingPageAboutSection />
-      {/*<LandingPageDeliverySection />*/}
+      <LandingPageDeliverySection />
       {/*<LandingPageMineralDetailsSection />*/}
       {/*<LandingPageReviewSection />*/}
       {/*<LandingPageRecentPostsSection />*/}

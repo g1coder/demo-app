@@ -1,7 +1,7 @@
 import React, {useCallback} from 'react';
 import {
   StyledConditions,
-  StyledDeliveryFormContainer,
+  StyledContactFormContainer,
   StyledManWithBottleImage,
   StyledInnerContainer,
   StyledTimeInfo,
@@ -41,12 +41,12 @@ const LandingPageDeliverySection = () => {
           <CircleButton title="Read more" onClick={handleReadMore} variant="secondary" />
         </StyledConditions>
 
-        <StyledDeliveryFormContainer>
+        <StyledContactFormContainer>
           <Typography variant="h5" color="primary.light" fontWeight={600}>
             Please, fill delivery form
           </Typography>
           <DeliverySectionForm />
-        </StyledDeliveryFormContainer>
+        </StyledContactFormContainer>
       </StyledInnerContainer>
     </StyledSectionPaddingWrapper>
   );
