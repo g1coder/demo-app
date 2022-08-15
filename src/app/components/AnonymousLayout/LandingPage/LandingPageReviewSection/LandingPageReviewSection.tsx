@@ -4,7 +4,7 @@ import LandingPageSectionHeader from 'app/components/AnonymousLayout/LandingPage
 import {Avatar, Typography} from '@mui/material';
 import {
   StyledAvatarContainer, StyledButtonContainer,
-  StyledLandingPageReviewSection,
+  StyledLandingPageReviewSection, StyledSectionBg,
   StyledSwiperContainer,
   StyledSwiperSlideContent,
   StyledSwiperSlideInnerContainer,
@@ -64,6 +64,7 @@ const LandingPageReviewSection = () => {
 
   return (
     <StyledLandingPageReviewSection>
+      <StyledSectionBg />
       <StyledSectionPaddingWrapper>
         <LandingPageSectionHeader title="What our clients say" subtitle="Testimonials" />
         <StyledSwiperContainer>

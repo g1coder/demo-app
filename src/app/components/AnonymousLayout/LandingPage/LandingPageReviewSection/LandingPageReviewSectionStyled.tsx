@@ -4,9 +4,19 @@ import ReviewBg from './review-section-bg.jpg';
 import CircleButton from 'core/components/Buttons/CircleButton';
 
 export const StyledLandingPageReviewSection = styled('div')(() => ({
+  position: 'relative',
   textAlign: 'center',
+}));
+
+export const StyledSectionBg = styled('div')(() => ({
   background: `url(${ReviewBg}) no-repeat center center fixed`,
   backgroundSize: 'cover',
+  position: 'absolute',
+  top: 0,
+  bottom: 0,
+  left: 0,
+  right: 0,
+  mixBlendMode: 'color-burn'
 }));
 
 export const StyledSwiperContainer = styled('div')(({theme: {spacing}}) => ({

@@ -66,11 +66,14 @@ export const StyledSubcribeButton = styled(CircleButton)(({theme: {breakpoints}}
   }
 }));
 
-export const StyledAboutContainer = styled('div')(({theme: {spacing}}) => ({
+export const StyledAboutContainer = styled('div')(({theme: {spacing, breakpoints}}) => ({
   maxWidth: 700,
   margin: `0 auto`,
   textAlign: 'center',
-  padding: spacing(15, 0, 5)
+  padding: spacing(20, 0, 5),
+  [breakpoints.up('lg')]: {
+    paddingTop: spacing(15)
+  }
 }));
 
 export const StyledButtonContainer = styled((props) => (
