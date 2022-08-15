@@ -2,19 +2,30 @@ import React from 'react';
 import {styled} from '@mui/material/styles';
 import {Card, CardActions, CardMedia, Typography} from '@mui/material';
 import {Link} from 'react-router-dom';
+import CircleButton from 'core/components/Buttons/CircleButton';
 
-export const StyledPostsContainer = styled('div')(({theme: {spacing}}) => ({
+export const StyledPostsContainer = styled('div')(({theme: {spacing, breakpoints}}) => ({
   display: 'flex',
   justifyContent: 'space-between',
   padding: spacing(5, 0),
+  flexFlow: 'row wrap',
+  [breakpoints.up('xl')]: {
+    flexFlow: 'row nowrap'
+  }
 }));
 
-export const StyledCard = styled(Card)(({theme: {spacing}}) => ({
+export const StyledCard = styled(Card)(({theme: {spacing, breakpoints}}) => ({
   borderRadius: spacing(2.5),
-  margin: spacing(0, 2),
-  width: '33.3%',
-  minHeight: spacing(78),
+  margin: spacing(2, 'auto'),
+  padding: spacing(0, 0, 4),
+  width: '100%',
+  maxWidth: 450,
   cursor: 'pointer',
+  [breakpoints.up('xl')]: {
+    margin: spacing(0, 2),
+    minHeight: spacing(78),
+    width: '33.3%',
+  },
 }));
 
 export const StyledCardMedia = styled(CardMedia)<{component: string; alt: string}>(() => ({
@@ -25,7 +36,7 @@ export const StyledCardMedia = styled(CardMedia)<{component: string; alt: string
   display: 'block',
   '&:hover': {
     transform: 'scale(1.1)',
-  }
+  },
 }));
 
 interface IStyledTitle {
@@ -33,18 +44,19 @@ interface IStyledTitle {
   title: string;
 }
 export const StyledTitle = styled((props: IStyledTitle) => (
-  <Typography {...props} component={Link} to={props.to}>
+  <Typography {...props} component={Link} to={props.to} variant="h3">
     {props.title}
   </Typography>
-))<IStyledTitle>(({theme: {palette}}) => ({
-  fontSize: 30,
-  fontWeight: 900,
+))<IStyledTitle>(({theme: {palette, breakpoints}}) => ({
   textDecoration: 'none',
   color: palette.primary.light,
   transition: 'color 0.5s ease',
   '&:hover': {
     color: palette.primary.dark,
     transition: 'all 0.5s ease',
+  },
+  [breakpoints.up('xl')]: {
+    fontSize: 30
   },
 }));
 
@@ -61,6 +73,7 @@ export const StyledCardActions = styled(CardActions)(({theme: {spacing}}) => ({
   display: 'flex',
   justifyContent: 'space-between',
   padding: spacing(0, 4),
+  flexFlow: 'row wrap',
 }));
 export const StyledTextInfoContainer = styled(Typography)(({theme: {palette, spacing}}) => ({
   display: 'flex',
@@ -85,8 +98,15 @@ export const StyledIconWithText = styled(Typography)(({theme: {palette, spacing}
   },
 }));
 
+export const StyledReadMoreButton = styled(CircleButton)(({theme: {spacing,breakpoints}}) => ({
+  marginTop: spacing(2),
+  [breakpoints.up('md')]: {
+    marginTop: 'auto'
+  },
+})); 
+
 export const StyledButtonContainer = styled('div')(({theme: {spacing}}) => ({
   width: '100%',
   textAlign: 'center',
-  paddingBottom: spacing(15)
+  paddingBottom: spacing(15),
 }));

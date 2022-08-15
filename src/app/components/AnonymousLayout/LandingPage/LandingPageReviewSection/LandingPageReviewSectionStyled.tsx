@@ -3,12 +3,10 @@ import {Paper} from '@mui/material';
 import ReviewBg from './review-section-bg.jpg';
 import CircleButton from 'core/components/Buttons/CircleButton';
 
-export const StyledLandingPageReviewSection = styled('div')(({theme: {breakpoints}}) => ({
+export const StyledLandingPageReviewSection = styled('div')(() => ({
   textAlign: 'center',
-  [breakpoints.up('lg')]: {
-    background: `url(${ReviewBg}) no-repeat center center fixed`,
-    backgroundSize: 'cover',
-  }
+  background: `url(${ReviewBg}) no-repeat center center fixed`,
+  backgroundSize: 'cover',
 }));
 
 export const StyledSwiperContainer = styled('div')(({theme: {spacing}}) => ({
@@ -22,7 +20,7 @@ export const StyledSwiperSlideContent = styled(Paper)(({theme: {spacing, breakpo
   borderRadius: spacing(3),
   [breakpoints.up('lg')]: {
     margin: spacing(0, 18),
-  }
+  },
 }));
 
 export const StyledSwiperSlideInnerContainer = styled('div')(({theme: {spacing, breakpoints}}) => ({
@@ -36,12 +34,12 @@ export const StyledSwiperSlideInnerContainer = styled('div')(({theme: {spacing, 
   },
   [breakpoints.up('lg')]: {
     margin: `auto ${spacing(10)}`,
-  }
+  },
 }));
 
 export const StyledAvatarContainer = styled('div')(({theme: {spacing, breakpoints}}) => ({
   '& > div': {
-    margin: 'auto'
+    margin: 'auto',
   },
   [breakpoints.up('lg')]: {
     display: 'flex',
@@ -49,14 +47,14 @@ export const StyledAvatarContainer = styled('div')(({theme: {spacing, breakpoint
     textAlign: 'left',
     marginBottom: spacing(4),
     '& > div': {
-      margin: 'auto 8px'
+      margin: 'auto 8px',
     },
-  }
+  },
 }));
 
-export const StyledButtonContainer = styled(CircleButton)(({theme: {breakpoints}}) => ({
-  margin: '40px auto',
+export const StyledButtonContainer = styled(CircleButton)(({theme: {spacing, breakpoints}}) => ({
+  margin: spacing(5, 'auto'),
   [breakpoints.up('md')]: {
-    margin:  '0 auto',
-  }
+    margin: spacing(0, 'auto', 5),
+  },
 }));

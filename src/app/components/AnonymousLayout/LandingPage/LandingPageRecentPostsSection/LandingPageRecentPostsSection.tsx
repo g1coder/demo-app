@@ -11,7 +11,7 @@ import {
   StyledTextInfoContainer,
   StyledCardActions,
   StyledButtonContainer,
-  StyledCardMedia,
+  StyledCardMedia, StyledReadMoreButton,
 } from './LandingPageRecentPostsSectionStyles';
 import CircleButton from 'core/components/Buttons/CircleButton';
 import VisibilityIcon from '@mui/icons-material/Visibility';
@@ -77,7 +77,7 @@ const LandingPageRecentPostsSection = () => (
                   {p.comments}
                 </StyledIconWithText>
               </StyledTextInfoContainer>
-              <CircleButton title="Read more" variant="secondary" size="small" />
+              <StyledReadMoreButton title="Read more" variant="secondary" size="small" />
             </StyledCardActions>
           </StyledCard>
         ))}
