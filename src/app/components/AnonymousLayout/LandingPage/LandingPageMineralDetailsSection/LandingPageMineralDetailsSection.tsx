@@ -5,9 +5,10 @@ import {
   StyledContentColumn,
   StyledContentContainer,
   StyledSectionContainer,
-  StyledBottleContainer,
+  StyledBottleContainer, StyledBottleBg,
 } from './LandingPageMineralDetailsSectionStyles';
 import {StyledSectionPaddingWrapper} from 'app/components/AnonymousLayout/LandingPage/LandingPageStyles';
+import BottleDark from './bottle-dark-3.png';
 
 const details = [
   {
@@ -53,7 +54,7 @@ const LandingPageMineralDetailsSection = () => {
               <MineralDetailsInfoItem {...item} key={item.title} />
             ))}
           </StyledContentColumn>
-          <img src={`${process.env.PUBLIC_URL}/images/landing-page/bottle-dark-3.png`} alt="bottle bg" />
+          <StyledBottleBg src={BottleDark} alt="bottle bg" />
           <StyledBottleContainer />
           <StyledContentColumn>
             {details.slice(3, 6).map((item) => (

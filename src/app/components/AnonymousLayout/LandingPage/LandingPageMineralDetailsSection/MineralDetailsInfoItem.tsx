@@ -9,8 +9,14 @@ interface IProps {
 }
 
 
-const StyledContainer = styled('div')(({theme: {spacing}}) => ({
-  maxWidth: spacing(45)
+const StyledContainer = styled('div')(({theme: {breakpoints}}) => ({
+  maxWidth: '100%',
+  [breakpoints.up('lg')]: {
+    maxWidth: 280,
+  },
+  [breakpoints.up('xl')]: {
+    maxWidth: 350,
+  }
 }));
 
 const MineralDetailsInfoItem = ({title, subtitle, text}: IProps) => {

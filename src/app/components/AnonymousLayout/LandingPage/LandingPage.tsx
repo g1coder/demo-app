@@ -21,7 +21,7 @@ const LandingPage = () => {
       <LandingPageMainSection />
       <LandingPageAboutSection />
       <LandingPageDeliverySection />
-      {/*<LandingPageMineralDetailsSection />*/}
+      <LandingPageMineralDetailsSection />
       {/*<LandingPageReviewSection />*/}
       {/*<LandingPageRecentPostsSection />*/}
       {/*<LandingPageFooterSection />*/}
