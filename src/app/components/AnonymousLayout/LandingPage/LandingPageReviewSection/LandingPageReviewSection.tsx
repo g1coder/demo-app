@@ -3,14 +3,14 @@ import Swiper from 'core/components/Swiper/Swiper';
 import LandingPageSectionHeader from 'app/components/AnonymousLayout/LandingPage/LandingPageSectionHeader';
 import {Avatar, Typography} from '@mui/material';
 import {
-  StyledAvatarContainer,
+  StyledAvatarContainer, StyledButtonContainer,
   StyledLandingPageReviewSection,
   StyledSwiperContainer,
   StyledSwiperSlideContent,
   StyledSwiperSlideInnerContainer,
 } from './LandingPageReviewSectionStyled';
-import CircleButton from 'core/components/Buttons/CircleButton';
 import {StyledSectionPaddingWrapper} from 'app/components/AnonymousLayout/LandingPage/LandingPageStyles';
+import AvatarMock from './avatar1.jpg';
 
 const reviews = [
   {
@@ -41,28 +41,26 @@ const reviews = [
 ];
 
 const LandingPageReviewSection = () => {
-  const slides = useMemo(() => {
-    return reviews.map((review) => (
-      <StyledSwiperSlideContent elevation={8} key={review.name}>
-        <StyledSwiperSlideInnerContainer>
-          <StyledAvatarContainer>
-            <Avatar src={process.env.PUBLIC_URL + '/images/landing-page/avatar1.jpg'} sx={{width: 100, height: 100}} />
-            <div>
-              <Typography variant="h5" color="primary.dark" fontWeight={600}>
-                {review.name}
-              </Typography>
-              <Typography variant="body2" color="primary.light">
-                {review.position}
-              </Typography>
-            </div>
-          </StyledAvatarContainer>
-          <Typography variant="h5" color="primary.dark" fontWeight={600}>
-            {review.text}
-          </Typography>
-        </StyledSwiperSlideInnerContainer>
-      </StyledSwiperSlideContent>
-    ));
-  }, []);
+  const slides = useMemo(() => reviews.map(({name, position, text}) => (
+    <StyledSwiperSlideContent elevation={8} key={name}>
+      <StyledSwiperSlideInnerContainer>
+        <StyledAvatarContainer>
+          <Avatar src={AvatarMock} sx={{width: 100, height: 100}} />
+          <div>
+            <Typography variant="h5" color="primary.dark" fontWeight={600}>
+              {name}
+            </Typography>
+            <Typography variant="body2" color="primary.light">
+              {position}
+            </Typography>
+          </div>
+        </StyledAvatarContainer>
+        <Typography variant="h5" color="primary.dark" fontWeight={600}>
+          {text}
+        </Typography>
+      </StyledSwiperSlideInnerContainer>
+    </StyledSwiperSlideContent>
+  )), []);
 
   return (
     <StyledLandingPageReviewSection>
@@ -71,7 +69,7 @@ const LandingPageReviewSection = () => {
         <StyledSwiperContainer>
           <Swiper slides={slides} spaceBetween={50} slidesPerView={1} autoplay loop />
         </StyledSwiperContainer>
-        <CircleButton title="View more" variant="secondary" sx={{marginBottom: 15}} size="small" />
+        <StyledButtonContainer title="View more" variant="secondary" size="small" />
       </StyledSectionPaddingWrapper>
     </StyledLandingPageReviewSection>
   );

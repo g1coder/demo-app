@@ -18,7 +18,7 @@ const StyledContainer = styled('div')<{direction: IProps['type']}>(({direction})
   left: direction === 'prev' ? 0 : undefined,
 }));
 
-const StyledFab = styled(Fab)(({theme: {palette}}) => ({
+const StyledFab = styled(Fab)(({theme: {palette, breakpoints}}) => ({
   backgroundColor: palette.primary.light,
   color: '#fff',
   width: BUTTON_SIZE,
@@ -27,6 +27,10 @@ const StyledFab = styled(Fab)(({theme: {palette}}) => ({
     backgroundColor: '#fff',
     color: palette.primary.dark,
   },
+  display: 'none',
+  [breakpoints.up('lg')]: {
+    display: 'block'
+  }
 }));
 
 const SwiperButton = ({type}: IProps) => {
@@ -39,7 +43,7 @@ const SwiperButton = ({type}: IProps) => {
   return (
     <StyledContainer direction={type}>
       <StyledFab onClick={handleNextSlide} aria-label={type}>
-        {type === 'next' ? <ArrowRightIcon /> : <ArrowLeftIcon />}
+        {type === 'next' ? <ArrowRightIcon fontSize="large" /> : <ArrowLeftIcon fontSize="large" />}
       </StyledFab>
     </StyledContainer>
   );
