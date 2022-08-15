@@ -70,7 +70,7 @@ export const StyledAboutContainer = styled('div')(({theme: {spacing}}) => ({
   maxWidth: 700,
   margin: `0 auto`,
   textAlign: 'center',
-  padding: spacing(20, 0, 5)
+  padding: spacing(15, 0, 5)
 }));
 
 export const StyledButtonContainer = styled((props) => (

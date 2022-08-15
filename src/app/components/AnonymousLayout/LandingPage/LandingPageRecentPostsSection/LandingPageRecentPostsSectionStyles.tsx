@@ -55,7 +55,7 @@ export const StyledTitle = styled((props: IStyledTitle) => (
     color: palette.primary.dark,
     transition: 'all 0.5s ease',
   },
-  [breakpoints.up('xl')]: {
+  [breakpoints.up('md')]: {
     fontSize: 30
   },
 }));
