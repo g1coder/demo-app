@@ -2,7 +2,7 @@ import React, {useReducer} from 'react';
 import AppRoutes from 'core/constants/AppRoutes';
 import MenuIcon from '@mui/icons-material/Menu';
 import {StyledDrawer, StyledHeader, StyledIconContainer, StyledLogoContainer} from './LandingHeaderStyles';
-import logo from './header-logo.png';
+import AppLogo from 'app/components/AnonymousLayout/LandingPage/header-logo.png';
 
 const LandingHeader = () => {
   const [isDrawerOpen, toggleDrawer] = useReducer((state) => !state, false);
@@ -11,7 +11,7 @@ const LandingHeader = () => {
     <StyledHeader>
       <StyledLogoContainer>
         <a href={AppRoutes.LANDING_PAGE.path}>
-          <img src={logo} alt="header-logo" />
+          <img src={AppLogo} alt="company-logo" />
         </a>
       </StyledLogoContainer>
       <StyledIconContainer onClick={toggleDrawer}>

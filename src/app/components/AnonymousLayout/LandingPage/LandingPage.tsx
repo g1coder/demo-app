@@ -24,7 +24,7 @@ const LandingPage = () => {
       <LandingPageMineralDetailsSection />
       <LandingPageReviewSection />
       <LandingPageRecentPostsSection />
-      {/*<LandingPageFooterSection />*/}
+      <LandingPageFooterSection />
     </StyledMain>
   );
 };
