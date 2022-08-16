@@ -9,7 +9,6 @@ import LandingPageReviewSection from 'app/components/AnonymousLayout/LandingPage
 import LandingPageRecentPostsSection from 'app/components/AnonymousLayout/LandingPage/LandingPageRecentPostsSection/LandingPageRecentPostsSection';
 import LandingPageFooterSection from 'app/components/AnonymousLayout/LandingPage/LandingPageFooterSection/LandingPageFooterSection';
 
-
 const StyledMain = styled('main')(({theme: {palette}}) => ({
   backgroundColor: palette.primary.dark,
 }));

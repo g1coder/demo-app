@@ -11,10 +11,13 @@ import {
   StyledSliderContainer,
   StyledTextContainer,
   StyledTextInnerContainer,
+  StyledScrollTopButton,
 } from './LandingPageMainSectionStyles';
 import CircleButton from 'core/components/Buttons/CircleButton';
 import {StyledSectionPaddingWrapper} from 'app/components/AnonymousLayout/LandingPage/LandingPageStyles';
 import BottleImage from './slider-dark-bottle.png';
+import useScrollTop from 'core/hooks/useScrollTop';
+import ArrowUpwardOutlinedIcon from '@mui/icons-material/ArrowUpwardOutlined';
 
 const slides = [1, 2, 3, 4].map((index) => `${process.env.PUBLIC_URL}/images/landing-page/mountain${index}.jpg`);
 
@@ -34,11 +37,12 @@ const LandingPageMainSection = () => {
   });
 
   const handleReadMore = useCallback(() => {}, []);
-
   const handleMakeOrder = useCallback(() => {}, []);
 
+  const {targetRef, isTargetHidden, onScroll} = useScrollTop();
+
   return (
-    <StyledSectionPaddingWrapper>
+    <StyledSectionPaddingWrapper ref={targetRef}>
       <StyledSectionContainer>
         <StyledSliderContainer>
           {transitions((style, i) => (
@@ -64,6 +68,9 @@ const LandingPageMainSection = () => {
           </StyledTextInnerContainer>
         </StyledTextContainer>
       </StyledSectionContainer>
+      <StyledScrollTopButton isVisible={isTargetHidden} onClick={onScroll}>
+        <ArrowUpwardOutlinedIcon />
+      </StyledScrollTopButton>
     </StyledSectionPaddingWrapper>
   );
 };

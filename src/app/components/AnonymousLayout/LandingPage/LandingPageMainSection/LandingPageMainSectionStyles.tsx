@@ -1,12 +1,12 @@
 import {styled} from '@mui/material/styles';
 import {LANDING_PAGE_HEADER_HEIGHT} from 'app/constants/constants';
 import {animated} from '@react-spring/web';
-import {Typography} from '@mui/material';
+import {Fab, Typography} from '@mui/material';
 
 export const StyledSectionContainer = styled('div')(({theme: {spacing}}) => ({
   position: 'relative',
   height: `calc(100vh - ${LANDING_PAGE_HEADER_HEIGHT}px)`,
-  paddingBottom: spacing(4)
+  paddingBottom: spacing(4),
 }));
 
 export const StyledSliderContainer = styled('div')(({theme: {breakpoints}}) => ({
@@ -67,13 +67,11 @@ export const StyledTextContainer = styled('div')(({theme: {spacing, breakpoints}
     width: 'auto',
     bottom: 'auto',
     top: '25%',
-    left: spacing(30)
+    left: spacing(30),
   },
 }));
 
-export const StyledTextInnerContainer = styled('div')(() => ({
-
-}));
+export const StyledTextInnerContainer = styled('div')(() => ({}));
 
 export const StyledLeftInnerContainer = styled('div')(({theme: {breakpoints}}) => ({
   position: 'relative',
@@ -105,7 +103,7 @@ export const StyledInnerSubtitleTypography = styled(Typography)(({theme: {spacin
 export const StyledInnerButtonContainer = styled('div')(({theme: {spacing, breakpoints}}) => ({
   marginTop: spacing(5),
   '& > button': {
-    margin: spacing(2, 1)
+    margin: spacing(2, 1),
   },
   [breakpoints.up('xl')]: {
     marginTop: spacing(10),
@@ -113,3 +111,25 @@ export const StyledInnerButtonContainer = styled('div')(({theme: {spacing, break
     justifyContent: 'space-between',
   },
 }));
+
+export const StyledScrollTopButton = styled(Fab)<{isVisible: boolean}>(
+  ({theme: {breakpoints, palette}, isVisible}) => ({
+    position: 'fixed',
+    right: 20,
+    bottom: 20,
+    backgroundColor: palette.primary.light,
+    color: '#fff',
+    width: 60,
+    height: 60,
+    transition: 'visibility 0s, opacity 0.5s linear',
+    opacity: isVisible ? 0.8 : 0,
+    '&:hover': {
+      backgroundColor: '#fff',
+      color: palette.primary.dark,
+    },
+    [breakpoints.up('md')]: {
+      right: 50,
+      bottom: 50,
+    },
+  })
+);

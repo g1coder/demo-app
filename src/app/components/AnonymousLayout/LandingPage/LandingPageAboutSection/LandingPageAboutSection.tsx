@@ -17,7 +17,6 @@ import {StyledSectionPaddingWrapper} from 'app/components/AnonymousLayout/Landin
 
 const footerItemNames = ['Full Controll', 'Healthy Composition', '6 Filtration Stages', 'Quality certificates'];
 
-//TODO Move Video + button + image to the separate component
 const LandingPageAboutSection = () => {
   const [playVideo, startVideo] = useReducer(() => true, false);
 
