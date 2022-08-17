@@ -3,10 +3,13 @@ import {LANDING_PAGE_HEADER_HEIGHT} from 'app/constants/constants';
 import {animated} from '@react-spring/web';
 import {Fab, Typography} from '@mui/material';
 
-export const StyledSectionContainer = styled('div')(({theme: {spacing}}) => ({
+export const StyledSectionContainer = styled('div')(({theme: {breakpoints}}) => ({
   position: 'relative',
+  paddingBottom: 32,
   height: `calc(100vh - ${LANDING_PAGE_HEADER_HEIGHT}px)`,
-  paddingBottom: spacing(4),
+  [breakpoints.up('md')]: {
+    height: `calc(90vh - ${LANDING_PAGE_HEADER_HEIGHT}px)`,
+  },
 }));
 
 export const StyledSliderContainer = styled('div')(({theme: {breakpoints}}) => ({
@@ -49,7 +52,7 @@ export const StyledBottleImage = styled('img')(({theme: {breakpoints}}) => ({
     display: 'block',
     position: 'absolute',
     bottom: 0,
-    right: 30,
+    right: -30,
   },
 }));
 
@@ -107,7 +110,6 @@ export const StyledInnerButtonContainer = styled('div')(({theme: {spacing, break
   },
   [breakpoints.up('xl')]: {
     marginTop: spacing(10),
-    height: `calc(100vh - ${LANDING_PAGE_HEADER_HEIGHT}px)`,
     justifyContent: 'space-between',
   },
 }));

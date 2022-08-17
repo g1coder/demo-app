@@ -132,7 +132,7 @@ export const StyledSectionTextImageItem = styled('div')(({theme: {palette, break
   [breakpoints.up('xl')]: {
     width: '25%',
     borderLeft: `1px solid ${palette.secondary.dark}`,
-    '&:first-child': {
+    '&:first-of-type': {
       border: 'none',
     },
   },

@@ -133,3 +133,7 @@ a > img {
   border: 0;
   outline: 0 none;
 }
+
+html {
+  scroll-behavior: smooth;
+}
