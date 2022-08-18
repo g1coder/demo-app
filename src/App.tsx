@@ -8,14 +8,11 @@ import {IFormValues as ILoginFormValues} from 'app/components/AnonymousLayout/Lo
 import {IFormValues as ILoginResetPasswordFormValues} from 'app/components/AnonymousLayout/LoginResetPasswordForm';
 import AuthService from 'core/services/AuthService';
 import Toaster from 'core/components/Toaster';
-import {loadComponent} from 'core/services/ReactUtils';
 import AppRoutes from 'core/constants/AppRoutes';
 
 import MainLayout from 'app/components/MainLayout/MainLayout';
 import PageNotFound from 'app/components/PageNotFound/PageNotFound';
-import LandingPage from "./app/components/AnonymousLayout/LandingPage/LandingPage";
-const DashboardPage = loadComponent(() => import('app/components/DashboardPage/DashboardPage'));
-const CountriesPage = loadComponent(() => import('features/countries/components/CountriesPage/CountriesPage'));
+import LandingPage from "./app/components/LandingPage/LandingPage";
 
 
 function App() {
@@ -80,10 +77,9 @@ function App() {
           <Routes>
             <Route index element={<LandingPage />} />
             <Route path={AppRoutes.LOGIN.path} element={<LoginPage onLogin={handleLogin} onReset={handleReset} />} />
-            <Route path="/profile" element={<MainLayout isAllowed={isAuthorized} />}>
-              <Route path={AppRoutes.DASHBOARD.path} element={<DashboardPage />} />
-              <Route path={AppRoutes.COUNTRIES.path} element={<CountriesPage />} />
-            </Route>
+            {/*<Route path="/profile" element={<MainLayout isAllowed={isAuthorized} />}>*/}
+            {/*  <Route path={AppRoutes.DASHBOARD.path} element={<DashboardPage />} />*/}
+            {/*</Route>*/}
             <Route path="*" element={<PageNotFound redirectPath={AppRoutes.LOGIN.path} />} />
           </Routes>
         </Suspense>
