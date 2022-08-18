@@ -184,8 +184,8 @@ const StyledDrawerNav = styled(({items, onClose, ...rest}: Pick<IDrawerProps, 'i
     },
   },
   [breakpoints.up('md')]: {
-    width: '50vw'
-  }
+    width: '50vw',
+  },
 }));
 
 export const StyledDrawer = styled(({items, onClose, ...rest}: IDrawerProps) => (

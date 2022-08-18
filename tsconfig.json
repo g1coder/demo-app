@@ -18,6 +18,7 @@
     "baseUrl": "src",
     "rootDirs": ["src"],
     "noImplicitAny": false,
+    "experimentalDecorators": true
   },
   "include": ["src/**/*", "src/@types/moxios.d.ts"]
 }

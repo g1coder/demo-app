@@ -18,6 +18,7 @@ import {StyledSectionPaddingWrapper} from 'app/components/AnonymousLayout/Landin
 import BottleImage from './slider-dark-bottle.png';
 import useScrollTop from 'core/hooks/useScrollTop';
 import ArrowUpwardOutlinedIcon from '@mui/icons-material/ArrowUpwardOutlined';
+import CartStore from 'store/CartStore';
 
 const slides = [1, 2, 3, 4].map((index) => `${process.env.PUBLIC_URL}/images/landing-page/mountain${index}.jpg`);
 
@@ -37,7 +38,9 @@ const LandingPageMainSection = () => {
   });
 
   const handleReadMore = useCallback(() => {}, []);
-  const handleMakeOrder = useCallback(() => {}, []);
+  const handleMakeOrder = useCallback(() => {
+    CartStore.increase();
+  }, []);
 
   const {targetRef, isTargetHidden, onScroll} = useScrollTop();
 

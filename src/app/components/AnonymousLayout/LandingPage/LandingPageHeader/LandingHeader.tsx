@@ -1,4 +1,5 @@
 import React, {useReducer} from 'react';
+import {observer} from 'mobx-react-lite';
 import AppRoutes from 'core/constants/AppRoutes';
 import MenuIcon from '@mui/icons-material/Menu';
 import {
@@ -11,6 +12,7 @@ import {
   StyledActionContainer,
 } from './LandingHeaderStyles';
 import AppLogo from 'app/components/AnonymousLayout/LandingPage/header-logo.png';
+import CartStore from 'store/CartStore';
 
 export interface IHeaderItem {
   name: string;
@@ -25,7 +27,7 @@ const items: IHeaderItem[] = [
   {name: 'Contacts', url: '#'},
 ];
 
-const LandingHeader = () => {
+const LandingHeader = observer(() => {
   const [isDrawerOpen, toggleDrawer] = useReducer((state) => !state, false);
 
   return (
@@ -39,7 +41,7 @@ const LandingHeader = () => {
       <StyledActionContainer>
         <StyledNav items={items} />
         <StyledIconContainer>
-          <StyledCart count={2} />
+          <StyledCart count={CartStore.count} />
           <MenuIcon onClick={toggleDrawer} />
         </StyledIconContainer>
       </StyledActionContainer>
@@ -47,6 +49,6 @@ const LandingHeader = () => {
       <StyledDrawer anchor="right" open={isDrawerOpen} onClose={toggleDrawer} items={items} />
     </StyledHeader>
   );
-};
+});
 
 export default LandingHeader;
