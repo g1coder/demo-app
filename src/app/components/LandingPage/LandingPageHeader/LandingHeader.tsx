@@ -9,7 +9,9 @@ import {
   StyledIconContainer,
   StyledLogoContainer,
   StyledActionContainer,
-  StyledAuthDrawerContainer, StyledInnerContainer, StyledNavigationMenu,
+  StyledAuthDrawerContainer,
+  StyledInnerContainer,
+  StyledNavigationMenu,
 } from './LandingHeaderStyles';
 import AppLogo from 'app/components/LandingPage/presets/header-logo.png';
 import CartStore from 'store/CartStore';
@@ -20,8 +22,8 @@ export interface IHeaderItem {
 }
 
 const items: IHeaderItem[] = [
-  {name: 'Home', url: '/'},
-  {name: 'Catalog', url: '#'},
+  {name: 'Home', url: AppRoutes.LANDING_PAGE.path},
+  {name: 'Catalog', url: AppRoutes.SHOP.path},
   {name: 'Delivery', url: '#'},
   {name: 'About us', url: '#'},
   {name: 'Contacts', url: '#'},

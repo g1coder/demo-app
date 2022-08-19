@@ -6,8 +6,9 @@ import LandingHeader from 'app/components/LandingPage/LandingPageHeader/LandingH
 import LandingPageFooterSection from 'app/components/LandingPage/LandingPageFooterSection/LandingPageFooterSection';
 
 const StyledMainLayout = styled(Box)(({theme: {palette}}) => ({
+  position: 'relative',
   backgroundColor: palette.primary.dark,
-  minHeight: '100vh'
+  minHeight: '100vh',
 }));
 
 const MainLayout = () => {

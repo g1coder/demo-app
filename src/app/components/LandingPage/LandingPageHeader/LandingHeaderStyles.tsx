@@ -13,8 +13,7 @@ import {DrawerProps} from '@mui/material/Drawer/Drawer';
 import AppRoutes from 'core/constants/AppRoutes';
 import CircleButton from 'core/components/Buttons/CircleButton';
 
-
-export const StyledHeader = styled('header')(({theme: {palette, spacing, breakpoints}}) => ({
+export const StyledHeader = styled('header')(({theme: {spacing, breakpoints}}) => ({
   height: LANDING_PAGE_HEADER_HEIGHT,
   padding: spacing(2, 2.5),
   width: '100%',
@@ -23,11 +22,10 @@ export const StyledHeader = styled('header')(({theme: {palette, spacing, breakpo
   alignItems: 'center',
   position: 'fixed',
   zIndex: LANDING_PAGE_HEADER_ORDER,
-  backgroundColor: palette.primary.dark,
-  [breakpoints.up('lg' as any)]: {
+  [breakpoints.up('lg')]: {
     position: 'relative',
     margin: 'auto',
-    paddingTop: spacing(4),
+    padding: spacing(4),
   },
   [breakpoints.up('exl' as any)]: {
     maxWidth: LANDING_PAGE_XL_CONTAINER_WIDTH,
@@ -50,9 +48,8 @@ export const StyledActionContainer = styled('div')(() => ({
   display: 'flex',
   alignItems: 'center',
   width: '100%',
-  justifyContent: 'end'
+  justifyContent: 'end',
 }));
-
 
 export const StyledInnerContainer = styled('div')(({theme: {breakpoints}}) => ({
   display: 'none',
@@ -60,7 +57,7 @@ export const StyledInnerContainer = styled('div')(({theme: {breakpoints}}) => ({
     display: 'flex',
     justifyContent: 'end',
     width: '100%',
-  }
+  },
 }));
 
 export const StyledIconContainer = styled('div')(({theme: {breakpoints, palette}}) => ({
@@ -123,10 +120,21 @@ export const StyledCart = styled((props: any) => (
   },
 }));
 
-export const StyledAuthDrawerContainer = styled((props) => <div {...props}>
-  <CircleButton title="Sign up" variant="secondary" size="small" component="a" href={AppRoutes.LOGIN.path} color="#fff" />
-  <Typography variant="caption" fontWeight={900} color="primary.dark" component={Link} to={AppRoutes.LOGIN.path}>Sign in</Typography>
-</div>)(({theme: {spacing, breakpoints}}) => ({
+export const StyledAuthDrawerContainer = styled((props) => (
+  <div {...props}>
+    <CircleButton
+      title="Sign up"
+      variant="secondary"
+      size="small"
+      component="a"
+      href={AppRoutes.LOGIN.path}
+      color="#fff"
+    />
+    <Typography variant="caption" fontWeight={900} color="primary.dark" component={Link} to={AppRoutes.LOGIN.path}>
+      Sign in
+    </Typography>
+  </div>
+))(({theme: {spacing, breakpoints}}) => ({
   position: 'absolute',
   bottom: 0,
   right: 0,
@@ -145,9 +153,9 @@ export const StyledAuthDrawerContainer = styled((props) => <div {...props}>
     padding: spacing(0, 4, 0, 0),
     maxWidth: 300,
     '& > a': {
-      color: '#fff'
-    }
-  }
+      color: '#fff',
+    },
+  },
 }));
 
 interface IDrawerProps extends DrawerProps {

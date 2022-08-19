@@ -20,7 +20,7 @@ describe('MainLayout', () => {
         <Routes>
           <Route path={AppRoutes.LOGIN.path} element={<div>{'Login page text'}</div>} />
           <Route path="/" element={<MainLayout />}>
-            <Route path={AppRoutes.DASHBOARD.path} element={<div>{'Dasboard page text'}</div>} />
+            <Route path={AppRoutes.LANDING_PAGE.path} element={<div>{'Dasboard page text'}</div>} />
           </Route>
         </Routes>
       </MemoryRouter>
@@ -33,9 +33,9 @@ describe('MainLayout', () => {
     expect(screen.queryByText('Dasboard page text')).not.toBeInTheDocument();
   });
 
-  it('should show Dashboard if user is authorized', async () => {
+  it('should show Landing page if user is authorized', async () => {
     props.isAllowed = true;
-    renderComponent(AppRoutes.DASHBOARD.path);
+    renderComponent(AppRoutes.LANDING_PAGE.path);
     expect(await screen.findByText('Dasboard page text')).toBeInTheDocument();
     expect(screen.queryByText('Login page text')).not.toBeInTheDocument();
   });

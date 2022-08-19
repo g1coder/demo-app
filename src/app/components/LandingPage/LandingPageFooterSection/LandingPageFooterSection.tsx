@@ -7,7 +7,8 @@ import {
   StyledTextContainer,
   StyledButtonContainer,
   StyledAboutInfoContainer,
-  StyledSubscribeContainer, StyledSubcribeButton,
+  StyledSubscribeContainer,
+  StyledSubcribeButton,
 } from './LandingPageFooterSectionStyles';
 import {StyledSectionPaddingWrapper} from 'app/components/LandingPage/LandingPageStyles';
 import {Typography} from '@mui/material';
@@ -18,26 +19,26 @@ import AppLogo from 'app/components/LandingPage/presets/header-logo.png';
 const LandingPageFooterSection = () => (
   <StyledLandingPageFooterSection>
     <StyledSectionPaddingWrapper>
-      <StyledSubscribeContainer>
-        <StyledSubscribeSection>
-          <StyledTextContainer>
-            <Typography variant="h5" textTransform="uppercase">
-              Subscribe
-            </Typography>
-            <Typography variant="h5" color="primary.dark">
-              Weekly newsletter
-            </Typography>
-          </StyledTextContainer>
-          <StyledActionContainer>
-            <TextField
-              placeholder="Your email addreess"
-              InputProps={{sx: {backgroundColor: '#fff', maxHeight: '48px'}}}
-              fullWidth
-            />
-            <StyledSubcribeButton title="Subscribe" variant="action" />
-          </StyledActionContainer>
-        </StyledSubscribeSection>
-      </StyledSubscribeContainer>
+      {/*<StyledSubscribeContainer>*/}
+      {/*  <StyledSubscribeSection>*/}
+      {/*    <StyledTextContainer>*/}
+      {/*      <Typography variant="h5" textTransform="uppercase">*/}
+      {/*        Subscribe*/}
+      {/*      </Typography>*/}
+      {/*      <Typography variant="h5" color="primary.dark">*/}
+      {/*        Weekly newsletter*/}
+      {/*      </Typography>*/}
+      {/*    </StyledTextContainer>*/}
+      {/*    <StyledActionContainer>*/}
+      {/*      <TextField*/}
+      {/*        placeholder="Your email addreess"*/}
+      {/*        InputProps={{sx: {backgroundColor: '#fff', maxHeight: '48px'}}}*/}
+      {/*        fullWidth*/}
+      {/*      />*/}
+      {/*      <StyledSubcribeButton title="Subscribe" variant="action" />*/}
+      {/*    </StyledActionContainer>*/}
+      {/*  </StyledSubscribeSection>*/}
+      {/*</StyledSubscribeContainer>*/}
 
       <StyledAboutContainer>
         <a href={AppRoutes.LANDING_PAGE.path}>

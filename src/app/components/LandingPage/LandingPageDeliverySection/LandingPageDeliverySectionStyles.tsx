@@ -14,6 +14,7 @@ export const StyledWaterSeparatorImage = styled('div')<{src: string}>(({src}) =>
   height: '100%',
   left: 0,
   right: 0,
+  maxHeight: '100vh',
 }));
 
 export const StyledInnerContainer = styled('div')(({theme: {breakpoints}}) => ({
@@ -24,7 +25,7 @@ export const StyledInnerContainer = styled('div')(({theme: {breakpoints}}) => ({
   paddingTop: 200,
   flexDirection: 'column',
   [breakpoints.up('md')]: {
-    flexDirection: 'row'
+    flexDirection: 'row',
   },
 }));
 
@@ -34,8 +35,8 @@ export const StyledManWithBottleImage = styled('img')(({theme: {breakpoints}}) =
   margin: 'auto',
   display: 'none',
   [breakpoints.up('xl')]: {
-    display: 'block'
-  }
+    display: 'block',
+  },
 }));
 
 export const StyledConditions = styled('div')(({theme: {breakpoints}}) => ({
@@ -43,7 +44,7 @@ export const StyledConditions = styled('div')(({theme: {breakpoints}}) => ({
   margin: 'auto',
   [breakpoints.up('md')]: {
     maxWidth: 350,
-    paddingRight: 32
+    paddingRight: 32,
   },
 }));
 

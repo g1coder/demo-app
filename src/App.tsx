@@ -9,11 +9,13 @@ import {IFormValues as ILoginFormValues} from 'app/components/AnonymousLayout/Lo
 import {IFormValues as ILoginResetPasswordFormValues} from 'app/components/AnonymousLayout/LoginResetPasswordForm';
 import AuthService from 'core/services/AuthService';
 import Toaster from 'core/components/Toaster';
+import {loadComponent} from 'core/services/ReactUtils';
 import AppRoutes from 'core/constants/AppRoutes';
 
 import MainLayout from 'app/components/MainLayout/MainLayout';
 import PageNotFound from 'app/components/PageNotFound/PageNotFound';
 import LandingPage from './app/components/LandingPage/LandingPage';
+const CatalogPage = loadComponent(() => import('features/catalog/pages/CatalogPage'));
 
 function App() {
   const toasterRef = useRef<any>();
@@ -27,7 +29,7 @@ function App() {
       const authUser = await AuthService.init();
       if (authUser) {
         setUser({name: authUser});
-        navigate(AppRoutes.COUNTRIES.path);
+        navigate(AppRoutes.LANDING_PAGE.path);
       }
     };
 
@@ -43,7 +45,7 @@ function App() {
           setUser({name: data.username});
         })
         .then(() => {
-          navigate(AppRoutes.COUNTRIES.path);
+          navigate(AppRoutes.LANDING_PAGE.path);
         })
         .catch((e) => {
           throw Error(e.message);
@@ -79,6 +81,7 @@ function App() {
             <Routes>
               <Route element={<MainLayout />}>
                 <Route index element={<LandingPage />} />
+                <Route path={AppRoutes.SHOP.path} element={<CatalogPage />} />
               </Route>
               <Route path={AppRoutes.LOGIN.path} element={<LoginPage onLogin={handleLogin} onReset={handleReset} />} />
               {/*<Route path="/profile" element={<MainLayout />}>*/}
