@@ -19,7 +19,7 @@ describe('MainLayout', () => {
       <MemoryRouter initialEntries={[route]}>
         <Routes>
           <Route path={AppRoutes.LOGIN.path} element={<div>{'Login page text'}</div>} />
-          <Route path="/" element={<MainLayout {...props} />}>
+          <Route path="/" element={<MainLayout />}>
             <Route path={AppRoutes.DASHBOARD.path} element={<div>{'Dasboard page text'}</div>} />
           </Route>
         </Routes>

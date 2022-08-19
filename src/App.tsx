@@ -1,5 +1,6 @@
 import React, {Suspense, useCallback, useEffect, useMemo, useRef, useState} from 'react';
 import {Route, Routes, useNavigate} from 'react-router-dom';
+import CssBaseline from '@mui/material/CssBaseline';
 import Spinner from 'core/components/Spinner';
 import LoginPage from 'app/components/AnonymousLayout/LoginPage';
 import ThemeProvider from 'core/themes/ThemeProvider';
@@ -12,8 +13,7 @@ import AppRoutes from 'core/constants/AppRoutes';
 
 import MainLayout from 'app/components/MainLayout/MainLayout';
 import PageNotFound from 'app/components/PageNotFound/PageNotFound';
-import LandingPage from "./app/components/LandingPage/LandingPage";
-
+import LandingPage from './app/components/LandingPage/LandingPage';
 
 function App() {
   const toasterRef = useRef<any>();
@@ -26,10 +26,10 @@ function App() {
     const fetchLogginedUser = async () => {
       const authUser = await AuthService.init();
       if (authUser) {
-        setUser({name: authUser})
+        setUser({name: authUser});
         navigate(AppRoutes.COUNTRIES.path);
       }
-    }
+    };
 
     if (!isAuthorized) {
       fetchLogginedUser();
@@ -71,22 +71,27 @@ function App() {
   const context = useMemo<IAppContext>(() => ({user, logout: handleLogout}), [user, handleLogout]);
 
   return (
-    <ThemeProvider>
-      <AppContext.Provider value={context}>
-        <Suspense fallback={<Spinner />}>
-          <Routes>
-            <Route index element={<LandingPage />} />
-            <Route path={AppRoutes.LOGIN.path} element={<LoginPage onLogin={handleLogin} onReset={handleReset} />} />
-            {/*<Route path="/profile" element={<MainLayout isAllowed={isAuthorized} />}>*/}
-            {/*  <Route path={AppRoutes.DASHBOARD.path} element={<DashboardPage />} />*/}
-            {/*</Route>*/}
-            <Route path="*" element={<PageNotFound redirectPath={AppRoutes.LOGIN.path} />} />
-          </Routes>
-        </Suspense>
-      </AppContext.Provider>
+    <>
+      <CssBaseline />
+      <ThemeProvider>
+        <AppContext.Provider value={context}>
+          <Suspense fallback={<Spinner />}>
+            <Routes>
+              <Route element={<MainLayout />}>
+                <Route index element={<LandingPage />} />
+              </Route>
+              <Route path={AppRoutes.LOGIN.path} element={<LoginPage onLogin={handleLogin} onReset={handleReset} />} />
+              {/*<Route path="/profile" element={<MainLayout />}>*/}
+              {/*  /!*<Route path={AppRoutes.DASHBOARD.path} element={<DashboardPage />} />*!/*/}
+              {/*</Route>*/}
+              <Route path="*" element={<PageNotFound redirectPath={'/'} />} />
+            </Routes>
+          </Suspense>
+        </AppContext.Provider>
 
-      <Toaster ref={toasterRef} />
-    </ThemeProvider>
+        <Toaster ref={toasterRef} />
+      </ThemeProvider>
+    </>
   );
 }
 

@@ -10,6 +10,9 @@ import CloseIcon from '@mui/icons-material/Close';
 import {IHeaderItem} from 'app/components/LandingPage/LandingPageHeader/LandingHeader';
 import {Link} from 'react-router-dom';
 import {DrawerProps} from '@mui/material/Drawer/Drawer';
+import AppRoutes from 'core/constants/AppRoutes';
+import CircleButton from 'core/components/Buttons/CircleButton';
+
 
 export const StyledHeader = styled('header')(({theme: {palette, spacing, breakpoints}}) => ({
   height: LANDING_PAGE_HEADER_HEIGHT,
@@ -24,7 +27,7 @@ export const StyledHeader = styled('header')(({theme: {palette, spacing, breakpo
   [breakpoints.up('lg' as any)]: {
     position: 'relative',
     margin: 'auto',
-    paddingTop: spacing(8),
+    paddingTop: spacing(4),
   },
   [breakpoints.up('exl' as any)]: {
     maxWidth: LANDING_PAGE_XL_CONTAINER_WIDTH,
@@ -46,6 +49,18 @@ export const StyledLogoContainer = styled('figure')(({theme: {breakpoints}}) => 
 export const StyledActionContainer = styled('div')(() => ({
   display: 'flex',
   alignItems: 'center',
+  width: '100%',
+  justifyContent: 'end'
+}));
+
+
+export const StyledInnerContainer = styled('div')(({theme: {breakpoints}}) => ({
+  display: 'none',
+  [breakpoints.up('xl')]: {
+    display: 'flex',
+    justifyContent: 'end',
+    width: '100%',
+  }
 }));
 
 export const StyledIconContainer = styled('div')(({theme: {breakpoints, palette}}) => ({
@@ -108,13 +123,40 @@ export const StyledCart = styled((props: any) => (
   },
 }));
 
+export const StyledAuthDrawerContainer = styled((props) => <div {...props}>
+  <CircleButton title="Sign up" variant="secondary" size="small" component="a" href={AppRoutes.LOGIN.path} color="#fff" />
+  <Typography variant="caption" fontWeight={900} color="primary.dark" component={Link} to={AppRoutes.LOGIN.path}>Sign in</Typography>
+</div>)(({theme: {spacing, breakpoints}}) => ({
+  position: 'absolute',
+  bottom: 0,
+  right: 0,
+  padding: spacing(0, 5, 5, 0),
+  display: 'flex',
+  justifyContent: 'end',
+  alignItems: 'center',
+  width: '100%',
+  '& > a': {
+    textDecoration: 'none',
+    margin: spacing(2),
+  },
+  [breakpoints.up('lg')]: {
+    position: 'relative',
+    flexDirection: 'row-reverse',
+    padding: spacing(0, 4, 0, 0),
+    maxWidth: 300,
+    '& > a': {
+      color: '#fff'
+    }
+  }
+}));
+
 interface IDrawerProps extends DrawerProps {
   items: IHeaderItem[];
   open: boolean;
   onClose: () => void;
 }
 
-const StyledNavigationMenu = styled(({items, ...rest}: Pick<IDrawerProps, 'items'>) => (
+export const StyledNavigationMenu = styled(({items, ...rest}: Pick<IDrawerProps, 'items'>) => (
   <nav {...rest}>
     {items.map((item) => (
       <ul key={item.name}>
@@ -142,20 +184,13 @@ const StyledNavigationMenu = styled(({items, ...rest}: Pick<IDrawerProps, 'items
   },
 }));
 
-export const StyledNav = styled(StyledNavigationMenu)(({theme: {breakpoints}}) => ({
-  marginRight: 48,
-  display: 'none',
-  [breakpoints.up('xl')]: {
-    display: 'block',
-  },
-}));
-
 const StyledDrawerNav = styled(({items, onClose, ...rest}: Pick<IDrawerProps, 'items' | 'onClose'>) => (
   <div {...rest}>
     <span>
       <CloseIcon fontSize="large" onClick={onClose} />
     </span>
     <StyledNavigationMenu items={items} />
+    <StyledAuthDrawerContainer />
   </div>
 ))(({theme: {palette, breakpoints}}) => ({
   height: '100%',

@@ -1,4 +1,4 @@
-import {memo} from 'react';
+import {ElementType, memo} from 'react';
 import {styled} from '@mui/material/styles';
 import {ButtonBase, ButtonBaseProps, Typography} from '@mui/material';
 
@@ -7,6 +7,8 @@ interface IProps extends ButtonBaseProps {
   size?: 'regular' | 'small';
   variant?: 'primary' | 'secondary' | 'action';
   disabled?: boolean;
+  component?: ElementType;
+  href?: string;
 }
 
 const StyledCircleButton = styled(ButtonBase)<IProps>(({theme: {spacing, palette}, size, variant, disabled}) => ({
@@ -21,18 +23,23 @@ const StyledCircleButton = styled(ButtonBase)<IProps>(({theme: {spacing, palette
   transition: 'all .3s ease',
   boxShadow: '0 10px 30px rgb(17 44 145 / 30%)',
   opacity: disabled ? 0.5 : 1,
-
+  '& > a': {
+    textDecoration: 'none',
+  },
   '&:hover': {
     color: variant === 'action' ? '#fff' : palette.primary.dark,
     backgroundColor: variant === 'action' ? palette.secondary.main : '#fff',
+    '& > a:hover': {
+      color: variant === 'action' ? '#fff' : palette.primary.dark,
+    },
   },
 }));
 
-const CircleButton = (props: IProps) => {
+const CircleButton = ({component, href, ...rest}: IProps) => {
   return (
-    <StyledCircleButton {...props}>
-      <Typography component="a" variant={props.size === 'small' ? 'caption' : 'body2'}>
-        {props.title}
+    <StyledCircleButton {...rest}>
+      <Typography component={component || 'p'} variant={rest.size === 'small' ? 'caption' : 'body2'} href={href}>
+        {rest.title}
       </Typography>
     </StyledCircleButton>
   );

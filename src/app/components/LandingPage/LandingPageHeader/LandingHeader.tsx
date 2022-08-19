@@ -8,8 +8,8 @@ import {
   StyledHeader,
   StyledIconContainer,
   StyledLogoContainer,
-  StyledNav,
   StyledActionContainer,
+  StyledAuthDrawerContainer, StyledInnerContainer, StyledNavigationMenu,
 } from './LandingHeaderStyles';
 import AppLogo from 'app/components/LandingPage/presets/header-logo.png';
 import CartStore from 'store/CartStore';
@@ -39,13 +39,15 @@ const LandingHeader = observer(() => {
       </StyledLogoContainer>
 
       <StyledActionContainer>
-        <StyledNav items={items} />
+        <StyledInnerContainer>
+          <StyledNavigationMenu items={items} />
+          <StyledAuthDrawerContainer />
+        </StyledInnerContainer>
         <StyledIconContainer>
           <StyledCart count={CartStore.count} />
           <MenuIcon onClick={toggleDrawer} />
         </StyledIconContainer>
       </StyledActionContainer>
-
       <StyledDrawer anchor="right" open={isDrawerOpen} onClose={toggleDrawer} items={items} />
     </StyledHeader>
   );
