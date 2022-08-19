@@ -3,7 +3,7 @@ import {ComponentStory, ComponentMeta} from '@storybook/react';
 import CircleButton from '/src/core/components/Buttons/CircleButton';
 
 export default {
-  title: 'components/CircleButton',
+  title: 'core/components/CircleButton',
   component: CircleButton,
 } as ComponentMeta<typeof CircleButton>;
 
