@@ -16,9 +16,10 @@
     "noEmit": true,
     "jsx": "react-jsx",
     "baseUrl": "src",
-    "rootDirs": ["src"],
+    "rootDirs": ["src", "stories"],
     "noImplicitAny": false,
-    "experimentalDecorators": true
+    "experimentalDecorators": true,
+    "typeRoots": ["node_modules/@types", "src/@types"]
   },
-  "include": ["src/**/*", "src/@types/moxios.d.ts"]
+  "include": ["src/**/*", "src/@types/moxios.d.ts", "stories/**/*"]
 }
