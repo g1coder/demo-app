@@ -11,7 +11,9 @@ import {
   StyledTextInfoContainer,
   StyledCardActions,
   StyledButtonContainer,
-  StyledCardMedia, StyledReadMoreButton,
+  StyledCardMedia,
+  StyledReadMoreButton,
+  StyledCardMediaContainer,
 } from './LandingPageRecentPostsSectionStyles';
 import CircleButton from 'core/components/Buttons/CircleButton';
 import VisibilityIcon from '@mui/icons-material/Visibility';
@@ -54,41 +56,39 @@ const posts = [
 
 const LandingPageRecentPostsSection = () => (
   <StyledSectionPaddingWrapper>
-      <LandingPageSectionHeader title="Recent posts" subtitle="Our Blog" />
-      <StyledPostsContainer>
-        {posts.map((p) => (
-          <StyledCard key={p.id}>
-            <StyledCardMedia
-              component="img"
-              image={p.image}
-              alt="post image"
-            />
-            <CardContent sx={{padding: '30px 35px 0', overflow: 'hidden'}}>
-              <StyledTitle title={p.title} to="#" />
-              <StyledText variant="body1" color="primary.dark">
-                {p.text}
-              </StyledText>
-            </CardContent>
-            <StyledCardActions>
-              <StyledTextInfoContainer variant="body2">
-                <span>{dayjs(p.date).format('MMMM DD, YYYY')}</span>
-                <StyledIconWithText variant="body2">
-                  <VisibilityIcon />
-                  {p.viewCount}
-                </StyledIconWithText>
-                <StyledIconWithText variant="body2">
-                  <CommentOutlinedIcon />
-                  {p.comments}
-                </StyledIconWithText>
-              </StyledTextInfoContainer>
-              <StyledReadMoreButton title="Read more" variant="secondary" size="small" />
-            </StyledCardActions>
-          </StyledCard>
-        ))}
-      </StyledPostsContainer>
-      <StyledButtonContainer>
-        <CircleButton title="Read more" variant="secondary" size="small" />
-      </StyledButtonContainer>
+    <LandingPageSectionHeader title="Recent posts" subtitle="Our Blog" />
+    <StyledPostsContainer>
+      {posts.map((p) => (
+        <StyledCard key={p.id}>
+          <StyledCardMediaContainer>
+            <StyledCardMedia component="img" image={p.image} alt="post image" />
+          </StyledCardMediaContainer>
+          <CardContent sx={{padding: '30px 35px 0', overflow: 'hidden'}}>
+            <StyledTitle title={p.title} to="#" />
+            <StyledText variant="body1" color="primary.dark">
+              {p.text}
+            </StyledText>
+          </CardContent>
+          <StyledCardActions>
+            <StyledTextInfoContainer variant="body2">
+              <span>{dayjs(p.date).format('MMMM DD, YYYY')}</span>
+              <StyledIconWithText variant="body2">
+                <VisibilityIcon />
+                {p.viewCount}
+              </StyledIconWithText>
+              <StyledIconWithText variant="body2">
+                <CommentOutlinedIcon />
+                {p.comments}
+              </StyledIconWithText>
+            </StyledTextInfoContainer>
+            <StyledReadMoreButton title="Read more" variant="secondary" size="small" />
+          </StyledCardActions>
+        </StyledCard>
+      ))}
+    </StyledPostsContainer>
+    <StyledButtonContainer>
+      <CircleButton title="Read more" variant="secondary" size="small" />
+    </StyledButtonContainer>
   </StyledSectionPaddingWrapper>
 );
 

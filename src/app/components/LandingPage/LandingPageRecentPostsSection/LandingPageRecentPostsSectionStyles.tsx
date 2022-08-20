@@ -10,8 +10,8 @@ export const StyledPostsContainer = styled('div')(({theme: {spacing, breakpoints
   padding: spacing(5, 0),
   flexFlow: 'row wrap',
   [breakpoints.up('xl')]: {
-    flexFlow: 'row nowrap'
-  }
+    flexFlow: 'row nowrap',
+  },
 }));
 
 export const StyledCard = styled(Card)(({theme: {spacing, breakpoints}}) => ({
@@ -26,6 +26,11 @@ export const StyledCard = styled(Card)(({theme: {spacing, breakpoints}}) => ({
     minHeight: spacing(78),
     width: '33.3%',
   },
+}));
+
+export const StyledCardMediaContainer = styled('div')(() => ({
+  position: 'relative',
+  overflow: 'hidden',
 }));
 
 export const StyledCardMedia = styled(CardMedia)<{component: string; alt: string}>(() => ({
@@ -56,7 +61,7 @@ export const StyledTitle = styled((props: IStyledTitle) => (
     transition: 'all 0.5s ease',
   },
   [breakpoints.up('md')]: {
-    fontSize: 30
+    fontSize: 30,
   },
 }));
 
@@ -98,12 +103,12 @@ export const StyledIconWithText = styled(Typography)(({theme: {palette, spacing}
   },
 }));
 
-export const StyledReadMoreButton = styled(CircleButton)(({theme: {spacing,breakpoints}}) => ({
+export const StyledReadMoreButton = styled(CircleButton)(({theme: {spacing, breakpoints}}) => ({
   marginTop: spacing(2),
   [breakpoints.up('md')]: {
-    marginTop: 'auto'
+    marginTop: 'auto',
   },
-})); 
+}));
 
 export const StyledButtonContainer = styled('div')(({theme: {spacing}}) => ({
   width: '100%',

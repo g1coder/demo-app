@@ -76,6 +76,7 @@ const defaultTheme = (themeOptions: ThemeOptions = {}): ThemeOptions => {
         fontWeight: 500,
         lineHeight: 1.3,
         letterSpacing: '0.15px',
+        color: palette.text.whitePrimary,
       },
       subtitle1: {
         fontSize: 18,
@@ -94,6 +95,7 @@ const defaultTheme = (themeOptions: ThemeOptions = {}): ThemeOptions => {
         fontWeight: 400,
         lineHeight: 1.4,
         letterSpacing: '0.25px',
+        color: palette.text.whitePrimary,
       },
       button: {
         fontSize: 14,
@@ -117,7 +119,7 @@ const defaultTheme = (themeOptions: ThemeOptions = {}): ThemeOptions => {
     themeOptions.typography
   );
 
-  return  {palette, breakpoints, typography}
+  return {palette, breakpoints, typography};
 };
 
 export default defaultTheme;

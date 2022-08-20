@@ -1,7 +1,7 @@
 import {styled} from '@mui/material/styles';
 import Card from '@mui/material/Card';
 
-export const StyledContainer = styled(Card)(({theme}) => ({
+export const StyledContainer = styled(Card)(() => ({
   margin: 'auto',
   maxWidth: 360,
   minHeight: 600,

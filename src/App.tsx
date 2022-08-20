@@ -15,7 +15,7 @@ import AppRoutes from 'core/constants/AppRoutes';
 import MainLayout from 'app/components/MainLayout/MainLayout';
 import PageNotFound from 'app/components/PageNotFound/PageNotFound';
 import LandingPage from './app/components/LandingPage/LandingPage';
-const CatalogPage = loadComponent(() => import('features/catalog/pages/CatalogPage'));
+const CatalogPage = loadComponent(() => import('features/shop/pages/CatalogPage'));
 
 function App() {
   const toasterRef = useRef<any>();

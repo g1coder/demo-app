@@ -4,13 +4,13 @@ import {Card} from '@mui/material';
 
 interface IProps {}
 
-const StyledContainer = styled(Card)(({theme}) => ({
+const StyledContainer = styled(Card)(() => ({
   height: 800,
   width: 360,
   backgroundColor: '#f1f6fb',
 }));
 
-const FilterPanel = (props: IProps) => {
+const FilterPanel = () => {
   return (
     <StyledContainer>
       <div style={{display: 'block'}}>Filter</div>
