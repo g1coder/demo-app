@@ -2,7 +2,7 @@ import {styled} from '@mui/material/styles';
 import {Drawer, Fab, Typography} from '@mui/material';
 import {
   LANDING_PAGE_HEADER_HEIGHT,
-  LANDING_PAGE_HEADER_ORDER,
+  MAIN_LAYOUT_HEADER_ORDER,
   LANDING_PAGE_XL_CONTAINER_WIDTH,
   MAIN_LAYOUT_HEADER_BG,
 } from 'app/constants/constants';
@@ -22,7 +22,7 @@ export const StyledHeader = styled('header')(({theme: {spacing, breakpoints}}) =
   justifyContent: 'space-between',
   alignItems: 'center',
   position: 'fixed',
-  zIndex: LANDING_PAGE_HEADER_ORDER,
+  zIndex: MAIN_LAYOUT_HEADER_ORDER,
   backgroundColor: MAIN_LAYOUT_HEADER_BG,
   [breakpoints.up('lg')]: {
     position: 'relative',

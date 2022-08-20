@@ -17,7 +17,6 @@ import {
 import CircleButton from 'core/components/Buttons/CircleButton';
 import BottleImage from './slider-dark-bottle.png';
 import ArrowUpwardOutlinedIcon from '@mui/icons-material/ArrowUpwardOutlined';
-import CartStore from 'store/CartStore';
 import {StyledMainLayoutWrapper} from 'app/components/MainLayout/MainLayout';
 
 import SlideIcon1 from './presets/mountain1.jpg';
@@ -43,9 +42,7 @@ const LandingPageMainSection = () => {
   });
 
   const handleReadMore = useCallback(() => {}, []);
-  const handleMakeOrder = useCallback(() => {
-    CartStore.increase();
-  }, []);
+  const handleMakeOrder = useCallback(() => {}, []);
 
   const {targetRef, isTargetHidden, onScroll} = useScrollTop();
 

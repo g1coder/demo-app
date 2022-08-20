@@ -8,7 +8,7 @@ import Paper from '@mui/material/Paper';
 
 export const StyledWaterSeparatorImage = styled('div')<{src: string}>(({src}) => ({
   backgroundImage: `url(${src})`,
-  backgroundSize: 'contain',
+  backgroundSize: 'cover',
   backgroundRepeat: 'no-repeat',
   position: 'absolute',
   height: '100%',

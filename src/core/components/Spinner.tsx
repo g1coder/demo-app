@@ -6,6 +6,13 @@ const StyledContainer = styled('div')(({theme}) => ({
   textAlign: 'center',
   padding: theme.spacing(8, 0),
   userSelect: 'none',
+
+  width: '100%',
+  height: '100%',
+  display: 'flex',
+  alignItems: 'center',
+  justifyContent: 'center',
+
   '& p': {
     color: '#aaa',
     padding: theme.spacing(),

@@ -1,4 +1,18 @@
-import axios, {AxiosResponse} from 'axios';
+import axios, {AxiosResponse, AxiosRequestTransformer} from 'axios';
+
+const defaultConfig = axios.defaults;
+
+//set proper response format for lists
+(defaultConfig.transformResponse as AxiosRequestTransformer[]).push((data) => {
+  let extractedData;
+  if (data && data.objects) {
+    extractedData = data.objects;
+    extractedData.$meta = data.meta;
+  } else {
+    extractedData = data;
+  }
+  return extractedData;
+});
 
 const proxy = (func: (...args: any[]) => Promise<AxiosResponse>) => {
   return <T = any>(...args: any[]): Promise<T> => {

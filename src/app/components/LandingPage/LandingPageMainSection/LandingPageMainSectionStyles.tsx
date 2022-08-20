@@ -7,6 +7,7 @@ export const StyledSectionContainer = styled('div')(({theme: {breakpoints}}) => 
   position: 'relative',
   paddingBottom: 32,
   height: `calc(100vh - ${LANDING_PAGE_HEADER_HEIGHT}px)`,
+  minHeight: 600,
   [breakpoints.up('md')]: {
     height: `calc(90vh - ${LANDING_PAGE_HEADER_HEIGHT}px)`,
   },
@@ -48,6 +49,8 @@ export const StyledSlideImage = styled(animated.div)<{bg: string}>(({theme: {spa
 
 export const StyledBottleImage = styled('img')(({theme: {breakpoints}}) => ({
   display: 'none',
+  backgroundSize: 'cover',
+  maxHeight: '100%',
   [breakpoints.up('xl')]: {
     display: 'block',
     position: 'absolute',
