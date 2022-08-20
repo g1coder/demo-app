@@ -18,7 +18,7 @@ import {
 import CircleButton from 'core/components/Buttons/CircleButton';
 import VisibilityIcon from '@mui/icons-material/Visibility';
 import CommentOutlinedIcon from '@mui/icons-material/CommentOutlined';
-import {StyledSectionPaddingWrapper} from 'app/components/LandingPage/LandingPageStyles';
+import {StyledMainLayoutWrapper} from 'app/components/MainLayout/MainLayout';
 
 import RecentImage1 from './presets/recent_post1.jpg';
 import RecentImage2 from './presets/recent_post2.jpg';
@@ -55,7 +55,7 @@ const posts = [
 ];
 
 const LandingPageRecentPostsSection = () => (
-  <StyledSectionPaddingWrapper>
+  <StyledMainLayoutWrapper>
     <LandingPageSectionHeader title="Recent posts" subtitle="Our Blog" />
     <StyledPostsContainer>
       {posts.map((p) => (
@@ -89,7 +89,7 @@ const LandingPageRecentPostsSection = () => (
     <StyledButtonContainer>
       <CircleButton title="Read more" variant="secondary" size="small" />
     </StyledButtonContainer>
-  </StyledSectionPaddingWrapper>
+  </StyledMainLayoutWrapper>
 );
 
 export default LandingPageRecentPostsSection;

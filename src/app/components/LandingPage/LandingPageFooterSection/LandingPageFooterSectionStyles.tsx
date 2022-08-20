@@ -1,15 +1,10 @@
 import {styled} from '@mui/material/styles';
-import {Fab} from '@mui/material';
-import TwitterIcon from '@mui/icons-material/Twitter';
-import React from 'react';
-import FacebookOutlinedIcon from '@mui/icons-material/FacebookOutlined';
-import InstagramIcon from '@mui/icons-material/Instagram';
-import GoogleIcon from '@mui/icons-material/Google';
 import CircleButton from 'core/components/Buttons/CircleButton';
 
-export const StyledLandingPageFooterSection = styled('footer')(() => ({
-  backgroundColor: '#002579',
-  position: 'relative'
+export const StyledLandingPageFooterSection = styled('section')(() => ({
+  position: 'relative',
+  height: 0,
+  zIndex: 2,
 }));
 
 export const StyledSubscribeContainer = styled('div')(() => ({
@@ -40,8 +35,8 @@ export const StyledTextContainer = styled('div')(({theme: {spacing, breakpoints}
     textAlign: 'left',
     display: 'flex',
     flexDirection: 'column',
-    margin: 0
-  }
+    margin: 0,
+  },
 }));
 
 export const StyledActionContainer = styled('div')(({theme: {spacing, breakpoints}}) => ({
@@ -51,7 +46,7 @@ export const StyledActionContainer = styled('div')(({theme: {spacing, breakpoint
   [breakpoints.up('md')]: {
     display: 'flex',
     minWidth: 500,
-  }
+  },
 }));
 
 export const StyledSubcribeButton = styled(CircleButton)(({theme: {breakpoints}}) => ({
@@ -62,58 +57,6 @@ export const StyledSubcribeButton = styled(CircleButton)(({theme: {breakpoints}}
     marginTop: 0,
   },
   [breakpoints.up('lg')]: {
-    right: -30
-  }
-}));
-
-export const StyledAboutContainer = styled('div')(({theme: {spacing, breakpoints}}) => ({
-  maxWidth: 700,
-  margin: `0 auto`,
-  textAlign: 'center',
-  padding: spacing(20, 0, 5),
-  [breakpoints.up('lg')]: {
-    paddingTop: spacing(15)
-  }
-}));
-
-export const StyledButtonContainer = styled((props) => (
-  <ul {...props}>
-    {[<TwitterIcon />, <FacebookOutlinedIcon />, <InstagramIcon />, <GoogleIcon />].map((icon, index) => (
-      <li key={index}>
-        <Fab sx={{color: 'primary.dark', backgroundColor: '#fff'}} component="a" href={'#'}>
-          {icon}
-        </Fab>
-      </li>
-    ))}
-  </ul>
-))(({theme: {spacing, palette}}) => ({
-  listStyleType: 'none',
-  padding: 0,
-  margin: 0,
-  '& > li': {
-    display: 'inline-block',
-    margin: spacing(0, 0.75),
-    '& > a:hover': {
-      backgroundColor: palette.primary.light
-    }
-  },
-}));
-
-
-export const StyledAboutInfoContainer = styled('div')(({theme: {palette, spacing}}) => ({
-  display: 'flex',
-  justifyContent: 'center',
-  backgroundColor: '#001c5c',
-  color: palette.text.whitePrimary,
-  padding: spacing(4, 0),
-  '& > a': {
-    fontFamily: 'sans-serif',
-    textDecoration: 'none',
-    color: palette.primary.light,
-    marginRight: spacing(2),
-    transition: 'color 0.3s ease',
-    '&:hover': {
-      color: palette.text.whitePrimary,
-    },
+    right: -30,
   },
 }));

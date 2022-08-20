@@ -3,14 +3,16 @@ import Swiper from 'core/components/Swiper/Swiper';
 import LandingPageSectionHeader from 'app/components/LandingPage/LandingPageSectionHeader';
 import {Avatar, Typography} from '@mui/material';
 import {
-  StyledAvatarContainer, StyledButtonContainer,
-  StyledLandingPageReviewSection, StyledSectionBg,
+  StyledAvatarContainer,
+  StyledButtonContainer,
+  StyledLandingPageReviewSection,
+  StyledSectionBg,
   StyledSwiperContainer,
   StyledSwiperSlideContent,
   StyledSwiperSlideInnerContainer,
 } from './LandingPageReviewSectionStyled';
-import {StyledSectionPaddingWrapper} from 'app/components/LandingPage/LandingPageStyles';
 import AvatarMock from './avatar1.jpg';
+import {StyledMainLayoutWrapper} from 'app/components/MainLayout/MainLayout';
 
 const reviews = [
   {
@@ -41,37 +43,41 @@ const reviews = [
 ];
 
 const LandingPageReviewSection = () => {
-  const slides = useMemo(() => reviews.map(({name, position, text}) => (
-    <StyledSwiperSlideContent elevation={8} key={name}>
-      <StyledSwiperSlideInnerContainer>
-        <StyledAvatarContainer>
-          <Avatar src={AvatarMock} sx={{width: 100, height: 100}} />
-          <div>
+  const slides = useMemo(
+    () =>
+      reviews.map(({name, position, text}) => (
+        <StyledSwiperSlideContent elevation={8} key={name}>
+          <StyledSwiperSlideInnerContainer>
+            <StyledAvatarContainer>
+              <Avatar src={AvatarMock} sx={{width: 100, height: 100}} />
+              <div>
+                <Typography variant="h5" color="primary.dark" fontWeight={600}>
+                  {name}
+                </Typography>
+                <Typography variant="body2" color="primary.light">
+                  {position}
+                </Typography>
+              </div>
+            </StyledAvatarContainer>
             <Typography variant="h5" color="primary.dark" fontWeight={600}>
-              {name}
+              {text}
             </Typography>
-            <Typography variant="body2" color="primary.light">
-              {position}
-            </Typography>
-          </div>
-        </StyledAvatarContainer>
-        <Typography variant="h5" color="primary.dark" fontWeight={600}>
-          {text}
-        </Typography>
-      </StyledSwiperSlideInnerContainer>
-    </StyledSwiperSlideContent>
-  )), []);
+          </StyledSwiperSlideInnerContainer>
+        </StyledSwiperSlideContent>
+      )),
+    []
+  );
 
   return (
     <StyledLandingPageReviewSection>
       <StyledSectionBg />
-      <StyledSectionPaddingWrapper>
+      <StyledMainLayoutWrapper>
         <LandingPageSectionHeader title="What our clients say" subtitle="Testimonials" />
         <StyledSwiperContainer>
           <Swiper slides={slides} spaceBetween={50} slidesPerView={1} autoplay loop />
         </StyledSwiperContainer>
         <StyledButtonContainer title="View more" variant="secondary" size="small" />
-      </StyledSectionPaddingWrapper>
+      </StyledMainLayoutWrapper>
     </StyledLandingPageReviewSection>
   );
 };

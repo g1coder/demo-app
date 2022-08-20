@@ -11,8 +11,8 @@ import {
 } from './LandingPageAboutSectionStyles';
 import {Typography} from '@mui/material';
 import CircleButton from 'core/components/Buttons/CircleButton';
+import {StyledMainLayoutWrapper} from 'app/components/MainLayout/MainLayout';
 import LandingPageSectionHeader from 'app/components/LandingPage/LandingPageSectionHeader';
-import {StyledSectionPaddingWrapper} from 'app/components/LandingPage/LandingPageStyles';
 
 import VideoMockImage from './presets/video-mock.png';
 import ItemIcon1 from './presets/icon-blue-1.png';
@@ -33,7 +33,7 @@ const LandingPageAboutSection = () => {
   const handleReadMore = useCallback(() => {}, []);
 
   return (
-    <StyledSectionPaddingWrapper>
+    <StyledMainLayoutWrapper>
       <StyledSectionContainer>
         <LandingPageSectionHeader title="About Aquaterias" subtitle="Water Skills" />
 
@@ -64,11 +64,7 @@ const LandingPageAboutSection = () => {
               allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
               allowFullScreen
             />
-            <StyledAboutVideoImage
-              hide={playVideo}
-              src={VideoMockImage}
-              alt="video preset image"
-            />
+            <StyledAboutVideoImage hide={playVideo} src={VideoMockImage} alt="video preset image" />
             <StyledPlayButton onClick={startVideo} hide={playVideo}>
               <svg viewBox="0 0 512 512">
                 <g>
@@ -92,7 +88,7 @@ const LandingPageAboutSection = () => {
           ))}
         </StyledTextImageContainer>
       </StyledSectionContainer>
-    </StyledSectionPaddingWrapper>
+    </StyledMainLayoutWrapper>
   );
 };
 

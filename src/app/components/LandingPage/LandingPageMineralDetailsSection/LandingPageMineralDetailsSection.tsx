@@ -5,10 +5,11 @@ import {
   StyledContentColumn,
   StyledContentContainer,
   StyledSectionContainer,
-  StyledBottleContainer, StyledBottleBg,
+  StyledBottleContainer,
+  StyledBottleBg,
 } from './LandingPageMineralDetailsSectionStyles';
-import {StyledSectionPaddingWrapper} from 'app/components/LandingPage/LandingPageStyles';
 import BottleDark from './bottle-dark-3.png';
+import {StyledMainLayoutWrapper} from 'app/components/MainLayout/MainLayout';
 
 const details = [
   {
@@ -46,7 +47,7 @@ const details = [
 const LandingPageMineralDetailsSection = () => {
   return (
     <StyledSectionContainer>
-      <StyledSectionPaddingWrapper>
+      <StyledMainLayoutWrapper>
         <LandingPageSectionHeader title="Mineral composition" subtitle="What inside" />
         <StyledContentContainer>
           <StyledContentColumn>
@@ -62,7 +63,7 @@ const LandingPageMineralDetailsSection = () => {
             ))}
           </StyledContentColumn>
         </StyledContentContainer>
-      </StyledSectionPaddingWrapper>
+      </StyledMainLayoutWrapper>
     </StyledSectionContainer>
   );
 };

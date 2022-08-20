@@ -12,7 +12,7 @@ import {
   StyledAuthDrawerContainer,
   StyledInnerContainer,
   StyledNavigationMenu,
-} from './LandingHeaderStyles';
+} from 'app/components/MainLayout/MainLayoutHeader/MainLayoutHeaderStyles';
 import AppLogo from 'app/components/LandingPage/presets/header-logo.png';
 import CartStore from 'store/CartStore';
 
@@ -29,7 +29,7 @@ const items: IHeaderItem[] = [
   {name: 'Contacts', url: '#'},
 ];
 
-const LandingHeader = observer(() => {
+const MainLayoutHeader = observer(() => {
   const [isDrawerOpen, toggleDrawer] = useReducer((state) => !state, false);
 
   return (
@@ -55,4 +55,4 @@ const LandingHeader = observer(() => {
   );
 });
 
-export default LandingHeader;
+export default MainLayoutHeader;

@@ -4,10 +4,11 @@ import {
   LANDING_PAGE_HEADER_HEIGHT,
   LANDING_PAGE_HEADER_ORDER,
   LANDING_PAGE_XL_CONTAINER_WIDTH,
+  MAIN_LAYOUT_HEADER_BG,
 } from 'app/constants/constants';
 import ShoppingCartIcon from '@mui/icons-material/ShoppingCart';
 import CloseIcon from '@mui/icons-material/Close';
-import {IHeaderItem} from 'app/components/LandingPage/LandingPageHeader/LandingHeader';
+import {IHeaderItem} from 'app/components/MainLayout/MainLayoutHeader/MainLayoutHeader';
 import {Link} from 'react-router-dom';
 import {DrawerProps} from '@mui/material/Drawer/Drawer';
 import AppRoutes from 'core/constants/AppRoutes';
@@ -22,6 +23,7 @@ export const StyledHeader = styled('header')(({theme: {spacing, breakpoints}}) =
   alignItems: 'center',
   position: 'fixed',
   zIndex: LANDING_PAGE_HEADER_ORDER,
+  backgroundColor: MAIN_LAYOUT_HEADER_BG,
   [breakpoints.up('lg')]: {
     position: 'relative',
     margin: 'auto',

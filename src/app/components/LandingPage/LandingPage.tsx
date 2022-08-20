@@ -5,6 +5,7 @@ import LandingPageDeliverySection from './LandingPageDeliverySection/LandingPage
 import LandingPageMineralDetailsSection from './LandingPageMineralDetailsSection/LandingPageMineralDetailsSection';
 import LandingPageReviewSection from 'app/components/LandingPage/LandingPageReviewSection/LandingPageReviewSection';
 import LandingPageRecentPostsSection from 'app/components/LandingPage/LandingPageRecentPostsSection/LandingPageRecentPostsSection';
+import LandingPageFooterSection from 'app/components/LandingPage/LandingPageFooterSection/LandingPageFooterSection';
 
 const LandingPage = () => {
   return (
@@ -15,6 +16,7 @@ const LandingPage = () => {
       <LandingPageMineralDetailsSection />
       <LandingPageReviewSection />
       <LandingPageRecentPostsSection />
+      <LandingPageFooterSection />
     </>
   );
 };

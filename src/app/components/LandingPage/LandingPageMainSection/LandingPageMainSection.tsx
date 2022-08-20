@@ -1,5 +1,6 @@
 import React, {useCallback, useReducer} from 'react';
 import {useTransition} from '@react-spring/web';
+import useScrollTop from 'core/hooks/useScrollTop';
 import {
   StyledInnerFirstTypography,
   StyledInnerSecondTypography,
@@ -14,18 +15,17 @@ import {
   StyledScrollTopButton,
 } from './LandingPageMainSectionStyles';
 import CircleButton from 'core/components/Buttons/CircleButton';
-import {StyledSectionPaddingWrapper} from 'app/components/LandingPage/LandingPageStyles';
 import BottleImage from './slider-dark-bottle.png';
-import useScrollTop from 'core/hooks/useScrollTop';
 import ArrowUpwardOutlinedIcon from '@mui/icons-material/ArrowUpwardOutlined';
 import CartStore from 'store/CartStore';
+import {StyledMainLayoutWrapper} from 'app/components/MainLayout/MainLayout';
 
 import SlideIcon1 from './presets/mountain1.jpg';
 import SlideIcon2 from './presets/mountain2.jpg';
 import SlideIcon3 from './presets/mountain3.jpg';
 import SlideIcon4 from './presets/mountain4.jpg';
 
-const icons = [SlideIcon1, SlideIcon2, SlideIcon3, SlideIcon4]
+const icons = [SlideIcon1, SlideIcon2, SlideIcon3, SlideIcon4];
 
 const LandingPageMainSection = () => {
   const [index, setIndex] = useReducer((state) => (state + 1) % icons.length, 1);
@@ -50,7 +50,7 @@ const LandingPageMainSection = () => {
   const {targetRef, isTargetHidden, onScroll} = useScrollTop();
 
   return (
-    <StyledSectionPaddingWrapper ref={targetRef}>
+    <StyledMainLayoutWrapper ref={targetRef}>
       <StyledSectionContainer>
         <StyledSliderContainer>
           {transitions((style, i) => (
@@ -79,7 +79,7 @@ const LandingPageMainSection = () => {
       <StyledScrollTopButton isVisible={isTargetHidden} onClick={onScroll}>
         <ArrowUpwardOutlinedIcon />
       </StyledScrollTopButton>
-    </StyledSectionPaddingWrapper>
+    </StyledMainLayoutWrapper>
   );
 };
 

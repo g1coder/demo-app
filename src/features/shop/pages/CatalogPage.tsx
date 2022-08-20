@@ -1,11 +1,11 @@
 import React from 'react';
 import {Grid} from '@mui/material';
+import {styled} from '@mui/material/styles';
 import IBaseProduct from 'features/shop/models/IBaseProduct';
 import ProductCard from 'features/shop/components/ProductCard/ProductCard';
 import FilterPanel from 'features/shop/components/FilterPanel/FilterPanel';
-import {StyledSectionPaddingWrapper} from 'app/components/LandingPage/LandingPageStyles';
-import {styled} from '@mui/material/styles';
 import {LANDING_PAGE_HEADER_HEIGHT} from 'app/constants/constants';
+import {StyledMainLayoutWrapper} from 'app/components/MainLayout/MainLayout';
 
 const products: IBaseProduct[] = Array.from(Array(8)).map((i) => ({
   id: `${i}`,
@@ -32,7 +32,7 @@ const StyledContentContainer = styled('div')(() => ({
 
 const CatalogPage = () => {
   return (
-    <StyledSectionPaddingWrapper>
+    <StyledMainLayoutWrapper>
       <StyledContainer />
       <StyledContentContainer>
         <Grid container columns={{xs: 1, sm: 1, md: 1, xl: 12}} spacing={2} flexWrap="nowrap">
@@ -57,7 +57,7 @@ const CatalogPage = () => {
           </Grid>
         </Grid>
       </StyledContentContainer>
-    </StyledSectionPaddingWrapper>
+    </StyledMainLayoutWrapper>
   );
 };
 
