@@ -16,3 +16,16 @@ export const StyledContentContainer = styled('div')(() => ({
   zIndex: MAIN_LAYOUT_HEADER_ORDER - 1,
   paddingBottom: 40,
 }));
+
+export const StyledMetaContainer = styled('div')(({theme: {spacing, breakpoints}}) => ({
+  padding: spacing(2),
+  [breakpoints.up('md')]: {
+    padding: spacing(2, 0),
+  },
+  [breakpoints.up('lg')]: {
+    padding: spacing(2, 8),
+  },
+  [breakpoints.up('xl')]: {
+    padding: spacing(2, 0),
+  },
+}));

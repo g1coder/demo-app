@@ -4,4 +4,5 @@ export default interface IBaseProduct extends INamedEntity {
   price: number;
   image: string;
   description: string;
+  discount?: number;
 }

@@ -4,6 +4,8 @@ import {
   StyledAddCardButton,
   StyledContainer,
   StyledImage,
+  StyledPriceContainer,
+  StyledSaleMark,
   StyledTitle,
 } from 'features/shop/components/ProductCard/ProductCardStyles';
 import {Typography} from '@mui/material';
@@ -24,6 +26,7 @@ const ProductCard = ({product, ordered}: IProps) => {
 
   return (
     <StyledContainer>
+      {product.discount && <StyledSaleMark />}
       <StyledImage src={product.image} />
       <StyledTitle variant="h5" noWrap>
         {product.name}
@@ -31,9 +34,7 @@ const ProductCard = ({product, ordered}: IProps) => {
       <Typography variant="body2" color="primary.dark" sx={{marginTop: 2}} noWrap>
         {product.description}
       </Typography>
-      <Typography variant="h4" color="primary.light" sx={{marginTop: 4}}>
-        {`$${product.price}`}
-      </Typography>
+      <StyledPriceContainer price={product.price} discount={product.discount} />
       <StyledAddCardButton
         startIcon={ordered ? undefined : <CartIcon fontSize="small" sx={{marginRight: 1}} />}
         title={buttonTitle}
