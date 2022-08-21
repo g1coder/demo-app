@@ -7,7 +7,7 @@ const defaultConfig = axios.defaults;
   let extractedData;
   if (data && data.objects) {
     extractedData = data.objects;
-    extractedData.$meta = data.meta;
+    extractedData.$meta = data.$meta;
   } else {
     extractedData = data;
   }
