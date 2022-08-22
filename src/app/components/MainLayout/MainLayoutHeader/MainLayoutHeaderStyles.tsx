@@ -104,12 +104,17 @@ const StyledFabCount = styled(({count, ...rest}: ICountProps) => (
   boxSizing: 'content-box',
 }));
 
-export const StyledCart = styled((props: any) => (
-  <Fab aria-label="add" size="medium" {...props}>
+interface IStyledCartProps {
+  count: number;
+  onClick: () => void;
+}
+
+export const StyledCart = styled(({count, onClick, ...rest}: IStyledCartProps) => (
+  <Fab aria-label="add" size="medium" {...rest} onClick={onClick}>
     <ShoppingCartIcon />
-    <StyledFabCount count={props.count} />
+    <StyledFabCount count={count} />
   </Fab>
-))<{count: number}>(({theme: {palette}}) => ({
+))<IStyledCartProps>(({theme: {palette}}) => ({
   position: 'relative',
   backgroundColor: palette.primary.light,
   color: '#fff',
@@ -129,10 +134,10 @@ export const StyledAuthDrawerContainer = styled((props) => (
       variant="secondary"
       size="small"
       component="a"
-      href={AppRoutes.LOGIN.path}
+      href={AppRoutes.LOGIN.url}
       color="#fff"
     />
-    <Typography variant="caption" fontWeight={900} color="primary.dark" component={Link} to={AppRoutes.LOGIN.path}>
+    <Typography variant="caption" fontWeight={900} color="primary.dark" component={Link} to={AppRoutes.LOGIN.url}>
       Sign in
     </Typography>
   </div>

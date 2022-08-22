@@ -1,5 +1,5 @@
 import _ from 'lodash';
-import React, {memo, useCallback, useEffect, useMemo, useState} from 'react';
+import React, {memo, useCallback, useMemo, useState} from 'react';
 import {styled} from '@mui/material/styles';
 import PriceFilter, {IProps as IPriceFilterProps} from 'features/shop/components/FilterPanel/PriceFilter';
 import TagFilter, {IProps as ITagFilterProps} from 'features/shop/components/FilterPanel/TagFilter';
@@ -11,38 +11,57 @@ const StyledContainer = styled('div')(() => ({
 }));
 
 interface IProps {
-  priceRange: Pick<IPriceFilterProps, 'min' | 'max'>;
-  tags: ITagFilterProps['items'];
   onChange: (value: IProductParams) => void;
+  initialValues: Pick<IPriceFilterProps, 'min' | 'max'> & Pick<ITagFilterProps, 'tags'>;
 }
 
-const FilterPanel = ({tags, priceRange, onChange}: IProps) => {
-  const [price, setPrice] = useState<number[]>([0, 50]);
-  const [activeTag, setActiveTag] = useState<string | undefined>();
+const FilterPanel = ({initialValues, onChange}: IProps) => {
+  // const [price, setPrice] = useState<number[]>([initialValues.min || 0, initialValues.max || 50]);
+  // const [activeTag, setActiveTag] = useState<string | undefined>();
+
+  const [filters, setFilters] = useState<IProductParams>({
+    price: initialValues,
+    tag: undefined,
+  });
 
   const applyFilters = useCallback(
-    (price: number[], tag: string | undefined) => {
-      onChange({min: price[0], max: price[1], tag});
+    (property: keyof IProductParams, value: IProductParams[keyof IProductParams]) => {
+      // onChange({min: price.length ? price[0] : undefined, max: price.length ? price[1] : undefined, tag});
+      setFilters((currentValue) => {
+        const result = {...currentValue, [property]: value};
+        onChange(result);
+        return result;
+      });
     },
     [onChange]
   );
 
   const debouncedApplyParams = useMemo(() => _.debounce(applyFilters, 1000), [applyFilters]);
 
-  useEffect(() => {
-    debouncedApplyParams(price, activeTag);
-  }, [price, activeTag, debouncedApplyParams]);
+  const handlePriceChanged = useCallback(
+    (price: Pick<IPriceFilterProps, 'min' | 'max'>) => {
+      debouncedApplyParams('price', price);
+    },
+    [debouncedApplyParams]
+  );
+
+  const handleTagChanged = useCallback(
+    (tag: string) => {
+      debouncedApplyParams('tag', tag);
+    },
+    [debouncedApplyParams]
+  );
 
   return (
     <StyledContainer>
       <PriceFilter
         title="Price"
-        value={price}
-        onChange={setPrice}
-        min={priceRange.min || 0}
-        max={priceRange.max || 100}
+        value={[filters?.price?.min || 0, filters?.price?.max || 50]}
+        onChange={handlePriceChanged}
+        min={initialValues.min}
+        max={initialValues.max}
       />
-      <TagFilter title="Product tags" items={tags} active={activeTag} onChange={setActiveTag} />
+      <TagFilter title="Product tags" tags={initialValues.tags} active={filters.tag} onChange={handleTagChanged} />
     </StyledContainer>
   );
 };

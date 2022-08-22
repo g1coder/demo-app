@@ -1,4 +1,4 @@
-import React, {useReducer} from 'react';
+import React, {useCallback, useReducer} from 'react';
 import {observer} from 'mobx-react-lite';
 import AppRoutes from 'core/constants/AppRoutes';
 import MenuIcon from '@mui/icons-material/Menu';
@@ -15,6 +15,7 @@ import {
 } from 'app/components/MainLayout/MainLayoutHeader/MainLayoutHeaderStyles';
 import AppLogo from 'app/components/LandingPage/presets/header-logo.png';
 import CartStore from 'store/CartStore';
+import {useNavigate} from 'react-router-dom';
 
 export interface IHeaderItem {
   name: string;
@@ -22,8 +23,8 @@ export interface IHeaderItem {
 }
 
 const items: IHeaderItem[] = [
-  {name: 'Home', url: AppRoutes.LANDING_PAGE.path},
-  {name: 'Catalog', url: AppRoutes.SHOP.path},
+  {name: 'Home', url: AppRoutes.LANDING_PAGE.url},
+  {name: 'Catalog', url: AppRoutes.SHOP.url},
   {name: 'Delivery', url: '#'},
   {name: 'About us', url: '#'},
   {name: 'Contacts', url: '#'},
@@ -31,22 +32,26 @@ const items: IHeaderItem[] = [
 
 const MainLayoutHeader = observer(() => {
   const [isDrawerOpen, toggleDrawer] = useReducer((state) => !state, false);
+  const navigate = useNavigate();
+
+  const handleCartClick = useCallback(() => {
+    navigate(AppRoutes.CART.url);
+  }, [navigate]);
 
   return (
     <StyledHeader>
       <StyledLogoContainer>
-        <a href={AppRoutes.LANDING_PAGE.path}>
+        <a href={AppRoutes.LANDING_PAGE.url}>
           <img src={AppLogo} alt="company-logo" />
         </a>
       </StyledLogoContainer>
-
       <StyledActionContainer>
         <StyledInnerContainer>
           <StyledNavigationMenu items={items} />
           <StyledAuthDrawerContainer />
         </StyledInnerContainer>
         <StyledIconContainer>
-          <StyledCart count={CartStore.count} />
+          <StyledCart count={CartStore.count} onClick={handleCartClick} />
           <MenuIcon onClick={toggleDrawer} />
         </StyledIconContainer>
       </StyledActionContainer>

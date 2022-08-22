@@ -1,10 +1,12 @@
 import {styled} from '@mui/material/styles';
 import CircleButton from 'core/components/Buttons/CircleButton';
 
-export const StyledLandingPageFooterSection = styled('section')(() => ({
+export const StyledLandingPageFooterSection = styled('section')(({theme: {breakpoints}}) => ({
   position: 'relative',
-  height: 0,
   zIndex: 2,
+  [breakpoints.up('lg')]: {
+    height: 0,
+  },
 }));
 
 export const StyledSubscribeContainer = styled('div')(() => ({

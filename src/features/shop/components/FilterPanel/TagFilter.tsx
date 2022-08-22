@@ -3,12 +3,12 @@ import withBaseFilter from 'features/shop/HOC/withBaseFilter';
 import {Typography} from '@mui/material';
 
 export interface IProps {
-  items: string[];
+  tags: string[];
   onChange: (value: string) => void;
   active?: string;
 }
 
-const TagFilter = ({items, onChange, active}: IProps) => {
+const TagFilter = ({tags, onChange, active}: IProps) => {
   const handleOnClick = useCallback(
     (value: string) => {
       onChange(value);
@@ -18,7 +18,7 @@ const TagFilter = ({items, onChange, active}: IProps) => {
 
   return (
     <>
-      {items.map((tag, index) => (
+      {tags.map((tag, index) => (
         <Typography
           key={tag}
           variant="body1"
@@ -28,7 +28,7 @@ const TagFilter = ({items, onChange, active}: IProps) => {
           onClick={() => handleOnClick(tag)}
           sx={{cursor: 'pointer'}}
         >
-          {`#${tag}${index < items.length - 1 ? ', ' : ''}`}
+          {`#${tag}${index < tags.length - 1 ? ', ' : ''}`}
         </Typography>
       ))}
     </>

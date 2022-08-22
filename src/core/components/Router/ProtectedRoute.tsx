@@ -9,7 +9,7 @@ interface IProps {
 }
 
 const ProtectedRoute = (props: IProps) => {
-  const {isAllowed, children, redirectPath = AppRoutes.LOGIN.path} = props;
+  const {isAllowed, children, redirectPath = AppRoutes.LOGIN.url} = props;
   if (!isAllowed) {
     return <Navigate to={redirectPath} replace />;
   }

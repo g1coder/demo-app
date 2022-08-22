@@ -15,7 +15,7 @@ const MainLayoutFooter = () => {
     <StyledContainer>
       <StyledMainLayoutWrapper>
         <StyledAboutContainer>
-          <a href={AppRoutes.LANDING_PAGE.path}>
+          <a href={AppRoutes.LANDING_PAGE.url}>
             <img src={AppLogo} alt="company-logo" />
           </a>
           <Typography variant="body2" sx={{fontStyle: 'italic', margin: '32px 0'}}>

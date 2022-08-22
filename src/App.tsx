@@ -15,7 +15,9 @@ import AppRoutes from 'core/constants/AppRoutes';
 import MainLayout from 'app/components/MainLayout/MainLayout';
 import PageNotFound from 'app/components/PageNotFound/PageNotFound';
 import LandingPage from './app/components/LandingPage/LandingPage';
-const CatalogPage = loadComponent(() => import('features/shop/pages/CatalogPage/CatalogPage'));
+import MainLayoutCart from 'app/components/MainLayout/MainLayoutCart';
+
+const CatalogLayoutRouter = loadComponent(() => import('features/shop/pages/CatalogLayoutRouter'));
 
 function App() {
   const toasterRef = useRef<any>();
@@ -29,7 +31,7 @@ function App() {
       const authUser = await AuthService.init();
       if (authUser) {
         setUser({name: authUser});
-        navigate(AppRoutes.LANDING_PAGE.path);
+        navigate(AppRoutes.LANDING_PAGE.url);
       }
     };
 
@@ -45,7 +47,7 @@ function App() {
           setUser({name: data.username});
         })
         .then(() => {
-          navigate(AppRoutes.LANDING_PAGE.path);
+          navigate(AppRoutes.LANDING_PAGE.url);
         })
         .catch((e) => {
           throw Error(e.message);
@@ -66,7 +68,7 @@ function App() {
   const handleLogout = useCallback(() => {
     AuthService.logout().then(() => {
       setUser(undefined);
-      navigate(AppRoutes.LOGIN.path);
+      navigate(AppRoutes.LOGIN.url);
     });
   }, [navigate]);
 
@@ -81,12 +83,10 @@ function App() {
             <Routes>
               <Route element={<MainLayout />}>
                 <Route index element={<LandingPage />} />
-                <Route path={AppRoutes.SHOP.path} element={<CatalogPage />} />
+                <Route path={AppRoutes.SHOP.path} element={<CatalogLayoutRouter />} />
+                <Route path={AppRoutes.CART.path} element={<MainLayoutCart />} />
               </Route>
               <Route path={AppRoutes.LOGIN.path} element={<LoginPage onLogin={handleLogin} onReset={handleReset} />} />
-              {/*<Route path="/profile" element={<MainLayout />}>*/}
-              {/*  /!*<Route path={AppRoutes.DASHBOARD.path} element={<DashboardPage />} />*!/*/}
-              {/*</Route>*/}
               <Route path="*" element={<PageNotFound redirectPath={'/'} />} />
             </Routes>
           </Suspense>

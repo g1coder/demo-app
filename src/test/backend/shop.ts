@@ -24,10 +24,10 @@ const createProduct = (name, price, image, tag?, discount?) => ({
 });
 
 const products: ProductDTO[] = [
-  createProduct('Bottled lemon water', 4.66, '2-300x300.jpg', 'lemon'),
+  createProduct('Bottled lemon water', 6.99, '2-300x300.jpg', 'lemon', 4.99),
   createProduct('Bottled sparkling water', 12.5, '6-300x300.jpg'),
   createProduct('Drop of water. Mineral', 6.75, '3-300x300.jpg', 'mineral'),
-  createProduct('Lemon + Mineral', 6.99, '7-300x300.jpg', 'lemon', 4.99),
+  createProduct('Lemon + Mineral', 4.66, '7-300x300.jpg', 'lemon'),
   createProduct('See Breeze', 5.99, '1-300x300.jpg'),
   createProduct('Three bottles of mineral water', 14, '8-300x300.jpg', 'pack'),
   createProduct('Water Set', 19.99, '5-300x300.jpg', 'pack'),
@@ -51,7 +51,7 @@ const handlers = [
         $meta: {
           limit: 10,
           offset: 0,
-          total_count: result.length,
+          total_count: products.length,
         },
       })
     );

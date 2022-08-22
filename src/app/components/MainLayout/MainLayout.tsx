@@ -24,7 +24,7 @@ const StyledMainLayout = styled(Box)(({theme: {palette}}) => ({
   minHeight: '100vh',
 }));
 
-const StyledContentContainer = styled(Box)(({theme: {breakpoints}}) => ({
+const StyledMainLayoutContentContainer = styled(Box)(({theme: {breakpoints}}) => ({
   [breakpoints.down('lg')]: {
     paddingTop: 40,
   },
@@ -34,9 +34,9 @@ const MainLayout = () => {
   return (
     <StyledMainLayout component="main">
       <MainLayoutHeader />
-      <StyledContentContainer>
+      <StyledMainLayoutContentContainer>
         <Outlet />
-      </StyledContentContainer>
+      </StyledMainLayoutContentContainer>
       <MainLayoutFooter />
     </StyledMainLayout>
   );

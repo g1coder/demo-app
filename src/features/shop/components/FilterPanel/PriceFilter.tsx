@@ -12,17 +12,17 @@ const StyledSliderContainer = styled('div')(({theme: {spacing}}) => ({
 
 export interface IProps {
   value: number[] | undefined;
-  onChange: (value: number[]) => void;
-  min?: number;
+  onChange: (value: {min: number; max: number}) => void;
+  min: number;
   max: number;
 }
 
 const getValueText = (value: number) => `$${value}`;
 
-const PriceFilter = ({value, onChange, max, min = 0}: IProps) => {
+const PriceFilter = ({value, onChange, min, max}: IProps) => {
   const handleChange = useCallback(
     (e, newValue) => {
-      onChange(newValue);
+      onChange({min: newValue[0], max: newValue[1]});
     },
     [onChange]
   );
