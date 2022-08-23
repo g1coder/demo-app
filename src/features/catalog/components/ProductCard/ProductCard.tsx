@@ -11,6 +11,7 @@ import {
 import {Typography} from '@mui/material';
 import CartIcon from '@mui/icons-material/ShoppingCartOutlined';
 import CartStore from 'store/CartStore';
+import OrderButton from 'features/catalog/components/OrderButton/OrderButton';
 
 interface IProps {
   product: IBaseProduct;
@@ -21,6 +22,19 @@ const ProductCard = ({product, ordered}: IProps) => {
   const handleAddToCart = useCallback(() => {
     CartStore.increase(product);
   }, [product]);
+
+  const handleOrderButtonChanged = useCallback(
+    (value: number) => {
+      CartStore.increase(product);
+      if (ordered && ordered < value) {
+        CartStore.increase(product);
+      }
+      if (ordered && ordered >= value) {
+        CartStore.decrease(product);
+      }
+    },
+    [product, ordered]
+  );
 
   const buttonTitle = ordered ? `${ordered} in cart` : 'Add to cart';
 
@@ -35,12 +49,16 @@ const ProductCard = ({product, ordered}: IProps) => {
         {product.description}
       </Typography>
       <StyledPriceContainer price={product.price} discount={product.discount} />
-      <StyledAddCardButton
-        startIcon={ordered ? undefined : <CartIcon fontSize="small" sx={{marginRight: 1}} />}
-        title={buttonTitle}
-        variant="action"
-        onClick={handleAddToCart}
-      />
+      {ordered ? (
+        <OrderButton value={ordered} onChange={handleOrderButtonChanged} />
+      ) : (
+        <StyledAddCardButton
+          startIcon={ordered ? undefined : <CartIcon fontSize="small" sx={{marginRight: 1}} />}
+          title={buttonTitle}
+          variant="action"
+          onClick={handleAddToCart}
+        />
+      )}
     </StyledContainer>
   );
 };
