@@ -1,6 +1,6 @@
 import React from 'react';
 import {ComponentStory, ComponentMeta} from '@storybook/react';
-import CircleButton from '/src/core/components/Buttons/CircleButton';
+import CircleButton from 'core/components/Buttons/CircleButton';
 
 export default {
   title: 'core/components/CircleButton',
