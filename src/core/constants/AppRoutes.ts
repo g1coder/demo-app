@@ -3,7 +3,7 @@ import _ from 'lodash';
 export enum RouteNames {
   LANDING_PAGE = 'LANDING_PAGE',
   LOGIN = 'LOGIN',
-  SHOP = 'SHOP',
+  CATALOG = 'CATALOG',
   CART = 'CART',
 }
 
@@ -21,7 +21,7 @@ const AppRoutes: AppRoutesType = {
   [RouteNames.LOGIN]: {path: '/login', url: '/login', hidden: true},
   [RouteNames.CART]: {path: '/cart', url: '/cart', hidden: true},
 
-  [RouteNames.SHOP]: {path: 'catalog/*', url: 'catalog', name: 'Catalog'},
+  [RouteNames.CATALOG]: {path: 'catalog/*', url: 'catalog', name: 'Catalog'},
 };
 
 export const getNameByPath = (path: string) => _.find(AppRoutes, (r) => r.path === path || `/${r.path}` === path)?.name;

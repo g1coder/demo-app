@@ -1,11 +1,9 @@
 import React from 'react';
-import {StyledCatalogLayoutContainer, StyledCatalogLaouytContent} from 'features/shop/pages/CatalogLayoutStyles';
+import {StyledCatalogLayoutContainer, StyledCatalogLaouytContent} from 'features/catalog/pages/CatalogLayoutStyles';
 import {StyledMainLayoutWrapper} from 'app/components/MainLayout/MainLayout';
 import {Outlet} from 'react-router-dom';
 
-interface IProps {}
-
-const CatalogLayout = (props: IProps) => {
+const CatalogLayout = () => {
   return (
     <StyledMainLayoutWrapper>
       <StyledCatalogLayoutContainer />

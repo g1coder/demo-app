@@ -24,7 +24,7 @@ export interface IHeaderItem {
 
 const items: IHeaderItem[] = [
   {name: 'Home', url: AppRoutes.LANDING_PAGE.url},
-  {name: 'Catalog', url: AppRoutes.SHOP.url},
+  {name: 'Catalog', url: AppRoutes.CATALOG.url},
   {name: 'Delivery', url: '#'},
   {name: 'About us', url: '#'},
   {name: 'Contacts', url: '#'},

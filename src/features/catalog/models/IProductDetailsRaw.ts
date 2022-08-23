@@ -1,4 +1,4 @@
-import IProductRaw from 'features/shop/models/IProductRaw';
+import IProductRaw from 'features/catalog/models/IProductRaw';
 
 interface IProductDetailsRaw extends IProductRaw {}
 

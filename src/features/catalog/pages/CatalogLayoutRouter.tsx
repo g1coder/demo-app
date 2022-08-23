@@ -1,11 +1,9 @@
 import React from 'react';
 import {Route, Routes} from 'react-router-dom';
-import CatalogPage from 'features/shop/pages/CatalogPage/CatalogPage';
-import CatalogLayout from 'features/shop/pages/CatalogLayout';
+import CatalogPage from 'features/catalog/pages/CatalogPage/CatalogPage';
+import CatalogLayout from 'features/catalog/pages/CatalogLayout';
 
-interface IProps {}
-
-const CatalogLayoutRouter = (props: IProps) => {
+const CatalogLayoutRouter = () => {
   return (
     <Routes>
       <Route element={<CatalogLayout />}>

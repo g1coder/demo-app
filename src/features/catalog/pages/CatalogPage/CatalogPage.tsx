@@ -2,15 +2,15 @@ import _ from 'lodash';
 import React, {useCallback, useMemo, useState} from 'react';
 import {observer} from 'mobx-react-lite';
 import {Grid, Typography} from '@mui/material';
-import {StyledFilterChip, StyledMetaContainer} from 'features/shop/pages/CatalogPage/CatalogPageStyles';
-import ProductCard from 'features/shop/components/ProductCard/ProductCard';
-import FilterPanel from 'features/shop/components/FilterPanel/FilterPanel';
+import {StyledFilterChip, StyledMetaContainer} from 'features/catalog/pages/CatalogPage/CatalogPageStyles';
+import ProductCard from 'features/catalog/components/ProductCard/ProductCard';
+import FilterPanel from 'features/catalog/components/FilterPanel/FilterPanel';
 import useFetch from 'core/hooks/useFetch';
-import CatalogService from 'features/shop/services/CatalogService';
-import IBaseProduct from 'features/shop/models/IBaseProduct';
+import CatalogService from 'features/catalog/services/CatalogService';
+import IBaseProduct from 'features/catalog/models/IBaseProduct';
 import Spinner from 'core/components/Spinner';
 import CartStore from 'store/CartStore';
-import IProductParams from 'features/shop/models/IProductParams';
+import IProductParams from 'features/catalog/models/IProductParams';
 import IList from 'core/models/IList';
 
 const initialFilters = {

@@ -1,7 +1,7 @@
 import React, {memo, useCallback} from 'react';
 import {styled} from '@mui/material/styles';
 import {Slider, Typography} from '@mui/material';
-import withBaseFilter from 'features/shop/HOC/withBaseFilter';
+import withBaseFilter from 'features/catalog/HOC/withBaseFilter';
 
 const StyledSliderContainer = styled('div')(({theme: {spacing}}) => ({
   padding: spacing(0, 3, 0),

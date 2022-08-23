@@ -1,7 +1,7 @@
 import {v4 as uuid} from 'uuid';
 import {rest} from 'msw';
 
-const baseUrl = 'api/shop';
+const baseUrl = 'api/catalog';
 
 interface ProductDTO {
   id: string;

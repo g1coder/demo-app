@@ -1,5 +1,5 @@
 import React, {memo, useCallback} from 'react';
-import IBaseProduct from 'features/shop/models/IBaseProduct';
+import IBaseProduct from 'features/catalog/models/IBaseProduct';
 import {
   StyledAddCardButton,
   StyledContainer,
@@ -7,7 +7,7 @@ import {
   StyledPriceContainer,
   StyledSaleMark,
   StyledTitle,
-} from 'features/shop/components/ProductCard/ProductCardStyles';
+} from 'features/catalog/components/ProductCard/ProductCardStyles';
 import {Typography} from '@mui/material';
 import CartIcon from '@mui/icons-material/ShoppingCartOutlined';
 import CartStore from 'store/CartStore';

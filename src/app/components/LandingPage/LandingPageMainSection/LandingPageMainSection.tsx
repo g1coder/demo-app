@@ -1,4 +1,4 @@
-import React, {useCallback, useReducer} from 'react';
+import React, {useReducer} from 'react';
 import {useTransition} from '@react-spring/web';
 import useScrollTop from 'core/hooks/useScrollTop';
 import {
@@ -15,7 +15,7 @@ import {
   StyledScrollTopButton,
 } from './LandingPageMainSectionStyles';
 import CircleButton from 'core/components/Buttons/CircleButton';
-import BottleImage from './slider-dark-bottle.png';
+import BottleImage from 'app/components/LandingPage/LandingPageMainSection/presets/slider-dark-bottle.png';
 import ArrowUpwardOutlinedIcon from '@mui/icons-material/ArrowUpwardOutlined';
 import {StyledMainLayoutWrapper} from 'app/components/MainLayout/MainLayout';
 
@@ -23,6 +23,7 @@ import SlideIcon1 from './presets/mountain1.jpg';
 import SlideIcon2 from './presets/mountain2.jpg';
 import SlideIcon3 from './presets/mountain3.jpg';
 import SlideIcon4 from './presets/mountain4.jpg';
+import AppRoutes from 'core/constants/AppRoutes';
 
 const icons = [SlideIcon1, SlideIcon2, SlideIcon3, SlideIcon4];
 
@@ -40,9 +41,6 @@ const LandingPageMainSection = () => {
       }
     },
   });
-
-  const handleReadMore = useCallback(() => {}, []);
-  const handleMakeOrder = useCallback(() => {}, []);
 
   const {targetRef, isTargetHidden, onScroll} = useScrollTop();
 
@@ -67,8 +65,8 @@ const LandingPageMainSection = () => {
             </StyledInnerSubtitleTypography>
 
             <StyledInnerButtonContainer>
-              <CircleButton title="Read more" onClick={handleReadMore} variant="secondary" />
-              <CircleButton title="Make order" onClick={handleMakeOrder} />
+              <CircleButton title="Read more" variant="secondary" />
+              <CircleButton title="Make order" component="a" href={AppRoutes.CATALOG.url} />
             </StyledInnerButtonContainer>
           </StyledTextInnerContainer>
         </StyledTextContainer>

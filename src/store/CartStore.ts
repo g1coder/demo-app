@@ -1,5 +1,5 @@
 import {observable, action, computed, makeAutoObservable} from 'mobx';
-import IBaseProduct from 'features/shop/models/IBaseProduct';
+import IBaseProduct from 'features/catalog/models/IBaseProduct';
 
 class CartStore {
   constructor() {

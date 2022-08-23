@@ -1,9 +1,9 @@
 import _ from 'lodash';
 import React, {memo, useCallback, useMemo, useState} from 'react';
 import {styled} from '@mui/material/styles';
-import PriceFilter, {IProps as IPriceFilterProps} from 'features/shop/components/FilterPanel/PriceFilter';
-import TagFilter, {IProps as ITagFilterProps} from 'features/shop/components/FilterPanel/TagFilter';
-import IProductParams from 'features/shop/models/IProductParams';
+import PriceFilter, {IProps as IPriceFilterProps} from 'features/catalog/components/FilterPanel/PriceFilter';
+import TagFilter, {IProps as ITagFilterProps} from 'features/catalog/components/FilterPanel/TagFilter';
+import IProductParams from 'features/catalog/models/IProductParams';
 
 const StyledContainer = styled('div')(() => ({
   height: 800,

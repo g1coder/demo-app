@@ -1,5 +1,5 @@
 import React, {memo, useCallback} from 'react';
-import withBaseFilter from 'features/shop/HOC/withBaseFilter';
+import withBaseFilter from 'features/catalog/HOC/withBaseFilter';
 import {Typography} from '@mui/material';
 
 export interface IProps {

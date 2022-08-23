@@ -1,9 +1,9 @@
 import IList from 'core/models/IList';
 import api from 'core/services/ApiService';
-import IProductRaw from 'features/shop/models/IProductRaw';
-import IBaseProduct from 'features/shop/models/IBaseProduct';
-import IProductDetailsRaw from 'features/shop/models/IProductDetailsRaw';
-import IProductParams from 'features/shop/models/IProductParams';
+import IProductRaw from 'features/catalog/models/IProductRaw';
+import IBaseProduct from 'features/catalog/models/IBaseProduct';
+import IProductDetailsRaw from 'features/catalog/models/IProductDetailsRaw';
+import IProductParams from 'features/catalog/models/IProductParams';
 
 export default {
   getList,
@@ -12,7 +12,7 @@ export default {
 
 function getList(params: IProductParams | undefined): Promise<IList<IBaseProduct>> {
   return api
-    .get<IList<IProductRaw>>('/api/shop/products', {
+    .get<IList<IProductRaw>>('/api/catalog/products', {
       params: {tag: params?.tag, min: params?.price?.min, max: params?.price?.max},
     })
     .then((response) => {
@@ -23,5 +23,5 @@ function getList(params: IProductParams | undefined): Promise<IList<IBaseProduct
 }
 
 function getById(id: IBaseProduct['id']): Promise<IBaseProduct> {
-  return api.get<IProductDetailsRaw>(`/api/shop/products/${id}`);
+  return api.get<IProductDetailsRaw>(`/api/catalog/products/${id}`);
 }
