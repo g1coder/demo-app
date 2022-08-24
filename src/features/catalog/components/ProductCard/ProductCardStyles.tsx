@@ -83,3 +83,9 @@ export const StyledSaleMark = styled((props) => (
 export const StyledAddCardButton = styled(CircleButton)(({theme: {spacing}}) => ({
   marginTop: spacing(3),
 }));
+
+export const StyledOrderButtonContainer = styled('div')(({theme: {spacing}}) => ({
+  marginTop: spacing(3),
+  display: 'flex',
+  justifyContent: 'center',
+}));

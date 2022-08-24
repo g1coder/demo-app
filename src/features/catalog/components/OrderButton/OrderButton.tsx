@@ -11,7 +11,7 @@ const StyledContainer = styled(Box)(({theme: {spacing}}) => ({
   alignItems: 'center',
   justifyContent: 'space-between',
   position: 'relative',
-  width: 150,
+  width: 180,
   height: spacing(6),
   borderRadius: spacing(4),
   color: '#fff',
@@ -29,7 +29,7 @@ const StyledIconContainer = styled('div')<{type: 'increment' | 'decrement'}>(({t
   borderTopRightRadius: type === 'increment' ? borderRadius : 0,
   borderBottomRightRadius: type === 'increment' ? borderRadius : 0,
 
-  flexBasis: 45,
+  flexBasis: 50,
   display: 'flex',
   alignItems: 'center',
   justifyContent: 'center',
@@ -43,35 +43,20 @@ const StyledIconContainer = styled('div')<{type: 'increment' | 'decrement'}>(({t
 
 interface IProps {
   value: number | undefined;
-  onChange: (value: number) => void;
+  add: () => void;
+  remove: () => void;
 }
 
-const OrderButton = ({value, onChange}: IProps) => {
-  // const [value, setValue] = useState<number>(props.value);
-
-  // const onIncrement = useCallback(() => {
-  //   // setValue((currentValue) => (currentValue || 0) + 1);
-  //   onChange(value + 1)
-  // }, [onChange, value]);
-  //
-  // const onDecrement = useCallback(() => {
-  //   // setValue((currentValue) => {
-  //   //   return currentValue ? currentValue - 1 : currentValue;
-  //   // });
-  // }, [onChange, value]);
-
-  const onIncrement = () => onChange((value || 0) + 1);
-  const onDecrement = () => onChange(value ? value - 1 : 0);
-
+const OrderButton = ({value, add, remove}: IProps) => {
   return (
     <StyledContainer>
-      <StyledIconContainer type="decrement" onClick={onDecrement}>
+      <StyledIconContainer type="decrement" onClick={remove}>
         <RemoveOutlinedIcon />
       </StyledIconContainer>
-      <Typography variant="body2" color="primary.light">
+      <Typography variant="h4" color="primary.light" sx={{userSelect: 'none'}}>
         {value}
       </Typography>
-      <StyledIconContainer type="increment" onClick={onIncrement}>
+      <StyledIconContainer type="increment" onClick={add}>
         <AddIcon />
       </StyledIconContainer>
     </StyledContainer>

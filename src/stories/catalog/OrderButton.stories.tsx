@@ -8,11 +8,16 @@ export default {
 } as ComponentMeta<typeof Button>;
 
 export const OrderButton: ComponentStory<typeof Button> = (args) => {
-  const [value, setValue] = useState<number | undefined>();
+  const [value, setValue] = useState<number>(0);
 
   return (
     <div style={{display: 'inline-block'}}>
-      <Button {...args} value={value} onChange={setValue} />
+      <Button
+        {...args}
+        value={value}
+        add={() => setValue((currentValue) => currentValue + 1)}
+        remove={() => setValue((currentValue) => (currentValue === 1 ? 0 : currentValue - 1))}
+      />
     </div>
   );
 };

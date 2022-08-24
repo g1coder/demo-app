@@ -4,6 +4,7 @@ import {
   StyledAddCardButton,
   StyledContainer,
   StyledImage,
+  StyledOrderButtonContainer,
   StyledPriceContainer,
   StyledSaleMark,
   StyledTitle,
@@ -23,18 +24,13 @@ const ProductCard = ({product, ordered}: IProps) => {
     CartStore.increase(product);
   }, [product]);
 
-  const handleOrderButtonChanged = useCallback(
-    (value: number) => {
-      CartStore.increase(product);
-      if (ordered && ordered < value) {
-        CartStore.increase(product);
-      }
-      if (ordered && ordered >= value) {
-        CartStore.decrease(product);
-      }
-    },
-    [product, ordered]
-  );
+  const handleIncrease = useCallback(() => {
+    CartStore.increase(product);
+  }, [product]);
+
+  const handleDecrease = useCallback(() => {
+    CartStore.decrease(product);
+  }, [product]);
 
   const buttonTitle = ordered ? `${ordered} in cart` : 'Add to cart';
 
@@ -50,7 +46,9 @@ const ProductCard = ({product, ordered}: IProps) => {
       </Typography>
       <StyledPriceContainer price={product.price} discount={product.discount} />
       {ordered ? (
-        <OrderButton value={ordered} onChange={handleOrderButtonChanged} />
+        <StyledOrderButtonContainer>
+          <OrderButton value={ordered} add={handleIncrease} remove={handleDecrease} />
+        </StyledOrderButtonContainer>
       ) : (
         <StyledAddCardButton
           startIcon={ordered ? undefined : <CartIcon fontSize="small" sx={{marginRight: 1}} />}
