@@ -19,7 +19,7 @@ type AppRoutesType = {[T in keyof typeof RouteNames]: IAppRouteConfig};
 const AppRoutes: AppRoutesType = {
   [RouteNames.LANDING_PAGE]: {path: '/', url: '/', hidden: true},
   [RouteNames.LOGIN]: {path: '/login', url: '/login', hidden: true},
-  [RouteNames.CART]: {path: '/cart', url: '/cart', hidden: true},
+  [RouteNames.CART]: {path: '/cart', url: '/catalog/cart', hidden: true},
 
   [RouteNames.CATALOG]: {path: 'catalog/*', url: 'catalog', name: 'Catalog'},
 };

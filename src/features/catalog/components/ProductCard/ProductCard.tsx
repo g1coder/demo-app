@@ -20,10 +20,6 @@ interface IProps {
 }
 
 const ProductCard = ({product, ordered}: IProps) => {
-  const handleAddToCart = useCallback(() => {
-    CartStore.increase(product);
-  }, [product]);
-
   const handleIncrease = useCallback(() => {
     CartStore.increase(product);
   }, [product]);
@@ -54,7 +50,7 @@ const ProductCard = ({product, ordered}: IProps) => {
           startIcon={ordered ? undefined : <CartIcon fontSize="small" sx={{marginRight: 1}} />}
           title={buttonTitle}
           variant="action"
-          onClick={handleAddToCart}
+          onClick={handleIncrease}
         />
       )}
     </StyledContainer>

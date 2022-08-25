@@ -24,7 +24,10 @@ const CatalogPage = observer(() => {
 
   const [{data: products, ready: productsReady, loading: productsLoading}] = useFetch<IList<IBaseProduct> | null>(
     {
-      fetch: () => CatalogService.getList(filterParams),
+      fetch: () => CatalogService.getList(filterParams).then(response => {
+        CartStore.setAvailableProducts(response);
+        return response;
+      }),
       data: null,
     },
     [filterParams]
@@ -81,7 +84,7 @@ const CatalogPage = observer(() => {
             productsReady &&
             (products || []).map((product) => (
               <Grid item key={product.name} xs={1} sm={1} md={2} xl={3}>
-                <ProductCard product={product} ordered={CartStore.products.filter((p) => p.id === product.id).length} />
+                <ProductCard product={product} ordered={CartStore.products.get(product.id)} />
               </Grid>
             ))}
         </Grid>

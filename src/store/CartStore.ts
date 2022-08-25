@@ -6,21 +6,42 @@ class CartStore {
     makeAutoObservable(this);
   }
 
-  @observable products: IBaseProduct[] = [];
+  @observable availableProducts: IBaseProduct[] = [];
+  @observable products: Map<string, number> = new Map([]);
+
+  @action setAvailableProducts = (products: IBaseProduct[]) => {
+    this.availableProducts = products;
+  };
 
   @action decrease = (product: IBaseProduct) => {
-    const indexForDelete = this.products.findIndex((p) => p.id === product.id);
-    if (indexForDelete > -1) {
-      this.products.splice(indexForDelete, 1);
+    const count = this.products.get(product.id);
+    if (count) {
+      this.products.set(product.id, count - 1);
     }
   };
 
   @action increase = (product: IBaseProduct) => {
-    this.products.push(product);
+    const count = this.products.get(product.id);
+    this.products.set(product.id, (count || 0) + 1);
   };
 
   @computed get count() {
-    return this.products.length;
+    let num = 0;
+    this.products.forEach((value) => {
+      num += value;
+    });
+    return num;
+  }
+
+  @computed get totalPrice() {
+    let total = 0;
+    this.products.forEach((value, key) => {
+      const price = this.availableProducts.find(ap => ap.id === key)?.price;
+      if (price) {
+        total += value * +price;
+      }
+    });
+    return total;
   }
 }
 
