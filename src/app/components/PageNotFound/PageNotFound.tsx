@@ -1,7 +1,9 @@
 import React from 'react';
 import {styled} from '@mui/material/styles';
-import {Typography} from '@mui/material';
-import {Link} from 'react-router-dom';
+import {Grid, Typography} from '@mui/material';
+import CircleButton from 'core/components/Buttons/CircleButton';
+import BgImage from './404-bg.png';
+
 
 const StyledContainer = styled('div')(() => ({
   display: 'flex',
@@ -9,32 +11,40 @@ const StyledContainer = styled('div')(() => ({
   alignItems: 'center',
   height: '100vh',
   width: '100%',
-  margin: 'auto'
-}));
-
-const StyledContent = styled('div')(() => ({
-  textAlign: 'center',
-  maxWidth: 400
-}));
-
-const StyledBackButton = styled(Link)(({theme}) => ({
-  marginTop: theme.spacing(2),
-  cursor: 'pointer',
-  '&:hover': {
-    textDecoration: 'underline',
-  },
+  margin: 'auto',
 }));
 
 interface IProps {
   redirectPath: string;
 }
 
-const PageNotFound = ({redirectPath}: IProps) => (
+const PageNotFound = ({redirectPath = '/'}: IProps) => (
   <StyledContainer>
-    <StyledContent>
-      <Typography variant="h4">There's nothing here</Typography>
-      <StyledBackButton to={redirectPath}>Back</StyledBackButton>
-    </StyledContent>
+    <Grid container direction="column" alignItems="center" justifyContent="center">
+      <Grid item>
+        <img src={BgImage} />
+      </Grid>
+      <Grid item>
+        <span>
+          <Typography variant="h4" component="span" color="primary.dark" sx={{marginRight: 1}}>
+            Oops!
+          </Typography>
+          <Typography variant="h4" component="span" color="primary.light">
+            Page not found!
+          </Typography>
+        </span>
+      </Grid>
+      <Grid item textAlign="center" marginTop={2}>
+        <Typography variant="body1" color="primary.light">
+          {`The page you are looking for was moved, removed,`}
+          <br />
+          {'renamed or might never existed.'}
+        </Typography>
+      </Grid>
+      <Grid item marginTop={4}>
+        <CircleButton title="Back" size="small" variant="primary" component="a" href={redirectPath} />
+      </Grid>
+    </Grid>
   </StyledContainer>
 );
 
