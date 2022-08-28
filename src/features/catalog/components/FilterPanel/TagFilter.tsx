@@ -1,19 +1,24 @@
-import React, {memo, useCallback} from 'react';
+import React, {memo, useCallback, useMemo, useState} from 'react';
 import withBaseFilter from 'features/catalog/HOC/withBaseFilter';
 import {Typography} from '@mui/material';
+import _ from 'lodash';
 
 export interface IProps {
+  initialValues: string | undefined;
   tags: string[];
   onChange: (value: string) => void;
-  active?: string;
 }
 
-const TagFilter = ({tags, onChange, active}: IProps) => {
+const TagFilter = ({initialValues, tags, onChange}: IProps) => {
+  const [active, setActive] = useState<string | undefined>(initialValues);
+  const debouncedApplyParams = useMemo(() => _.debounce(onChange, 1000), [onChange]);
+
   const handleOnClick = useCallback(
     (value: string) => {
-      onChange(value);
+      setActive(value);
+      debouncedApplyParams(value);
     },
-    [onChange]
+    [debouncedApplyParams]
   );
 
   return (

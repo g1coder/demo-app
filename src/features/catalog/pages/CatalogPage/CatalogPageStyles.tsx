@@ -14,4 +14,6 @@ export const StyledMetaContainer = styled('div')(({theme: {spacing, breakpoints}
   },
 }));
 
-export const StyledFilterChip = styled(Chip)(() => ({}));
+export const StyledFilterChip = styled(Chip)(() => ({
+  marginRight: 8,
+}));

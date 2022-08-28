@@ -11,15 +11,11 @@ export default {
 };
 
 function getList(params: IProductParams | undefined): Promise<IList<IBaseProduct>> {
-  return api
-    .get<IList<IProductRaw>>('/api/catalog/products', {
-      params: {tag: params?.tag, min: params?.price?.min, max: params?.price?.max},
-    })
-    .then((response) => {
-      const result: any = response.map((r) => r);
-      result.$meta = response.$meta;
-      return result;
-    });
+  return api.get<IList<IProductRaw>>('/api/catalog/products', {params}).then((response) => {
+    const result: any = response.map((r) => r);
+    result.$meta = response.$meta;
+    return result;
+  });
 }
 
 function getById(id: IBaseProduct['id']): Promise<IBaseProduct> {

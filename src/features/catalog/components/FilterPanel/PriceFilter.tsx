@@ -1,4 +1,5 @@
-import React, {memo, useCallback} from 'react';
+import _ from 'lodash';
+import React, {memo, useCallback, useMemo, useState} from 'react';
 import {styled} from '@mui/material/styles';
 import {Slider, Typography} from '@mui/material';
 import withBaseFilter from 'features/catalog/HOC/withBaseFilter';
@@ -11,7 +12,7 @@ const StyledSliderContainer = styled('div')(({theme: {spacing}}) => ({
 }));
 
 export interface IProps {
-  value: number[] | undefined;
+  initialValues: number[] | undefined;
   onChange: (value: {min: number; max: number}) => void;
   min: number;
   max: number;
@@ -19,12 +20,16 @@ export interface IProps {
 
 const getValueText = (value: number) => `$${value}`;
 
-const PriceFilter = ({value, onChange, min, max}: IProps) => {
+const PriceFilter = ({initialValues, onChange, min, max}: IProps) => {
+  const [value, setValue] = useState<number[] | undefined>(initialValues);
+  const debouncedApplyParams = useMemo(() => _.debounce(onChange, 1000), [onChange]);
+
   const handleChange = useCallback(
     (e, newValue) => {
-      onChange({min: newValue[0], max: newValue[1]});
+      setValue(newValue);
+      debouncedApplyParams({min: newValue[0], max: newValue[1]});
     },
-    [onChange]
+    [debouncedApplyParams]
   );
 
   if (!value) return null;

@@ -22,13 +22,19 @@ const StyledContentContainer = styled('div')(({theme: {spacing}}) => ({
   minHeight: spacing(10),
 }));
 
-interface IProps {
-  title: string;
-}
-
 const withBaseFilter =
   (Component) =>
-  <T extends any>({title, ...rest}: IProps & T) => {
+  <T extends any>({title, ...rest}: {title: string} & T) => {
+    // const debouncedOnChange = useMemo(() => _.debounce(onChange, 1000), [onChange]);
+    //
+    // const handleOnChange = useCallback(
+    //   (value: T) => {
+    //     console.log('handleOnChange from base', value);
+    //     debouncedOnChange(value);
+    //   },
+    //   [debouncedOnChange]
+    // );
+
     return (
       <StyledContainer>
         <StyledTitleContainer>
