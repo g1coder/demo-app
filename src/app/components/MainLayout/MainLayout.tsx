@@ -4,7 +4,7 @@ import {Outlet} from 'react-router-dom';
 import {styled} from '@mui/material/styles';
 import MainLayoutHeader from 'app/components/MainLayout/MainLayoutHeader/MainLayoutHeader';
 import MainLayoutFooter from 'app/components/MainLayout/MainLayoutFooter/MainLayoutFooter';
-import {LANDING_PAGE_XL_CONTAINER_WIDTH} from 'app/constants/constants';
+import {LANDING_PAGE_XL_CONTAINER_WIDTH, LANDING_PAGE_HEADER_HEIGHT} from 'app/constants/constants';
 
 export const StyledMainLayoutWrapper = styled('div')(({theme: {breakpoints, spacing}}) => ({
   padding: spacing(5, 2),
@@ -25,7 +25,8 @@ const StyledMainLayout = styled(Box)(({theme: {palette}}) => ({
 }));
 
 const StyledMainLayoutContentContainer = styled(Box)(({theme: {breakpoints}}) => ({
-  [breakpoints.down('lg')]: {
+  paddingTop: LANDING_PAGE_HEADER_HEIGHT,
+  [breakpoints.up('lg')]: {
     paddingTop: 40,
   },
 }));

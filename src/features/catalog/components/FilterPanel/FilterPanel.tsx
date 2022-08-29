@@ -7,8 +7,7 @@ import {useSearchParams} from 'react-router-dom';
 import querySerializer from 'core/services/QuerySerializer';
 
 const StyledContainer = styled('div')(() => ({
-  height: 800,
-  width: 360,
+  maxWidth: 360,
 }));
 
 interface IProps {

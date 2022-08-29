@@ -88,15 +88,16 @@ const CatalogPage = observer(() => {
   }, [filterParams, handleResetFilter]);
 
   return (
-    <Grid container columns={{xs: 1, sm: 1, md: 1, xl: 12}} spacing={2} flexWrap="nowrap">
-      <Grid item xl="auto" display={{xs: 'none', xl: 'block'}} sx={{marginRight: 3}}>
+    <Grid container columns={{xs: 1, sm: 1, md: 1, lg: 12, xl: 12}} spacing={2}>
+      <Grid item xs={12} xl={3} rowSpacing={1} columnSpacing={1}>
         <FilterPanel initialValues={initialFilters} />
       </Grid>
 
-      <Grid item container xs={12} xl={9} sx={{position: 'relative'}}>
+      <Grid item container xs={12} xl={9} sx={{position: 'relative'}} alignContent="flex-start">
         {productsLoading && <Spinner />}
+
         <Grid item xs={12} container alignItems="center">
-          <Grid item xs={3}>
+          <Grid item xs={products?.length ? 3 : 12} textAlign="center">
             <StyledMetaContainer>
               {!productsLoading && (
                 <Typography variant="body1" color="primary.dark">
@@ -105,6 +106,7 @@ const CatalogPage = observer(() => {
               )}
             </StyledMetaContainer>
           </Grid>
+
           <Grid item xs="auto">
             {renderFilterChips}
           </Grid>

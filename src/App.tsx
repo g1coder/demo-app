@@ -86,6 +86,7 @@ function App() {
                 <Route path={AppRoutes.CATALOG.path} element={<CatalogLayoutRouter />} />
                 <Route path={AppRoutes.CART.path} element={<MainLayoutCart />} />
               </Route>
+
               <Route path={AppRoutes.LOGIN.path} element={<LoginPage onLogin={handleLogin} onReset={handleReset} />} />
               <Route path="*" element={<PageNotFound redirectPath={'/'} />} />
             </Routes>

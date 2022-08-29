@@ -1,5 +1,5 @@
 import {styled} from '@mui/material/styles';
-import {alpha, Divider, Grid, GridProps, Typography} from '@mui/material';
+import {Divider, Grid, GridProps, Typography} from '@mui/material';
 import React from 'react';
 import IBaseProduct from 'features/catalog/models/IBaseProduct';
 
@@ -27,11 +27,6 @@ export const StyledProductTitle = styled((props: GridProps & {title: string}) =>
 }));
 
 // PRODUCT ITEM UI
-
-export const StyledProductContainer = styled(Grid)(({theme: {palette}}) => ({
-  borderBottom: `1px solid ${alpha(palette.primary.dark, 0.24)}`,
-}));
-
 export const StyledProductImage = styled('img')(({theme: {spacing}}) => ({
   padding: spacing(2, 2, 2, 0),
   height: 120,
@@ -40,6 +35,7 @@ export const StyledProductImage = styled('img')(({theme: {spacing}}) => ({
 export const StyledProductItem = styled(
   ({product, count, ...rest}: GridProps & {product: IBaseProduct; count: number}) => (
     <>
+      <Divider />
       <Grid
         {...rest}
         item
@@ -64,11 +60,7 @@ export const StyledProductItem = styled(
             <Typography variant="h6" color="primary.dark">
               {product.name}
             </Typography>
-            <Typography
-              variant="body1"
-              color="primary.light"
-              display={{xs: 'none', xl: 'flex'}}
-            >
+            <Typography variant="body1" color="primary.light" display={{xs: 'none', xl: 'flex'}}>
               {product.description}
             </Typography>
           </Grid>
@@ -82,7 +74,6 @@ export const StyledProductItem = styled(
           </Grid>
         ))}
       </Grid>
-      <Divider />
     </>
   )
 )(() => ({}));

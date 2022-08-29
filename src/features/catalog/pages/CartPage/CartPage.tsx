@@ -1,7 +1,7 @@
 import React, {useMemo} from 'react';
 import {observer} from 'mobx-react-lite';
 import CartStore from 'store/CartStore';
-import {Divider, Grid, Typography} from '@mui/material';
+import {Divider, Grid, Paper, Typography} from '@mui/material';
 import CircleButton from 'core/components/Buttons/CircleButton';
 import {StyledContainer, StyledProductItem, StyledProductTitle, StyledSummaryTitle} from './CartPageStyle';
 import IBaseProduct from 'features/catalog/models/IBaseProduct';
@@ -29,8 +29,8 @@ const CartPage = observer(() => {
 
   return (
     <StyledContainer>
-      <Grid container columns={{xs: 1, sm: 1, md: 12, xl: 12}} spacing={2}>
-        <Grid item xs={12} xl={9}>
+      <Grid container columns={{xs: 1, sm: 1, md: 11, xl: 12}} spacing={2} justifyContent="space-between">
+        <Grid item xs={12} xl={8} sx={{padding: 2}}>
           <Grid
             item
             container
@@ -44,13 +44,12 @@ const CartPage = observer(() => {
             <StyledProductTitle title="Count" xs={2} />
             <StyledProductTitle title="Total" xs={2} />
           </Grid>
-          <Divider />
           {productPairs.map(({product, count}) => (
             <StyledProductItem key={product.id} product={product} count={count} />
           ))}
         </Grid>
 
-        <Grid item xs={12} xl={3} spacing={2} justifyContent="center">
+        <Grid item xs={12} xl={3} justifyContent="center" component={Paper} sx={{padding: 2}}>
           <Grid item>
             <StyledProductTitle title="Summary" textAlign="center" />
           </Grid>
@@ -62,7 +61,7 @@ const CartPage = observer(() => {
               <StyledSummaryTitle variant="h6">Subtotal</StyledSummaryTitle>
             </Grid>
             <Grid item>
-              <StyledSummaryTitle variant="h6">${totalPrice}</StyledSummaryTitle>
+              <StyledSummaryTitle variant="h6">${totalPrice.toFixed(2)}</StyledSummaryTitle>
             </Grid>
           </Grid>
           <Grid item container justifyContent="space-between">
