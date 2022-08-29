@@ -7,7 +7,8 @@ import React from 'react';
 export const StyledContainer = styled(Card)(({theme: {spacing}}) => ({
   position: 'relative',
   margin: 'auto',
-  width: 360,
+  maxWidth: 360,
+  width: '100%',
   height: 600,
   borderRadius: 20,
   transition: 'all 0.3s ease',

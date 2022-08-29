@@ -44,6 +44,7 @@ const CartPage = observer(() => {
             <StyledProductTitle title="Count" xs={2} />
             <StyledProductTitle title="Total" xs={2} />
           </Grid>
+          <Divider />
           {productPairs.map(({product, count}) => (
             <StyledProductItem key={product.id} product={product} count={count} />
           ))}

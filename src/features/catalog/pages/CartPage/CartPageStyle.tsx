@@ -35,7 +35,6 @@ export const StyledProductImage = styled('img')(({theme: {spacing}}) => ({
 export const StyledProductItem = styled(
   ({product, count, ...rest}: GridProps & {product: IBaseProduct; count: number}) => (
     <>
-      <Divider />
       <Grid
         {...rest}
         item
@@ -74,6 +73,7 @@ export const StyledProductItem = styled(
           </Grid>
         ))}
       </Grid>
+      <Divider />
     </>
   )
 )(() => ({}));

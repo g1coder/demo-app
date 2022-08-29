@@ -6,7 +6,7 @@ import _ from 'lodash';
 export interface IProps {
   initialValues: string | undefined;
   tags: string[];
-  onChange: (value: string) => void;
+  onChange: (value: {tag: string}) => void;
 }
 
 const TagFilter = ({initialValues, tags, onChange}: IProps) => {
@@ -14,9 +14,9 @@ const TagFilter = ({initialValues, tags, onChange}: IProps) => {
   const debouncedApplyParams = useMemo(() => _.debounce(onChange, 1000), [onChange]);
 
   const handleOnClick = useCallback(
-    (value: string) => {
-      setActive(value);
-      debouncedApplyParams(value);
+    (tag: string) => {
+      setActive(tag);
+      debouncedApplyParams({tag});
     },
     [debouncedApplyParams]
   );

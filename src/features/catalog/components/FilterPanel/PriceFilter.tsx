@@ -13,7 +13,7 @@ const StyledSliderContainer = styled('div')(({theme: {spacing}}) => ({
 
 export interface IProps {
   initialValues: number[] | undefined;
-  onChange: (value: {min: number; max: number}) => void;
+  onChange: (value: {min?: number; max?: number}) => void;
   min: number;
   max: number;
 }
@@ -27,9 +27,16 @@ const PriceFilter = ({initialValues, onChange, min, max}: IProps) => {
   const handleChange = useCallback(
     (e, newValue) => {
       setValue(newValue);
-      debouncedApplyParams({min: newValue[0], max: newValue[1]});
+      const params: {min?: number; max?: number} = {};
+      if (newValue[0] !== min) {
+        params.min = newValue[0];
+      }
+      if (newValue[1] !== max) {
+        params.max = newValue[1];
+      }
+      debouncedApplyParams(params);
     },
-    [debouncedApplyParams]
+    [debouncedApplyParams, max, min]
   );
 
   if (!value) return null;

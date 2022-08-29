@@ -6,13 +6,16 @@ import IProductParams from 'features/catalog/models/IProductParams';
 import {useSearchParams} from 'react-router-dom';
 import querySerializer from 'core/services/QuerySerializer';
 import _ from 'lodash';
-import {StyledFilterChip} from 'features/catalog/pages/CatalogPage/CatalogPageStyles';
-import {Grid} from '@mui/material';
+import {Chip, Grid} from '@mui/material';
 
 const StyledContainer = styled('div')(({theme: {spacing}}) => ({
   maxWidth: 360,
   position: 'sticky',
   top: spacing(2),
+}));
+
+const StyledFilterChip = styled(Chip)(() => ({
+  marginRight: 8,
 }));
 
 interface IProps {
@@ -49,20 +52,6 @@ const FilterPanel = ({initialValues, onChange}: IProps) => {
     [filters, setSearchParams]
   );
 
-  const handlePriceChanged = useCallback(
-    ({min, max}: Pick<IPriceFilterProps, 'min' | 'max'>) => {
-      applyFilters({min, max});
-    },
-    [applyFilters]
-  );
-
-  const handleTagChanged = useCallback(
-    (tag: string) => {
-      applyFilters({tag});
-    },
-    [applyFilters]
-  );
-
   const handleResetFilter = useCallback(
     (property: keyof IProductParams) => {
       const param = searchParams.get(property);
@@ -92,16 +81,11 @@ const FilterPanel = ({initialValues, onChange}: IProps) => {
       <PriceFilter
         title="Price"
         initialValues={[initialValues.min, initialValues.max]}
-        onChange={handlePriceChanged}
+        onChange={applyFilters}
         min={initialValues.min}
         max={initialValues.max}
       />
-      <TagFilter
-        title="Product tags"
-        tags={initialValues.tags}
-        initialValues={filters.tag}
-        onChange={handleTagChanged}
-      />
+      <TagFilter title="Product tags" tags={initialValues.tags} initialValues={filters.tag} onChange={applyFilters} />
       <Grid container spacing={2}>
         <Grid item justifyContent="flex-start">
           {renderFilterChips}
