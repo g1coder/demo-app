@@ -1,28 +1,43 @@
 import {observable, action, computed, makeAutoObservable} from 'mobx';
 import IBaseProduct from 'features/catalog/models/IBaseProduct';
+import CatalogService from 'features/catalog/services/CatalogService';
 
 class CartStore {
+  @observable availableProducts: IBaseProduct[] = [];
+  @observable products: Map<string, number> = new Map([]);
+
   constructor() {
     makeAutoObservable(this);
   }
-
-  @observable availableProducts: IBaseProduct[] = [];
-  @observable products: Map<string, number> = new Map([]);
 
   @action setAvailableProducts = (products: IBaseProduct[]) => {
     this.availableProducts = products;
   };
 
-  @action decrease = (product: IBaseProduct) => {
-    const count = this.products.get(product.id);
-    if (count) {
-      this.products.set(product.id, count - 1);
-    }
+  @action refreshCart = () => {
+    CatalogService.getCart().then((pairs) => {
+      for (const key in pairs) {
+        this.products.set(key, pairs[key]);
+      }
+    });
   };
 
   @action increase = (product: IBaseProduct) => {
-    const count = this.products.get(product.id);
-    this.products.set(product.id, (count || 0) + 1);
+    CatalogService.getCart().then((pairs) => {
+      for (const key in pairs) {
+        this.products.set(key, pairs[key]);
+      }
+    });
+
+    CatalogService.updateCart(product.id, 'increment').then(({count}) => {
+      this.products.set(product.id, count);
+    });
+  };
+
+  @action decrease = (product: IBaseProduct) => {
+    CatalogService.updateCart(product.id, 'decrement').then(({count}) => {
+      this.products.set(product.id, count);
+    });
   };
 
   @computed get count() {

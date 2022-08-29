@@ -1,7 +1,7 @@
 import _ from 'lodash';
 import {setupWorker} from 'msw';
 import auth from './auth';
-import catalog from 'test/backend/catalog';
+import catalog from 'test/backend/catalog/CatalogController';
 
 // See the example here https://mswjs.io/docs/getting-started/mocks/rest-api#response-resolver
 const handlers = _.concat(auth, catalog);

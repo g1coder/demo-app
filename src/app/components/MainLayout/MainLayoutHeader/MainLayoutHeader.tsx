@@ -1,4 +1,4 @@
-import React, {useCallback, useReducer} from 'react';
+import React, {useCallback, useEffect, useReducer} from 'react';
 import {observer} from 'mobx-react-lite';
 import AppRoutes from 'core/constants/AppRoutes';
 import MenuIcon from '@mui/icons-material/Menu';
@@ -33,6 +33,10 @@ const items: IHeaderItem[] = [
 const MainLayoutHeader = observer(() => {
   const [isDrawerOpen, toggleDrawer] = useReducer((state) => !state, false);
   const navigate = useNavigate();
+
+  useEffect(() => {
+    CartStore.refreshCart();
+  }, []);
 
   const handleCartClick = useCallback(() => {
     navigate(AppRoutes.CART.url);

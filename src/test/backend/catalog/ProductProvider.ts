@@ -1,17 +1,5 @@
 import {v4 as uuid} from 'uuid';
-import {rest} from 'msw';
-
-const baseUrl = 'api/catalog';
-
-interface ProductDTO {
-  id: string;
-  name: string;
-  description: string;
-  price: number;
-  discount?: number;
-  image: string;
-  tag?: string;
-}
+import ProductDTO from 'test/backend/catalog/models/ProductDTO';
 
 const createProduct = (name, price, image, tag?, discount?) => ({
   id: uuid(),
@@ -23,7 +11,7 @@ const createProduct = (name, price, image, tag?, discount?) => ({
   discount,
 });
 
-const products: ProductDTO[] = [
+const productsMock: ProductDTO[] = [
   createProduct('Bottled lemon water', 6.99, '2-300x300.jpg', 'lemon', 4.99),
   createProduct('Bottled sparkling water', 12.5, '6-300x300.jpg'),
   createProduct('Drop of water. Mineral', 6.75, '3-300x300.jpg', 'mineral'),
@@ -33,29 +21,24 @@ const products: ProductDTO[] = [
   createProduct('Water Set', 19.99, '5-300x300.jpg', 'pack'),
 ];
 
-const handlers = [
-  rest.get(`${baseUrl}/products`, async (req, res, ctx) => {
-    const tag = req.url.searchParams.get('tag');
-    const maxPrice = req.url.searchParams.get('max');
-    const minPrice = req.url.searchParams.get('min');
+class ProductProvider {
+  products: ProductDTO[] = [];
 
-    const result = products.filter((p) => {
+  constructor() {
+    const productsStr = window.localStorage.getItem('products');
+    if (!productsStr) {
+      window.localStorage.setItem('products', JSON.stringify(productsMock));
+    } else {
+      this.products = JSON.parse(productsStr);
+    }
+  }
+
+  getByQueryParams = (params: {tag: string | null; maxPrice: string | null; minPrice: string | null}): ProductDTO[] => {
+    const {tag, minPrice, maxPrice} = params;
+    return this.products.filter((p) => {
       return !((maxPrice && p.price > +maxPrice) || (minPrice && p.price < +minPrice) || (tag && p.tag !== tag));
     });
+  };
+}
 
-    return res(
-      ctx.status(200),
-      ctx.delay(1500),
-      ctx.json({
-        objects: result,
-        $meta: {
-          limit: 10,
-          offset: 0,
-          total_count: products.length,
-        },
-      })
-    );
-  }),
-];
-
-export default handlers;
+export default new ProductProvider();

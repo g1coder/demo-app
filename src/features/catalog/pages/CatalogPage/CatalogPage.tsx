@@ -18,7 +18,7 @@ const initialFilters = {
 };
 
 const CatalogPage = observer(() => {
-  const [filterParams, setFilterParams] = useState<IProductParams>();
+  const [filterParams, setFilterParams] = useState<IProductParams>({});
 
   const [{data: products, ready: productsReady, loading: productsLoading}] = useFetch<IList<IBaseProduct> | null>(
     {
