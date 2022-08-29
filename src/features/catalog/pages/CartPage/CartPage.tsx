@@ -18,6 +18,10 @@ const CartPage = observer(() => {
     return result;
   }, []);
 
+  if (CartStore.products.size === 0) {
+    return <StyledSummaryTitle variant="h6">Your cart is empty</StyledSummaryTitle>;
+  }
+
   const totalPrice = CartStore.totalPrice;
   const shipping = CartStore.totalPrice * 0.2;
   const taxes = CartStore.totalPrice * 0.13;

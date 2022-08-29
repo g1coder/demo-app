@@ -1,9 +1,11 @@
 import {styled} from '@mui/material/styles';
-import {alpha, Grid, GridProps, Typography} from '@mui/material';
+import {alpha, Divider, Grid, GridProps, Typography} from '@mui/material';
 import React from 'react';
-import IBaseProduct from '../../models/IBaseProduct';
+import IBaseProduct from 'features/catalog/models/IBaseProduct';
 
-export const StyledContainer = styled('section')(() => ({}));
+export const StyledContainer = styled('section')(({theme: {spacing}}) => ({
+  padding: spacing(4, 0),
+}));
 
 export const StyledSummaryTitle = styled(Typography)(({theme: {palette}}) => ({
   color: palette.primary.dark,
@@ -11,14 +13,9 @@ export const StyledSummaryTitle = styled(Typography)(({theme: {palette}}) => ({
 }));
 
 // PRODUCT TABLE HEADER
-export const StyledProductTitleContainer = styled(Grid)(({theme: {palette}}) => ({
-  borderBottom: `1px solid ${alpha(palette.primary.dark, 0.24)}`,
-  borderTop: `1px solid ${alpha(palette.primary.dark, 0.24)}`,
-}));
-
 export const StyledProductTitle = styled((props: GridProps & {title: string}) => (
-  <Grid item {...props} spacing={1}>
-    <Typography variant="body1" color="primary.light">
+  <Grid item textAlign="right" spacing={1} {...props}>
+    <Typography variant="h5" color="primary.light">
       {props.title}
     </Typography>
   </Grid>
@@ -42,25 +39,50 @@ export const StyledProductImage = styled('img')(({theme: {spacing}}) => ({
 
 export const StyledProductItem = styled(
   ({product, count, ...rest}: GridProps & {product: IBaseProduct; count: number}) => (
-    <StyledProductTitleContainer {...rest} item container justifyContent="space-between" spacing={2}>
-      <Grid item xs={6}>
-        <StyledProductImage src={product.image} />
+    <>
+      <Grid
+        {...rest}
+        item
+        container
+        justifyContent="space-between"
+        spacing={2}
+        columns={{xs: 12, sm: 12, md: 12, xl: 12}}
+      >
+        <Grid item xs={3} sm={6} container>
+          <Grid item xs={3}>
+            <StyledProductImage src={product.image} />
+          </Grid>
+          <Grid
+            item
+            xs={9}
+            sx={{margin: 'auto 0', flexFlow: 'row wrap'}}
+            textAlign="left"
+            spacing={1}
+            padding={1}
+            display={{xs: 'none', md: 'flex'}}
+          >
+            <Typography variant="h6" color="primary.dark">
+              {product.name}
+            </Typography>
+            <Typography
+              variant="body1"
+              color="primary.light"
+              display={{xs: 'none', xl: 'flex'}}
+            >
+              {product.description}
+            </Typography>
+          </Grid>
+        </Grid>
+
+        {[`$${product.price}`, count, `$${(product.price * count).toFixed(2)}`].map((value, index) => (
+          <Grid key={`${index}-${value}`} item xs={2} textAlign="right" margin="auto">
+            <Typography variant="h6" color="primary.dark">
+              {value}
+            </Typography>
+          </Grid>
+        ))}
       </Grid>
-      <Grid item xs={2}>
-        <Typography variant="body2" color="primary.light">
-          {product.price}
-        </Typography>
-      </Grid>
-      <Grid item xs={2}>
-        <Typography variant="body2" color="primary.light">
-          {count}
-        </Typography>
-      </Grid>
-      <Grid item xs={2}>
-        <Typography variant="body2" color="primary.light">
-          {product.price * count}
-        </Typography>
-      </Grid>
-    </StyledProductTitleContainer>
+      <Divider />
+    </>
   )
 )(() => ({}));

@@ -27,16 +27,14 @@ class CartStore {
 
   @computed get count() {
     let num = 0;
-    this.products.forEach((value) => {
-      num += value;
-    });
+    this.products.forEach((value) => (num += value));
     return num;
   }
 
   @computed get totalPrice() {
     let total = 0;
     this.products.forEach((value, key) => {
-      const price = this.availableProducts.find(ap => ap.id === key)?.price;
+      const price = this.availableProducts.find((ap) => ap.id === key)?.price;
       if (price) {
         total += value * +price;
       }
