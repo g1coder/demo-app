@@ -106,7 +106,7 @@ const CartPage = observer(() => {
             <Divider />
           </Grid>
           <Grid item>
-            <CircleButton title="Checkout" variant="primary" size="regular" fullWidth />
+            <CircleButton title="Checkout" variant="primary" size="regular" fullWidth onClick={CartStore.submitCart} />
           </Grid>
           <Grid item textAlign="center" paddingTop={2}>
             <Typography variant="body1" color="primary.light">

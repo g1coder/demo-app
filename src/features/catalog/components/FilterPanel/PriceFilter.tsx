@@ -20,7 +20,7 @@ export interface IProps {
 
 const getValueText = (value: number) => `$${value}`;
 
-const PriceFilter = ({initialValues, onChange, min, max}: IProps) => {
+const PriceFilter = ({initialValues, onChange, min = 0, max = 50}: IProps) => {
   const [value, setValue] = useState<number[] | undefined>(initialValues);
   const debouncedApplyParams = useMemo(() => _.debounce(onChange, 1000), [onChange]);
 

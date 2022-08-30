@@ -22,13 +22,13 @@ class CartStore {
     });
   };
 
-  @action increase = (product: IBaseProduct) => {
-    CatalogService.getCart().then((pairs) => {
-      for (const key in pairs) {
-        this.products.set(key, pairs[key]);
-      }
+  @action submitCart = () => {
+    CatalogService.submitOrder().then(() => {
+      this.products = new Map([]);
     });
+  };
 
+  @action increase = (product: IBaseProduct) => {
     CatalogService.updateCart(product.id, 'increment').then(({count}) => {
       this.products.set(product.id, count);
     });

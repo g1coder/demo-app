@@ -1,5 +1,6 @@
+import _ from 'lodash';
 import {rest} from 'msw';
-import ProductDb from 'test/backend/catalog/ProductProvider';
+import ProductProvider from 'test/backend/catalog/ProductProvider';
 import CartProvider from 'test/backend/catalog/CartProvider';
 
 const handlers = [
@@ -12,12 +13,28 @@ const handlers = [
       ctx.status(200),
       ctx.delay(1500),
       ctx.json({
-        objects: ProductDb.getByQueryParams({tag, minPrice, maxPrice}),
+        objects: ProductProvider.getByQueryParams({tag, minPrice, maxPrice}),
         $meta: {
           limit: 10,
           offset: 0,
-          total_count: ProductDb.products.length,
+          total_count: ProductProvider.products.length,
         },
+      })
+    );
+  }),
+
+  rest.get('api/catalog/products/filters', async (req, res, ctx) => {
+    const tags = _.uniqBy(ProductProvider.products, (o) => o.tag).map((p) => p.tag);
+    const min = _.minBy(ProductProvider.products, (p) => p.price)?.price;
+    const max = _.maxBy(ProductProvider.products, (p) => p.price)?.price;
+
+    return res(
+      ctx.status(200),
+      ctx.delay(1500),
+      ctx.json({
+        tags,
+        min,
+        max,
       })
     );
   }),
@@ -34,6 +51,11 @@ const handlers = [
   rest.post(`api/catalog/cart/remove`, (req, res, ctx) => {
     const {productId} = req.body as any;
     return res(ctx.status(201), ctx.delay(1000), ctx.json(CartProvider.remove(productId)));
+  }),
+
+  rest.post(`api/catalog/cart/submit`, (req, res, ctx) => {
+    CartProvider.clear();
+    return res(ctx.status(201), ctx.delay(500));
   }),
 ];
 

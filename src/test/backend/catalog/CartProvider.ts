@@ -25,6 +25,11 @@ class CartProvider {
     window.localStorage.setItem('cart', JSON.stringify(this.products));
     return {count: this.products[productId]};
   };
+
+  clear = () => {
+    this.products = {};
+    window.localStorage.removeItem('cart');
+  };
 }
 
 export default new CartProvider();

@@ -1,6 +1,6 @@
 import React from 'react';
 import {styled} from '@mui/material/styles';
-import {Paper, Typography} from '@mui/material';
+import {Paper, Skeleton, Typography} from '@mui/material';
 
 const borderRadius = 20;
 
@@ -25,16 +25,20 @@ const StyledContentContainer = styled('div')(({theme: {spacing}}) => ({
   minHeight: spacing(10),
 }));
 
+const StyledSkeleton = styled(Skeleton)(() => ({
+  width: '100%',
+}));
+
 const withBaseFilter =
   (Component) =>
-  <T extends any>({title, ...rest}: {title: string} & T) => {
+  <T extends any>({title, loading, ...rest}: {title: string; loading: boolean} & T) => {
     return (
       <StyledContainer elevation={3} square variant="elevation">
         <StyledTitleContainer>
           <Typography variant="h5">{title}</Typography>
         </StyledTitleContainer>
         <StyledContentContainer>
-          <Component {...rest} />
+          {loading ? <StyledSkeleton animation="pulse" variant="rectangular" /> : <Component {...rest} />}
         </StyledContentContainer>
       </StyledContainer>
     );

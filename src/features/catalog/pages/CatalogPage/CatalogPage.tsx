@@ -11,12 +11,6 @@ import CartStore from 'store/CartStore';
 import IProductParams from 'features/catalog/models/IProductParams';
 import IList from 'core/models/IList';
 
-const initialFilters = {
-  tags: ['lemon', 'mineral', 'pack', 'soda'],
-  min: 0,
-  max: 50,
-};
-
 const CatalogPage = observer(() => {
   const [filterParams, setFilterParams] = useState<IProductParams>({});
 
@@ -50,7 +44,7 @@ const CatalogPage = observer(() => {
       {productsLoading && <Spinner fixed />}
 
       <Grid item xs={12} xl={3}>
-        <FilterPanel initialValues={initialFilters} onChange={setFilterParams} />
+        <FilterPanel onChange={setFilterParams} />
       </Grid>
 
       <Grid item container xs={12} xl={9} sx={{position: 'relative'}}>

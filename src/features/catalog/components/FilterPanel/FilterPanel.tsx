@@ -1,14 +1,16 @@
 import React, {memo, useCallback, useEffect, useMemo, useState} from 'react';
 import {styled} from '@mui/material/styles';
-import PriceFilter, {IProps as IPriceFilterProps} from 'features/catalog/components/FilterPanel/PriceFilter';
-import TagFilter, {IProps as ITagFilterProps} from 'features/catalog/components/FilterPanel/TagFilter';
+import PriceFilter from 'features/catalog/components/FilterPanel/PriceFilter';
+import TagFilter from 'features/catalog/components/FilterPanel/TagFilter';
 import IProductParams from 'features/catalog/models/IProductParams';
 import {useSearchParams} from 'react-router-dom';
 import querySerializer from 'core/services/QuerySerializer';
 import _ from 'lodash';
 import {Chip, Grid} from '@mui/material';
+import useFetch from 'core/hooks/useFetch';
+import CatalogService from 'features/catalog/services/CatalogService';
 
-const StyledContainer = styled('div')(({theme: {spacing}}) => ({
+const StyledContainer = styled('aside')(({theme: {spacing}}) => ({
   maxWidth: 360,
   position: 'sticky',
   top: spacing(2),
@@ -19,13 +21,20 @@ const StyledFilterChip = styled(Chip)(() => ({
 }));
 
 interface IProps {
-  initialValues: Pick<IPriceFilterProps, 'min' | 'max'> & Pick<ITagFilterProps, 'tags'>;
   onChange: (params: IProductParams) => void;
 }
 
-const FilterPanel = ({initialValues, onChange}: IProps) => {
+const FilterPanel = ({onChange}: IProps) => {
   const [searchParams, setSearchParams] = useSearchParams();
   const [filters, setFilters] = useState<IProductParams>({});
+
+  const [{data: initialValues, loading}] = useFetch(
+    {
+      fetch: () => CatalogService.getOptions(),
+      data: null,
+    },
+    []
+  );
 
   useEffect(() => {
     const tag = searchParams.get('tag');
@@ -80,12 +89,19 @@ const FilterPanel = ({initialValues, onChange}: IProps) => {
     <StyledContainer>
       <PriceFilter
         title="Price"
-        initialValues={[initialValues.min, initialValues.max]}
+        initialValues={initialValues ? [initialValues.min, initialValues.max] : undefined}
         onChange={applyFilters}
-        min={initialValues.min}
-        max={initialValues.max}
+        min={initialValues?.min || 0}
+        max={initialValues?.max || 50}
+        loading={loading}
       />
-      <TagFilter title="Product tags" tags={initialValues.tags} initialValues={filters.tag} onChange={applyFilters} />
+      <TagFilter
+        title="Product tags"
+        initialValues={filters.tag}
+        onChange={applyFilters}
+        tags={initialValues?.tags}
+        loading={loading}
+      />
       <Grid container spacing={2}>
         <Grid item justifyContent="flex-start">
           {renderFilterChips}
