@@ -49,7 +49,7 @@ const ProductCard = ({product, ordered}: IProps) => {
         <StyledAddCardButton
           startIcon={ordered ? undefined : <CartIcon fontSize="small" sx={{marginRight: 1}} />}
           title={buttonTitle}
-          variant="action"
+          buttonType="action"
           onClick={handleIncrease}
         />
       )}

@@ -12,7 +12,7 @@ import {IHeaderItem} from 'app/components/MainLayout/MainLayoutHeader/MainLayout
 import {Link} from 'react-router-dom';
 import {DrawerProps} from '@mui/material/Drawer/Drawer';
 import AppRoutes from 'core/constants/AppRoutes';
-import CircleButton from 'core/components/Buttons/CircleButton';
+import SecondaryButton from 'core/components/Buttons/SecondaryButton';
 
 export const StyledHeader = styled('header')(({theme: {spacing, breakpoints}}) => ({
   height: LANDING_PAGE_HEADER_HEIGHT,
@@ -129,14 +129,7 @@ export const StyledCart = styled(({count, onClick, ...rest}: IStyledCartProps) =
 
 export const StyledAuthDrawerContainer = styled((props) => (
   <div {...props}>
-    <CircleButton
-      title="Sign up"
-      variant="secondary"
-      size="small"
-      component="a"
-      href={AppRoutes.LOGIN.url}
-      color="#fff"
-    />
+    <SecondaryButton title="Sign up" size="small" href={AppRoutes.LOGIN.url} />
     <Typography variant="caption" fontWeight={900} color="primary.dark" component={Link} to={AppRoutes.LOGIN.url}>
       Sign in
     </Typography>

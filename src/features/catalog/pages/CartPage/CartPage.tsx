@@ -2,9 +2,9 @@ import React, {useMemo} from 'react';
 import {observer} from 'mobx-react-lite';
 import CartStore from 'store/CartStore';
 import {Divider, Grid, Paper, Typography} from '@mui/material';
-import CircleButton from 'core/components/Buttons/CircleButton';
 import {StyledContainer, StyledProductItem, StyledProductTitle, StyledSummaryTitle} from './CartPageStyle';
 import IBaseProduct from 'features/catalog/models/IBaseProduct';
+import PrimaryButton from 'core/components/Buttons/PrimaryButton';
 
 const CartPage = observer(() => {
   const productPairs: Array<{product: IBaseProduct; count: number}> = useMemo(() => {
@@ -17,10 +17,6 @@ const CartPage = observer(() => {
     });
     return result;
   }, []);
-
-  if (CartStore.products.size === 0) {
-    return <StyledSummaryTitle variant="h6">Your cart is empty</StyledSummaryTitle>;
-  }
 
   const totalPrice = CartStore.totalPrice;
   const shipping = CartStore.totalPrice * 0.2;
@@ -106,7 +102,7 @@ const CartPage = observer(() => {
             <Divider />
           </Grid>
           <Grid item>
-            <CircleButton title="Checkout" variant="primary" size="regular" fullWidth onClick={CartStore.submitCart} />
+            <PrimaryButton title="Checkout" onClick={CartStore.submitCart} />
           </Grid>
           <Grid item textAlign="center" paddingTop={2}>
             <Typography variant="body1" color="primary.light">

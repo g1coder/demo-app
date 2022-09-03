@@ -8,12 +8,12 @@ import {
   StyledWaterSeparatorImage,
 } from './LandingPageDeliverySectionStyles';
 import {Typography} from '@mui/material';
-import CircleButton from 'core/components/Buttons/CircleButton';
 import DeliverySectionForm from './DeliverySectionForm';
 import {StyledMainLayoutWrapper} from 'app/components/MainLayout/MainLayout';
 
 import SeparatorImage from './presets/water_separator.jpg';
 import ManImage from './presets/delivery-man.png';
+import SecondaryButton from 'core/components/Buttons/SecondaryButton';
 
 const LandingPageDeliverySection = () => {
   const handleReadMore = useCallback(() => {}, []);
@@ -38,7 +38,7 @@ const LandingPageDeliverySection = () => {
             to anywhere in the city.
           </Typography>
           <StyledTimeInfo />
-          <CircleButton title="Read more" onClick={handleReadMore} variant="secondary" />
+          <SecondaryButton title="Read more" onClick={handleReadMore} />
         </StyledConditions>
 
         <StyledContactFormContainer>

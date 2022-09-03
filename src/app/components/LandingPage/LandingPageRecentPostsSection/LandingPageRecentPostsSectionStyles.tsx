@@ -2,7 +2,7 @@ import React from 'react';
 import {styled} from '@mui/material/styles';
 import {Card, CardActions, CardMedia, Typography} from '@mui/material';
 import {Link} from 'react-router-dom';
-import CircleButton from 'core/components/Buttons/CircleButton';
+import SecondaryButton from 'core/components/Buttons/SecondaryButton';
 
 export const StyledPostsContainer = styled('div')(({theme: {spacing, breakpoints}}) => ({
   display: 'flex',
@@ -103,7 +103,7 @@ export const StyledIconWithText = styled(Typography)(({theme: {palette, spacing}
   },
 }));
 
-export const StyledReadMoreButton = styled(CircleButton)(({theme: {spacing, breakpoints}}) => ({
+export const StyledReadMoreButton = styled(SecondaryButton)(({theme: {spacing, breakpoints}}) => ({
   marginTop: spacing(2),
   [breakpoints.up('md')]: {
     marginTop: 'auto',

@@ -3,13 +3,13 @@ import {Form, Field} from 'react-final-form';
 import {createValidator, required} from 'core/services/ValidationService';
 import {FormControl} from '@mui/material';
 import {styled} from '@mui/material/styles';
-import CircleButton from 'core/components/Buttons/CircleButton';
 import TextField from 'core/components/Form/TextField';
+import PrimaryButton from 'core/components/Buttons/PrimaryButton';
 
 const StyledForm = styled('form')(({theme: {spacing}}) => ({
   maxWidth: 390,
   textAlign: 'center',
-  padding: spacing(2, 0)
+  padding: spacing(2, 0),
 }));
 
 const StyledOneRowContainer = styled(FormControl)(() => ({
@@ -18,9 +18,8 @@ const StyledOneRowContainer = styled(FormControl)(() => ({
   justifyContent: 'space-between',
 }));
 
-
 const StyledDivider = styled('div')(({theme: {spacing}}) => ({
-  width: spacing(3)
+  width: spacing(3),
 }));
 
 export interface IFormValues {
@@ -82,34 +81,40 @@ const DeliverySectionForm = () => {
           </FormControl>
 
           <StyledOneRowContainer fullWidth margin="none">
-              <Field name="phone">
-                {({input, meta}) => (
-                  <TextField
-                    margin="normal"
-                    error={meta.touched && !!meta.error}
-                    helperText={meta.touched && !!meta.error ? 'enter phone' : ''}
-                    placeholder="Phone"
-                    aria-label="phone"
-                    {...input}
-                  />
-                )}
-              </Field>
-              <StyledDivider />
-              <Field name="bottles">
-                {({input, meta}) => (
-                  <TextField
-                    margin="normal"
-                    error={meta.touched && !!meta.error}
-                    helperText={meta.touched && !!meta.error ? 'count of bottles' : ''}
-                    placeholder="Bottles"
-                    aria-label="bottles"
-                    {...input}
-                  />
-                )}
-              </Field>
+            <Field name="phone">
+              {({input, meta}) => (
+                <TextField
+                  margin="normal"
+                  error={meta.touched && !!meta.error}
+                  helperText={meta.touched && !!meta.error ? 'enter phone' : ''}
+                  placeholder="Phone"
+                  aria-label="phone"
+                  {...input}
+                />
+              )}
+            </Field>
+            <StyledDivider />
+            <Field name="bottles">
+              {({input, meta}) => (
+                <TextField
+                  margin="normal"
+                  error={meta.touched && !!meta.error}
+                  helperText={meta.touched && !!meta.error ? 'count of bottles' : ''}
+                  placeholder="Bottles"
+                  aria-label="bottles"
+                  {...input}
+                />
+              )}
+            </Field>
           </StyledOneRowContainer>
 
-          <CircleButton type="submit" title="Make order" variant="action" sx={{marginTop: 3}} disabled={submitting || invalid} />
+          <PrimaryButton
+            type="submit"
+            title="Make order"
+            buttonType="action"
+            sx={{marginTop: 3}}
+            disabled={submitting || invalid}
+          />
         </StyledForm>
       )}
     </Form>

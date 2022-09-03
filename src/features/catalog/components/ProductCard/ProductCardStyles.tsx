@@ -1,8 +1,8 @@
+import React from 'react';
 import {styled} from '@mui/material/styles';
 import Card from '@mui/material/Card';
 import {Typography} from '@mui/material';
-import CircleButton from 'core/components/Buttons/CircleButton';
-import React from 'react';
+import PrimaryButton from 'core/components/Buttons/PrimaryButton';
 
 export const StyledContainer = styled(Card)(({theme: {spacing}}) => ({
   position: 'relative',
@@ -81,7 +81,7 @@ export const StyledSaleMark = styled((props) => (
   boxSizing: 'content-box',
 }));
 
-export const StyledAddCardButton = styled(CircleButton)(({theme: {spacing}}) => ({
+export const StyledAddCardButton = styled(PrimaryButton)(({theme: {spacing}}) => ({
   marginTop: spacing(3),
 }));
 

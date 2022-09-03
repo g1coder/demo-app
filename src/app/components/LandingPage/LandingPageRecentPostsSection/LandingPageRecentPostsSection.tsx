@@ -15,7 +15,6 @@ import {
   StyledReadMoreButton,
   StyledCardMediaContainer,
 } from './LandingPageRecentPostsSectionStyles';
-import CircleButton from 'core/components/Buttons/CircleButton';
 import VisibilityIcon from '@mui/icons-material/Visibility';
 import CommentOutlinedIcon from '@mui/icons-material/CommentOutlined';
 import {StyledMainLayoutWrapper} from 'app/components/MainLayout/MainLayout';
@@ -23,6 +22,7 @@ import {StyledMainLayoutWrapper} from 'app/components/MainLayout/MainLayout';
 import RecentImage1 from './presets/recent_post1.jpg';
 import RecentImage2 from './presets/recent_post2.jpg';
 import RecentImage3 from './presets/recent_post3.jpg';
+import SecondaryButton from 'core/components/Buttons/SecondaryButton';
 
 const posts = [
   {
@@ -81,13 +81,13 @@ const LandingPageRecentPostsSection = () => (
                 {p.comments}
               </StyledIconWithText>
             </StyledTextInfoContainer>
-            <StyledReadMoreButton title="Read more" variant="secondary" size="small" />
+            <StyledReadMoreButton title="Read more" size="small" />
           </StyledCardActions>
         </StyledCard>
       ))}
     </StyledPostsContainer>
     <StyledButtonContainer>
-      <CircleButton title="Read more" variant="secondary" size="small" />
+      <SecondaryButton title="Read more" size="small" />
     </StyledButtonContainer>
   </StyledMainLayoutWrapper>
 );

@@ -1,7 +1,7 @@
 import {styled} from '@mui/material/styles';
 import {Paper} from '@mui/material';
 import ReviewBg from './review-section-bg.jpg';
-import CircleButton from 'core/components/Buttons/CircleButton';
+import SecondaryButton from 'core/components/Buttons/SecondaryButton';
 
 export const StyledLandingPageReviewSection = styled('div')(() => ({
   position: 'relative',
@@ -16,7 +16,7 @@ export const StyledSectionBg = styled('div')(() => ({
   bottom: 0,
   left: 0,
   right: 0,
-  mixBlendMode: 'color-burn'
+  mixBlendMode: 'color-burn',
 }));
 
 export const StyledSwiperContainer = styled('div')(({theme: {spacing}}) => ({
@@ -62,7 +62,7 @@ export const StyledAvatarContainer = styled('div')(({theme: {spacing, breakpoint
   },
 }));
 
-export const StyledButtonContainer = styled(CircleButton)(({theme: {spacing, breakpoints}}) => ({
+export const StyledButtonContainer = styled(SecondaryButton)(({theme: {spacing, breakpoints}}) => ({
   margin: spacing(5, 'auto'),
   [breakpoints.up('md')]: {
     margin: spacing(0, 'auto', 5),

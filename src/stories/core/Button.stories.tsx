@@ -1,16 +1,23 @@
 import React from 'react';
 import {ComponentStory, ComponentMeta} from '@storybook/react';
-import CircleButton from 'core/components/Buttons/CircleButton';
+import PrimaryButton from 'core/components/Buttons/PrimaryButton';
+import SecondaryButton from 'core/components/Buttons/SecondaryButton';
 
 export default {
   title: 'core/components/CircleButton',
-  component: CircleButton,
-} as ComponentMeta<typeof CircleButton>;
+  component: PrimaryButton,
+} as ComponentMeta<typeof PrimaryButton>;
 
-const Template: ComponentStory<typeof CircleButton> = (args) => <CircleButton {...args} />;
+const PrimaryTemplate: ComponentStory<typeof PrimaryButton> = (args) => <PrimaryButton {...args} />;
+export const Primary = PrimaryTemplate.bind({});
 
-export const Primary = Template.bind({});
+const SecondaryTemplate: ComponentStory<typeof SecondaryButton> = (args) => <SecondaryButton {...args} />;
+export const Secondary = SecondaryTemplate.bind({});
 
 Primary.args = {
+  title: 'Read more',
+};
+
+Secondary.args = {
   title: 'Read more',
 };

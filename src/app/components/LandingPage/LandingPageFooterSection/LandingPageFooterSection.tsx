@@ -30,7 +30,7 @@ const LandingPageFooterSection = () => (
               InputProps={{sx: {backgroundColor: '#fff', maxHeight: '48px'}}}
               fullWidth
             />
-            <StyledSubcribeButton title="Subscribe" variant="action" />
+            <StyledSubcribeButton title="Subscribe" buttonType="action" />
           </StyledActionContainer>
         </StyledSubscribeSection>
       </StyledSubscribeContainer>

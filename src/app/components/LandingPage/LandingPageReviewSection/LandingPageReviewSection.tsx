@@ -76,7 +76,7 @@ const LandingPageReviewSection = () => {
         <StyledSwiperContainer>
           <Swiper slides={slides} spaceBetween={50} slidesPerView={1} autoplay loop />
         </StyledSwiperContainer>
-        <StyledButtonContainer title="View more" variant="secondary" size="small" />
+        <StyledButtonContainer title="View more" size="small" />
       </StyledMainLayoutWrapper>
     </StyledLandingPageReviewSection>
   );

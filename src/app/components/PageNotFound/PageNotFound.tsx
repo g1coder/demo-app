@@ -1,9 +1,8 @@
 import React from 'react';
 import {styled} from '@mui/material/styles';
 import {Grid, Typography} from '@mui/material';
-import CircleButton from 'core/components/Buttons/CircleButton';
 import BgImage from './404-bg.png';
-
+import PrimaryButton from 'core/components/Buttons/PrimaryButton';
 
 const StyledContainer = styled('div')(() => ({
   display: 'flex',
@@ -42,7 +41,7 @@ const PageNotFound = ({redirectPath = '/'}: IProps) => (
         </Typography>
       </Grid>
       <Grid item marginTop={4}>
-        <CircleButton title="Back" size="small" variant="primary" component="a" href={redirectPath} />
+        <PrimaryButton title="Back" size="small" href={redirectPath} />
       </Grid>
     </Grid>
   </StyledContainer>

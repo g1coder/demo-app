@@ -10,7 +10,6 @@ import {
   StyledSectionTextImageItem,
 } from './LandingPageAboutSectionStyles';
 import {Typography} from '@mui/material';
-import CircleButton from 'core/components/Buttons/CircleButton';
 import {StyledMainLayoutWrapper} from 'app/components/MainLayout/MainLayout';
 import LandingPageSectionHeader from 'app/components/LandingPage/LandingPageSectionHeader';
 
@@ -19,6 +18,7 @@ import ItemIcon1 from './presets/icon-blue-1.png';
 import ItemIcon2 from './presets/icon-blue-2.png';
 import ItemIcon3 from './presets/icon-blue-3.png';
 import ItemIcon4 from './presets/icon-blue-4.png';
+import SecondaryButton from 'core/components/Buttons/SecondaryButton';
 
 const itemNames = [
   {name: 'Full Controll', icon: ItemIcon1},
@@ -50,7 +50,7 @@ const LandingPageAboutSection = () => {
               aliquam faucibus. Pellentesque vel nisi pharetra, euismod sapien et, volutpat nulla. In congue maximus
               malesuada.
             </Typography>
-            <CircleButton title="READ MORE" onClick={handleReadMore} variant="secondary" />
+            <SecondaryButton title="Read more" onClick={handleReadMore} />
           </StyledAboutInfoText>
 
           <StyledAboutVideoContainer>

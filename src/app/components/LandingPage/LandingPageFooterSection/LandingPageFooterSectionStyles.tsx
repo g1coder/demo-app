@@ -1,5 +1,5 @@
 import {styled} from '@mui/material/styles';
-import CircleButton from 'core/components/Buttons/CircleButton';
+import PrimaryButton from 'core/components/Buttons/PrimaryButton';
 
 export const StyledLandingPageFooterSection = styled('section')(({theme: {breakpoints}}) => ({
   position: 'relative',
@@ -51,7 +51,7 @@ export const StyledActionContainer = styled('div')(({theme: {spacing, breakpoint
   },
 }));
 
-export const StyledSubcribeButton = styled(CircleButton)(({theme: {breakpoints}}) => ({
+export const StyledSubcribeButton = styled(PrimaryButton)(({theme: {breakpoints}}) => ({
   marginTop: 24,
   [breakpoints.up('md')]: {
     position: 'absolute',

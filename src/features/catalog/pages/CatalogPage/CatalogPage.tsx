@@ -56,7 +56,15 @@ const CatalogPage = observer(() => {
           </Grid>
         )}
 
-        <Grid container item xs={12} rowSpacing={2} columnSpacing={2} columns={{xs: 1, md: 4, lg: 8, xl: 9}}>
+        <Grid
+          container
+          item
+          xs={12}
+          rowSpacing={2}
+          columnSpacing={2}
+          columns={{xs: 1, md: 4, lg: 8, xl: 9}}
+          justifyContent="center"
+        >
           {!productsLoading &&
             productsReady &&
             (products || []).map((product) => (

@@ -1,23 +1,18 @@
-import {ReactElement} from 'react';
-import {Button, ButtonProps} from '@mui/material';
-import {OverridableStringUnion} from '@mui/types';
-import {ButtonPropsColorOverrides} from '@mui/material/Button/Button';
+import {memo} from 'react';
+import {styled} from '@mui/material/styles';
+import CircleButtonBase, {IProps as IStyledCircleButtonBaseProps} from 'core/components/Buttons/CircleButtonBase';
 
-interface IProps extends ButtonProps {
-  color?: OverridableStringUnion<
-    'inherit' | 'primary' | 'secondary' | 'success' | 'error' | 'info' | 'warning',
-    ButtonPropsColorOverrides
-  >;
-  disabled?: boolean;
-  component?: ReactElement;
-  onClick?: (...args: any[]) => any;
-  type?: 'button' | 'submit' | 'reset' | undefined;
-  to?: string;
-}
+interface IProps extends IStyledCircleButtonBaseProps {}
 
-const PrimaryButton = (props: IProps) => {
-  const color = props.color || 'primary';
-  return <Button {...props} color={color} variant="contained"  />;
-};
+const StyledPrimaryButton = styled(CircleButtonBase)<IProps>(({theme: {palette}, buttonType = 'regular'}) => ({
+  backgroundColor: palette.primary.dark,
+  color: '#fff',
+  '&:hover': {
+    color: buttonType === 'regular' ? palette.primary.dark : '#fff',
+    backgroundColor: buttonType === 'regular' ? '#fff' : palette.secondary.main,
+  },
+}));
 
-export default PrimaryButton;
+const PrimaryButton = (props: IProps) => <StyledPrimaryButton {...props} />;
+
+export default memo(PrimaryButton);
