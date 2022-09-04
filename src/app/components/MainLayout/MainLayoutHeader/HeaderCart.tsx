@@ -1,16 +1,18 @@
-import React, {memo} from 'react';
+import React, {memo, useCallback} from 'react';
 import {styled} from '@mui/material/styles';
 import {Fab, Typography} from '@mui/material';
 import ShoppingCartIcon from '@mui/icons-material/ShoppingCart';
+import {useNavigate} from 'react-router-dom';
+import AppRoutes from 'core/constants/AppRoutes';
 
 const DESKTOP_MODE = 'xl';
 
 interface IProps {
   count: number;
-  onClick: () => void;
 }
 
 const StyledMobileContainer = styled('div')(({theme: {breakpoints}}) => ({
+  cursor: 'pointer',
   [breakpoints.up(DESKTOP_MODE)]: {
     display: 'none',
   },
@@ -51,16 +53,24 @@ const StyledDesktopContainer = styled(Fab)(({theme: {palette, breakpoints}}) => 
   },
 }));
 
-const HeaderCart = ({count, onClick}: IProps) => (
-  <>
-    <StyledMobileContainer onClick={onClick}>
-      <ShoppingCartIcon />
-    </StyledMobileContainer>
-    <StyledDesktopContainer aria-label="add" size="medium" onClick={onClick}>
-      <ShoppingCartIcon />
-      {count > 0 && <StyledFabCount count={count} />}
-    </StyledDesktopContainer>
-  </>
-);
+const HeaderCart = ({count}: IProps) => {
+  const navigate = useNavigate();
+
+  const handleCartClick = useCallback(() => {
+    navigate(AppRoutes.CART.url);
+  }, [navigate]);
+
+  return (
+    <>
+      <StyledMobileContainer onClick={handleCartClick}>
+        <ShoppingCartIcon />
+      </StyledMobileContainer>
+      <StyledDesktopContainer aria-label="add" size="medium" onClick={handleCartClick}>
+        <ShoppingCartIcon />
+        {count > 0 && <StyledFabCount count={count} />}
+      </StyledDesktopContainer>
+    </>
+  );
+};
 
 export default memo(HeaderCart);

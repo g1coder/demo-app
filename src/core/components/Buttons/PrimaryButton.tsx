@@ -11,6 +11,9 @@ const StyledPrimaryButton = styled(CircleButtonBase)<IProps>(({theme: {palette},
     color: buttonType === 'regular' ? palette.primary.dark : '#fff',
     backgroundColor: buttonType === 'regular' ? '#fff' : palette.secondary.main,
   },
+  '&[disabled]': {
+    color: '#fff',
+  },
 }));
 
 const PrimaryButton = (props: IProps) => <StyledPrimaryButton {...props} />;

@@ -1,10 +1,10 @@
-import React from 'react';
-import LoginIcon from '@mui/icons-material/Login';
+import React, {useCallback} from 'react';
+import {Link, useNavigate} from 'react-router-dom';
 import {styled} from '@mui/material/styles';
+import LoginIcon from '@mui/icons-material/Login';
 import SecondaryButton from 'core/components/Buttons/SecondaryButton';
-import AppRoutes from 'core/constants/AppRoutes';
 import {Typography} from '@mui/material';
-import {Link} from 'react-router-dom';
+import AppRoutes from 'core/constants/AppRoutes';
 
 const TABLET_MODE = 'lg';
 const DESKTOP_MODE = 'xl';
@@ -30,6 +30,7 @@ const StyledMobileContainer = styled('div')(({theme: {palette, spacing}}) => ({
 
 const StyledTabletContainer = styled('div')(({theme: {breakpoints}}) => ({
   display: 'none',
+  cursor: 'pointer',
   [breakpoints.between(TABLET_MODE, DESKTOP_MODE)]: {
     display: 'block',
   },
@@ -48,6 +49,12 @@ const StyledDesktopContainer = styled('div')(({theme: {breakpoints}}) => ({
 }));
 
 const HeaderLogin = ({inDrawer}: IProps) => {
+  const navigate = useNavigate();
+
+  const handleOnClick = useCallback(() => {
+    navigate(AppRoutes.LOGIN.url);
+  }, [navigate]);
+
   const buttons = (
     <>
       <SecondaryButton title="Sign up" size="small" href={AppRoutes.LOGIN.url} />
@@ -63,8 +70,8 @@ const HeaderLogin = ({inDrawer}: IProps) => {
 
   return (
     <>
-      <StyledTabletContainer>
-        <LoginIcon href={AppRoutes.LOGIN.url} />
+      <StyledTabletContainer onClick={handleOnClick}>
+        <LoginIcon />
       </StyledTabletContainer>
       <StyledDesktopContainer>{buttons}</StyledDesktopContainer>
     </>

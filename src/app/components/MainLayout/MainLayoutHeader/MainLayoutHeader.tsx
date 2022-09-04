@@ -1,4 +1,4 @@
-import React, {useCallback, useEffect} from 'react';
+import React, {useEffect} from 'react';
 import {observer} from 'mobx-react-lite';
 import AppRoutes from 'core/constants/AppRoutes';
 import {
@@ -7,7 +7,6 @@ import {
   StyledNavContainer,
 } from 'app/components/MainLayout/MainLayoutHeader/MainLayoutHeaderStyles';
 import CartStore from 'store/CartStore';
-import {useNavigate} from 'react-router-dom';
 import HeaderCart from 'app/components/MainLayout/MainLayoutHeader/HeaderCart';
 import HeaderLogin from 'app/components/MainLayout/MainLayoutHeader/HeaderLogin';
 import HeaderNavigation from 'app/components/MainLayout/MainLayoutHeader/HeaderNavigation';
@@ -23,15 +22,9 @@ const items = [
 ];
 
 const MainLayoutHeader = observer(() => {
-  const navigate = useNavigate();
-
   useEffect(() => {
     CartStore.refreshCart();
   }, []);
-
-  const handleCartClick = useCallback(() => {
-    navigate(AppRoutes.CART.url);
-  }, [navigate]);
 
   return (
     <StyledHeader>
@@ -44,7 +37,7 @@ const MainLayoutHeader = observer(() => {
       <StyledLoginContainer>
         <HeaderLogin />
       </StyledLoginContainer>
-      <HeaderCart count={CartStore.count} onClick={handleCartClick} />
+      <HeaderCart count={CartStore.count} />
     </StyledHeader>
   );
 });

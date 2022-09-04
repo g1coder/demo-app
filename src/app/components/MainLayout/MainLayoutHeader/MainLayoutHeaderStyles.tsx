@@ -38,10 +38,12 @@ export const StyledLoginContainer = styled('div')(({theme: {breakpoints, spacing
   display: 'none',
   [breakpoints.between('lg', 'xl')]: {
     display: 'block',
-    marginRight: spacing(-4),
+    position: 'absolute',
+    right: 100,
   },
   [breakpoints.up('xl')]: {
     display: 'block',
+    position: 'relative',
     marginRight: spacing(-8),
   },
 }));
