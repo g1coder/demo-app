@@ -3,6 +3,7 @@ import {Box, Typography} from '@mui/material';
 import AddIcon from '@mui/icons-material/Add';
 import RemoveOutlinedIcon from '@mui/icons-material/RemoveOutlined';
 import {styled} from '@mui/material/styles';
+import Spinner from 'core/components/Spinner';
 
 const borderRadius = 32;
 
@@ -45,16 +46,17 @@ interface IProps {
   value: number | undefined;
   add: () => void;
   remove: () => void;
+  loading: boolean;
 }
 
-const OrderButton = ({value, add, remove}: IProps) => {
+const OrderButton = ({value, add, remove, loading}: IProps) => {
   return (
     <StyledContainer>
       <StyledIconContainer type="decrement" onClick={remove}>
         <RemoveOutlinedIcon />
       </StyledIconContainer>
       <Typography variant="h4" color="primary.light" sx={{userSelect: 'none'}}>
-        {value}
+        {loading ? <Spinner /> : value}
       </Typography>
       <StyledIconContainer type="increment" onClick={add}>
         <AddIcon />

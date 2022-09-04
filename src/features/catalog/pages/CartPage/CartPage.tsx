@@ -101,7 +101,7 @@ const CartPage = observer(() => {
           <Grid item paddingBottom={4}>
             <Divider />
           </Grid>
-          <Grid item>
+          <Grid item textAlign="center">
             <PrimaryButton title="Checkout" onClick={CartStore.submitCart} />
           </Grid>
           <Grid item textAlign="center" paddingTop={2}>

@@ -21,7 +21,7 @@ const StyledCircleButtonBase = styled(Button)<IProps>(({theme: {spacing}, size, 
   },
 }));
 
-const CircleButtonBase = ({href, title, ...rest}: IProps) => {
+const CircleButtonBase = ({title, ...rest}: IProps) => {
   return <StyledCircleButtonBase {...rest}>{title}</StyledCircleButtonBase>;
 };
 

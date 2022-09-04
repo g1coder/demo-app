@@ -15,7 +15,6 @@ import AppRoutes from 'core/constants/AppRoutes';
 import MainLayout from 'app/components/MainLayout/MainLayout';
 import PageNotFound from 'app/components/PageNotFound/PageNotFound';
 import LandingPage from './app/components/LandingPage/LandingPage';
-import MainLayoutCart from 'app/components/MainLayout/MainLayoutCart';
 
 const CatalogLayoutRouter = loadComponent(() => import('features/catalog/pages/CatalogLayoutRouter'));
 
@@ -84,7 +83,6 @@ function App() {
               <Route element={<MainLayout />}>
                 <Route index element={<LandingPage />} />
                 <Route path={AppRoutes.CATALOG.path} element={<CatalogLayoutRouter />} />
-                <Route path={AppRoutes.CART.path} element={<MainLayoutCart />} />
               </Route>
 
               <Route path={AppRoutes.LOGIN.path} element={<LoginPage onLogin={handleLogin} onReset={handleReset} />} />

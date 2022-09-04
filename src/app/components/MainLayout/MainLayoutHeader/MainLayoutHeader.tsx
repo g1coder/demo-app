@@ -1,28 +1,20 @@
-import React, {useCallback, useEffect, useReducer} from 'react';
+import React, {useCallback, useEffect} from 'react';
 import {observer} from 'mobx-react-lite';
 import AppRoutes from 'core/constants/AppRoutes';
-import MenuIcon from '@mui/icons-material/Menu';
 import {
-  StyledCart,
-  StyledDrawer,
   StyledHeader,
-  StyledIconContainer,
-  StyledLogoContainer,
-  StyledActionContainer,
-  StyledAuthDrawerContainer,
-  StyledInnerContainer,
-  StyledNavigationMenu,
+  StyledLoginContainer,
+  StyledNavContainer,
 } from 'app/components/MainLayout/MainLayoutHeader/MainLayoutHeaderStyles';
-import AppLogo from 'app/components/LandingPage/presets/header-logo.png';
 import CartStore from 'store/CartStore';
 import {useNavigate} from 'react-router-dom';
+import HeaderCart from 'app/components/MainLayout/MainLayoutHeader/HeaderCart';
+import HeaderLogin from 'app/components/MainLayout/MainLayoutHeader/HeaderLogin';
+import HeaderNavigation from 'app/components/MainLayout/MainLayoutHeader/HeaderNavigation';
+import HeaderLogo from 'app/components/MainLayout/MainLayoutHeader/HeaderLogo';
+import HeaderDrawer from 'app/components/MainLayout/MainLayoutHeader/HeaderDrawer';
 
-export interface IHeaderItem {
-  name: string;
-  url: string;
-}
-
-const items: IHeaderItem[] = [
+const items = [
   {name: 'Home', url: AppRoutes.LANDING_PAGE.url},
   {name: 'Catalog', url: AppRoutes.CATALOG.url},
   {name: 'Delivery', url: '#'},
@@ -31,7 +23,6 @@ const items: IHeaderItem[] = [
 ];
 
 const MainLayoutHeader = observer(() => {
-  const [isDrawerOpen, toggleDrawer] = useReducer((state) => !state, false);
   const navigate = useNavigate();
 
   useEffect(() => {
@@ -44,22 +35,16 @@ const MainLayoutHeader = observer(() => {
 
   return (
     <StyledHeader>
-      <StyledLogoContainer>
-        <a href={AppRoutes.LANDING_PAGE.url}>
-          <img src={AppLogo} alt="company-logo" />
-        </a>
-      </StyledLogoContainer>
-      <StyledActionContainer>
-        <StyledInnerContainer>
-          <StyledNavigationMenu items={items} />
-          <StyledAuthDrawerContainer />
-        </StyledInnerContainer>
-        <StyledIconContainer>
-          <StyledCart count={CartStore.count} onClick={handleCartClick} />
-          <MenuIcon onClick={toggleDrawer} />
-        </StyledIconContainer>
-      </StyledActionContainer>
-      <StyledDrawer anchor="right" open={isDrawerOpen} onClose={toggleDrawer} items={items} />
+      <HeaderDrawer items={items} />
+      <HeaderLogo />
+      <StyledNavContainer>
+        <HeaderNavigation items={items} />
+      </StyledNavContainer>
+
+      <StyledLoginContainer>
+        <HeaderLogin />
+      </StyledLoginContainer>
+      <HeaderCart count={CartStore.count} onClick={handleCartClick} />
     </StyledHeader>
   );
 });

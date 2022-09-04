@@ -52,7 +52,6 @@ export const StyledProductItem = styled(
             xs={9}
             sx={{margin: 'auto 0', flexFlow: 'row wrap'}}
             textAlign="left"
-            spacing={1}
             padding={1}
             display={{xs: 'none', md: 'flex'}}
           >

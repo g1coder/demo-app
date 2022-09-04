@@ -29,13 +29,13 @@ class CartStore {
   };
 
   @action increase = (product: IBaseProduct) => {
-    CatalogService.updateCart(product.id, 'increment').then(({count}) => {
+    return CatalogService.updateCart(product.id, 'increment').then(({count}) => {
       this.products.set(product.id, count);
     });
   };
 
   @action decrease = (product: IBaseProduct) => {
-    CatalogService.updateCart(product.id, 'decrement').then(({count}) => {
+    return CatalogService.updateCart(product.id, 'decrement').then(({count}) => {
       this.products.set(product.id, count);
     });
   };

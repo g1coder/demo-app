@@ -1,4 +1,4 @@
-import React, {memo, useCallback} from 'react';
+import React, {memo, useCallback, useState} from 'react';
 import IBaseProduct from 'features/catalog/models/IBaseProduct';
 import {
   StyledAddCardButton,
@@ -20,12 +20,16 @@ interface IProps {
 }
 
 const ProductCard = ({product, ordered}: IProps) => {
+  const [pending, setPending] = useState(false);
+
   const handleIncrease = useCallback(() => {
-    CartStore.increase(product);
+    setPending(true);
+    CartStore.increase(product).finally(() => setPending(false));
   }, [product]);
 
   const handleDecrease = useCallback(() => {
-    CartStore.decrease(product);
+    setPending(true);
+    CartStore.decrease(product).finally(() => setPending(false));
   }, [product]);
 
   const buttonTitle = ordered ? `${ordered} in cart` : 'Add to cart';
@@ -43,7 +47,7 @@ const ProductCard = ({product, ordered}: IProps) => {
       <StyledPriceContainer price={product.price} discount={product.discount} />
       {ordered ? (
         <StyledOrderButtonContainer>
-          <OrderButton value={ordered} add={handleIncrease} remove={handleDecrease} />
+          <OrderButton value={ordered} add={handleIncrease} remove={handleDecrease} loading={pending} />
         </StyledOrderButtonContainer>
       ) : (
         <StyledAddCardButton

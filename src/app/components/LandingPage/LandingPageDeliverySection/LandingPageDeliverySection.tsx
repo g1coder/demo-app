@@ -30,7 +30,7 @@ const LandingPageDeliverySection = () => {
               Service
             </Typography>
           </Typography>
-          <Typography variant="body1" component="p" sx={{paddingTop: 4}}>
+          <Typography variant="body1" sx={{paddingTop: 4}}>
             Our delivery service employs more than 100 professional couriers. We will deliver water to your home for{' '}
             <Typography component="span" color="primary.light">
               1 hour
