@@ -3,24 +3,21 @@ import {styled} from '@mui/material/styles';
 import AppRoutes from 'core/constants/AppRoutes';
 import AppLogo from 'app/components/LandingPage/presets/header-logo.png';
 
-const StyledLogoContainer = styled('figure')(({theme: {breakpoints}}) => ({
+const StyledLogo = styled('img')(({theme: {breakpoints}}) => ({
   margin: 0,
-  '& > a > img': {
-    maxWidth: 180,
-  },
+  maxWidth: 180,
   [breakpoints.up('lg')]: {
-    '& > a > img': {
-      maxWidth: 200,
-    },
+    maxWidth: 200,
+  },
+  [breakpoints.up('xl')]: {
+    maxWidth: '100%',
   },
 }));
 
 const HeaderLogo = () => (
-  <StyledLogoContainer>
-    <a href={AppRoutes.LANDING_PAGE.url}>
-      <img src={AppLogo} alt="company-logo" />
-    </a>
-  </StyledLogoContainer>
+  <a href={AppRoutes.LANDING_PAGE.url}>
+    <StyledLogo src={AppLogo} alt="company-logo" />
+  </a>
 );
 
 export default HeaderLogo;

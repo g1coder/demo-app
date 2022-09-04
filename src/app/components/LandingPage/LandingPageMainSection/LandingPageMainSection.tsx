@@ -57,8 +57,8 @@ const LandingPageMainSection = () => {
 
         <StyledTextContainer>
           <StyledTextInnerContainer>
-            <StyledInnerFirstTypography variant="h3">Mineral Water</StyledInnerFirstTypography>
-            <StyledInnerSecondTypography variant="h3">FOR EVERY DAY</StyledInnerSecondTypography>
+            <StyledInnerFirstTypography variant="h2">Mineral Water</StyledInnerFirstTypography>
+            <StyledInnerSecondTypography variant="h2">FOR EVERY DAY</StyledInnerSecondTypography>
             <StyledInnerSubtitleTypography variant="body1">
               <em>Our delivery service employs more than 100 professional couriers.</em>
               <br />

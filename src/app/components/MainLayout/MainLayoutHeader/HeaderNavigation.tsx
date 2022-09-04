@@ -20,6 +20,7 @@ const StyledNavigationMenu = styled(({items, ...rest}: IProps) => (
     ))}
   </nav>
 ))(({theme: {palette}}) => ({
+  marginTop: -8,
   '& > ul': {
     display: 'inline-block',
     listStyleType: 'none',

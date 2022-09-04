@@ -53,6 +53,11 @@ const defaultTheme = (themeOptions: ThemeOptions = {}): ThemeOptions => {
     {},
     {
       fontFamily: ['Merriweather', 'Roboto', 'Helvetica Neue', 'Arial', 'sans-serif'].join(','),
+      h2: {
+        fontWeight: 900,
+        lineHeight: 1.2,
+        color: palette.text.whitePrimary,
+      },
       h3: {
         fontSize: 48,
         fontWeight: 900,
