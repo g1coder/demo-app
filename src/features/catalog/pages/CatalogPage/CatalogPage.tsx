@@ -16,11 +16,7 @@ const CatalogPage = observer(() => {
 
   const [{data: products, ready: productsReady, loading: productsLoading}] = useFetch<IList<IBaseProduct> | null>(
     {
-      fetch: () =>
-        CatalogService.getList(filterParams).then((response) => {
-          CartStore.setAvailableProducts(response);
-          return response;
-        }),
+      fetch: () => CatalogService.getList(filterParams),
       data: null,
     },
     [filterParams]

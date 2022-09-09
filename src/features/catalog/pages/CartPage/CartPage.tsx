@@ -18,6 +18,14 @@ const CartPage = observer(() => {
     return result;
   }, []);
 
+  if (productPairs.length === 0) {
+    return (
+      <Typography variant="body1" color="primary.dark">
+        No products in cart
+      </Typography>
+    );
+  }
+
   const totalPrice = CartStore.totalPrice;
   const shipping = CartStore.totalPrice * 0.2;
   const taxes = CartStore.totalPrice * 0.13;
