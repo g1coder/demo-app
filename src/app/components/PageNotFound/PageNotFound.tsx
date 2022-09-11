@@ -21,7 +21,7 @@ const PageNotFound = ({redirectPath = '/'}: IProps) => (
   <StyledContainer>
     <Grid container direction="column" alignItems="center" justifyContent="center">
       <Grid item>
-        <img src={BgImage} />
+        <img src={BgImage} style={{width: '100%'}} />
       </Grid>
       <Grid item>
         <span>

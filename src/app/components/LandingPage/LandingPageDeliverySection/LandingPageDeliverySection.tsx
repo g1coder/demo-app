@@ -11,7 +11,6 @@ import {Typography} from '@mui/material';
 import DeliverySectionForm from './DeliverySectionForm';
 import {StyledMainLayoutWrapper} from 'app/components/MainLayout/MainLayout';
 
-import SeparatorImage from './presets/water_separator.jpg';
 import ManImage from './presets/delivery-man.png';
 import SecondaryButton from 'core/components/Buttons/SecondaryButton';
 
@@ -20,7 +19,7 @@ const LandingPageDeliverySection = () => {
 
   return (
     <StyledMainLayoutWrapper>
-      <StyledWaterSeparatorImage src={SeparatorImage} />
+      <StyledWaterSeparatorImage />
       <StyledInnerContainer>
         <StyledManWithBottleImage src={ManImage} alt="delivery man" />
         <StyledConditions>

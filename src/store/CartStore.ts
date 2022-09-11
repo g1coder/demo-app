@@ -10,11 +10,9 @@ class CartStore {
 
   constructor() {
     makeAutoObservable(this);
-    this.fetchAvailableProducts();
   }
 
   fetchAvailableProducts = () => {
-    console.log('fetchAvailableProducts');
     CatalogService.getList({}).then((products) => {
       runInAction(() => {
         this.availableProducts = products;

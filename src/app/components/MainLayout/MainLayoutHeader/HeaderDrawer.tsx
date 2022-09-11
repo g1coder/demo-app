@@ -60,7 +60,7 @@ const HeaderDrawer = ({items}: IProps) => {
           <CloseIcon fontSize="large" />
         </StyledCloseIcon>
 
-        <StyledDrawerNav>
+        <StyledDrawerNav onClick={toggleDrawer}>
           <HeaderNavigation items={items} />
           <HeaderLogin inDrawer />
         </StyledDrawerNav>

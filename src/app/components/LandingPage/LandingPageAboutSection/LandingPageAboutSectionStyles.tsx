@@ -21,7 +21,7 @@ export const StyledAboutInfoText = styled('div')(({theme: {breakpoints}}) => ({
     display: 'flex',
     flexDirection: 'column',
     flex: '50%',
-    paddingRight: 32
+    paddingRight: 32,
   },
 }));
 
@@ -30,12 +30,18 @@ export const StyledAboutVideoContainer = styled('div')(({theme: {breakpoints}}) 
   marginTop: 32,
   width: '100%',
   height: 200,
+  '& > iframe': {
+    borderRadius: 10,
+  },
   [breakpoints.up('md')]: {
     height: 400,
+    '& > iframe': {
+      borderRadius: 20,
+    },
   },
   [breakpoints.up('lg')]: {
     flex: '50%',
-    margin: 0
+    margin: 0,
   },
 }));
 
@@ -58,7 +64,7 @@ export const StyledPlayButton = styled('span')<{hide: boolean}>(({theme: {palett
   transition: 'all .3s ease',
   position: 'absolute',
   zIndex: 2,
-  top: 'calc(50% + 25px)',
+  top: 'calc(50% + 12.5px)',
   left: '50%',
   transform: 'translate(-50%,-50%) scale(1)',
   display: hide ? 'none' : 'block',

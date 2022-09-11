@@ -57,7 +57,6 @@ const LandingPageAboutSection = () => {
             <iframe
               width="100%"
               height="100%"
-              style={{borderRadius: 20}}
               src={`https://www.youtube.com/embed/XkXjUAJuJ4I${playVideo ? '?autoplay=1' : ''}`}
               title="youtube video"
               frameBorder="0"

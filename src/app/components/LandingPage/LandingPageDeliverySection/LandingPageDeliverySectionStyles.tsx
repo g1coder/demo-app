@@ -5,9 +5,10 @@ import ListItemIcon from '@mui/material/ListItemIcon';
 import ListItemText from '@mui/material/ListItemText';
 import DoneIcon from '@mui/icons-material/Done';
 import Paper from '@mui/material/Paper';
+import SeparatorImage from './presets/water_separator.jpg';
 
-export const StyledWaterSeparatorImage = styled('div')<{src: string}>(({src}) => ({
-  backgroundImage: `url(${src})`,
+export const StyledWaterSeparatorImage = styled('div')(() => ({
+  backgroundImage: `url(${SeparatorImage})`,
   backgroundSize: 'cover',
   backgroundRepeat: 'no-repeat',
   position: 'absolute',
@@ -22,10 +23,11 @@ export const StyledInnerContainer = styled('div')(({theme: {breakpoints}}) => ({
   display: 'flex',
   justifyContent: 'center',
   margin: 'auto',
-  paddingTop: 200,
+  paddingTop: 300,
   flexDirection: 'column',
   [breakpoints.up('md')]: {
     flexDirection: 'row',
+    paddingTop: 200,
   },
 }));
 
