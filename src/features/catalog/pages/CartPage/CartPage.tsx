@@ -1,24 +1,26 @@
-import React, {useMemo} from 'react';
+import React from 'react';
 import {observer} from 'mobx-react-lite';
 import CartStore from 'store/CartStore';
 import {Divider, Grid, Paper, Typography} from '@mui/material';
 import {StyledContainer, StyledProductItem, StyledProductTitle, StyledSummaryTitle} from './CartPageStyle';
 import IBaseProduct from 'features/catalog/models/IBaseProduct';
 import PrimaryButton from 'core/components/Buttons/PrimaryButton';
+import useFetch from 'core/hooks/useFetch';
+import CatalogService from 'features/catalog/services/CatalogService';
+import Spinner from 'core/components/Spinner';
 
 const CartPage = observer(() => {
-  const productPairs: Array<{product: IBaseProduct; count: number}> = useMemo(() => {
-    let result: Array<{product: IBaseProduct; count: number}> = [];
-    CartStore.products.forEach((count, key) => {
-      const product = CartStore.availableProducts.find((ap) => ap.id === key);
-      if (!!product) {
-        result.push({product, count});
-      }
-    });
-    return result;
-  }, []);
+  const [{data: productPairs, ready: productsReady, loading: productsLoading}] = useFetch<
+    Array<{product: IBaseProduct; count: number}>
+  >(
+    {
+      fetch: () => CatalogService.getCartDetails(),
+      data: [],
+    },
+    []
+  );
 
-  if (productPairs.length === 0) {
+  if (productsReady && productPairs.length === 0) {
     return (
       <Typography variant="body1" color="primary.dark">
         No products in cart
@@ -49,9 +51,11 @@ const CartPage = observer(() => {
             <StyledProductTitle title="Total" xs={2} />
           </Grid>
           <Divider />
-          {productPairs.map(({product, count}) => (
-            <StyledProductItem key={product.id} product={product} count={count} />
-          ))}
+          {productsLoading && <Spinner />}
+          {!productsLoading &&
+            productPairs.map(({product, count}) => (
+              <StyledProductItem key={product.id} product={product} count={count} />
+            ))}
         </Grid>
 
         <Grid item xs={12} xl={3} justifyContent="center" component={Paper} sx={{padding: 2}}>

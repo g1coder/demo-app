@@ -9,14 +9,13 @@ import {IFormValues as ILoginFormValues} from 'app/components/AnonymousLayout/Lo
 import {IFormValues as ILoginResetPasswordFormValues} from 'app/components/AnonymousLayout/LoginResetPasswordForm';
 import AuthService from 'core/services/AuthService';
 import Toaster from 'core/components/Toaster';
-import {loadComponent} from 'core/services/ReactUtils';
 import AppRoutes from 'core/constants/AppRoutes';
 
 import MainLayout from 'app/components/MainLayout/MainLayout';
 import PageNotFound from 'app/components/PageNotFound/PageNotFound';
 import LandingPage from './app/components/LandingPage/LandingPage';
 
-const CatalogLayoutRouter = loadComponent(() => import('features/catalog/pages/CatalogLayoutRouter'));
+import CatalogLayoutRouter from 'features/catalog/pages/CatalogLayoutRouter';
 
 function App() {
   const toasterRef = useRef<any>();
@@ -84,7 +83,6 @@ function App() {
                 <Route index element={<LandingPage />} />
                 <Route path={AppRoutes.CATALOG.path} element={<CatalogLayoutRouter />} />
               </Route>
-
               <Route path={AppRoutes.LOGIN.path} element={<LoginPage onLogin={handleLogin} onReset={handleReset} />} />
               <Route path="*" element={<PageNotFound redirectPath={'/'} />} />
             </Routes>

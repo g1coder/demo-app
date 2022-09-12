@@ -10,6 +10,7 @@ export default {
   getList,
   getOptions,
   getCart,
+  getCartDetails,
   updateCart,
   submitOrder,
 };
@@ -26,8 +27,18 @@ function getOptions(): Promise<Pick<IPriceFilterProps, 'min' | 'max'> & Pick<ITa
   return api.get(`/api/catalog/products/filters`);
 }
 
-function getCart(): Promise<Record<string, number>> {
-  return api.get(`/api/catalog/cart`);
+function getCart(): Promise<{products: Record<string, number>; totalCount: number; totalPrice: number}> {
+  return api
+    .get<{pairs: Record<string, number>; total_count: number; total_price: number}>(`/api/catalog/cart`)
+    .then((response) => ({
+      products: response.pairs,
+      totalCount: response.total_count,
+      totalPrice: response.total_price,
+    }));
+}
+
+function getCartDetails(): Promise<Array<{product: IBaseProduct; count: number}>> {
+  return api.get<Array<{product: IProductRaw; count: number}>>(`/api/catalog/cart-details`);
 }
 
 function updateCart(productId: IBaseProduct['id'], mode: 'increment' | 'decrement') {

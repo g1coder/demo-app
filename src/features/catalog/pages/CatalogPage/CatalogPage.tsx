@@ -12,7 +12,8 @@ import IProductParams from 'features/catalog/models/IProductParams';
 import IList from 'core/models/IList';
 
 const CatalogPage = observer(() => {
-  const [filterParams, setFilterParams] = useState<IProductParams>({});
+  const [filterParams, setFilterParams] = useState<IProductParams>();
+  console.log('CatalogPage');
 
   const [{data: products, ready: productsReady, loading: productsLoading}] = useFetch<IList<IBaseProduct> | null>(
     {

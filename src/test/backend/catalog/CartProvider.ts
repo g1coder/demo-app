@@ -1,7 +1,7 @@
 import ProductDTO from 'test/backend/catalog/models/ProductDTO';
 
 class CartProvider {
-  products = {};
+  products: {[key: string]: number} = {};
 
   constructor() {
     const cartStr = window.localStorage.getItem('cart');

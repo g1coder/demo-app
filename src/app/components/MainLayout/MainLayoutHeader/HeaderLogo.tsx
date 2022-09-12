@@ -6,6 +6,7 @@ import AppLogo from 'app/components/LandingPage/presets/header-logo.png';
 const StyledLogo = styled('img')(({theme: {breakpoints}}) => ({
   margin: 0,
   maxWidth: 180,
+  userSelect: 'none',
   [breakpoints.up('lg')]: {
     maxWidth: 200,
   },

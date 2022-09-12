@@ -5,27 +5,22 @@ import CatalogService from 'features/catalog/services/CatalogService';
 configure({enforceActions: 'observed'});
 
 class CartStore {
-  @observable availableProducts: IBaseProduct[] = [];
   @observable products: Map<string, number> = new Map([]);
+  @observable totalPrice: number = 0;
+  @observable totalCount: number = 0;
 
   constructor() {
     makeAutoObservable(this);
   }
 
-  fetchAvailableProducts = () => {
-    CatalogService.getList({}).then((products) => {
-      runInAction(() => {
-        this.availableProducts = products;
-      });
-    });
-  };
-
   @action refreshCart = () => {
-    CatalogService.getCart().then((pairs) => {
+    CatalogService.getCart().then(({products, totalCount, totalPrice}) => {
       runInAction(() => {
-        for (const key in pairs) {
-          this.products.set(key, pairs[key]);
+        for (const key in products) {
+          this.products.set(key, products[key]);
         }
+        this.totalCount = totalCount;
+        this.totalPrice = totalPrice;
       });
     });
   };
@@ -58,17 +53,6 @@ class CartStore {
     let num = 0;
     this.products.forEach((value) => (num += value));
     return num;
-  }
-
-  @computed get totalPrice() {
-    let total = 0;
-    this.products.forEach((value, key) => {
-      const price = this.availableProducts.find((ap) => ap.id === key)?.price;
-      if (price) {
-        total += value * +price;
-      }
-    });
-    return total;
   }
 }
 
