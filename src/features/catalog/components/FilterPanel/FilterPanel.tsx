@@ -28,10 +28,14 @@ const FilterPanel = ({onChange}: IProps) => {
   const [searchParams, setSearchParams] = useSearchParams();
   const [filters, setFilters] = useState<IProductParams>({});
 
-  const [{data: initialValues, loading}] = useFetch(
+  const [{data: initialFilters, loading}] = useFetch(
     {
       fetch: () => CatalogService.getOptions(),
-      data: null,
+      data: {
+        tags: [],
+        min: 0,
+        max: 50,
+      },
     },
     []
   );
@@ -88,19 +92,19 @@ const FilterPanel = ({onChange}: IProps) => {
   return (
     <StyledContainer>
       <PriceFilter
-        title="Price"
-        initialValues={initialValues ? [initialValues.min, initialValues.max] : undefined}
-        onChange={applyFilters}
-        min={initialValues?.min || 0}
-        max={initialValues?.max || 50}
         loading={loading}
+        title="Price"
+        value={{min: filters.min, max: filters.max}}
+        onChange={applyFilters}
+        minLimit={initialFilters.min}
+        maxLimit={initialFilters.max}
       />
       <TagFilter
-        title="Product tags"
-        initialValues={filters.tag}
-        onChange={applyFilters}
-        tags={initialValues?.tags}
         loading={loading}
+        title="Product tags"
+        value={filters.tag}
+        onChange={applyFilters}
+        tags={initialFilters.tags}
       />
       <Grid container spacing={2}>
         <Grid item justifyContent="flex-start">

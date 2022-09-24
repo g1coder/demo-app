@@ -3,17 +3,20 @@ import React, {memo, useCallback, useEffect, useMemo, useState} from 'react';
 import withBaseFilter from 'features/catalog/HOC/withBaseFilter';
 import {Typography} from '@mui/material';
 
-export interface IProps {
-  initialValues: string | undefined;
+interface IProps {
   tags: string[] | undefined;
   onChange: (value: {tag: string}) => void;
+  value: string | undefined;
 }
 
-const TagFilter = ({initialValues, tags = [], onChange}: IProps) => {
-  const [active, setActive] = useState<string | undefined>(initialValues);
-  const debouncedApplyParams = useMemo(() => _.debounce(onChange, 1000), [onChange]);
+const TagFilter = ({value, tags = [], onChange}: IProps) => {
+  const [active, setActive] = useState<string | undefined>(value);
 
-  useEffect(() => {}, []);
+  useEffect(() => {
+    setActive((currentValue) => (currentValue !== value ? value : currentValue));
+  }, [value]);
+
+  const debouncedApplyParams = useMemo(() => _.debounce(onChange, 1000), [onChange]);
 
   const handleOnClick = useCallback(
     (tag: string) => {

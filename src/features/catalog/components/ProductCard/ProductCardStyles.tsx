@@ -7,7 +7,7 @@ import PrimaryButton from 'core/components/Buttons/PrimaryButton';
 export const StyledContainer = styled(Card)(({theme: {spacing}}) => ({
   position: 'relative',
   margin: 'auto',
-  maxWidth: 360,
+  maxWidth: 340,
   width: '100%',
   height: 600,
   borderRadius: 20,
