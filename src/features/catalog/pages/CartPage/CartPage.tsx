@@ -1,26 +1,28 @@
 import React from 'react';
 import {observer} from 'mobx-react-lite';
-import CartStore from 'store/CartStore';
+import CartStore from 'features/catalog/store/CartStore';
 import {Divider, Grid, Paper, Typography} from '@mui/material';
 import {StyledContainer, StyledProductItem, StyledProductTitle, StyledSummaryTitle} from './CartPageStyle';
 import IBaseProduct from 'features/catalog/models/IBaseProduct';
 import PrimaryButton from 'core/components/Buttons/PrimaryButton';
 import useFetch from 'core/hooks/useFetch';
-import CatalogService from 'features/catalog/services/CatalogService';
 import Spinner from 'core/components/Spinner';
+import CartService from 'features/catalog/services/CartService';
 
 const CartPage = observer(() => {
-  const [{data: productPairs, ready: productsReady, loading: productsLoading}] = useFetch<
-    Array<{product: IBaseProduct; count: number}>
-  >(
+  const [{data: productPairs, ready, loading}] = useFetch<Array<{product: IBaseProduct; count: number}>>(
     {
-      fetch: () => CatalogService.getCartDetails(),
+      fetch: () => CartService.getCartDetails(),
       data: [],
     },
     []
   );
 
-  if (productsReady && productPairs.length === 0) {
+  if (!ready) {
+    return <Spinner />;
+  }
+
+  if (ready && productPairs.length === 0 && !loading) {
     return (
       <Typography variant="body1" color="primary.dark">
         No products in cart
@@ -51,8 +53,8 @@ const CartPage = observer(() => {
             <StyledProductTitle title="Total" xs={2} />
           </Grid>
           <Divider />
-          {productsLoading && <Spinner />}
-          {!productsLoading &&
+          {loading && <Spinner />}
+          {!loading &&
             productPairs.map(({product, count}) => (
               <StyledProductItem key={product.id} product={product} count={count} />
             ))}

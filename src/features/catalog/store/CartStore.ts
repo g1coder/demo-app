@@ -1,50 +1,51 @@
 import {observable, action, computed, makeAutoObservable, runInAction, configure} from 'mobx';
 import IBaseProduct from 'features/catalog/models/IBaseProduct';
-import CatalogService from 'features/catalog/services/CatalogService';
+import CartService from 'features/catalog/services/CartService';
 
 configure({enforceActions: 'observed'});
 
-class CartStore {
+export class CartStore {
   @observable products: Map<string, number> = new Map([]);
   @observable totalPrice: number = 0;
-  @observable totalCount: number = 0;
 
   constructor() {
     makeAutoObservable(this);
   }
 
   @action refreshCart = () => {
-    CatalogService.getCart().then(({products, totalCount, totalPrice}) => {
+    CartService.getCart().then(({products, totalPrice}) => {
       runInAction(() => {
         for (const key in products) {
           this.products.set(key, products[key]);
         }
-        this.totalCount = totalCount;
         this.totalPrice = totalPrice;
       });
     });
   };
 
   @action submitCart = () => {
-    CatalogService.submitOrder().then(() => {
+    CartService.submitOrder().then(() => {
       runInAction(() => {
         this.products = new Map([]);
+        this.totalPrice = 0;
       });
     });
   };
 
   @action increase = (product: IBaseProduct) => {
-    return CatalogService.updateCart(product.id, 'increment').then(({count}) => {
+    return CartService.updateCart(product.id, 'increment').then(({count, total_price}) => {
       runInAction(() => {
         this.products.set(product.id, count);
+        this.totalPrice = total_price;
       });
     });
   };
 
   @action decrease = (product: IBaseProduct) => {
-    return CatalogService.updateCart(product.id, 'decrement').then(({count}) => {
+    return CartService.updateCart(product.id, 'decrement').then(({count, total_price}) => {
       runInAction(() => {
         this.products.set(product.id, count);
+        this.totalPrice = total_price;
       });
     });
   };

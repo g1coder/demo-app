@@ -7,13 +7,12 @@ import useFetch from 'core/hooks/useFetch';
 import CatalogService from 'features/catalog/services/CatalogService';
 import IBaseProduct from 'features/catalog/models/IBaseProduct';
 import Spinner from 'core/components/Spinner';
-import CartStore from 'store/CartStore';
+import CartStore from 'features/catalog/store/CartStore';
 import IProductParams from 'features/catalog/models/IProductParams';
 import IList from 'core/models/IList';
 
 const CatalogPage = observer(() => {
   const [filterParams, setFilterParams] = useState<IProductParams>();
-  console.log('CatalogPage');
 
   const [{data: products, ready: productsReady, loading: productsLoading}] = useFetch<IList<IBaseProduct> | null>(
     {

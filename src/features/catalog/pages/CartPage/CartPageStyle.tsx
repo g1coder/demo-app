@@ -14,7 +14,7 @@ export const StyledSummaryTitle = styled(Typography)(({theme: {palette}}) => ({
 
 // PRODUCT TABLE HEADER
 export const StyledProductTitle = styled((props: GridProps & {title: string}) => (
-  <Grid item textAlign="right" spacing={1} {...props}>
+  <Grid item textAlign="right" {...props}>
     <Typography variant="h5" color="primary.light">
       {props.title}
     </Typography>

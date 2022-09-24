@@ -6,7 +6,7 @@ import {
   StyledLoginContainer,
   StyledNavContainer,
 } from 'app/components/MainLayout/MainLayoutHeader/MainLayoutHeaderStyles';
-import CartStore from 'store/CartStore';
+import CartStore from 'features/catalog/store/CartStore';
 import HeaderCart from 'app/components/MainLayout/MainLayoutHeader/HeaderCart';
 import HeaderLogin from 'app/components/MainLayout/MainLayoutHeader/HeaderLogin';
 import HeaderNavigation from 'app/components/MainLayout/MainLayoutHeader/HeaderNavigation';

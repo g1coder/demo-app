@@ -11,7 +11,7 @@ import {
 } from 'features/catalog/components/ProductCard/ProductCardStyles';
 import {Typography} from '@mui/material';
 import CartIcon from '@mui/icons-material/ShoppingCartOutlined';
-import CartStore from 'store/CartStore';
+import CartStore from 'features/catalog/store/CartStore';
 import OrderButton from 'features/catalog/components/OrderButton/OrderButton';
 
 interface IProps {

@@ -5,6 +5,7 @@ import Spinner from 'core/components/Spinner';
 import LoginPage from 'app/components/AnonymousLayout/LoginPage';
 import ThemeProvider from 'core/themes/ThemeProvider';
 import AppContext, {IAppContext} from 'core/components/AppContext';
+import {loadComponent} from 'core/services/ReactUtils';
 import {IFormValues as ILoginFormValues} from 'app/components/AnonymousLayout/LoginForm';
 import {IFormValues as ILoginResetPasswordFormValues} from 'app/components/AnonymousLayout/LoginResetPasswordForm';
 import AuthService from 'core/services/AuthService';
@@ -15,7 +16,7 @@ import MainLayout from 'app/components/MainLayout/MainLayout';
 import PageNotFound from 'app/components/PageNotFound/PageNotFound';
 import LandingPage from './app/components/LandingPage/LandingPage';
 
-import CatalogLayoutRouter from 'features/catalog/pages/CatalogLayoutRouter';
+const CatalogLayoutRouter = loadComponent(() => import('features/catalog/pages/CatalogLayoutRouter'));
 
 function App() {
   const toasterRef = useRef<any>();

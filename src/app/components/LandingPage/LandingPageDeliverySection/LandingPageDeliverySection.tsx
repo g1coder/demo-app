@@ -16,6 +16,7 @@ import SecondaryButton from 'core/components/Buttons/SecondaryButton';
 
 const LandingPageDeliverySection = () => {
   const handleReadMore = useCallback(() => {}, []);
+  const handleMakeOrder = useCallback(() => {}, []);
 
   return (
     <StyledMainLayoutWrapper>
@@ -44,7 +45,7 @@ const LandingPageDeliverySection = () => {
           <Typography variant="h5" color="primary.light" fontWeight={600}>
             Please, fill delivery form
           </Typography>
-          <DeliverySectionForm />
+          <DeliverySectionForm onSubmit={handleMakeOrder} />
         </StyledContactFormContainer>
       </StyledInnerContainer>
     </StyledMainLayoutWrapper>
