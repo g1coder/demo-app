@@ -3,8 +3,8 @@ import IUser from 'core/models/IUser';
 
 export default {
   hydrate,
-  dehydrate
-}
+  dehydrate,
+};
 
 function hydrate(data: IUserRaw): IUser {
   return {
@@ -12,14 +12,14 @@ function hydrate(data: IUserRaw): IUser {
     name: data.name,
     age: data.age,
     email: data.email,
-    nickName: data.nick_name
-  }
+    nickName: data.nick_name,
+  };
 }
 
 function dehydrate(data: IUser): Omit<IUserRaw, 'id' | 'name'> {
   return {
     age: data.age,
     email: data.email,
-    nick_name: data.nickName
-  }
+    nick_name: data.nickName,
+  };
 }

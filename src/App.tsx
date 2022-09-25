@@ -15,6 +15,8 @@ import AppRoutes from 'core/constants/AppRoutes';
 import MainLayout from 'app/components/MainLayout/MainLayout';
 import PageNotFound from 'app/components/PageNotFound/PageNotFound';
 import LandingPage from './app/components/LandingPage/LandingPage';
+import SignupPage from 'app/components/AnonymousLayout/SignupPage';
+import {IFormValues as ISignupFormValues} from 'app/components/AnonymousLayout/SignupForm';
 
 const CatalogLayoutRouter = loadComponent(() => import('features/catalog/pages/CatalogLayoutRouter'));
 
@@ -48,9 +50,19 @@ function App() {
         .then(() => {
           navigate(AppRoutes.LANDING_PAGE.url);
         })
-        .catch(() => {
-          return 'Invalid login or password';
-        });
+        .catch(() => 'Invalid login or password');
+    },
+    [navigate]
+  );
+
+  const handleSignup = useCallback(
+    (data: ISignupFormValues) => {
+      return AuthService.register(data)
+        .then(() => {
+          setUser({name: data.firstName});
+          navigate(AppRoutes.LANDING_PAGE.url);
+        })
+        .catch(() => 'Something went wrong');
     },
     [navigate]
   );
@@ -84,6 +96,7 @@ function App() {
                 <Route path={AppRoutes.CATALOG.path} element={<CatalogLayoutRouter />} />
               </Route>
               <Route path={AppRoutes.LOGIN.path} element={<LoginPage onLogin={handleLogin} onReset={handleReset} />} />
+              <Route path={AppRoutes.SIGNUP.path} element={<SignupPage onSignup={handleSignup} />} />
               <Route path="*" element={<PageNotFound redirectPath={'/'} />} />
             </Routes>
           </Suspense>
