@@ -8,8 +8,13 @@ import PrimaryButton from 'core/components/Buttons/PrimaryButton';
 import useFetch from 'core/hooks/useFetch';
 import Spinner from 'core/components/Spinner';
 import CartService from 'features/catalog/services/CartService';
+import {useContextSelector} from 'use-context-selector';
+import AppContext from 'core/components/AppContext';
+import AppRoutes from 'core/constants/AppRoutes';
 
 const CartPage = observer(() => {
+  const loggedUser = useContextSelector(AppContext, (state) => state.user);
+
   const [{data: productPairs, ready, loading}] = useFetch<Array<{product: IBaseProduct; count: number}>>(
     {
       fetch: () => CartService.getCartDetails(),
@@ -116,7 +121,24 @@ const CartPage = observer(() => {
             <Divider />
           </Grid>
           <Grid item textAlign="center">
-            <PrimaryButton title="Checkout" onClick={CartStore.submitCart} />
+            {loggedUser ? (
+              <PrimaryButton title="Checkout" onClick={CartStore.submitCart} />
+            ) : (
+              <>
+                <Typography variant="body1" color="primary.dark">
+                  Log in to submit your cart
+                </Typography>
+                <Typography
+                  variant="body2"
+                  color="primary.dark"
+                  sx={{cursor: 'pointer', textDecoration: 'underline'}}
+                  component="a"
+                  href={AppRoutes.LOGIN.url}
+                >
+                  Sign up
+                </Typography>
+              </>
+            )}
           </Grid>
           <Grid item textAlign="center" paddingTop={2}>
             <Typography variant="body1" color="primary.light">

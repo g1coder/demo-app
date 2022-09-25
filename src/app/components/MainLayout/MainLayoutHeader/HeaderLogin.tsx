@@ -2,9 +2,12 @@ import React, {useCallback} from 'react';
 import {Link, useNavigate} from 'react-router-dom';
 import {styled} from '@mui/material/styles';
 import LoginIcon from '@mui/icons-material/Login';
+import LogoutIcon from '@mui/icons-material/Logout';
 import SecondaryButton from 'core/components/Buttons/SecondaryButton';
 import {Typography} from '@mui/material';
 import AppRoutes from 'core/constants/AppRoutes';
+import {useContextSelector} from 'use-context-selector';
+import AppContext from 'core/components/AppContext';
 
 const TABLET_MODE = 'lg';
 const DESKTOP_MODE = 'xl';
@@ -48,14 +51,25 @@ const StyledDesktopContainer = styled('div')(({theme: {breakpoints}}) => ({
   },
 }));
 
+const StyledLoggedContainer = styled('div')({
+  display: 'flex',
+});
+
 const HeaderLogin = ({inDrawer}: IProps) => {
   const navigate = useNavigate();
+  const loggedUser = useContextSelector(AppContext, (state) => state.user);
+  const logout = useContextSelector(AppContext, (state) => state.logout);
 
   const handleOnClick = useCallback(() => {
     navigate(AppRoutes.LOGIN.url);
   }, [navigate]);
 
-  const buttons = (
+  const content = loggedUser ? (
+    <StyledLoggedContainer>
+      <Typography variant="body1">{loggedUser.name}</Typography>
+      <LogoutIcon sx={{marginLeft: 1, cursor: 'pointer'}} onClick={logout} />
+    </StyledLoggedContainer>
+  ) : (
     <>
       <SecondaryButton title="Sign up" size="small" href={AppRoutes.LOGIN.url} />
       <Typography variant="body1" component={Link} to={AppRoutes.LOGIN.url}>
@@ -65,7 +79,7 @@ const HeaderLogin = ({inDrawer}: IProps) => {
   );
 
   if (inDrawer) {
-    return <StyledMobileContainer>{buttons}</StyledMobileContainer>;
+    return <StyledMobileContainer>{content}</StyledMobileContainer>;
   }
 
   return (
@@ -73,7 +87,7 @@ const HeaderLogin = ({inDrawer}: IProps) => {
       <StyledTabletContainer onClick={handleOnClick}>
         <LoginIcon />
       </StyledTabletContainer>
-      <StyledDesktopContainer>{buttons}</StyledDesktopContainer>
+      <StyledDesktopContainer>{content}</StyledDesktopContainer>
     </>
   );
 };

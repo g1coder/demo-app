@@ -78,7 +78,7 @@ function App() {
   const handleLogout = useCallback(() => {
     AuthService.logout().then(() => {
       setUser(undefined);
-      navigate(AppRoutes.LOGIN.url);
+      navigate('/');
     });
   }, [navigate]);
 
