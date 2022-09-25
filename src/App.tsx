@@ -48,8 +48,8 @@ function App() {
         .then(() => {
           navigate(AppRoutes.LANDING_PAGE.url);
         })
-        .catch((e) => {
-          throw Error(e.message);
+        .catch(() => {
+          return 'Invalid login or password';
         });
     },
     [navigate]
@@ -57,9 +57,8 @@ function App() {
 
   const handleReset = useCallback(
     (data: ILoginResetPasswordFormValues) =>
-      AuthService.resetPwd(data).catch((e) => {
-        toasterRef.current?.show(String(e));
-        throw Error(e.message);
+      AuthService.resetPwd(data).catch(() => {
+        return 'Something went wrong';
       }),
     []
   );

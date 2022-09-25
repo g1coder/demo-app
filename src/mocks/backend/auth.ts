@@ -12,7 +12,8 @@ const handlers = [
     return res(ctx.status(status));
   }),
   rest.post('/api/reset-password', (req, res, ctx) => {
-    return res(ctx.status(200));
+    const {email} = (req.body as any).params;
+    return res(ctx.status(email === 'error@e.ee' ? 403 : 201));
   }),
 ];
 

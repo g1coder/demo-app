@@ -10,9 +10,6 @@ const StyledLogo = styled('img')(({theme: {breakpoints}}) => ({
   [breakpoints.up('lg')]: {
     maxWidth: 200,
   },
-  [breakpoints.up('xl')]: {
-    maxWidth: '100%',
-  },
 }));
 
 const HeaderLogo = () => (

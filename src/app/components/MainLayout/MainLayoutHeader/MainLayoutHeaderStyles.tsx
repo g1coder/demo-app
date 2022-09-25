@@ -34,7 +34,7 @@ export const StyledNavContainer = styled('div')(({theme: {breakpoints}}) => ({
   },
 }));
 
-export const StyledLoginContainer = styled('div')(({theme: {breakpoints, spacing}}) => ({
+export const StyledLoginContainer = styled('div')(({theme: {breakpoints}}) => ({
   display: 'none',
   [breakpoints.between('lg', 'xl')]: {
     display: 'block',
@@ -44,6 +44,6 @@ export const StyledLoginContainer = styled('div')(({theme: {breakpoints, spacing
   [breakpoints.up('xl')]: {
     display: 'block',
     position: 'relative',
-    marginRight: spacing(-8),
+    marginRight: -180,
   },
 }));

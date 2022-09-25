@@ -1,9 +1,11 @@
-import React from 'react';
-import {Form, Field} from 'react-final-form';
+import React, {memo} from 'react';
+import {FormRenderProps, useFormState, useField} from 'react-final-form';
 import {createValidator, email, required} from 'core/services/ValidationService';
 import PrimaryButton from 'core/components/Buttons/PrimaryButton';
-import {FormControl, TextField, Typography} from '@mui/material';
+import {FormControl, FormHelperText, TextField, Typography} from '@mui/material';
 import {styled} from '@mui/material/styles';
+import withFinalForm from 'core/HOC/withFinalForm';
+import Utils from 'core/services/Utils';
 
 const StyledForm = styled('form')(() => ({
   display: 'flex',
@@ -35,7 +37,7 @@ export interface IFormValues {
 }
 
 interface IProps {
-  onReset: (values: IFormValues) => Promise<void>;
+  onSubmit: (values: IFormValues) => void;
   onBack: () => void;
 }
 
@@ -43,40 +45,45 @@ const formValidator = createValidator<IFormValues>({
   email: [required, email],
 });
 
-const LoginResetPasswordForm = ({onReset, onBack}: IProps) => (
-  <Form<IFormValues> validate={formValidator} onSubmit={onReset}>
-    {({handleSubmit, submitting, invalid}) => (
-      <StyledForm onSubmit={handleSubmit}>
-        <FormControl fullWidth margin="dense">
-          <StyledFieldLabel>
-            <Typography variant="caption" fontWeight={600}>
-              Email address
-            </Typography>
-          </StyledFieldLabel>
+const LoginResetPasswordForm = ({handleSubmit, onBack}: IProps & FormRenderProps<IFormValues>) => {
+  const {submitting, submitSucceeded, submitErrors} = useFormState<IFormValues>({
+    subscription: {pristine: true, submitSucceeded: true, submitErrors: true},
+  });
 
-          <Field name="email" type="text">
-            {({input, meta}) => (
-              <TextField
-                margin="normal"
-                error={meta.touched && !!meta.error}
-                helperText={meta.touched && !!meta.error ? meta.error : ''}
-                aria-label="email for reset"
-                {...input}
-              />
-            )}
-          </Field>
-        </FormControl>
-        <StyledBtnContainer>
-          <PrimaryButton type="submit" disabled={submitting || invalid}>
-            Reset password
-          </PrimaryButton>
-          <StyledBackButton variant="subtitle2" onClick={onBack}>
-            Back
-          </StyledBackButton>
-        </StyledBtnContainer>
-      </StyledForm>
-    )}
-  </Form>
-);
+  const {input, meta} = useField(Utils.nameOf<IFormValues>('email'));
 
-export default LoginResetPasswordForm;
+  return (
+    <StyledForm onSubmit={handleSubmit}>
+      <Typography variant="caption" sx={{textAlign: 'center', marginTop: 3, marginBottom: 5}}>
+        We will send you an email to reset your password.
+      </Typography>
+
+      <FormControl fullWidth margin="dense">
+        <StyledFieldLabel>
+          <Typography variant="caption" fontWeight={600}>
+            Email address
+          </Typography>
+        </StyledFieldLabel>
+        <TextField
+          {...input}
+          margin="normal"
+          error={meta.touched && !!meta.error}
+          helperText={meta.touched && !!meta.error ? meta.error : ` `}
+          aria-label="email for reset"
+        />
+      </FormControl>
+      <FormHelperText error={!!submitErrors}>{!!submitErrors ? String(submitErrors) : ` `}</FormHelperText>
+      <FormHelperText sx={{color: (theme) => theme.palette.primary.light}}>
+        {submitSucceeded ? 'We sent a message on your email' : ` `}
+      </FormHelperText>
+      <StyledBtnContainer>
+        <PrimaryButton title="Reset password" type="submit" disabled={submitting} />
+        <StyledBackButton variant="subtitle2" onClick={onBack}>
+          Back
+        </StyledBackButton>
+      </StyledBtnContainer>
+    </StyledForm>
+  );
+};
+
+export default memo(withFinalForm<IProps, IFormValues>(LoginResetPasswordForm, formValidator));
