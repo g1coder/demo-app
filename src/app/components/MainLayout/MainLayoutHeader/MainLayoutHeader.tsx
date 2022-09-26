@@ -18,7 +18,7 @@ const items = [
   {name: 'Catalog', url: AppRoutes.CATALOG.url},
   {name: 'Delivery', url: '#'},
   {name: 'About us', url: '#'},
-  {name: 'Contacts', url: '#'},
+  {name: 'Contacts', url: AppRoutes.CONTACTS.url},
 ];
 
 const MainLayoutHeader = observer(() => {

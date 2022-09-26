@@ -19,6 +19,7 @@ import SignupPage from 'app/components/AnonymousLayout/SignupPage';
 import {IFormValues as ISignupFormValues} from 'app/components/AnonymousLayout/SignupForm';
 
 const CatalogLayoutRouter = loadComponent(() => import('features/catalog/pages/CatalogLayoutRouter'));
+const ContactsPage = loadComponent(() => import('app/components/AnonymousLayout/ContactsPage'));
 
 function App() {
   const toasterRef = useRef<any>();
@@ -94,6 +95,7 @@ function App() {
               <Route element={<MainLayout />}>
                 <Route index element={<LandingPage />} />
                 <Route path={AppRoutes.CATALOG.path} element={<CatalogLayoutRouter />} />
+                <Route path={AppRoutes.CONTACTS.path} element={<ContactsPage />} />
               </Route>
               <Route path={AppRoutes.LOGIN.path} element={<LoginPage onLogin={handleLogin} onReset={handleReset} />} />
               <Route path={AppRoutes.SIGNUP.path} element={<SignupPage onSignup={handleSignup} />} />
