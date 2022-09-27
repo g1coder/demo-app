@@ -46,7 +46,6 @@ export const StyledActionContainer = styled('div')(({theme: {spacing, breakpoint
   textAlign: 'center',
   margin: spacing(0, 3),
   [breakpoints.up('md')]: {
-    display: 'flex',
     minWidth: 500,
   },
 }));

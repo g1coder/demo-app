@@ -7,7 +7,7 @@ function withFinalForm<IProps extends FormProps<FormValues>, FormValues = Record
   Component: ComponentType<IProps & FormRenderProps<FormValues>>,
   validate?: (values: FormValues) => ValidationErrors | Promise<ValidationErrors>
 ) {
-  return (props: IProps) => (
+  return (props: IProps & {initialValues?: FormValues}) => (
     <Form<FormValues>
       {...props}
       validate={validate}

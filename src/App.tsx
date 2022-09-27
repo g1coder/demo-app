@@ -19,7 +19,7 @@ import SignupPage from 'app/components/AnonymousLayout/SignupPage';
 import {IFormValues as ISignupFormValues} from 'app/components/AnonymousLayout/SignupForm';
 
 const CatalogLayoutRouter = loadComponent(() => import('features/catalog/pages/CatalogLayoutRouter'));
-const ContactsPage = loadComponent(() => import('app/components/AnonymousLayout/ContactsPage'));
+const ContactsPage = loadComponent(() => import('app/components/AnonymousLayout/ContactsPage/ContactsPage'));
 
 function App() {
   const toasterRef = useRef<any>();
