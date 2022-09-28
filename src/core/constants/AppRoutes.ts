@@ -7,6 +7,7 @@ export enum RouteNames {
   CATALOG = 'CATALOG',
   CART = 'CART',
   CONTACTS = 'CONTACTS',
+  ABOUT = 'ABOUT',
 }
 
 interface IAppRouteConfig {
@@ -25,6 +26,7 @@ const AppRoutes: AppRoutesType = {
   [RouteNames.CART]: {path: '/cart', url: '/catalog/cart', hidden: true},
   [RouteNames.CATALOG]: {path: 'catalog/*', url: 'catalog', name: 'Catalog'},
   [RouteNames.CONTACTS]: {path: '/contacts', url: 'contacts', name: 'Contacts'},
+  [RouteNames.ABOUT]: {path: '/about', url: 'about', name: 'About Us'},
 };
 
 export const getNameByPath = (path: string) => _.find(AppRoutes, (r) => r.path === path || `/${r.path}` === path)?.name;
