@@ -13,6 +13,10 @@ const StyledContainer = styled('div')(() => ({
   margin: 'auto',
 }));
 
+const StyledImage = styled('img')({
+  width: '100%'
+})
+
 interface IProps {
   redirectPath: string;
 }
@@ -21,7 +25,7 @@ const PageNotFound = ({redirectPath = '/'}: IProps) => (
   <StyledContainer>
     <Grid container direction="column" alignItems="center" justifyContent="center">
       <Grid item>
-        <img src={BgImage} style={{width: '100%'}} />
+        <StyledImage src={BgImage} alt="bottle picture" />
       </Grid>
       <Grid item>
         <span>

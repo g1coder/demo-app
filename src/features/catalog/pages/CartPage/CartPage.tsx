@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {useMemo} from 'react';
 import {observer} from 'mobx-react-lite';
 import CartStore from 'features/catalog/store/CartStore';
 import {Divider, Grid, Paper, Typography} from '@mui/material';
@@ -11,9 +11,13 @@ import CartService from 'features/catalog/services/CartService';
 import {useContextSelector} from 'use-context-selector';
 import AppContext from 'core/components/AppContext';
 import AppRoutes from 'core/constants/AppRoutes';
+import Utils from "core/services/Utils";
+import {useLocation} from "react-router-dom";
 
 const CartPage = observer(() => {
   const loggedUser = useContextSelector(AppContext, (state) => state.user);
+  const location = useLocation();
+  const loginUrl = useMemo(() => `${AppRoutes.LOGIN.url}${Utils.getNextUrlString(location)}`, [location]);
 
   const [{data: productPairs, ready, loading}] = useFetch<Array<{product: IBaseProduct; count: number}>>(
     {
@@ -39,6 +43,8 @@ const CartPage = observer(() => {
   const shipping = CartStore.totalPrice * 0.2;
   const taxes = CartStore.totalPrice * 0.13;
   const estimatedTotal = (totalPrice + shipping + taxes).toFixed(2);
+
+
 
   return (
     <StyledContainer>
@@ -133,9 +139,9 @@ const CartPage = observer(() => {
                   color="primary.dark"
                   sx={{cursor: 'pointer', textDecoration: 'underline'}}
                   component="a"
-                  href={AppRoutes.LOGIN.url}
+                  href={loginUrl}
                 >
-                  Sign up
+                  Sign in
                 </Typography>
               </>
             )}

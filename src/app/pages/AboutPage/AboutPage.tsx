@@ -13,6 +13,7 @@ import GlassPicture from './mineral-glass-square.png';
 import {StyledSectionTextImageItem} from 'app/pages/LandingPage/LandingPageAboutSection/LandingPageAboutSectionStyles';
 import LandingPageMineralDetails from 'app/pages/LandingPage/LandingPageMineralDetailsSection/LandingPageMineralDetails';
 import LandingPageSectionHeader from 'app/pages/LandingPage/LandingPageSectionHeader';
+import AppRoutes from "core/constants/AppRoutes";
 
 const itemNames = [
   {name: 'Full Controll', icon: ItemIcon1},
@@ -102,7 +103,7 @@ const AboutPage = () => {
             elementum sem ligula. Phasellus eleifend vel justo sit amet volutpat. Duis vitae maximus ligula, nec mattis
             libero. Donec eget felis odio.
           </Typography>
-          <SecondaryButton title="view products" />
+          <SecondaryButton title="view products" href={AppRoutes.CATALOG.url} />
         </Grid>
         <Grid item xs={11} md={10} lg={6}>
           <StyledPicture src={AboutPicture} />
