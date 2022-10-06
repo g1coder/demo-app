@@ -7,7 +7,7 @@ import DoneIcon from '@mui/icons-material/Done';
 import Paper from '@mui/material/Paper';
 import SeparatorImage from './presets/water_separator.jpg';
 
-export const StyledWaterSeparatorImage = styled('div')(() => ({
+export const StyledWaterSeparatorImage = styled('div')({
   backgroundImage: `url(${SeparatorImage})`,
   backgroundSize: 'cover',
   backgroundRepeat: 'no-repeat',
@@ -16,7 +16,7 @@ export const StyledWaterSeparatorImage = styled('div')(() => ({
   left: 0,
   right: 0,
   maxHeight: '100vh',
-}));
+});
 
 export const StyledInnerContainer = styled('div')(({theme: {breakpoints}}) => ({
   position: 'relative',

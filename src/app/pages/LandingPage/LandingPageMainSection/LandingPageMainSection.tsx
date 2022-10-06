@@ -11,7 +11,6 @@ import {
   StyledBottleImage,
   StyledSliderContainer,
   StyledTextContainer,
-  StyledTextInnerContainer,
   StyledScrollTopButton,
 } from './LandingPageMainSectionStyles';
 import BottleImage from 'app/pages/LandingPage/LandingPageMainSection/presets/slider-dark-bottle.png';
@@ -56,7 +55,7 @@ const LandingPageMainSection = () => {
         </StyledSliderContainer>
 
         <StyledTextContainer>
-          <StyledTextInnerContainer>
+          <div>
             <StyledInnerFirstTypography variant="h2">Mineral Water</StyledInnerFirstTypography>
             <StyledInnerSecondTypography variant="h2">FOR EVERY DAY</StyledInnerSecondTypography>
             <StyledInnerSubtitleTypography variant="body1">
@@ -69,7 +68,7 @@ const LandingPageMainSection = () => {
               <SecondaryButton title="Read more" />
               <PrimaryButton title="Make order" href={AppRoutes.CATALOG.url} />
             </StyledInnerButtonContainer>
-          </StyledTextInnerContainer>
+          </div>
         </StyledTextContainer>
       </StyledSectionContainer>
       <StyledScrollTopButton isVisible={isTargetHidden} onClick={onScroll}>

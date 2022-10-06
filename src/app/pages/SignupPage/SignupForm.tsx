@@ -7,10 +7,10 @@ import {styled} from '@mui/material/styles';
 import Utils from 'core/services/Utils';
 import PrimaryButton from 'core/components/Buttons/PrimaryButton';
 
-const StyledForm = styled('form')(() => ({
+const StyledForm = styled('form')({
   display: 'flex',
   flexDirection: 'column',
-}));
+});
 
 const StyledFieldLabel = styled('div')(({theme}) => ({
   marginBottom: theme.spacing(-1.5),

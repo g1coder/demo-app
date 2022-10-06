@@ -1,10 +1,10 @@
 import {styled} from '@mui/material/styles';
 
-export const StyledSectionContainer = styled('div')(() => ({
+export const StyledSectionContainer = styled('div')({
   position: 'relative',
   height: `100%`,
   paddingBottom: 32,
-}));
+});
 
 export const StyledAboutInfoContainer = styled('div')(({theme: {spacing, breakpoints}}) => ({
   position: 'relative',

@@ -7,10 +7,10 @@ import InstagramIcon from '@mui/icons-material/Instagram';
 import GoogleIcon from '@mui/icons-material/Google';
 import {MAIN_LAYOUT_FOOTER_BG} from 'app/constants/constants';
 
-export const StyledContainer = styled('footer')(() => ({
+export const StyledContainer = styled('footer')({
   backgroundColor: MAIN_LAYOUT_FOOTER_BG,
   position: 'relative',
-}));
+});
 
 export const StyledAboutContainer = styled('div')(({theme: {spacing}}) => ({
   maxWidth: 700,

@@ -7,10 +7,10 @@ import {styled} from '@mui/material/styles';
 import withFinalForm from 'core/HOC/withFinalForm';
 import Utils from 'core/services/Utils';
 
-const StyledForm = styled('form')(() => ({
+const StyledForm = styled('form')({
   display: 'flex',
   flexDirection: 'column',
-}));
+});
 
 const StyledFieldLabel = styled('div')(({theme}) => ({
   marginBottom: theme.spacing(-1.5),

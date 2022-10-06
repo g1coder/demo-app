@@ -16,9 +16,9 @@ const StyledContainer = styled('aside')(({theme: {spacing}}) => ({
   top: spacing(2),
 }));
 
-const StyledFilterChip = styled(Chip)(() => ({
-  marginRight: 8,
-}));
+const StyledFilterChip = styled(Chip)({
+  marginRight: 4,
+});
 
 interface IProps {
   onChange: (params: IProductParams) => void;

@@ -9,9 +9,9 @@ export const StyledLandingPageFooterSection = styled('section')(({theme: {breakp
   },
 }));
 
-export const StyledSubscribeContainer = styled('div')(() => ({
+export const StyledSubscribeContainer = styled('div')({
   position: 'relative',
-}));
+});
 
 export const StyledSubscribeSection = styled('div')(({theme: {palette, spacing, breakpoints}}) => ({
   backgroundColor: palette.primary.light,

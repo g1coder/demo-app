@@ -24,7 +24,7 @@ export class CartStore {
   };
 
   @action submitCart = () => {
-    CartService.submitOrder().then(() => {
+    return CartService.submitOrder().then(() => {
       runInAction(() => {
         this.products = new Map([]);
         this.totalPrice = 0;

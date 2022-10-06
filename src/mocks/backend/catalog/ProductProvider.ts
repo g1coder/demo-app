@@ -27,6 +27,7 @@ class ProductProvider {
   constructor() {
     const productsStr = window.localStorage.getItem('products');
     if (!productsStr) {
+      this.products = productsMock;
       window.localStorage.setItem('products', JSON.stringify(productsMock));
     } else {
       this.products = JSON.parse(productsStr);

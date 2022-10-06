@@ -3,12 +3,12 @@ import {Paper} from '@mui/material';
 import ReviewBg from './review-section-bg.jpg';
 import SecondaryButton from 'core/components/Buttons/SecondaryButton';
 
-export const StyledLandingPageReviewSection = styled('div')(() => ({
+export const StyledLandingPageReviewSection = styled('div')({
   position: 'relative',
   textAlign: 'center',
-}));
+});
 
-export const StyledSectionBg = styled('div')(() => ({
+export const StyledSectionBg = styled('div')({
   background: `url(${ReviewBg}) no-repeat center center fixed`,
   backgroundSize: 'cover',
   position: 'absolute',
@@ -17,7 +17,7 @@ export const StyledSectionBg = styled('div')(() => ({
   left: 0,
   right: 0,
   mixBlendMode: 'color-burn',
-}));
+});
 
 export const StyledSwiperContainer = styled('div')(({theme: {spacing}}) => ({
   padding: spacing(8, 0),

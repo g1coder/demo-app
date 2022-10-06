@@ -3,10 +3,10 @@ import {styled} from '@mui/material/styles';
 import BottlePartTitle from './bottle-part-title.png';
 import BottleWhole from './bottle-whole.png';
 
-export const StyledSectionContainer = styled('div')(() => ({
+export const StyledSectionContainer = styled('div')({
   position: 'relative',
   backgroundColor: '#002579',
-}));
+});
 
 export const StyledContentContainer = styled('div')(({theme: {spacing, breakpoints}}) => ({
   padding: spacing(8, 0, 0),

@@ -1,4 +1,4 @@
-import React, {useMemo} from 'react';
+import React, {useCallback, useMemo, useState} from 'react';
 import {observer} from 'mobx-react-lite';
 import CartStore from 'features/catalog/store/CartStore';
 import {Divider, Grid, Paper, Typography} from '@mui/material';
@@ -11,12 +11,15 @@ import CartService from 'features/catalog/services/CartService';
 import {useContextSelector} from 'use-context-selector';
 import AppContext from 'core/components/AppContext';
 import AppRoutes from 'core/constants/AppRoutes';
-import Utils from "core/services/Utils";
-import {useLocation} from "react-router-dom";
+import Utils from 'core/services/Utils';
+import {useLocation} from 'react-router-dom';
 
 const CartPage = observer(() => {
   const loggedUser = useContextSelector(AppContext, (state) => state.user);
   const location = useLocation();
+  const [successSubmitted, setSuccessSubmitted] = useState(false);
+  const [submitting, setSubmitting] = useState(false);
+
   const loginUrl = useMemo(() => `${AppRoutes.LOGIN.url}${Utils.getNextUrlString(location)}`, [location]);
 
   const [{data: productPairs, ready, loading}] = useFetch<Array<{product: IBaseProduct; count: number}>>(
@@ -27,7 +30,18 @@ const CartPage = observer(() => {
     []
   );
 
-  if (!ready) {
+  const handleSubmitCart = useCallback(() => {
+    setSubmitting(true);
+    CartStore.submitCart()
+      .then(() => {
+        setSuccessSubmitted(true);
+      })
+      .finally(() => {
+        setSubmitting(false);
+      });
+  }, []);
+
+  if (!ready || submitting) {
     return <Spinner />;
   }
 
@@ -39,12 +53,18 @@ const CartPage = observer(() => {
     );
   }
 
+  if (successSubmitted) {
+    return (
+      <Typography variant="h3" color="secondary.main" textAlign="center">
+        You cart has been successfully checked out!
+      </Typography>
+    );
+  }
+
   const totalPrice = CartStore.totalPrice;
   const shipping = CartStore.totalPrice * 0.2;
   const taxes = CartStore.totalPrice * 0.13;
   const estimatedTotal = (totalPrice + shipping + taxes).toFixed(2);
-
-
 
   return (
     <StyledContainer>
@@ -128,7 +148,7 @@ const CartPage = observer(() => {
           </Grid>
           <Grid item textAlign="center">
             {loggedUser ? (
-              <PrimaryButton title="Checkout" onClick={CartStore.submitCart} />
+              <PrimaryButton title="Checkout" onClick={handleSubmitCart} disabled={submitting} />
             ) : (
               <>
                 <Typography variant="body1" color="primary.dark">

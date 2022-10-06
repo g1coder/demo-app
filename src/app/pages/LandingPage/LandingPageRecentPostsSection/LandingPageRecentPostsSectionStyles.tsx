@@ -28,12 +28,12 @@ export const StyledCard = styled(Card)(({theme: {spacing, breakpoints}}) => ({
   },
 }));
 
-export const StyledCardMediaContainer = styled('div')(() => ({
+export const StyledCardMediaContainer = styled('div')({
   position: 'relative',
   overflow: 'hidden',
-}));
+});
 
-export const StyledCardMedia = styled(CardMedia)<{component: string; alt: string}>(() => ({
+export const StyledCardMedia = styled(CardMedia)<{component: string; alt: string}>({
   objectFit: 'contain',
   transition: 'all .5s ease-in',
   backgroundClip: 'padding-box',
@@ -42,7 +42,7 @@ export const StyledCardMedia = styled(CardMedia)<{component: string; alt: string
   '&:hover': {
     transform: 'scale(1.1)',
   },
-}));
+});
 
 interface IStyledTitle {
   to: string;

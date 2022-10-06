@@ -22,9 +22,9 @@ export const StyledContainer = styled(Card)(({theme: {spacing}}) => ({
   },
 }));
 
-export const StyledImage = styled('img')(() => ({
+export const StyledImage = styled('img')({
   width: '100%',
-}));
+});
 
 export const StyledTitle = styled(Typography)(({theme: {palette, spacing}}) => ({
   color: palette.primary.dark,

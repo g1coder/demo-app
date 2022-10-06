@@ -4,18 +4,18 @@ import {Grid, Typography} from '@mui/material';
 import BgImage from './404-bg.png';
 import PrimaryButton from 'core/components/Buttons/PrimaryButton';
 
-const StyledContainer = styled('div')(() => ({
+const StyledContainer = styled('div')({
   display: 'flex',
   justifyContent: 'center',
   alignItems: 'center',
   height: '100vh',
   width: '100%',
   margin: 'auto',
-}));
+});
 
 const StyledImage = styled('img')({
-  width: '100%'
-})
+  width: '100%',
+});
 
 interface IProps {
   redirectPath: string;

@@ -25,9 +25,9 @@ const StyledContentContainer = styled('div')(({theme: {spacing}}) => ({
   minHeight: spacing(10),
 }));
 
-const StyledSkeleton = styled(Skeleton)(() => ({
+const StyledSkeleton = styled(Skeleton)({
   width: '100%',
-}));
+});
 
 const withBaseFilter =
   (Component) =>

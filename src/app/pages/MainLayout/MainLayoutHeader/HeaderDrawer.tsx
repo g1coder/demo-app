@@ -42,11 +42,11 @@ const StyledDrawer = styled('div')(({theme: {breakpoints}}) => ({
   },
 }));
 
-const StyledCloseIcon = styled('span')(() => ({
+const StyledCloseIcon = styled('span')({
   textAlign: 'right',
   padding: 10,
   cursor: 'pointer',
-}));
+});
 
 const HeaderDrawer = ({items}: IProps) => {
   const [isDrawerOpen, toggleDrawer] = useReducer((state) => !state, false);

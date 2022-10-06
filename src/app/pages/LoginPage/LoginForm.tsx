@@ -7,10 +7,10 @@ import {styled} from '@mui/material/styles';
 import Utils from 'core/services/Utils';
 import withFinalForm from 'core/HOC/withFinalForm';
 
-const StyledForm = styled('form')(() => ({
+const StyledForm = styled('form')({
   display: 'flex',
   flexDirection: 'column',
-}));
+});
 
 const StyledFieldLabel = styled('div')(({theme}) => ({
   marginBottom: theme.spacing(-1.5),
@@ -18,10 +18,10 @@ const StyledFieldLabel = styled('div')(({theme}) => ({
   justifyContent: 'space-between',
 }));
 
-const StyledForgotPwdLink = styled(Typography)(() => ({
+const StyledForgotPwdLink = styled(Typography)({
   textDecoration: 'underline',
   cursor: 'pointer',
-}));
+});
 
 const StyledBtnContainer = styled('div')(({theme}) => ({
   margin: 'auto',

@@ -77,8 +77,6 @@ export const StyledTextContainer = styled('div')(({theme: {spacing, breakpoints}
   },
 }));
 
-export const StyledTextInnerContainer = styled('div')(() => ({}));
-
 export const StyledLeftInnerContainer = styled('div')(({theme: {breakpoints}}) => ({
   position: 'relative',
   [breakpoints.up('xl')]: {
@@ -89,9 +87,9 @@ export const StyledLeftInnerContainer = styled('div')(({theme: {breakpoints}}) =
   },
 }));
 
-export const StyledInnerFirstTypography = styled(Typography)(() => ({
+export const StyledInnerFirstTypography = styled(Typography)({
   textShadow: `1px 1px 0px rgb(17 44 145 / 60%)`,
-}));
+});
 
 export const StyledInnerSecondTypography = styled(Typography)(({theme: {palette, spacing}}) => ({
   color: palette.primary.dark,
