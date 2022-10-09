@@ -1,4 +1,4 @@
-import React, {useMemo, useState} from 'react';
+import React, {useCallback, useMemo, useState} from 'react';
 import {observer} from 'mobx-react-lite';
 import {Grid} from '@mui/material';
 import ProductCard from 'features/catalog/components/ProductCard/ProductCard';
@@ -16,6 +16,7 @@ import {
   StyledMetaTitle,
   StyledRoot,
 } from 'features/catalog/pages/CatalogPage/CatalogPageStyles';
+import CatalogStore from 'features/catalog/store/CatalogStore';
 
 const CatalogPage = observer(() => {
   const [filterParams, setFilterParams] = useState<IProductParams>();
@@ -41,6 +42,12 @@ const CatalogPage = observer(() => {
       : `Showing ${products.length} from ${products.$meta.total_count}`;
   }, [products, productsLoading]);
 
+  const handleClickFavorite = useCallback((id: string) => {
+    return CatalogStore.toggleFavorites(id);
+  }, []);
+
+  console.log(CatalogStore.favoriteIds);
+
   return (
     <StyledRoot>
       <StyledFiltersContainer>
@@ -53,7 +60,12 @@ const CatalogPage = observer(() => {
         {productsLoading && <Spinner />}
         {(products || []).map((product) => (
           <Grid item key={product.name}>
-            <ProductCard product={product} ordered={CartStore.products.get(product.id)} />
+            <ProductCard
+              product={product}
+              ordered={CartStore.products.get(product.id)}
+              toggleFavorites={handleClickFavorite}
+              isFavorite={CatalogStore.favoriteIds.includes(product.id)}
+            />
           </Grid>
         ))}
       </StyledCardsContainer>

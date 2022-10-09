@@ -22,7 +22,8 @@ const productsMock: ProductDTO[] = [
 ];
 
 class ProductProvider {
-  products: ProductDTO[] = [];
+  products: Array<ProductDTO> = [];
+  favorites: Set<ProductDTO['id']>;
 
   constructor() {
     const productsStr = window.localStorage.getItem('products');
@@ -32,6 +33,9 @@ class ProductProvider {
     } else {
       this.products = JSON.parse(productsStr);
     }
+
+    const favoritesStr = window.localStorage.getItem('favorites');
+    this.favorites = new Set(favoritesStr ? JSON.parse(favoritesStr) : []);
   }
 
   getByQueryParams = (params: {tag: string | null; maxPrice: string | null; minPrice: string | null}): ProductDTO[] => {
@@ -39,6 +43,20 @@ class ProductProvider {
     return this.products.filter((p) => {
       return !((maxPrice && p.price > +maxPrice) || (minPrice && p.price < +minPrice) || (tag && p.tag !== tag));
     });
+  };
+
+  getFavorites = (): Array<ProductDTO['id']> => {
+    return Array.from(this.favorites);
+  };
+
+  toggleFavorites = (id: ProductDTO['id'], mode: 'add' | 'remove') => {
+    if (mode === 'add') {
+      this.favorites.add(id);
+    } else {
+      this.favorites.delete(id);
+    }
+    window.localStorage.setItem('favorites', JSON.stringify(Array.from(this.favorites)));
+    return Array.from(this.favorites);
   };
 }
 

@@ -22,6 +22,10 @@ export const StyledContainer = styled(Card)(({theme: {spacing}}) => ({
   },
 }));
 
+export const StyledFavoriteIcon = styled('div')({
+  position: 'absolute',
+});
+
 export const StyledImage = styled('img')({
   width: '100%',
 });
