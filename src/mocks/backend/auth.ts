@@ -18,8 +18,20 @@ const handlers = [
     return res(ctx.status(401));
   }),
   rest.get('/api/init', (req, res, ctx) => {
-    console.log(req.cookies);
-    return res(ctx.status(200));
+    const {token} = req.cookies;
+
+    return res(
+      ctx.status(200),
+      ctx.delay(1000),
+      ctx.json(
+        token === tokenMock
+          ? {
+              id: 'uid1',
+              name: 'user@gmail',
+            }
+          : null
+      )
+    );
   }),
   rest.post('/api/reset-password', (req, res, ctx) => {
     const {email} = (req.body as any).params;

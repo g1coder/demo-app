@@ -1,5 +1,6 @@
 import _ from 'lodash';
-import {ThemeOptions} from '@mui/material/styles';
+import {Theme, ThemeOptions} from '@mui/material/styles';
+import {createTheme} from '@mui/material';
 
 /**
  *
@@ -10,7 +11,7 @@ import {ThemeOptions} from '@mui/material/styles';
  * https://material.io/design/color/the-color-system.html#tools-for-picking-colors
  */
 
-const defaultTheme = (themeOptions: ThemeOptions = {}): ThemeOptions => {
+const defaultTheme = (themeOptions: Partial<ThemeOptions>): Theme => {
   const palette = _.merge(
     {},
     {
@@ -124,7 +125,12 @@ const defaultTheme = (themeOptions: ThemeOptions = {}): ThemeOptions => {
     themeOptions.typography
   );
 
-  return {palette, breakpoints, typography};
+  return createTheme({
+    ...themeOptions,
+    palette,
+    breakpoints,
+    typography,
+  });
 };
 
 export default defaultTheme;

@@ -33,7 +33,7 @@ function App() {
     const fetchLogginedUser = async () => {
       const authUser = await AuthService.init();
       if (authUser) {
-        setUser({name: authUser});
+        setUser({name: authUser.name});
         navigate(AppRoutes.LANDING_PAGE.url);
       }
     };

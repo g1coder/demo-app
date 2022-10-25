@@ -2,9 +2,10 @@ import api from 'core/services/ApiService';
 
 const AUTH_FLAG_NAME = 'is-authenticated';
 
-const init = () => {
-  return Promise.resolve(sessionStorage.getItem(AUTH_FLAG_NAME));
+const init = (): Promise<{id: string; name: string} | null> => {
+  return api.get('api/init');
 };
+
 const login = (params: {username: string; password: string}) => api.post(`/api/login`, {params});
 const register = (params: {firstName: string; lastName: string; email: string; password: string}) =>
   api.post(`/api/register`, {params: {...params, first_name: params.firstName, last_name: params.lastName}});
