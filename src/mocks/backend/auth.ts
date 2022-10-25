@@ -1,15 +1,25 @@
 import {rest} from 'msw';
 
+const tokenMock =
+  'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiIxMjM0NTY3ODkwIiwibmFtZSI6IkpvaG4gRG9lIiwiaWF0IjoxNTE2MjM5MDIyfQ.SflKxwRJSMeKKF2QT4fwpMeJf36POk6yJV_adQssw5c';
+
 // See the example here https://mswjs.io/docs/getting-started/mocks/rest-api#response-resolver
 const handlers = [
   rest.post('/api/login', (req, res, ctx) => {
     const {username, password} = (req.body as any).params;
-    let status = 401;
     if (username === 'user@gmail.com' && password === '123') {
-      sessionStorage.setItem('is-authenticated', username);
-      status = 200;
+      return res(
+        ctx.status(200),
+        ctx.cookie('token', tokenMock, {
+          maxAge: 600,
+        })
+      );
     }
-    return res(ctx.status(status));
+    return res(ctx.status(401));
+  }),
+  rest.get('/api/init', (req, res, ctx) => {
+    console.log(req.cookies);
+    return res(ctx.status(200));
   }),
   rest.post('/api/reset-password', (req, res, ctx) => {
     const {email} = (req.body as any).params;
@@ -22,7 +32,12 @@ const handlers = [
       sessionStorage.setItem('is-authenticated', first_name);
       status = 200;
     }
-    return res(ctx.status(status));
+    return res(
+      ctx.status(status),
+      ctx.cookie('token', tokenMock, {
+        maxAge: 600,
+      })
+    );
   }),
 ];
 

@@ -5,7 +5,7 @@ import {Divider, Grid, Paper, Typography} from '@mui/material';
 import {StyledContainer, StyledProductItem, StyledProductTitle, StyledSummaryTitle} from './CartPageStyle';
 import IBaseProduct from 'features/catalog/models/IBaseProduct';
 import PrimaryButton from 'core/components/Buttons/PrimaryButton';
-import useFetch from 'core/hooks/useFetch';
+import useData from 'core/hooks/useData';
 import Spinner from 'core/components/Spinner';
 import CartService from 'features/catalog/services/CartService';
 import {useContextSelector} from 'use-context-selector';
@@ -22,7 +22,7 @@ const CartPage = observer(() => {
 
   const loginUrl = useMemo(() => `${AppRoutes.LOGIN.url}${Utils.getNextUrlString(location)}`, [location]);
 
-  const [{data: productPairs, ready, loading}] = useFetch<Array<{product: IBaseProduct; count: number}>>(
+  const [{data: productPairs, ready, loading}] = useData<Array<{product: IBaseProduct; count: number}>>(
     {
       fetch: () => CartService.getCartDetails(),
       data: [],

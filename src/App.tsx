@@ -52,7 +52,9 @@ function App() {
         .then(() => {
           navigate(AppRoutes.LANDING_PAGE.url);
         })
-        .catch(() => 'Invalid login or password');
+        .catch(() => {
+          throw new Error('Invalid login or password');
+        });
     },
     [navigate]
   );

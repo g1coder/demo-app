@@ -1,7 +1,7 @@
 import {useCallback} from 'react';
 import {render, fireEvent} from '@testing-library/react';
 import {screen} from '@testing-library/dom';
-import useFetch from '../useFetch';
+import useData from 'core/hooks/useData';
 
 const users = {
   1: {id: 1, name: 'User 1'},
@@ -13,7 +13,7 @@ interface IProps {
 }
 
 const TestCase = (props: IProps) => {
-  const [user, actions] = useFetch<any>(
+  const [user, actions] = useData<any>(
     {
       fetch: () => (users[props.userId] ? Promise.resolve(users[props.userId]) : Promise.reject('Not Found')),
       data: null,
@@ -52,7 +52,7 @@ const TestCase = (props: IProps) => {
   return null;
 };
 
-describe('useFetch', () => {
+describe('useData', () => {
   it('should fetch data on mount', async () => {
     render(<TestCase userId={1} />);
     // eslint-disable-next-line testing-library/no-debugging-utils

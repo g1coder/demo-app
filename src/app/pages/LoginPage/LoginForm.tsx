@@ -1,4 +1,4 @@
-import React, {memo, useEffect, useRef} from 'react';
+import React, {memo} from 'react';
 import {useFormState, useField, FormRenderProps} from 'react-final-form';
 import {createValidator, email, required} from 'core/services/ValidationService';
 import PrimaryButton from 'core/components/Buttons/PrimaryButton';
@@ -44,13 +44,8 @@ const formValidator = createValidator<IFormValues>({
 });
 
 const LoginForm = ({handleSubmit, onForgotPassword}: IProps & FormRenderProps<IFormValues>) => {
-  const usernameRef = useRef<HTMLInputElement>(null);
-  useEffect(() => {
-    usernameRef.current?.focus();
-  }, [usernameRef]);
-
-  const {submitting, submitErrors} = useFormState<IFormValues>({
-    subscription: {values: true, valid: true, pristine: true, submitErrors: true},
+  const {submitting, submitError} = useFormState<IFormValues>({
+    subscription: {values: true, valid: true, pristine: true, submitError: true},
   });
 
   const {input: usernameInput, meta: usernameMeta} = useField(Utils.nameOf<IFormValues>('username'));
@@ -66,12 +61,12 @@ const LoginForm = ({handleSubmit, onForgotPassword}: IProps & FormRenderProps<IF
         </StyledFieldLabel>
         <TextField
           {...usernameInput}
-          ref={usernameRef}
           margin="normal"
           error={usernameMeta.touched && !!usernameMeta.error}
           helperText={usernameMeta.touched && !!usernameMeta.error ? 'Enter your email' : ` `}
           placeholder="user@gmail.com"
           aria-label="user name"
+          autoFocus
         />
       </FormControl>
 
@@ -93,7 +88,9 @@ const LoginForm = ({handleSubmit, onForgotPassword}: IProps & FormRenderProps<IF
           aria-label="password"
         />
       </FormControl>
-      <FormHelperText error={!!submitErrors}>{!!submitErrors ? String(submitErrors) : ` `}</FormHelperText>
+      <FormHelperText sx={{mt: -2}} error={!!submitError}>
+        {!!submitError ? String(submitError) : ` `}
+      </FormHelperText>
       <StyledBtnContainer>
         <PrimaryButton title="Sign in" disabled={submitting} type="submit" />
       </StyledBtnContainer>

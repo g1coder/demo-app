@@ -12,9 +12,9 @@ import LoginResetPasswordForm, {
   IFormValues as ILoginResetPasswordFormValues,
 } from 'app/pages/LoginPage/LoginResetPasswordForm';
 import AppRoutes from 'core/constants/AppRoutes';
-import {useLocation, useNavigate} from "react-router-dom";
-import Utils from "core/services/Utils";
-
+import {useLocation, useNavigate} from 'react-router-dom';
+import Utils from 'core/services/Utils';
+import {FORM_ERROR} from 'final-form';
 
 interface IProps {
   onLogin: (params: ILoginFormValues) => Promise<string | void>;
@@ -27,14 +27,21 @@ const LoginPage = ({onLogin, onReset}: IProps) => {
 
   const [isLoginMode, switchMode] = useReducer((state) => !state, true);
 
-  const handleLogin = useCallback((data: ILoginFormValues) => {
-    return onLogin(data).then(() => {
-      const next = Utils.getNextFromUrl(location.search);
-      if (next) {
-        return navigage(next)
-      }
-    });
-  }, [location.search, navigage, onLogin]);
+  const handleLogin = useCallback(
+    (data: ILoginFormValues) => {
+      return onLogin(data)
+        .then(() => {
+          const next = Utils.getNextFromUrl(location.search);
+          if (next) {
+            return navigage(next);
+          }
+        })
+        .catch((e: Error) => {
+          return {[FORM_ERROR]: e.message};
+        });
+    },
+    [location.search, navigage, onLogin]
+  );
 
   return (
     <StyledContainer>

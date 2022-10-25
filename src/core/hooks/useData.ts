@@ -1,10 +1,10 @@
 import {useCallback, useReducer, Reducer, useEffect} from 'react';
 
-const LOAD = 'useFetch/LOAD';
-const LOAD_COMPLETE = 'useFetch/LOAD_COMPLETE';
-const ERROR = 'useFetch/ERROR';
-const INIT = 'useFetch/INIT';
-const RESET = 'useFetch/RESET';
+const LOAD = 'useData/LOAD';
+const LOAD_COMPLETE = 'useData/LOAD_COMPLETE';
+const ERROR = 'useData/ERROR';
+const INIT = 'useData/INIT';
+const RESET = 'useData/RESET';
 
 const cancelMarker = Symbol('promise.cancel');
 
@@ -88,7 +88,6 @@ export interface IActions<T> {
   init: (data: T) => void;
 }
 
-
 const makeCancelable = <T = unknown>(promise: Promise<T>): ICancelablePromise<T> => {
   let hasCanceled = false;
 
@@ -106,7 +105,7 @@ const makeCancelable = <T = unknown>(promise: Promise<T>): ICancelablePromise<T>
   };
 };
 
-function useFetch<T>(config: IUseDataConfig<T>, dependencies: unknown[] = []): [IState<T>, IActions<T>] {
+function useData<T>(config: IUseDataConfig<T>, dependencies: unknown[] = []): [IState<T>, IActions<T>] {
   const initialState: IState<T> = {
     data: config.data,
     initialData: config.data,
@@ -146,4 +145,4 @@ function useFetch<T>(config: IUseDataConfig<T>, dependencies: unknown[] = []): [
   return [state, {fetch, reset, init}];
 }
 
-export default useFetch;
+export default useData;

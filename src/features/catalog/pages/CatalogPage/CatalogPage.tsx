@@ -3,7 +3,7 @@ import {observer} from 'mobx-react-lite';
 import {Grid} from '@mui/material';
 import ProductCard from 'features/catalog/components/ProductCard/ProductCard';
 import FilterPanel from 'features/catalog/components/FilterPanel/FilterPanel';
-import useFetch from 'core/hooks/useFetch';
+import useData from 'core/hooks/useData';
 import CatalogService from 'features/catalog/services/CatalogService';
 import IBaseProduct from 'features/catalog/models/IBaseProduct';
 import Spinner from 'core/components/Spinner';
@@ -21,7 +21,7 @@ import CatalogStore from 'features/catalog/store/CatalogStore';
 const CatalogPage = observer(() => {
   const [filterParams, setFilterParams] = useState<IProductParams>();
 
-  const [{data: products, loading: productsLoading}] = useFetch<IList<IBaseProduct> | null>(
+  const [{data: products, loading: productsLoading}] = useData<IList<IBaseProduct> | null>(
     {
       fetch: () => CatalogService.getList(filterParams),
       data: null,
@@ -45,8 +45,6 @@ const CatalogPage = observer(() => {
   const handleClickFavorite = useCallback((id: string) => {
     return CatalogStore.toggleFavorites(id);
   }, []);
-
-  console.log(CatalogStore.favoriteIds);
 
   return (
     <StyledRoot>

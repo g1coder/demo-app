@@ -7,7 +7,7 @@ import {useSearchParams} from 'react-router-dom';
 import querySerializer from 'core/services/QuerySerializer';
 import _ from 'lodash';
 import {Chip, Grid} from '@mui/material';
-import useFetch from 'core/hooks/useFetch';
+import useData from 'core/hooks/useData';
 import CatalogService from 'features/catalog/services/CatalogService';
 
 const StyledContainer = styled('aside')(({theme: {spacing}}) => ({
@@ -28,7 +28,7 @@ const FilterPanel = ({onChange}: IProps) => {
   const [searchParams, setSearchParams] = useSearchParams();
   const [filters, setFilters] = useState<IProductParams>({});
 
-  const [{data: initialFilters, loading}] = useFetch(
+  const [{data: initialFilters, loading}] = useData(
     {
       fetch: () => CatalogService.getOptions(),
       data: {

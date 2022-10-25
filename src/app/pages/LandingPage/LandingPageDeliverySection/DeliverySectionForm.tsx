@@ -1,9 +1,8 @@
-import React, {useEffect, useRef} from 'react';
+import React from 'react';
 import {Form, Field} from 'react-final-form';
 import {createValidator, required} from 'core/services/ValidationService';
-import {FormControl} from '@mui/material';
+import {FormControl, TextField} from '@mui/material';
 import {styled} from '@mui/material/styles';
-import TextField from 'core/components/FinalForm/TextField';
 import PrimaryButton from 'core/components/Buttons/PrimaryButton';
 import Utils from 'core/services/Utils';
 
@@ -42,12 +41,6 @@ interface IProps {
 }
 
 const DeliverySectionForm = ({onSubmit}: IProps) => {
-  const nameRef = useRef<HTMLInputElement>(null);
-
-  useEffect(() => {
-    nameRef.current?.focus();
-  }, [nameRef]);
-
   return (
     <Form<IFormValues> validate={formValidator} onSubmit={onSubmit}>
       {({handleSubmit, submitting}) => (
@@ -57,7 +50,6 @@ const DeliverySectionForm = ({onSubmit}: IProps) => {
               {({input, meta}) => (
                 <TextField
                   {...input}
-                  ref={nameRef}
                   margin="normal"
                   error={meta.touched && !!meta.error}
                   helperText={meta.touched && !!meta.error ? 'Enter your name' : ''}

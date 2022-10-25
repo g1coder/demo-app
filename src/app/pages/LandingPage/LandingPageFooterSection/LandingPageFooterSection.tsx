@@ -8,8 +8,7 @@ import {
   StyledSubscribeContainer,
   StyledSubcribeButton,
 } from './LandingPageFooterSectionStyles';
-import {Typography} from '@mui/material';
-import TextField from 'core/components/FinalForm/TextField';
+import {TextField, Typography} from '@mui/material';
 import {StyledMainLayoutWrapper} from 'app/pages/MainLayout/MainLayout';
 import {createValidator, required, email} from 'core/services/ValidationService';
 
