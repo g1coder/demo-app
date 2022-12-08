@@ -3,6 +3,7 @@ import {styled} from '@mui/material/styles';
 import {Grid, Typography} from '@mui/material';
 import BgImage from './404-bg.png';
 import PrimaryButton from 'core/components/Buttons/PrimaryButton';
+import AppRoutes from "app/router/AppRoutes";
 
 const StyledContainer = styled('div')({
   display: 'flex',
@@ -17,11 +18,8 @@ const StyledImage = styled('img')({
   width: '100%',
 });
 
-interface IProps {
-  redirectPath: string;
-}
 
-const PageNotFound = ({redirectPath = '/'}: IProps) => (
+const PageNotFound = () => (
   <StyledContainer>
     <Grid container direction="column" alignItems="center" justifyContent="center">
       <Grid item>
@@ -45,7 +43,7 @@ const PageNotFound = ({redirectPath = '/'}: IProps) => (
         </Typography>
       </Grid>
       <Grid item marginTop={4}>
-        <PrimaryButton title="Back" size="small" href={redirectPath} />
+        <PrimaryButton title="Back" size="small" href={AppRoutes.LANDING_PAGE.url} />
       </Grid>
     </Grid>
   </StyledContainer>

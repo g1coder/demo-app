@@ -1,4 +1,4 @@
-import React, {memo} from 'react';
+import {useCallback} from "react";
 import {
   StyledContainer,
   StyledFormContainer,
@@ -7,14 +7,19 @@ import {
   StyledSignUpContainer,
 } from 'app/pages/LoginPage/LoginPageStyles';
 import {Typography} from '@mui/material';
-import AppRoutes from 'core/constants/AppRoutes';
-import SignupForm, {IFormValues as ISignupFormValues} from 'app/pages/SignupPage/SignupForm';
+import AppRoutes from 'app/router/AppRoutes';
+import SignupForm, {IFormValues} from 'app/pages/SignupPage/SignupForm';
+import AppContext, {IAppContext} from "app/AppContext";
+import withContextSelector from "core/HOC/withContextSelector";
+import {FORM_ERROR} from "final-form";
 
-interface IProps {
-  onSignup: (params: ISignupFormValues) => Promise<string | void>;
-}
+const SignupPage = ({signup}: Pick<IAppContext, 'signup'>) => {
+  const handleSubmit = useCallback((formData: IFormValues) => {
+    return signup(formData, 'token').catch((error: Error) => {
+      return {[FORM_ERROR]: error.message};
+    });
+  }, [signup]);
 
-const SignupPage = ({onSignup}: IProps) => {
   return (
     <StyledContainer>
       <StyledInnerContainer>
@@ -23,7 +28,7 @@ const SignupPage = ({onSignup}: IProps) => {
             Sign up
           </Typography>
           <>
-            <SignupForm onSubmit={onSignup} />
+            <SignupForm onSubmit={handleSubmit} />
             <StyledSignUpContainer>
               <Typography variant="body2" color="primary.dark">
                 Already have an account?
@@ -46,4 +51,6 @@ const SignupPage = ({onSignup}: IProps) => {
   );
 };
 
-export default memo(SignupPage);
+export default withContextSelector<unknown, IAppContext>(SignupPage, AppContext, {
+  signup: data => data.signup
+});

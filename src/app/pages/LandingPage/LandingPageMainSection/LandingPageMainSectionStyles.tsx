@@ -115,24 +115,25 @@ export const StyledInnerButtonContainer = styled('div')(({theme: {spacing, break
   },
 }));
 
-export const StyledScrollTopButton = styled(Fab)<{isVisible: boolean}>(
-  ({theme: {breakpoints, palette}, isVisible}) => ({
-    position: 'fixed',
-    right: 20,
-    bottom: 20,
-    backgroundColor: palette.primary.light,
-    color: '#fff',
-    width: 60,
-    height: 60,
-    transition: 'visibility 0s, opacity 0.5s linear',
-    opacity: isVisible ? 0.8 : 0,
-    '&:hover': {
-      backgroundColor: '#fff',
-      color: palette.primary.dark,
-    },
-    [breakpoints.up('md')]: {
-      right: 50,
-      bottom: 50,
-    },
-  })
-);
+export const StyledScrollTopButton = styled(Fab, {shouldForwardProp: (prop) => prop !== 'isVisible'})<{
+  isVisible: boolean;
+}>(({theme: {breakpoints, palette}, isVisible}) => ({
+  position: 'fixed',
+  right: 20,
+  bottom: 20,
+  backgroundColor: palette.primary.light,
+  color: '#fff',
+  width: 60,
+  height: 60,
+  transition: 'all 0s, opacity 0.5s linear',
+  opacity: isVisible ? 0.8 : 0,
+  '&:hover': {
+    backgroundColor: '#fff',
+    color: palette.primary.dark,
+  },
+  [breakpoints.up('md')]: {
+    right: 50,
+    bottom: 50,
+  },
+  boxShadow: '0 2px 6px 0 rgb(0 0 0 / 40%)'
+}));

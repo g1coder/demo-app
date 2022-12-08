@@ -9,7 +9,7 @@ import IBaseProduct from 'features/catalog/models/IBaseProduct';
 import Spinner from 'core/components/Spinner';
 import CartStore from 'features/catalog/store/CartStore';
 import IProductParams from 'features/catalog/models/IProductParams';
-import IList from 'core/models/IList';
+import List from 'core/models/List';
 import {
   StyledCardsContainer,
   StyledFiltersContainer,
@@ -21,7 +21,7 @@ import CatalogStore from 'features/catalog/store/CatalogStore';
 const CatalogPage = observer(() => {
   const [filterParams, setFilterParams] = useState<IProductParams>();
 
-  const [{data: products, loading: productsLoading}] = useData<IList<IBaseProduct> | null>(
+  const [{data: products, loading: productsLoading}] = useData<List<IBaseProduct> | null>(
     {
       fetch: () => CatalogService.getList(filterParams),
       data: null,
@@ -33,13 +33,13 @@ const CatalogPage = observer(() => {
     if (productsLoading || !products) {
       return '';
     }
-    if (products && !products.$meta.total_count) {
+    if (products && !products.meta.total) {
       return 'No items';
     }
 
-    return products.length === products.$meta.total_count
-      ? `Showing ${products.length}`
-      : `Showing ${products.length} from ${products.$meta.total_count}`;
+    return products.items.length === products.meta.total
+      ? `Showing ${products.items.length}`
+      : `Showing ${products.items.length} from ${products.meta.total}`;
   }, [products, productsLoading]);
 
   const handleClickFavorite = useCallback((id: string) => {
@@ -56,7 +56,7 @@ const CatalogPage = observer(() => {
           {metaTitle}
         </StyledMetaTitle>
         {productsLoading && <Spinner />}
-        {(products || []).map((product) => (
+        {(products?.items || []).map((product) => (
           <Grid item key={product.name}>
             <ProductCard
               product={product}

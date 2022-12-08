@@ -1,5 +1,5 @@
 import React from 'react';
-import AppRoutes from 'core/constants/AppRoutes';
+import AppRoutes from 'app/router/AppRoutes';
 import AppLogo from 'app/pages/LandingPage/presets/header-logo.png';
 import {Typography} from '@mui/material';
 import {

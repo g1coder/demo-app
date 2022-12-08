@@ -1,17 +1,39 @@
-import React from 'react';
-import {Route, Routes} from 'react-router-dom';
+import {Suspense} from 'react';
+import {Route} from 'react-router-dom';
 import CatalogPage from 'features/catalog/pages/CatalogPage/CatalogPage';
 import CatalogLayout from 'features/catalog/pages/CatalogLayout';
-import CatalogRoutes from '../contants/CatalogRoutes';
 import CartPage from './CartPage/CartPage';
+import AppRoutes from 'app/router/AppRoutes';
 
-const CatalogLayoutRouter = () => (
-  <Routes>
-    <Route element={<CatalogLayout />}>
-      <Route index element={<CatalogPage />} />
-      <Route path={CatalogRoutes.CATALOG_CART.path} element={<CartPage />} />
-    </Route>
-  </Routes>
+const route = (
+  <Route
+    path={AppRoutes.CATALOG.path}
+    element={
+      <Suspense>
+          <CatalogLayout />
+      </Suspense>
+    }
+    children={[
+      <Route
+        index
+        key={AppRoutes.CATALOG.key}
+        element={
+          <Suspense>
+            <CatalogPage />
+          </Suspense>
+        }
+      />,
+      <Route
+        key={AppRoutes.CART.key}
+        path={AppRoutes.CART.path}
+        element={
+          <Suspense>
+            <CartPage />
+          </Suspense>
+        }
+      />,
+    ]}
+  />
 );
 
-export default CatalogLayoutRouter;
+export default route;

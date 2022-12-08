@@ -1,4 +1,4 @@
-import React, {useReducer} from 'react';
+import {useReducer} from 'react';
 import {
   StyledAboutInfoContainer,
   StyledAboutInfoText,
@@ -19,7 +19,7 @@ import ItemIcon1 from './presets/icon-blue-1.png';
 import ItemIcon2 from './presets/icon-blue-2.png';
 import ItemIcon3 from './presets/icon-blue-3.png';
 import ItemIcon4 from './presets/icon-blue-4.png';
-import AppRoutes from 'core/constants/AppRoutes';
+import AppRoutes from 'app/router/AppRoutes';
 
 const itemNames = [
   {name: 'Full Controll', icon: ItemIcon1},

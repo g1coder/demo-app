@@ -28,6 +28,7 @@ export interface IFormValues {
   lastName: string;
   email: string;
   password: string;
+  token: string;
 }
 
 interface IProps {

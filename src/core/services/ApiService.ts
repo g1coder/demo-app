@@ -1,28 +1,33 @@
-import axios, {AxiosResponse, AxiosRequestTransformer} from 'axios';
+import axios, {AxiosResponse, AxiosRequestConfig, AxiosError} from 'axios';
+import AuthService, {ACCESS_TOKEN_NAME} from 'core/services/AuthService';
+import List from 'core/models/List';
 
-const defaultConfig = axios.defaults;
+const TOTAL_COUNT_HEADER = 'x-total-count';
 
-//set proper response format for lists
-(defaultConfig.transformResponse as AxiosRequestTransformer[]).push((data) => {
-  let extractedData;
-  if (data && data.objects) {
-    extractedData = data.objects;
-    extractedData.$meta = data.$meta;
-  } else {
-    extractedData = data;
+axios.interceptors.request.use((config: AxiosRequestConfig) => {
+  const token = localStorage.getItem(ACCESS_TOKEN_NAME);
+  if (token) {
+    config.headers = {...config.headers, Authorization: `Bearer ${token}`};
   }
-  return extractedData;
+  return config;
 });
 
-const proxy = (func: (...args: any[]) => Promise<AxiosResponse>) => {
-  return <T = any>(...args: any[]): Promise<T> => {
-    return new Promise((resolve, reject) => {
-      func(...args)
-        .then((response) => {
-          resolve(response.data);
-        })
-        .catch(reject);
-    });
+const transformResponse = (response: AxiosResponse): AxiosResponse['data'] => {
+  const totalCount = response.headers[TOTAL_COUNT_HEADER];
+  return totalCount ? new List(response.data, +totalCount) : response.data;
+};
+
+const proxy = (func: (url: string, config?: AxiosRequestConfig) => Promise<AxiosResponse>) => {
+  return async <T = any>(url: string, data?: AxiosRequestConfig['data'], preventRefresh?: boolean): Promise<T> => {
+    try {
+      return transformResponse(await func(url, data));
+    } catch (error: any) {
+      if (!preventRefresh && (error as AxiosError).request.status === 401) {
+        await AuthService.tryRefreshToken();
+        return transformResponse(await func(url, data));
+      }
+      throw error;
+    }
   };
 };
 
@@ -32,13 +37,7 @@ export default {
   get: proxy(axios.get),
   post: proxy(axios.post),
   patch: proxy(axios.patch),
-  delete: proxy((url, data, config) =>
-    axios.request({
-      url,
-      method: 'delete',
-      data,
-      ...config,
-    })
-  ),
+  delete: proxy(axios.delete),
   put: proxy(axios.put),
 };
+

@@ -1,6 +1,4 @@
-import {IParamsWithQuery} from 'core/models/IList';
-
-interface IProductParams extends IParamsWithQuery {
+interface IProductParams {
   min?: number;
   max?: number;
   tag?: string;

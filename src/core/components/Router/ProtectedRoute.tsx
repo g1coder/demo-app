@@ -1,6 +1,6 @@
 import React, {ReactElement} from 'react';
 import {Navigate} from 'react-router-dom';
-import AppRoutes from 'core/constants/AppRoutes';
+import AppRoutes from 'app/router/AppRoutes';
 
 interface IProps {
   isAllowed: boolean;

@@ -1,13 +1,12 @@
-import React, {useCallback} from 'react';
+import React, {useCallback, useContext} from 'react';
 import {Link, useNavigate} from 'react-router-dom';
 import {styled} from '@mui/material/styles';
 import LoginIcon from '@mui/icons-material/Login';
 import LogoutIcon from '@mui/icons-material/Logout';
 import SecondaryButton from 'core/components/Buttons/SecondaryButton';
 import {Typography} from '@mui/material';
-import AppRoutes from 'core/constants/AppRoutes';
-import {useContextSelector} from 'use-context-selector';
-import AppContext from 'core/components/AppContext';
+import AppRoutes from 'app/router/AppRoutes';
+import AppContext, {IAppContext} from 'app/AppContext';
 
 const TABLET_MODE = 'lg';
 const DESKTOP_MODE = 'xl';
@@ -57,8 +56,7 @@ const StyledLoggedContainer = styled('div')({
 
 const HeaderLogin = ({inDrawer}: IProps) => {
   const navigate = useNavigate();
-  const loggedUser = useContextSelector(AppContext, (state) => state.user);
-  const logout = useContextSelector(AppContext, (state) => state.logout);
+  const {user: loggedUser, logout} = useContext<IAppContext>(AppContext);
 
   const handleOnClick = useCallback(() => {
     navigate(AppRoutes.LOGIN.url);

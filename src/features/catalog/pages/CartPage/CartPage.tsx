@@ -1,4 +1,5 @@
-import React, {useCallback, useMemo, useState} from 'react';
+import React, {useCallback, useContext, useMemo, useState} from 'react';
+import {useLocation} from 'react-router-dom';
 import {observer} from 'mobx-react-lite';
 import CartStore from 'features/catalog/store/CartStore';
 import {Divider, Grid, Paper, Typography} from '@mui/material';
@@ -8,14 +9,12 @@ import PrimaryButton from 'core/components/Buttons/PrimaryButton';
 import useData from 'core/hooks/useData';
 import Spinner from 'core/components/Spinner';
 import CartService from 'features/catalog/services/CartService';
-import {useContextSelector} from 'use-context-selector';
-import AppContext from 'core/components/AppContext';
-import AppRoutes from 'core/constants/AppRoutes';
+import AppContext, {IAppContext} from 'app/AppContext';
+import AppRoutes from 'app/router/AppRoutes';
 import Utils from 'core/services/Utils';
-import {useLocation} from 'react-router-dom';
 
 const CartPage = observer(() => {
-  const loggedUser = useContextSelector(AppContext, (state) => state.user);
+  const loggedUser = useContext<IAppContext>(AppContext);
   const location = useLocation();
   const [successSubmitted, setSuccessSubmitted] = useState(false);
   const [submitting, setSubmitting] = useState(false);

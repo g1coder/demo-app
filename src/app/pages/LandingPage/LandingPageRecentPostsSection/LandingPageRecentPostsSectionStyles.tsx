@@ -1,6 +1,6 @@
 import React from 'react';
 import {styled} from '@mui/material/styles';
-import {Card, CardActions, CardMedia, Typography} from '@mui/material';
+import {Box, Card, CardActions, CardMedia, Typography} from '@mui/material';
 import {Link} from 'react-router-dom';
 import SecondaryButton from 'core/components/Buttons/SecondaryButton';
 
@@ -80,16 +80,14 @@ export const StyledCardActions = styled(CardActions)(({theme: {spacing}}) => ({
   padding: spacing(0, 4),
   flexFlow: 'row wrap',
 }));
-export const StyledTextInfoContainer = styled(Typography)(({theme: {palette, spacing}}) => ({
+export const StyledTextInfoContainer = styled(Box)(({theme: {palette, typography}}) => ({
   display: 'flex',
   fontWeight: 900,
   color: palette.primary.dark,
   justifyContent: 'space-between',
-  '& > span': {
-    marginRight: spacing(2),
-  },
+  ...typography.body2,
 }));
-export const StyledIconWithText = styled(Typography)(({theme: {palette, spacing}}) => ({
+export const StyledIconWithText = styled(Box)(({theme: {palette, spacing}}) => ({
   display: 'flex',
   alignItems: 'center',
   fontWeight: 900,

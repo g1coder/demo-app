@@ -29,7 +29,7 @@ const StyledBtnContainer = styled('div')(({theme}) => ({
 }));
 
 export interface IFormValues {
-  username: string;
+  email: string;
   password: string;
 }
 
@@ -39,7 +39,7 @@ interface IProps {
 }
 
 const formValidator = createValidator<IFormValues>({
-  username: [required, email],
+  email: [required, email],
   password: [required],
 });
 
@@ -48,7 +48,7 @@ const LoginForm = ({handleSubmit, onForgotPassword}: IProps & FormRenderProps<IF
     subscription: {values: true, valid: true, pristine: true, submitError: true},
   });
 
-  const {input: usernameInput, meta: usernameMeta} = useField(Utils.nameOf<IFormValues>('username'));
+  const {input: usernameInput, meta: usernameMeta} = useField(Utils.nameOf<IFormValues>('email'));
   const {input: passwordInput, meta: passwordMeta} = useField(Utils.nameOf<IFormValues>('password'));
 
   return (

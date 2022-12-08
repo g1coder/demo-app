@@ -1,4 +1,4 @@
-import React, {memo, useCallback, useReducer} from 'react';
+import React, {useCallback, useReducer} from 'react';
 import LoginForm, {IFormValues as ILoginFormValues} from 'app/pages/LoginPage/LoginForm';
 import {
   StyledContainer,
@@ -8,20 +8,15 @@ import {
   StyledSignUpContainer,
 } from 'app/pages/LoginPage/LoginPageStyles';
 import {Typography} from '@mui/material';
-import LoginResetPasswordForm, {
-  IFormValues as ILoginResetPasswordFormValues,
-} from 'app/pages/LoginPage/LoginResetPasswordForm';
-import AppRoutes from 'core/constants/AppRoutes';
+import LoginResetPasswordForm from 'app/pages/LoginPage/LoginResetPasswordForm';
+import AppRoutes from 'app/router/AppRoutes';
 import {useLocation, useNavigate} from 'react-router-dom';
 import Utils from 'core/services/Utils';
 import {FORM_ERROR} from 'final-form';
+import withContextSelector from 'core/HOC/withContextSelector';
+import AppContext, {IAppContext} from 'app/AppContext';
 
-interface IProps {
-  onLogin: (params: ILoginFormValues) => Promise<string | void>;
-  onReset: (params: ILoginResetPasswordFormValues) => Promise<string | void>;
-}
-
-const LoginPage = ({onLogin, onReset}: IProps) => {
+const LoginPage = ({login, reset}: Pick<IAppContext, 'login' | 'reset'>) => {
   const navigage = useNavigate();
   const location = useLocation();
 
@@ -29,7 +24,7 @@ const LoginPage = ({onLogin, onReset}: IProps) => {
 
   const handleLogin = useCallback(
     (data: ILoginFormValues) => {
-      return onLogin(data)
+      return login(data)
         .then(() => {
           const next = Utils.getNextFromUrl(location.search);
           if (next) {
@@ -40,7 +35,7 @@ const LoginPage = ({onLogin, onReset}: IProps) => {
           return {[FORM_ERROR]: e.message};
         });
     },
-    [location.search, navigage, onLogin]
+    [location.search, navigage, login]
   );
 
   return (
@@ -69,7 +64,7 @@ const LoginPage = ({onLogin, onReset}: IProps) => {
               </StyledSignUpContainer>
             </>
           ) : (
-            <LoginResetPasswordForm onSubmit={onReset} onBack={switchMode} />
+            <LoginResetPasswordForm onSubmit={reset} onBack={switchMode} />
           )}
         </StyledFormContainer>
       </StyledInnerContainer>
@@ -78,4 +73,7 @@ const LoginPage = ({onLogin, onReset}: IProps) => {
   );
 };
 
-export default memo(LoginPage);
+export default withContextSelector<unknown, IAppContext>(LoginPage, AppContext, {
+  login: (data) => data.login,
+  reset: (data) => data.reset,
+});

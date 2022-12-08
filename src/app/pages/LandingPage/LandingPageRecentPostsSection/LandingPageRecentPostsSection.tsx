@@ -1,6 +1,6 @@
 import React from 'react';
 import dayjs from 'dayjs';
-import {CardContent} from '@mui/material';
+import {CardContent, Typography} from '@mui/material';
 import LandingPageSectionHeader from 'app/pages/LandingPage/LandingPageSectionHeader';
 import {
   StyledCard,
@@ -70,13 +70,19 @@ const LandingPageRecentPostsSection = () => (
             </StyledText>
           </CardContent>
           <StyledCardActions>
-            <StyledTextInfoContainer variant="body2">
-              <span>{dayjs(p.date).format('MMMM DD, YYYY')}</span>
-              <StyledIconWithText variant="body2">
+            <StyledTextInfoContainer>
+              <Typography
+                variant="body2"
+                color="primary.dark"
+                sx={{marginRight: 2}}
+              >
+                {dayjs(p.date).format('MMMM DD, YYYY')}
+              </Typography>
+              <StyledIconWithText>
                 <VisibilityIcon />
                 {p.viewCount}
               </StyledIconWithText>
-              <StyledIconWithText variant="body2">
+              <StyledIconWithText>
                 <CommentOutlinedIcon />
                 {p.comments}
               </StyledIconWithText>

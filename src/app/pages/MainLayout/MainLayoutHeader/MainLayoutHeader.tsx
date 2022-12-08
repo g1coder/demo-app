@@ -1,6 +1,6 @@
 import React, {useEffect} from 'react';
 import {observer} from 'mobx-react-lite';
-import AppRoutes from 'core/constants/AppRoutes';
+import AppRoutes from 'app/router/AppRoutes';
 import {
   StyledHeader,
   StyledLoginContainer,
