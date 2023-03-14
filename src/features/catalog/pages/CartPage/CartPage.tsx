@@ -1,4 +1,4 @@
-import React, {useCallback, useContext, useMemo, useState} from 'react';
+import {useCallback, useContext, useMemo, useState} from 'react';
 import {useLocation} from 'react-router-dom';
 import {observer} from 'mobx-react-lite';
 import CartStore from 'features/catalog/store/CartStore';
@@ -54,7 +54,7 @@ const CartPage = observer(() => {
 
   if (successSubmitted) {
     return (
-      <Typography variant="h3" color="secondary.main" textAlign="center">
+      <Typography variant="h5" color="secondary.main" textAlign="center">
         You cart has been successfully checked out!
       </Typography>
     );

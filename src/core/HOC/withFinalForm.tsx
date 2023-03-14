@@ -1,4 +1,4 @@
-import _ from 'lodash';
+import {noop} from 'lodash';
 import {ComponentType} from 'react';
 import {Form, FormProps, FormRenderProps} from 'react-final-form';
 import {ValidationErrors} from 'final-form';
@@ -11,7 +11,7 @@ function withFinalForm<IProps extends FormProps<FormValues>, FormValues = Record
     <Form<FormValues>
       {...props}
       validate={validate}
-      onSubmit={props.onSubmit || _.noop}
+      onSubmit={props.onSubmit || noop}
       render={(formProps) => {
         return <Component {...props} {...formProps} onSubmit={formProps.handleSubmit} />;
       }}

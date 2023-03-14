@@ -23,8 +23,14 @@ const StyledInnerContainer = styled('div')({
   textAlign: 'center',
 });
 
+type ErrorMessage = {message: string | undefined}
+
+const isErrorWithMessage = (error: unknown): error is ErrorMessage => {
+  return typeof error === 'object' && !!error?.hasOwnProperty('message');
+}
+
 const ErrorPage = () => {
-  const error: any = useRouteError();
+  const error = useRouteError();
 
   return (
     <StyledContainer>
@@ -33,7 +39,7 @@ const ErrorPage = () => {
           Something went wrong
         </Typography>
         <Typography variant="body2" color="primary">
-          {error ? error.message : ` `}
+          {isErrorWithMessage(error) ? error.message : ` `}
         </Typography>
         <PrimaryButton sx={{mt: 2}} href={AppRoutes.LANDING_PAGE.url} title="Back" />
       </StyledInnerContainer>

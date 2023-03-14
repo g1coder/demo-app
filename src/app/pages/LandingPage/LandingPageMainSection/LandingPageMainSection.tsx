@@ -1,4 +1,4 @@
-import React, {useReducer} from 'react';
+import {useReducer} from 'react';
 import {useTransition} from '@react-spring/web';
 import useScrollTop from 'core/hooks/useScrollTop';
 import {

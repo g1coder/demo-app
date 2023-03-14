@@ -1,4 +1,4 @@
-import React, {useCallback} from 'react';
+import {useCallback} from 'react';
 import {useSwiper} from 'swiper/react';
 import {Fab} from '@mui/material';
 import ArrowRightIcon from '@mui/icons-material/ArrowRight';

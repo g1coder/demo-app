@@ -1,4 +1,3 @@
-import React from 'react';
 import {Form, Field} from 'react-final-form';
 import {createValidator, required} from 'core/services/ValidationService';
 import {FormControl, TextField} from '@mui/material';

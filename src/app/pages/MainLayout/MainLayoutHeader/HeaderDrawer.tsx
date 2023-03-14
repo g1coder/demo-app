@@ -1,4 +1,4 @@
-import React, {memo, useReducer} from 'react';
+import {memo, useReducer} from 'react';
 import {styled} from '@mui/material/styles';
 import MenuIcon from '@mui/icons-material/Menu';
 import {SwipeableDrawer} from '@mui/material';

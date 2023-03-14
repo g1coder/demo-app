@@ -1,4 +1,4 @@
-import React, {useCallback, useReducer} from 'react';
+import {useCallback, useReducer} from 'react';
 import LoginForm, {IFormValues as ILoginFormValues} from 'app/pages/LoginPage/LoginForm';
 import {
   StyledContainer,

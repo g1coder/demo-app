@@ -1,4 +1,4 @@
-import React, {useCallback, useMemo, useState} from 'react';
+import {useCallback, useMemo, useState} from 'react';
 import {observer} from 'mobx-react-lite';
 import {Grid} from '@mui/material';
 import ProductCard from 'features/catalog/components/ProductCard/ProductCard';

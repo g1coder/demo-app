@@ -1,4 +1,4 @@
-import React from 'react';
+
 import dayjs from 'dayjs';
 import {CardContent, Typography} from '@mui/material';
 import LandingPageSectionHeader from 'app/pages/LandingPage/LandingPageSectionHeader';

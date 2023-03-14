@@ -1,4 +1,4 @@
-import _ from 'lodash';
+import {uniqBy, minBy, maxBy} from 'lodash';
 import {rest} from 'msw';
 import ProductProvider from 'mocks/backend/catalog/ProductProvider';
 
@@ -16,11 +16,11 @@ const handlers = [
     );
   }),
   rest.get('/api/v1/catalog/products/filters', async (req, res, ctx) => {
-    const tags = _.uniqBy(ProductProvider.products, (o) => o.tag)
+    const tags = uniqBy(ProductProvider.products, (o) => o.tag)
       .map((p) => p.tag)
       .filter((o) => !!o);
-    const min = _.minBy(ProductProvider.products, (p) => p.price)?.price;
-    const max = _.maxBy(ProductProvider.products, (p) => p.price)?.price;
+    const min = minBy(ProductProvider.products, (p) => p.price)?.price;
+    const max = maxBy(ProductProvider.products, (p) => p.price)?.price;
 
     return res(
       ctx.status(200),

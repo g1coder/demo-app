@@ -1,5 +1,5 @@
-import IBaseProduct from 'features/catalog/models/IBaseProduct';
 import api from 'core/services/ApiService';
+import IBaseProduct from 'features/catalog/models/IBaseProduct';
 import IProductRaw from 'features/catalog/models/IProductRaw';
 
 export default {

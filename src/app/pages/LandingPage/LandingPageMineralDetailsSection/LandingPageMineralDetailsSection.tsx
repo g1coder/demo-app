@@ -1,4 +1,3 @@
-import React from 'react';
 import LandingPageSectionHeader from 'app/pages/LandingPage/LandingPageSectionHeader';
 import {StyledSectionContainer, StyledBottleContainer, StyledBottleBg} from './LandingPageMineralDetailsSectionStyles';
 import BottleDark from './bottle-dark-3.png';

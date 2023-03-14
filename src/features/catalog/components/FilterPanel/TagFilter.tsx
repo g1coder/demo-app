@@ -1,5 +1,5 @@
-import _ from 'lodash';
-import React, {memo, useCallback, useEffect, useMemo, useState} from 'react';
+import {debounce} from 'lodash';
+import {memo, useCallback, useEffect, useMemo, useState} from 'react';
 import withBaseFilter from 'features/catalog/HOC/withBaseFilter';
 import {Typography} from '@mui/material';
 
@@ -16,7 +16,7 @@ const TagFilter = ({value, tags = [], onChange}: IProps) => {
     setActive((currentValue) => (currentValue !== value ? value : currentValue));
   }, [value]);
 
-  const debouncedApplyParams = useMemo(() => _.debounce(onChange, 1000), [onChange]);
+  const debouncedApplyParams = useMemo(() => debounce(onChange, 1000), [onChange]);
 
   const handleOnClick = useCallback(
     (tag: string) => {

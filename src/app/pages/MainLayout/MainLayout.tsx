@@ -1,4 +1,4 @@
-import React, {memo} from 'react';
+import {memo} from 'react';
 import Box from '@mui/material/Box';
 import {Outlet} from 'react-router-dom';
 import {styled} from '@mui/material/styles';

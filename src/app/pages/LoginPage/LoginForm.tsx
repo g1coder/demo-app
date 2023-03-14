@@ -1,4 +1,4 @@
-import React, {memo} from 'react';
+import {memo} from 'react';
 import {useFormState, useField, FormRenderProps} from 'react-final-form';
 import {createValidator, email, required} from 'core/services/ValidationService';
 import PrimaryButton from 'core/components/Buttons/PrimaryButton';

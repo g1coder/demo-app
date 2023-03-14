@@ -1,4 +1,4 @@
-import React, {ReactElement, useCallback} from 'react';
+import {ReactElement, useCallback} from 'react';
 import {styled} from '@mui/material/styles';
 import {Fab, Grid, Typography} from '@mui/material';
 import FeedbackForm from 'app/pages/ContactsPage/FeedbackForm';

@@ -1,4 +1,3 @@
-import React from 'react';
 import {styled} from '@mui/material/styles';
 import BottlePartTitle from './bottle-part-title.png';
 import BottleWhole from './bottle-whole.png';

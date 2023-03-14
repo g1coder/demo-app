@@ -1,5 +1,5 @@
-import _ from 'lodash';
-import React, {memo, useCallback, useEffect, useMemo, useState} from 'react';
+import {debounce} from 'lodash';
+import {memo, useCallback, useEffect, useMemo, useState} from 'react';
 import {styled} from '@mui/material/styles';
 import {Slider, Typography} from '@mui/material';
 import withBaseFilter from 'features/catalog/HOC/withBaseFilter';
@@ -34,7 +34,7 @@ const PriceFilter = ({value, onChange, minLimit, maxLimit}: IProps) => {
     });
   }, [value]);
 
-  const debouncedApplyParams = useMemo(() => _.debounce(onChange, 1000), [onChange]);
+  const debouncedApplyParams = useMemo(() => debounce(onChange, 1000), [onChange]);
 
   const handleChange = useCallback(
     (e: Event, newValue: number | number[]) => {

@@ -1,4 +1,4 @@
-import React, {memo} from 'react';
+import {memo} from 'react';
 import {styled} from '@mui/material/styles';
 import {Typography} from '@mui/material';
 import {Link} from 'react-router-dom';

@@ -1,4 +1,3 @@
-import React from 'react';
 import {ComponentStory, ComponentMeta} from '@storybook/react';
 import Card from 'features/catalog/components/ProductCard/ProductCard';
 import IBaseProduct from 'features/catalog/models/IBaseProduct';

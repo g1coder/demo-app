@@ -1,4 +1,4 @@
-import React, {useState} from 'react';
+import {useState} from 'react';
 import {ComponentStory, ComponentMeta} from '@storybook/react';
 import Button from 'features/catalog/components/OrderButton/OrderButton';
 

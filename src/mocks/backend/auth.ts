@@ -5,7 +5,7 @@ const tokenMock =
 
 // See the example here https://mswjs.io/docs/getting-started/mocks/rest-api#response-resolver
 const handlers = [
-  rest.post('/api/login', (req, res, ctx) => {
+  rest.post('/api/v1/auth/signin', (req, res, ctx) => {
     const {username, password} = (req.body as any).params;
     if (username === 'user@gmail.com' && password === '123') {
       return res(

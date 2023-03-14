@@ -1,4 +1,3 @@
-import React from 'react';
 import {StyledMainLayoutWrapper} from 'app/pages/MainLayout/MainLayout';
 import {styled} from '@mui/material/styles';
 import {LANDING_PAGE_HEADER_HEIGHT} from 'app/constants/constants';

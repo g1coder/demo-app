@@ -1,4 +1,4 @@
-import React, {useMemo} from 'react';
+import {useMemo} from 'react';
 import Swiper from 'core/components/Swiper/Swiper';
 import LandingPageSectionHeader from 'app/pages/LandingPage/LandingPageSectionHeader';
 import {Avatar, Typography} from '@mui/material';

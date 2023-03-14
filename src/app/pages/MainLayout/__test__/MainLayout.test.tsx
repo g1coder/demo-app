@@ -2,7 +2,7 @@ import {render} from '@testing-library/react';
 import {screen} from '@testing-library/dom';
 import MainLayout from '../MainLayout';
 import {Route, Routes, MemoryRouter} from 'react-router-dom';
-import React from 'react';
+
 import AppRoutes from 'app/router/AppRoutes';
 
 describe('MainLayout', () => {
@@ -22,7 +22,6 @@ describe('MainLayout', () => {
     renderComponent();
     screen.getByText('Home');
     screen.getByText('Catalog');
-    screen.getByText('Delivery');
     screen.getByText('About us');
     screen.getByText('Contacts');
     screen.getByText('Sign up');

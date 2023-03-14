@@ -1,4 +1,4 @@
-import {memo} from 'react';
+import {memo, ReactNode, FC} from 'react';
 import {CircularProgress as MuiCircularProgress} from '@mui/material';
 import {styled} from '@mui/material/styles';
 
@@ -32,10 +32,10 @@ const StyledMuiCircularProgress = styled(MuiCircularProgress)(({theme}) => ({
 interface IProps {
   ready?: boolean;
   fixed?: boolean;
-  children?: React.ReactNode;
+  children?: ReactNode;
 }
 
-const Spinner: React.FC<IProps> = (props) => {
+const Spinner: FC<IProps> = (props) => {
   if (!props.ready) {
     return (
       <StyledContainer fixed={props.fixed}>

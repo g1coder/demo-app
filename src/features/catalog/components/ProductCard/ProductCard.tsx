@@ -1,4 +1,4 @@
-import React, {memo, useCallback, useState} from 'react';
+import {memo, useCallback, useState} from 'react';
 import IBaseProduct from 'features/catalog/models/IBaseProduct';
 import {
   StyledAddCardButton,

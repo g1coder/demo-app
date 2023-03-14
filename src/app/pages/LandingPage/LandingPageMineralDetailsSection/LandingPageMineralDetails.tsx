@@ -1,4 +1,4 @@
-import React, {ReactElement} from 'react';
+import {ReactElement} from 'react';
 import MineralDetailsInfoItem from 'app/pages/LandingPage/LandingPageMineralDetailsSection/MineralDetailsInfoItem';
 import {StyledContentColumn, StyledContentContainer} from './LandingPageMineralDetailsSectionStyles';
 

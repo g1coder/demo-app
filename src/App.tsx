@@ -1,4 +1,4 @@
-import React, {useCallback, useMemo, useState} from 'react';
+import {useCallback, useMemo, useState} from 'react';
 import {RouterProvider} from 'react-router-dom';
 import CssBaseline from '@mui/material/CssBaseline';
 import Spinner from 'core/components/Spinner';

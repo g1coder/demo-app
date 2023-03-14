@@ -1,7 +1,7 @@
-import React, {useEffect} from 'react';
-import {StyledCatalogLayoutContainer, StyledCatalogLaouytContent} from 'features/catalog/pages/CatalogLayoutStyles';
-import {StyledMainLayoutWrapper} from 'app/pages/MainLayout/MainLayout';
+import {useEffect} from 'react';
 import {Outlet} from 'react-router-dom';
+import {StyledMainLayoutWrapper} from 'app/pages/MainLayout/MainLayout';
+import {StyledCatalogLayoutContainer, StyledCatalogLaouytContent} from 'features/catalog/pages/CatalogLayoutStyles';
 import CatalogStore from 'features/catalog/store/CatalogStore';
 
 const CatalogLayout = () => {

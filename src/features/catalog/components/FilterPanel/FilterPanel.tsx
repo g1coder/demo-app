@@ -1,11 +1,11 @@
-import React, {memo, useCallback, useEffect, useMemo, useState} from 'react';
+import {pickBy, isNil, isEmpty, keys} from 'lodash';
+import {memo, useCallback, useEffect, useMemo, useState} from 'react';
 import {styled} from '@mui/material/styles';
 import PriceFilter from 'features/catalog/components/FilterPanel/PriceFilter';
 import TagFilter from 'features/catalog/components/FilterPanel/TagFilter';
 import IProductParams from 'features/catalog/models/IProductParams';
 import {useSearchParams} from 'react-router-dom';
 import querySerializer from 'core/services/QuerySerializer';
-import _ from 'lodash';
 import {Chip, Grid} from '@mui/material';
 import useData from 'core/hooks/useData';
 import CatalogService from 'features/catalog/services/CatalogService';
@@ -45,13 +45,13 @@ const FilterPanel = ({onChange}: IProps) => {
     const min = searchParams.get('min');
     const max = searchParams.get('max');
 
-    const params: IProductParams = _.pickBy(
+    const params: IProductParams = pickBy(
       {
         tag: tag || undefined,
         min: min ? +min : undefined,
         max: max ? +max : undefined,
       },
-      (o) => !_.isNil(o)
+      (o) => !isNil(o)
     );
 
     setFilters(params);
@@ -77,9 +77,9 @@ const FilterPanel = ({onChange}: IProps) => {
   );
 
   const renderFilterChips = useMemo(() => {
-    if (_.isEmpty(filters)) return null;
+    if (isEmpty(filters)) return null;
 
-    return _.keys(filters).map((key) => (
+    return keys(filters).map((key) => (
       <StyledFilterChip
         key={key}
         label={`${key}: ${filters[key]}`}

@@ -1,9 +1,8 @@
-import React from 'react';
-import withFinalForm from 'core/HOC/withFinalForm';
-import {createValidator, email, required} from 'core/services/ValidationService';
 import {FormRenderProps, useField, useFormState} from 'react-final-form';
 import {FormControl, FormHelperText, TextField, Typography} from '@mui/material';
 import {styled} from '@mui/material/styles';
+import withFinalForm from 'core/HOC/withFinalForm';
+import {createValidator, email, required} from 'core/services/ValidationService';
 import Utils from 'core/services/Utils';
 import PrimaryButton from 'core/components/Buttons/PrimaryButton';
 

@@ -1,4 +1,4 @@
-import React, {memo, ReactElement} from 'react';
+import {memo, ReactElement} from 'react';
 import {Autoplay} from 'swiper';
 import {Swiper as ReactSwiper, SwiperSlide} from 'swiper/react';
 import {SwiperProps} from 'swiper/react/swiper-react';

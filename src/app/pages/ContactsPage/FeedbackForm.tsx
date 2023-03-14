@@ -1,4 +1,4 @@
-import React, {memo} from 'react';
+import {memo} from 'react';
 import withFinalForm from 'core/HOC/withFinalForm';
 import {createValidator, email, required} from 'core/services/ValidationService';
 import {FormRenderProps, useFormState, Field} from 'react-final-form';

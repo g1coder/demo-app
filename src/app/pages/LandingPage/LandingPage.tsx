@@ -1,4 +1,3 @@
-import React from 'react';
 import LandingPageMainSection from './LandingPageMainSection/LandingPageMainSection';
 import LandingPageAboutSection from './LandingPageAboutSection/LandingPageAboutSection';
 import LandingPageDeliverySection from './LandingPageDeliverySection/LandingPageDeliverySection';

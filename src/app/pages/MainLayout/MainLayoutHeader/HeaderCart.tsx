@@ -1,4 +1,4 @@
-import React, {memo, useCallback} from 'react';
+import {memo, useCallback} from 'react';
 import {styled} from '@mui/material/styles';
 import {Fab, Typography} from '@mui/material';
 import ShoppingCartIcon from '@mui/icons-material/ShoppingCart';

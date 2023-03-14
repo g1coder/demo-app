@@ -1,4 +1,4 @@
-import React, {useCallback, useContext} from 'react';
+import {useCallback, useContext} from 'react';
 import {Link, useNavigate} from 'react-router-dom';
 import {styled} from '@mui/material/styles';
 import LoginIcon from '@mui/icons-material/Login';
@@ -69,7 +69,7 @@ const HeaderLogin = ({inDrawer}: IProps) => {
     </StyledLoggedContainer>
   ) : (
     <>
-      <SecondaryButton title="Sign up" size="small" href={AppRoutes.LOGIN.url} />
+      <SecondaryButton title="Sign up" size="small" href={AppRoutes.SIGNUP.url} />
       <Typography variant="body1" component={Link} to={AppRoutes.LOGIN.url}>
         Sign in
       </Typography>

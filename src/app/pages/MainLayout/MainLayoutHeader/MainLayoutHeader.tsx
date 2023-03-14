@@ -1,4 +1,4 @@
-import React, {useEffect} from 'react';
+import {useEffect} from 'react';
 import {observer} from 'mobx-react-lite';
 import AppRoutes from 'app/router/AppRoutes';
 import {
@@ -16,7 +16,6 @@ import HeaderDrawer from 'app/pages/MainLayout/MainLayoutHeader/HeaderDrawer';
 const items = [
   {name: 'Home', url: AppRoutes.LANDING_PAGE.url},
   {name: 'Catalog', url: AppRoutes.CATALOG.url},
-  {name: 'Delivery', url: '#'},
   {name: 'About us', url: AppRoutes.ABOUT.url},
   {name: 'Contacts', url: AppRoutes.CONTACTS.url},
 ];
