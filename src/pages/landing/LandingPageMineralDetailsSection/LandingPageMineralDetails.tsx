@@ -1,5 +1,5 @@
 import {ReactElement} from 'react';
-import MineralDetailsInfoItem from 'pages/LandingPage/LandingPageMineralDetailsSection/MineralDetailsInfoItem';
+import MineralDetailsInfoItem from 'pages/landing/LandingPageMineralDetailsSection/MineralDetailsInfoItem';
 import {StyledContentColumn, StyledContentContainer} from './LandingPageMineralDetailsSectionStyles';
 
 const details = [

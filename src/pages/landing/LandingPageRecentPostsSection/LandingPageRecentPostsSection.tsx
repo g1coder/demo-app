@@ -1,7 +1,7 @@
 
 import dayjs from 'dayjs';
 import {CardContent, Typography} from '@mui/material';
-import LandingPageSectionHeader from 'pages/LandingPage/LandingPageSectionHeader';
+import LandingPageSectionHeader from 'pages/landing/LandingPageSectionHeader';
 import {
   StyledCard,
   StyledPostsContainer,

@@ -5,7 +5,7 @@ import AppRoutes from 'shared/constants/AppRoutes';
 import MainLayout from 'pages/MainLayout/MainLayout';
 import PageNotFound from 'pages/PageNotFound/PageNotFound';
 import ErrorPage from 'pages/ErrorPage';
-import LandingPage from 'pages/LandingPage/LandingPage';
+import LandingPage from 'pages/landing/LandingPage';
 import CatalogLayoutRouter from 'pages/catalog/pages/CatalogLayoutRouter';
 
 const ContactsPage = lazy(() => import('pages/ContactsPage/ContactsPage'));

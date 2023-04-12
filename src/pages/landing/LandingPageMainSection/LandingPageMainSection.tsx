@@ -13,7 +13,7 @@ import {
   StyledTextContainer,
   StyledScrollTopButton,
 } from './LandingPageMainSectionStyles';
-import BottleImage from 'pages/LandingPage/LandingPageMainSection/presets/slider-dark-bottle.png';
+import BottleImage from 'pages/landing/LandingPageMainSection/presets/slider-dark-bottle.png';
 import ArrowUpwardOutlinedIcon from '@mui/icons-material/ArrowUpwardOutlined';
 import {StyledMainLayoutWrapper} from 'pages/MainLayout/MainLayout';
 

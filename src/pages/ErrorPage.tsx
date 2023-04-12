@@ -1,8 +1,8 @@
+import {useRouteError} from 'react-router-dom';
 import {styled} from '@mui/material/styles';
 import Box from '@mui/material/Box';
 import {Typography} from '@mui/material';
 import AppRoutes from 'shared/constants/AppRoutes';
-import {useRouteError} from 'react-router-dom';
 import PrimaryButton from "shared/ui/Button/PrimaryButton";
 
 const StyledContainer = styled(Box)(({theme: {palette, spacing, breakpoints}}) => ({

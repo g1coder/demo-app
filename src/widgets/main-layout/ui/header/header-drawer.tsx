@@ -3,8 +3,8 @@ import {styled} from '@mui/material/styles';
 import MenuIcon from '@mui/icons-material/Menu';
 import {SwipeableDrawer} from '@mui/material';
 import CloseIcon from '@mui/icons-material/Close';
-import HeaderNavigation from 'pages/MainLayout/MainLayoutHeader/HeaderNavigation';
-import HeaderLogin from 'pages/MainLayout/MainLayoutHeader/HeaderLogin';
+import HeaderNavigation from 'widgets/main-layout/ui/header/header-navigation';
+import HeaderLogin from 'widgets/main-layout/ui/header/header-login';
 
 interface IProps {
   items: Array<{name: string; url: string}>;

@@ -4,14 +4,14 @@ import {LANDING_PAGE_HEADER_HEIGHT} from 'shared/constants';
 import {Typography, Grid} from '@mui/material';
 import SecondaryButton from 'shared/ui/Button/SecondaryButton';
 import AboutPicture from './about-us.jpg';
-import ItemIcon1 from 'pages/LandingPage/LandingPageAboutSection/presets/icon-blue-1.png';
-import ItemIcon2 from 'pages/LandingPage/LandingPageAboutSection/presets/icon-blue-2.png';
-import ItemIcon3 from 'pages/LandingPage/LandingPageAboutSection/presets/icon-blue-3.png';
-import ItemIcon4 from 'pages/LandingPage/LandingPageAboutSection/presets/icon-blue-4.png';
+import ItemIcon1 from 'pages/landing/LandingPageAboutSection/presets/icon-blue-1.png';
+import ItemIcon2 from 'pages/landing/LandingPageAboutSection/presets/icon-blue-2.png';
+import ItemIcon3 from 'pages/landing/LandingPageAboutSection/presets/icon-blue-3.png';
+import ItemIcon4 from 'pages/landing/LandingPageAboutSection/presets/icon-blue-4.png';
 import GlassPicture from './mineral-glass-square.png';
-import {StyledSectionTextImageItem} from 'pages/LandingPage/LandingPageAboutSection/LandingPageAboutSectionStyles';
-import LandingPageMineralDetails from 'pages/LandingPage/LandingPageMineralDetailsSection/LandingPageMineralDetails';
-import LandingPageSectionHeader from 'pages/LandingPage/LandingPageSectionHeader';
+import {StyledSectionTextImageItem} from 'pages/landing/LandingPageAboutSection/LandingPageAboutSectionStyles';
+import LandingPageMineralDetails from 'pages/landing/LandingPageMineralDetailsSection/LandingPageMineralDetails';
+import LandingPageSectionHeader from 'pages/landing/LandingPageSectionHeader';
 import AppRoutes from "shared/constants/AppRoutes";
 
 const itemNames = [

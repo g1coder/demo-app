@@ -2,9 +2,9 @@ import LandingPageMainSection from './LandingPageMainSection/LandingPageMainSect
 import LandingPageAboutSection from './LandingPageAboutSection/LandingPageAboutSection';
 import LandingPageDeliverySection from './LandingPageDeliverySection/LandingPageDeliverySection';
 import LandingPageMineralDetailsSection from './LandingPageMineralDetailsSection/LandingPageMineralDetailsSection';
-import LandingPageReviewSection from 'pages/LandingPage/LandingPageReviewSection/LandingPageReviewSection';
-import LandingPageRecentPostsSection from 'pages/LandingPage/LandingPageRecentPostsSection/LandingPageRecentPostsSection';
-import LandingPageFooterSection from 'pages/LandingPage/LandingPageFooterSection/LandingPageFooterSection';
+import LandingPageReviewSection from 'pages/landing/LandingPageReviewSection/LandingPageReviewSection';
+import LandingPageRecentPostsSection from 'pages/landing/LandingPageRecentPostsSection/LandingPageRecentPostsSection';
+import LandingPageFooterSection from 'pages/landing/LandingPageFooterSection/LandingPageFooterSection';
 
 const LandingPage = () => {
   return (

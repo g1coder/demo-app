@@ -1,6 +1,6 @@
 import {render} from '@testing-library/react';
 import {screen} from '@testing-library/dom';
-import LandingPage from 'pages/LandingPage/LandingPage';
+import LandingPage from 'pages/landing/LandingPage';
 
 describe('LoginPage', () => {
   it('should render all sections', async () => {

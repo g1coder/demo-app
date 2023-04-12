@@ -1,15 +1,15 @@
 import AppRoutes from 'shared/constants/AppRoutes';
-import AppLogo from 'pages/LandingPage/presets/header-logo.png';
+import AppLogo from 'pages/landing/presets/header-logo.png';
 import {Typography} from '@mui/material';
+import {StyledMainLayoutWrapper} from 'pages/MainLayout/MainLayout';
 import {
   StyledContainer,
   StyledAboutContainer,
   StyledButtonContainer,
   StyledAboutInfoContainer,
-} from 'pages/MainLayout/MainLayoutFooter/MainLayoutFooterStyles';
-import {StyledMainLayoutWrapper} from 'pages/MainLayout/MainLayout';
+} from './styles';
 
-const MainLayoutFooter = () => {
+const Footer = () => {
   return (
     <StyledContainer>
       <StyledMainLayoutWrapper>
@@ -36,4 +36,4 @@ const MainLayoutFooter = () => {
   );
 };
 
-export default MainLayoutFooter;
+export default Footer;

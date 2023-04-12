@@ -1,6 +1,6 @@
 import {useMemo} from 'react';
 import Swiper from 'shared/ui/Swiper';
-import LandingPageSectionHeader from 'pages/LandingPage/LandingPageSectionHeader';
+import LandingPageSectionHeader from 'pages/landing/LandingPageSectionHeader';
 import {Avatar, Typography} from '@mui/material';
 import {
   StyledAvatarContainer,

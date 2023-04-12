@@ -1,17 +1,13 @@
 import {useEffect} from 'react';
 import {observer} from 'mobx-react-lite';
 import AppRoutes from 'shared/constants/AppRoutes';
-import {
-  StyledHeader,
-  StyledLoginContainer,
-  StyledNavContainer,
-} from 'pages/MainLayout/MainLayoutHeader/MainLayoutHeaderStyles';
 import CartStore from 'widgets/cart/api/store';
-import HeaderCart from 'pages/MainLayout/MainLayoutHeader/HeaderCart';
-import HeaderLogin from 'pages/MainLayout/MainLayoutHeader/HeaderLogin';
-import HeaderNavigation from 'pages/MainLayout/MainLayoutHeader/HeaderNavigation';
-import HeaderLogo from 'pages/MainLayout/MainLayoutHeader/HeaderLogo';
-import HeaderDrawer from 'pages/MainLayout/MainLayoutHeader/HeaderDrawer';
+import {CartHeader} from 'entities';
+import HeaderLogin from 'widgets/main-layout/ui/header/header-login';
+import HeaderNavigation from 'widgets/main-layout/ui/header/header-navigation';
+import HeaderLogo from 'widgets/main-layout/ui/header/header-logo';
+import HeaderDrawer from 'widgets/main-layout/ui/header/header-drawer';
+import {StyledHeader, StyledLoginContainer, StyledNavContainer} from './styles';
 
 const items = [
   {name: 'Home', url: AppRoutes.LANDING_PAGE.url},
@@ -20,7 +16,7 @@ const items = [
   {name: 'Contacts', url: AppRoutes.CONTACTS.url},
 ];
 
-const MainLayoutHeader = observer(() => {
+const Header = observer(() => {
   useEffect(() => {
     CartStore.refreshCart();
   }, []);
@@ -32,13 +28,12 @@ const MainLayoutHeader = observer(() => {
       <StyledNavContainer>
         <HeaderNavigation items={items} />
       </StyledNavContainer>
-
       <StyledLoginContainer>
         <HeaderLogin />
       </StyledLoginContainer>
-      <HeaderCart count={CartStore.count} />
+      <CartHeader count={CartStore.count} />
     </StyledHeader>
   );
 });
 
-export default MainLayoutHeader;
+export default Header;
