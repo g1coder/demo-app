@@ -1,4 +1,4 @@
-import INamedEntity from 'shared/core/models/INamedEntity';
+import INamedEntity from 'shared/model/INamedEntity';
 import {queryParse} from "shared/core/services/QuerySerializer";
 import {Location} from "react-router-dom";
 

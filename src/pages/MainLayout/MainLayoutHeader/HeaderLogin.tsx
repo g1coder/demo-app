@@ -5,8 +5,8 @@ import LoginIcon from '@mui/icons-material/Login';
 import LogoutIcon from '@mui/icons-material/Logout';
 import SecondaryButton from 'shared/ui/Button/SecondaryButton';
 import {Typography} from '@mui/material';
-import AppRoutes from 'app/router/AppRoutes';
-import AppContext, {IAppContext} from 'app/AppContext';
+import AppRoutes from 'shared/constants/AppRoutes';
+import AppContext, {IAppContext} from 'shared/lib/AppContext';
 
 const TABLET_MODE = 'lg';
 const DESKTOP_MODE = 'xl';

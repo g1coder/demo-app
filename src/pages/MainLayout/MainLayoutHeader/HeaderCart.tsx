@@ -3,7 +3,7 @@ import {styled} from '@mui/material/styles';
 import {Fab, Typography} from '@mui/material';
 import ShoppingCartIcon from '@mui/icons-material/ShoppingCart';
 import {useNavigate} from 'react-router-dom';
-import AppRoutes from 'app/router/AppRoutes';
+import AppRoutes from 'shared/constants/AppRoutes';
 
 const DESKTOP_MODE = 'xl';
 

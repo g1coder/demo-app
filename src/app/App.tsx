@@ -3,7 +3,7 @@ import {RouterProvider} from 'react-router-dom';
 import CssBaseline from '@mui/material/CssBaseline';
 import Spinner from 'shared/ui/Spinner';
 import ThemeProvider from 'app/themes/ThemeProvider';
-import AppContext, {IAppContext} from 'app/AppContext';
+import AppContext, {IAppContext} from 'shared/lib/AppContext';
 import AuthService from 'shared/core/services/AuthService';
 import Toaster from 'shared/ui/Toaster';
 import IUser from 'shared/core/models/IUser';

@@ -1,17 +1,17 @@
 import {lazy, Suspense} from 'react';
 import {Route, createBrowserRouter, createRoutesFromElements} from 'react-router-dom';
-import AppRoutes from 'app/router/AppRoutes';
+import AppRoutes from 'shared/constants/AppRoutes';
 
 import MainLayout from 'pages/MainLayout/MainLayout';
 import PageNotFound from 'pages/PageNotFound/PageNotFound';
 import ErrorPage from 'pages/ErrorPage';
 import LandingPage from 'pages/LandingPage/LandingPage';
-import CatalogLayoutRouter from 'features/catalog/pages/CatalogLayoutRouter';
+import CatalogLayoutRouter from 'pages/catalog/pages/CatalogLayoutRouter';
 
 const ContactsPage = lazy(() => import('pages/ContactsPage/ContactsPage'));
 const AboutPage = lazy(() => import('pages/AboutPage/AboutPage'));
-const LoginPage = lazy(() => import('pages/LoginPage/LoginPage'));
-const SignupPage = lazy(() => import('pages/SignupPage/SignupPage'));
+const LoginPage = lazy(() => import('pages/LoginPage'));
+const SignupPage = lazy(() => import('pages/SignupPage'));
 
 const Index = createBrowserRouter(
   createRoutesFromElements([

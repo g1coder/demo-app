@@ -21,7 +21,7 @@ import SlideIcon1 from './presets/mountain1.jpg';
 import SlideIcon2 from './presets/mountain2.jpg';
 import SlideIcon3 from './presets/mountain3.jpg';
 import SlideIcon4 from './presets/mountain4.jpg';
-import AppRoutes from 'app/router/AppRoutes';
+import AppRoutes from 'shared/constants/AppRoutes';
 import SecondaryButton from 'shared/ui/Button/SecondaryButton';
 import PrimaryButton from 'shared/ui/Button/PrimaryButton';
 

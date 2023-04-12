@@ -12,7 +12,7 @@ import GlassPicture from './mineral-glass-square.png';
 import {StyledSectionTextImageItem} from 'pages/LandingPage/LandingPageAboutSection/LandingPageAboutSectionStyles';
 import LandingPageMineralDetails from 'pages/LandingPage/LandingPageMineralDetailsSection/LandingPageMineralDetails';
 import LandingPageSectionHeader from 'pages/LandingPage/LandingPageSectionHeader';
-import AppRoutes from "app/router/AppRoutes";
+import AppRoutes from "shared/constants/AppRoutes";
 
 const itemNames = [
   {name: 'Full Controll', icon: ItemIcon1},

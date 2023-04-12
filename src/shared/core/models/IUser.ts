@@ -1,4 +1,4 @@
-import INamedEntity from 'shared/core/models/INamedEntity';
+import INamedEntity from 'shared/model/INamedEntity';
 
 interface IUser extends INamedEntity{
   email: string;

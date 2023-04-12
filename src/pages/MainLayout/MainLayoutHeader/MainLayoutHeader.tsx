@@ -1,12 +1,12 @@
 import {useEffect} from 'react';
 import {observer} from 'mobx-react-lite';
-import AppRoutes from 'app/router/AppRoutes';
+import AppRoutes from 'shared/constants/AppRoutes';
 import {
   StyledHeader,
   StyledLoginContainer,
   StyledNavContainer,
 } from 'pages/MainLayout/MainLayoutHeader/MainLayoutHeaderStyles';
-import CartStore from 'features/catalog/store/CartStore';
+import CartStore from 'widgets/cart/api/store';
 import HeaderCart from 'pages/MainLayout/MainLayoutHeader/HeaderCart';
 import HeaderLogin from 'pages/MainLayout/MainLayoutHeader/HeaderLogin';
 import HeaderNavigation from 'pages/MainLayout/MainLayoutHeader/HeaderNavigation';

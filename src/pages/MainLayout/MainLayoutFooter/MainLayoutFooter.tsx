@@ -1,4 +1,4 @@
-import AppRoutes from 'app/router/AppRoutes';
+import AppRoutes from 'shared/constants/AppRoutes';
 import AppLogo from 'pages/LandingPage/presets/header-logo.png';
 import {Typography} from '@mui/material';
 import {

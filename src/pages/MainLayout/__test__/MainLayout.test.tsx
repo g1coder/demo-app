@@ -3,7 +3,7 @@ import {screen} from '@testing-library/dom';
 import MainLayout from '../MainLayout';
 import {Route, Routes, MemoryRouter} from 'react-router-dom';
 
-import AppRoutes from 'app/router/AppRoutes';
+import AppRoutes from 'shared/constants/AppRoutes';
 
 describe('MainLayout', () => {
   const renderComponent = (route: string = '/') => {

@@ -2,7 +2,7 @@ import {styled} from '@mui/material/styles';
 import {Grid, Typography} from '@mui/material';
 import BgImage from './404-bg.png';
 import PrimaryButton from 'shared/ui/Button/PrimaryButton';
-import AppRoutes from "app/router/AppRoutes";
+import AppRoutes from "shared/constants/AppRoutes";
 
 const StyledContainer = styled('div')({
   display: 'flex',
