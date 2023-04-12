@@ -12,7 +12,7 @@ import {
 import {Typography} from '@mui/material';
 import {StyledMainLayoutWrapper} from 'pages/MainLayout/MainLayout';
 import LandingPageSectionHeader from 'pages/LandingPage/LandingPageSectionHeader';
-import SecondaryButton from 'shared/Button/SecondaryButton';
+import SecondaryButton from 'shared/ui/Button/SecondaryButton';
 
 import VideoMockImage from './presets/video-mock.png';
 import ItemIcon1 from './presets/icon-blue-1.png';

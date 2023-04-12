@@ -3,7 +3,7 @@ import {Link, useNavigate} from 'react-router-dom';
 import {styled} from '@mui/material/styles';
 import LoginIcon from '@mui/icons-material/Login';
 import LogoutIcon from '@mui/icons-material/Logout';
-import SecondaryButton from 'shared/Button/SecondaryButton';
+import SecondaryButton from 'shared/ui/Button/SecondaryButton';
 import {Typography} from '@mui/material';
 import AppRoutes from 'app/router/AppRoutes';
 import AppContext, {IAppContext} from 'app/AppContext';

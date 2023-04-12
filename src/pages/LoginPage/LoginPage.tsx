@@ -13,7 +13,7 @@ import AppRoutes from 'app/router/AppRoutes';
 import {useLocation, useNavigate} from 'react-router-dom';
 import Utils from 'shared/core/services/Utils';
 import {FORM_ERROR} from 'final-form';
-import withContextSelector from 'shared/HOC/withContextSelector';
+import withContextSelector from 'shared/lib/HOC/withContextSelector';
 import AppContext, {IAppContext} from 'app/AppContext';
 
 const LoginPage = ({login, reset}: Pick<IAppContext, 'login' | 'reset'>) => {

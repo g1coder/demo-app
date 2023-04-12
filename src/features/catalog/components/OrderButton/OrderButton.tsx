@@ -3,7 +3,7 @@ import {Box, Typography} from '@mui/material';
 import AddIcon from '@mui/icons-material/Add';
 import RemoveOutlinedIcon from '@mui/icons-material/RemoveOutlined';
 import {styled} from '@mui/material/styles';
-import Spinner from 'shared/Spinner';
+import Spinner from 'shared/ui/Spinner';
 
 const borderRadius = 32;
 

@@ -1,10 +1,10 @@
 import {memo} from 'react';
-import withFinalForm from 'shared/HOC/withFinalForm';
+import withFinalForm from 'shared/lib/HOC/withFinalForm';
 import {createValidator, email, required} from 'shared/core/services/ValidationService';
 import {FormRenderProps, useFormState, Field} from 'react-final-form';
 import {Card, CardActions, CardContent, FormControl, TextField, Typography} from '@mui/material';
 import {styled} from '@mui/material/styles';
-import PrimaryButton from 'shared/Button/PrimaryButton';
+import PrimaryButton from 'shared/ui/Button/PrimaryButton';
 import Utils from 'shared/core/services/Utils';
 import {TextFieldProps} from '@mui/material/TextField/TextField';
 

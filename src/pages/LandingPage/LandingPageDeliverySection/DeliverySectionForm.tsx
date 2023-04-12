@@ -2,7 +2,7 @@ import {Form, Field} from 'react-final-form';
 import {createValidator, required} from 'shared/core/services/ValidationService';
 import {FormControl, TextField} from '@mui/material';
 import {styled} from '@mui/material/styles';
-import PrimaryButton from 'shared/Button/PrimaryButton';
+import PrimaryButton from 'shared/ui/Button/PrimaryButton';
 import Utils from 'shared/core/services/Utils';
 
 const StyledForm = styled('form')(({theme: {spacing}}) => ({

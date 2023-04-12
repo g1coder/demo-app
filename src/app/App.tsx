@@ -1,14 +1,14 @@
 import {useCallback, useMemo, useState} from 'react';
 import {RouterProvider} from 'react-router-dom';
 import CssBaseline from '@mui/material/CssBaseline';
-import Spinner from 'shared/Spinner';
+import Spinner from 'shared/ui/Spinner';
 import ThemeProvider from 'app/themes/ThemeProvider';
 import AppContext, {IAppContext} from 'app/AppContext';
 import AuthService from 'shared/core/services/AuthService';
-import Toaster from 'shared/Toaster';
+import Toaster from 'shared/ui/Toaster';
 import IUser from 'shared/core/models/IUser';
 import ProfileService from 'shared/core/services/ProfileService';
-import useData from 'shared/hooks/useData';
+import useData from 'shared/lib/hooks/useData';
 import ErrorService from 'shared/core/services/ErrorService';
 import Index from 'app/router';
 

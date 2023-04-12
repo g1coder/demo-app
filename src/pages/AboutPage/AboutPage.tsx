@@ -2,7 +2,7 @@ import {StyledMainLayoutWrapper} from 'pages/MainLayout/MainLayout';
 import {styled} from '@mui/material/styles';
 import {LANDING_PAGE_HEADER_HEIGHT} from 'shared/constants';
 import {Typography, Grid} from '@mui/material';
-import SecondaryButton from 'shared/Button/SecondaryButton';
+import SecondaryButton from 'shared/ui/Button/SecondaryButton';
 import AboutPicture from './about-us.jpg';
 import ItemIcon1 from 'pages/LandingPage/LandingPageAboutSection/presets/icon-blue-1.png';
 import ItemIcon2 from 'pages/LandingPage/LandingPageAboutSection/presets/icon-blue-2.png';

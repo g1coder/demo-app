@@ -1,7 +1,7 @@
 import {styled} from '@mui/material/styles';
 import {Grid, Typography} from '@mui/material';
 import BgImage from './404-bg.png';
-import PrimaryButton from 'shared/Button/PrimaryButton';
+import PrimaryButton from 'shared/ui/Button/PrimaryButton';
 import AppRoutes from "app/router/AppRoutes";
 
 const StyledContainer = styled('div')({

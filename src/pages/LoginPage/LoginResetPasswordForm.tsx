@@ -1,10 +1,10 @@
 import {memo} from 'react';
 import {FormRenderProps, useFormState, useField} from 'react-final-form';
 import {createValidator, email, required} from 'shared/core/services/ValidationService';
-import PrimaryButton from 'shared/Button/PrimaryButton';
+import PrimaryButton from 'shared/ui/Button/PrimaryButton';
 import {FormControl, FormHelperText, TextField, Typography} from '@mui/material';
 import {styled} from '@mui/material/styles';
-import withFinalForm from 'shared/HOC/withFinalForm';
+import withFinalForm from 'shared/lib/HOC/withFinalForm';
 import Utils from 'shared/core/services/Utils';
 
 const StyledForm = styled('form')({

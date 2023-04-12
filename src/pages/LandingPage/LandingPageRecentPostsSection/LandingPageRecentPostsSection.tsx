@@ -22,7 +22,7 @@ import {StyledMainLayoutWrapper} from 'pages/MainLayout/MainLayout';
 import RecentImage1 from './presets/recent_post1.jpg';
 import RecentImage2 from './presets/recent_post2.jpg';
 import RecentImage3 from './presets/recent_post3.jpg';
-import SecondaryButton from 'shared/Button/SecondaryButton';
+import SecondaryButton from 'shared/ui/Button/SecondaryButton';
 
 const posts = [
   {

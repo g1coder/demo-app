@@ -1,7 +1,7 @@
 import {useCallback} from 'react';
 import {render, fireEvent} from '@testing-library/react';
 import {screen} from '@testing-library/dom';
-import useData from 'shared/hooks/useData';
+import useData from 'shared/lib/hooks/useData';
 
 const users = {
   1: {id: 1, name: 'User 1'},

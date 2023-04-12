@@ -10,7 +10,7 @@ import {Typography} from '@mui/material';
 import AppRoutes from 'app/router/AppRoutes';
 import SignupForm, {IFormValues} from 'pages/SignupPage/SignupForm';
 import AppContext, {IAppContext} from "app/AppContext";
-import withContextSelector from "shared/HOC/withContextSelector";
+import withContextSelector from "shared/lib/HOC/withContextSelector";
 import {FORM_ERROR} from "final-form";
 
 const SignupPage = ({signup}: Pick<IAppContext, 'signup'>) => {

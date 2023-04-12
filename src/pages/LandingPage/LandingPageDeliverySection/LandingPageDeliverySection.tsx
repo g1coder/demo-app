@@ -12,7 +12,7 @@ import DeliverySectionForm from './DeliverySectionForm';
 import {StyledMainLayoutWrapper} from 'pages/MainLayout/MainLayout';
 
 import ManImage from './presets/delivery-man.png';
-import SecondaryButton from 'shared/Button/SecondaryButton';
+import SecondaryButton from 'shared/ui/Button/SecondaryButton';
 
 const LandingPageDeliverySection = () => {
   const handleReadMore = useCallback(() => {}, []);

@@ -1,6 +1,6 @@
 import {useReducer} from 'react';
 import {useTransition} from '@react-spring/web';
-import useScrollTop from 'shared/hooks/useScrollTop';
+import useScrollTop from 'shared/lib/hooks/useScrollTop';
 import {
   StyledInnerFirstTypography,
   StyledInnerSecondTypography,
@@ -22,8 +22,8 @@ import SlideIcon2 from './presets/mountain2.jpg';
 import SlideIcon3 from './presets/mountain3.jpg';
 import SlideIcon4 from './presets/mountain4.jpg';
 import AppRoutes from 'app/router/AppRoutes';
-import SecondaryButton from 'shared/Button/SecondaryButton';
-import PrimaryButton from 'shared/Button/PrimaryButton';
+import SecondaryButton from 'shared/ui/Button/SecondaryButton';
+import PrimaryButton from 'shared/ui/Button/PrimaryButton';
 
 const icons = [SlideIcon1, SlideIcon2, SlideIcon3, SlideIcon4];
 
