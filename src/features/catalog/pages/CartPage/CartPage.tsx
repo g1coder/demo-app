@@ -5,13 +5,13 @@ import CartStore from 'features/catalog/store/CartStore';
 import {Divider, Grid, Paper, Typography} from '@mui/material';
 import {StyledContainer, StyledProductItem, StyledProductTitle, StyledSummaryTitle} from './CartPageStyle';
 import IBaseProduct from 'features/catalog/models/IBaseProduct';
-import PrimaryButton from 'core/components/Buttons/PrimaryButton';
-import useData from 'core/hooks/useData';
-import Spinner from 'core/components/Spinner';
+import PrimaryButton from 'shared/Button/PrimaryButton';
+import useData from 'shared/hooks/useData';
+import Spinner from 'shared/Spinner';
 import CartService from 'features/catalog/services/CartService';
 import AppContext, {IAppContext} from 'app/AppContext';
 import AppRoutes from 'app/router/AppRoutes';
-import Utils from 'core/services/Utils';
+import Utils from 'shared/core/services/Utils';
 
 const CartPage = observer(() => {
   const loggedUser = useContext<IAppContext>(AppContext);

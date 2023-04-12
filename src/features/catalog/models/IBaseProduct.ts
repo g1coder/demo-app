@@ -1,4 +1,4 @@
-import INamedEntity from 'core/models/INamedEntity';
+import INamedEntity from 'shared/core/models/INamedEntity';
 
 export default interface IBaseProduct extends INamedEntity {
   price: number;

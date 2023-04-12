@@ -1,5 +1,5 @@
-import api from 'core/services/ApiService';
-import List from 'core/models/List';
+import api from 'shared/core/services/ApiService';
+import List from 'shared/core/models/List';
 import IProductRaw from 'features/catalog/models/IProductRaw';
 import IBaseProduct from 'features/catalog/models/IBaseProduct';
 import IProductParams from 'features/catalog/models/IProductParams';

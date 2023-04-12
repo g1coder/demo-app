@@ -1,4 +1,4 @@
-import api from 'core/services/ApiService';
+import api from 'shared/core/services/ApiService';
 import IBaseProduct from 'features/catalog/models/IBaseProduct';
 import IProductRaw from 'features/catalog/models/IProductRaw';
 

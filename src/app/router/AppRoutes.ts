@@ -1,10 +1,7 @@
-import {find} from 'lodash';
-
 export enum RouteNames {
   LOGIN = 'LOGIN',
   SIGNUP = 'SIGNUP',
   PROFILE = 'PROFILE',
-
   LANDING_PAGE = 'LANDING_PAGE',
   CATALOG = 'CATALOG',
   CART = 'CART',
@@ -33,7 +30,5 @@ const AppRoutes: AppRoutesType = {
   [RouteNames.CATALOG]: {key: 'catalog', path: 'catalog', url: '/catalog', name: 'Catalog'},
   [RouteNames.CART]: {key: 'cart', path: 'cart', url: '/catalog/cart'},
 };
-
-export const getNameByPath = (path: string) => find(AppRoutes, (r) => r.path === path || `/${r.path}` === path)?.name;
 
 export default AppRoutes;

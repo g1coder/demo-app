@@ -19,7 +19,10 @@
     "rootDirs": ["src", "stories"],
     "noImplicitAny": false,
     "experimentalDecorators": true,
-    "typeRoots": ["node_modules/@types", "src/@types"]
+    "typeRoots": ["node_modules/@types",
+      "src/app/@types"
+    ]
   },
-  "include": ["src/**/*", "src/@types/moxios.d.ts", "stories/**/*"]
+  "include": ["src/**/*",
+    "src/app/@types/moxios.d.ts", "stories/**/*"]
 }

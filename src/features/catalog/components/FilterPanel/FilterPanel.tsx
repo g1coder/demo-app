@@ -5,9 +5,9 @@ import PriceFilter from 'features/catalog/components/FilterPanel/PriceFilter';
 import TagFilter from 'features/catalog/components/FilterPanel/TagFilter';
 import IProductParams from 'features/catalog/models/IProductParams';
 import {useSearchParams} from 'react-router-dom';
-import querySerializer from 'core/services/QuerySerializer';
+import querySerializer from 'shared/core/services/QuerySerializer';
 import {Chip, Grid} from '@mui/material';
-import useData from 'core/hooks/useData';
+import useData from 'shared/hooks/useData';
 import CatalogService from 'features/catalog/services/CatalogService';
 
 const StyledContainer = styled('aside')(({theme: {spacing}}) => ({

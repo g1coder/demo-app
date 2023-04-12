@@ -1,7 +1,7 @@
 import {styled} from '@mui/material/styles';
 import Card from '@mui/material/Card';
 import {Typography} from '@mui/material';
-import PrimaryButton from 'core/components/Buttons/PrimaryButton';
+import PrimaryButton from 'shared/Button/PrimaryButton';
 
 export const StyledContainer = styled(Card)(({theme: {spacing}}) => ({
   position: 'relative',

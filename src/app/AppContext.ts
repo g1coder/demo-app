@@ -1,5 +1,5 @@
 import {createContext} from 'react';
-import IUser from 'core/models/IUser';
+import IUser from 'shared/core/models/IUser';
 
 export interface IAppContext {
   user: IUser | undefined;

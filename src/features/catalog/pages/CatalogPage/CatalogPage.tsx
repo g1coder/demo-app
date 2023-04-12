@@ -3,13 +3,13 @@ import {observer} from 'mobx-react-lite';
 import {Grid} from '@mui/material';
 import ProductCard from 'features/catalog/components/ProductCard/ProductCard';
 import FilterPanel from 'features/catalog/components/FilterPanel/FilterPanel';
-import useData from 'core/hooks/useData';
+import useData from 'shared/hooks/useData';
 import CatalogService from 'features/catalog/services/CatalogService';
 import IBaseProduct from 'features/catalog/models/IBaseProduct';
-import Spinner from 'core/components/Spinner';
+import Spinner from 'shared/Spinner';
 import CartStore from 'features/catalog/store/CartStore';
 import IProductParams from 'features/catalog/models/IProductParams';
-import List from 'core/models/List';
+import List from 'shared/core/models/List';
 import {
   StyledCardsContainer,
   StyledFiltersContainer,
