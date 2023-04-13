@@ -2,7 +2,7 @@ import api from 'shared/core/services/ApiService';
 import List from 'shared/core/models/List';
 import IProductRaw from 'shared/model/IProductRaw';
 import IBaseProduct from 'shared/model/IBaseProduct';
-import IProductParams from 'pages/catalog/models/IProductParams';
+import IProductParams from 'widgets/catalog/model/IProductParams';
 
 export default {
   getList,

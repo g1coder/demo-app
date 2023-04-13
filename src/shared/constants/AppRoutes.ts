@@ -23,7 +23,7 @@ const AppRoutes: AppRoutesType = {
   [RouteNames.SIGNUP]: {key: 'signup', path: 'signup', url: 'signup'},
   [RouteNames.PROFILE]: {key: 'profile', path: 'profile', url: 'profile', name: 'Profile'},
 
-  [RouteNames.LANDING_PAGE]: {key: 'landing', path: '/', url: '/'},
+  [RouteNames.LANDING_PAGE]: {key: 'LandingPage', path: '/', url: '/'},
   [RouteNames.CONTACTS]: {key: 'contacts', path: 'contacts', url: '/contacts', name: 'Contacts'},
   [RouteNames.ABOUT]: {key: 'about', path: 'about', url: '/about', name: 'About Us'},
 

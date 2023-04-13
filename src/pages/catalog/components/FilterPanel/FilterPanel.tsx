@@ -3,7 +3,7 @@ import {memo, useCallback, useEffect, useMemo, useState} from 'react';
 import {styled} from '@mui/material/styles';
 import PriceFilter from 'pages/catalog/components/FilterPanel/PriceFilter';
 import TagFilter from 'pages/catalog/components/FilterPanel/TagFilter';
-import IProductParams from 'pages/catalog/models/IProductParams';
+import IProductParams from 'widgets/catalog/model/IProductParams';
 import {useSearchParams} from 'react-router-dom';
 import querySerializer from 'shared/core/services/QuerySerializer';
 import {Chip, Grid} from '@mui/material';

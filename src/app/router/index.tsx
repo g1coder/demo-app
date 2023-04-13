@@ -2,14 +2,15 @@ import {lazy, Suspense} from 'react';
 import {Route, createBrowserRouter, createRoutesFromElements} from 'react-router-dom';
 import AppRoutes from 'shared/constants/AppRoutes';
 
-import MainLayout from 'pages/MainLayout/MainLayout';
-import PageNotFound from 'pages/PageNotFound/PageNotFound';
+import PageNotFound from 'pages/PageNotFound';
 import ErrorPage from 'pages/ErrorPage';
-import LandingPage from 'pages/landing/LandingPage';
-import CatalogLayoutRouter from 'pages/catalog/pages/CatalogLayoutRouter';
+import LandingPage from 'pages/LandingPage';
+import {MainLayout, CatalogLayout} from 'widgets';
+import CatalogPage from 'pages/catalog/pages/CatalogPage';
+import CartPage from 'pages/catalog/pages/CartPage/CartPage';
 
-const ContactsPage = lazy(() => import('pages/ContactsPage/ContactsPage'));
-const AboutPage = lazy(() => import('pages/AboutPage/AboutPage'));
+const ContactsPage = lazy(() => import('pages/ContactsPage'));
+const AboutPage = lazy(() => import('pages/AboutPage'));
 const LoginPage = lazy(() => import('pages/LoginPage'));
 const SignupPage = lazy(() => import('pages/SignupPage'));
 
@@ -39,7 +40,34 @@ const Index = createBrowserRouter(
             </Suspense>
           }
         />,
-        CatalogLayoutRouter,
+        <Route
+          path={AppRoutes.CATALOG.path}
+          element={
+            <Suspense>
+              <CatalogLayout />
+            </Suspense>
+          }
+          children={[
+            <Route
+              index
+              key={AppRoutes.CATALOG.key}
+              element={
+                <Suspense>
+                  <CatalogPage />
+                </Suspense>
+              }
+            />,
+            <Route
+              key={AppRoutes.CART.key}
+              path={AppRoutes.CART.path}
+              element={
+                <Suspense>
+                  <CartPage />
+                </Suspense>
+              }
+            />,
+          ]}
+        />,
       ]}
     />,
 
