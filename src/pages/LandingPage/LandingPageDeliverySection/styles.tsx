@@ -4,7 +4,6 @@ import ListItem from '@mui/material/ListItem';
 import ListItemIcon from '@mui/material/ListItemIcon';
 import ListItemText from '@mui/material/ListItemText';
 import DoneIcon from '@mui/icons-material/Done';
-import Paper from '@mui/material/Paper';
 import SeparatorImage from 'shared/assets/water_separator.jpg';
 
 export const StyledWaterSeparatorImage = styled('div')({

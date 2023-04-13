@@ -1,24 +1,21 @@
-import {pickBy, isNil, isEmpty, keys} from 'lodash';
-import {memo, useCallback, useEffect, useMemo, useState} from 'react';
-import {styled} from '@mui/material/styles';
-import PriceFilter from 'pages/catalog/components/FilterPanel/PriceFilter';
-import TagFilter from 'pages/catalog/components/FilterPanel/TagFilter';
-import IProductParams from 'widgets/catalog/model/IProductParams';
+import {pickBy, isNil} from 'lodash';
+import {memo, useCallback, useEffect, useState} from 'react';
 import {useSearchParams} from 'react-router-dom';
+import {styled} from '@mui/material/styles';
+import {Grid} from '@mui/material';
+
+import {PriceFilter, TagFilter} from 'features';
 import querySerializer from 'shared/core/services/QuerySerializer';
-import {Chip, Grid} from '@mui/material';
 import useData from 'shared/lib/hooks/useData';
-import CatalogService from 'pages/catalog/services/CatalogService';
+import IProductParams from '../../model/IProductParams';
+import {getOptions} from '../../api/CatalogService';
+import {FilterChips} from "entities/catalog";
 
 const StyledContainer = styled('aside')(({theme: {spacing}}) => ({
   maxWidth: 360,
   position: 'sticky',
   top: spacing(2),
 }));
-
-const StyledFilterChip = styled(Chip)({
-  marginRight: 4,
-});
 
 interface IProps {
   onChange: (params: IProductParams) => void;
@@ -30,7 +27,7 @@ const FilterPanel = ({onChange}: IProps) => {
 
   const [{data: initialFilters, loading}] = useData(
     {
-      fetch: () => CatalogService.getOptions(),
+      fetch: () => getOptions(),
       data: {
         tags: [],
         min: 0,
@@ -76,19 +73,6 @@ const FilterPanel = ({onChange}: IProps) => {
     [searchParams, setSearchParams]
   );
 
-  const renderFilterChips = useMemo(() => {
-    if (isEmpty(filters)) return null;
-
-    return keys(filters).map((key) => (
-      <StyledFilterChip
-        key={key}
-        label={`${key}: ${filters[key]}`}
-        onDelete={() => handleResetFilter(key as keyof IProductParams)}
-        color="primary"
-      />
-    ));
-  }, [filters, handleResetFilter]);
-
   return (
     <StyledContainer>
       <PriceFilter
@@ -108,7 +92,7 @@ const FilterPanel = ({onChange}: IProps) => {
       />
       <Grid container spacing={2}>
         <Grid item justifyContent="flex-start">
-          {renderFilterChips}
+          <FilterChips<IProductParams> filters={filters} onDelete={handleResetFilter} />
         </Grid>
       </Grid>
     </StyledContainer>

@@ -1,7 +1,8 @@
 import {useMemo} from 'react';
-import Swiper from 'shared/ui/Swiper';
-import LandingPageSectionHeader from 'pages/LandingPage/SectionHeader';
 import {Avatar, Typography} from '@mui/material';
+import {LayoutWrapper} from "widgets/main-layout";
+import Swiper from 'shared/ui/Swiper';
+import SectionHeader from '../SectionHeader';
 import {
   StyledAvatarContainer,
   StyledButtonContainer,
@@ -10,9 +11,8 @@ import {
   StyledSwiperContainer,
   StyledSwiperSlideContent,
   StyledSwiperSlideInnerContainer,
-} from 'pages/LandingPage/LandingPageReviewSection/styles';
+} from './styles';
 import AvatarMock from './avatar1.jpg';
-import {StyledMainLayoutWrapper} from 'pages/MainLayout/MainLayout';
 
 const reviews = [
   {
@@ -42,7 +42,7 @@ const reviews = [
   },
 ];
 
-const Index = () => {
+const LandingPageReviewSection = () => {
   const slides = useMemo(
     () =>
       reviews.map(({name, position, text}) => (
@@ -71,15 +71,15 @@ const Index = () => {
   return (
     <StyledLandingPageReviewSection>
       <StyledSectionBg />
-      <StyledMainLayoutWrapper>
-        <LandingPageSectionHeader title="What our clients say" subtitle="Testimonials" />
+      <LayoutWrapper>
+        <SectionHeader title="What our clients say" subtitle="Testimonials" />
         <StyledSwiperContainer>
           <Swiper slides={slides} spaceBetween={50} slidesPerView={1} autoplay loop />
         </StyledSwiperContainer>
         <StyledButtonContainer title="View more" size="small" />
-      </StyledMainLayoutWrapper>
+      </LayoutWrapper>
     </StyledLandingPageReviewSection>
   );
 };
 
-export default Index;
+export default LandingPageReviewSection;

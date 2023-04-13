@@ -53,7 +53,7 @@ const StyledDesktopContainer = styled(Fab)(({theme: {palette, breakpoints}}) => 
   },
 }));
 
-const HeaderCart = ({count}: IProps) => {
+const CartHeader = ({count}: IProps) => {
   const navigate = useNavigate();
 
   const handleCartClick = useCallback(() => {
@@ -73,4 +73,4 @@ const HeaderCart = ({count}: IProps) => {
   );
 };
 
-export default memo(HeaderCart);
+export default memo(CartHeader);

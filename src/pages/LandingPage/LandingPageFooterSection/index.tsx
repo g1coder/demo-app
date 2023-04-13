@@ -1,5 +1,8 @@
 import {useCallback} from 'react';
 import {Form} from 'react-final-form';
+import {TextField, Typography} from '@mui/material';
+import {createValidator, required, email} from 'shared/core/services/ValidationService';
+import {LayoutWrapper} from "widgets/main-layout";
 import {
   StyledLandingPageFooterSection,
   StyledActionContainer,
@@ -7,10 +10,7 @@ import {
   StyledTextContainer,
   StyledSubscribeContainer,
   StyledSubcribeButton,
-} from 'pages/LandingPage/LandingPageFooterSection/styles';
-import {TextField, Typography} from '@mui/material';
-import {StyledMainLayoutWrapper} from 'pages/MainLayout/MainLayout';
-import {createValidator, required, email} from 'shared/core/services/ValidationService';
+} from './styles';
 
 interface IFormValues {
   email: string;
@@ -20,12 +20,12 @@ const emailValidator = createValidator<IFormValues>({
   email: [required, email],
 });
 
-const Index = () => {
+const LandingPageFooterSection = () => {
   const sendEmail = useCallback(() => {}, []);
 
   return (
     <StyledLandingPageFooterSection>
-      <StyledMainLayoutWrapper>
+      <LayoutWrapper>
         <StyledSubscribeContainer>
           <StyledSubscribeSection>
             <StyledTextContainer>
@@ -53,9 +53,9 @@ const Index = () => {
             </StyledActionContainer>
           </StyledSubscribeSection>
         </StyledSubscribeContainer>
-      </StyledMainLayoutWrapper>
+      </LayoutWrapper>
     </StyledLandingPageFooterSection>
   );
 };
 
-export default Index;
+export default LandingPageFooterSection;

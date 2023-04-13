@@ -1,8 +1,7 @@
 import {useEffect} from 'react';
 import {Outlet} from 'react-router-dom';
-import {LayoutWrapper} from 'widgets';
 import {StyledContainer, StyledContent} from './styles';
-import CatalogStore from '../store';
+import CatalogStore from '../store/CatalogStore';
 
 const CatalogLayout = () => {
   useEffect(() => {
@@ -10,12 +9,12 @@ const CatalogLayout = () => {
   }, []);
 
   return (
-    <LayoutWrapper>
+    <>
       <StyledContainer />
       <StyledContent>
         <Outlet />
       </StyledContent>
-    </LayoutWrapper>
+    </>
   );
 };
 

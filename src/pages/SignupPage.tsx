@@ -1,4 +1,4 @@
-import {SignUp} from 'widgets';
+import SignUp from 'widgets/sign-up';
 import {StyledContainer, StyledInnerContainer, StyledImageDecorator} from './styles';
 const SignupPage = () => {
   return (

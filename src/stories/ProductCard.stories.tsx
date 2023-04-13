@@ -1,6 +1,6 @@
 import {ComponentStory, ComponentMeta} from '@storybook/react';
-import Card from 'pages/catalog/components/ProductCard/ProductCard';
 import IBaseProduct from 'shared/model/IBaseProduct';
+import {ProductCard as Card} from 'entities/product';
 
 const product: IBaseProduct = {
   name: 'Product 1',

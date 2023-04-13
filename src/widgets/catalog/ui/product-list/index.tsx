@@ -1,36 +1,32 @@
-import {useCallback, useMemo, useState} from 'react';
+import {useMemo, useState} from 'react';
 import {observer} from 'mobx-react-lite';
 import {Grid} from '@mui/material';
-import FilterPanel from 'pages/catalog/components/FilterPanel/FilterPanel';
+
 import useData from 'shared/lib/hooks/useData';
-import CatalogService from 'pages/catalog/services/CatalogService';
 import IBaseProduct from 'shared/model/IBaseProduct';
 import Spinner from 'shared/ui/Spinner';
-import CartStore from 'widgets/cart/api/store';
-import IProductParams from 'widgets/catalog/model/IProductParams';
 import List from 'shared/core/models/List';
-import {
-  StyledCardsContainer,
-  StyledFiltersContainer,
-  StyledMetaTitle,
-  StyledRoot,
-} from 'pages/catalog/pages/CatalogPage/styles';
-import CatalogStore from '../.././store';
+import CatalogStore from '../../store/CatalogStore';
+import CartStore from '../../store/CartStore';
+import {getList} from '../../api/CatalogService';
+import IProductParams from '../../model/IProductParams';
 import ProductCardInfo from '../product-card-info';
+import {StyledContainer, StyledCardContainer, StyledFiltersContainer, StyledTitle} from './styles';
+import ProductFilters from '../product-filters';
 
 const ProductList = observer(() => {
   const [filterParams, setFilterParams] = useState<IProductParams>();
 
-  const [{data: products, loading: productsLoading}] = useData<List<IBaseProduct> | null>(
+  const [{data: products, loading}] = useData<List<IBaseProduct> | null>(
     {
-      fetch: () => CatalogService.getList(filterParams),
+      fetch: () => getList(filterParams),
       data: null,
     },
     [filterParams]
   );
 
   const metaTitle = useMemo(() => {
-    if (productsLoading || !products) {
+    if (loading || !products) {
       return '';
     }
     if (products && !products.meta.total) {
@@ -40,36 +36,35 @@ const ProductList = observer(() => {
     return products.items.length === products.meta.total
       ? `Showing ${products.items.length}`
       : `Showing ${products.items.length} from ${products.meta.total}`;
-  }, [products, productsLoading]);
-
-  const handleClickFavorite = useCallback((id: string) => {
-    return CatalogStore.toggleFavorites(id);
-  }, []);
+  }, [products, loading]);
 
   return (
-    <StyledRoot>
+    <StyledContainer>
       <StyledFiltersContainer>
-        <FilterPanel onChange={setFilterParams} />
+        <ProductFilters onChange={setFilterParams} />
       </StyledFiltersContainer>
-      <StyledCardsContainer>
-        <StyledMetaTitle variant="body1" color="primary.dark" hidden={productsLoading}>
+
+      <StyledCardContainer>
+        <StyledTitle variant="body1" color="primary.dark" hidden={loading}>
           {metaTitle}
-        </StyledMetaTitle>
-        {productsLoading && <Spinner />}
+        </StyledTitle>
+
+        {loading && <Spinner />}
+
         {(products?.items || []).map((product) => (
           <Grid item key={product.name}>
             <ProductCardInfo
               product={product}
               orderedCount={CartStore.products.get(product.id)}
-              toggleFavorites={handleClickFavorite}
               isFavorite={CatalogStore.favoriteIds.includes(product.id)}
-              increase={() => Promise.resolve()}
-              decrease={() => Promise.resolve()}
+              toggleFavorites={CatalogStore.toggleFavorites}
+              increase={CartStore.increase}
+              decrease={CartStore.decrease}
             />
           </Grid>
         ))}
-      </StyledCardsContainer>
-    </StyledRoot>
+      </StyledCardContainer>
+    </StyledContainer>
   );
 });
 

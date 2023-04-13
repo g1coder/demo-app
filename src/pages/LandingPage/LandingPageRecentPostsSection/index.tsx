@@ -1,7 +1,14 @@
 
 import dayjs from 'dayjs';
 import {CardContent, Typography} from '@mui/material';
-import LandingPageSectionHeader from 'pages/LandingPage/SectionHeader';
+import VisibilityIcon from '@mui/icons-material/Visibility';
+import CommentOutlinedIcon from '@mui/icons-material/CommentOutlined';
+import {LayoutWrapper} from "widgets/main-layout";
+import SecondaryButton from 'shared/ui/Button/SecondaryButton';
+import SectionHeader from '../SectionHeader';
+import RecentImage1 from './presets/recent_post1.jpg';
+import RecentImage2 from './presets/recent_post2.jpg';
+import RecentImage3 from './presets/recent_post3.jpg';
 import {
   StyledCard,
   StyledPostsContainer,
@@ -14,15 +21,7 @@ import {
   StyledCardMedia,
   StyledReadMoreButton,
   StyledCardMediaContainer,
-} from 'pages/LandingPage/LandingPageRecentPostsSection/styles';
-import VisibilityIcon from '@mui/icons-material/Visibility';
-import CommentOutlinedIcon from '@mui/icons-material/CommentOutlined';
-import {StyledMainLayoutWrapper} from 'pages/MainLayout/MainLayout';
-
-import RecentImage1 from './presets/recent_post1.jpg';
-import RecentImage2 from './presets/recent_post2.jpg';
-import RecentImage3 from './presets/recent_post3.jpg';
-import SecondaryButton from 'shared/ui/Button/SecondaryButton';
+} from './styles';
 
 const posts = [
   {
@@ -54,9 +53,9 @@ const posts = [
   },
 ];
 
-const Index = () => (
-  <StyledMainLayoutWrapper>
-    <LandingPageSectionHeader title="Recent posts" subtitle="Our Blog" />
+const LandingPageRecentPostsSection = () => (
+  <LayoutWrapper>
+    <SectionHeader title="Recent posts" subtitle="Our Blog" />
     <StyledPostsContainer>
       {posts.map((p) => (
         <StyledCard key={p.id}>
@@ -95,7 +94,7 @@ const Index = () => (
     <StyledButtonContainer>
       <SecondaryButton title="Read more" size="small" />
     </StyledButtonContainer>
-  </StyledMainLayoutWrapper>
+  </LayoutWrapper>
 );
 
-export default Index;
+export default LandingPageRecentPostsSection;

@@ -1,4 +1,4 @@
-import {useContext, useMemo, useState} from 'react';
+import {useContext, useMemo} from 'react';
 import {useLocation} from 'react-router-dom';
 import {Typography} from '@mui/material';
 import PrimaryButton from 'shared/ui/Button/PrimaryButton';
@@ -8,13 +8,13 @@ import Utils from 'shared/core/services/Utils';
 
 interface IProps {
   submitCart: () => void;
+  submitting: boolean;
 }
 
-const CartSubmit = ({submitCart}: IProps) => {
+const CartSubmit = ({submitCart, submitting}: IProps) => {
   const location = useLocation();
   const {user} = useContext<IAppContext>(AppContext);
   const loginUrl = useMemo(() => `${AppRoutes.LOGIN.url}${Utils.getNextUrlString(location)}`, [location]);
-  const [submitting, setSubmitting] = useState(false);
 
   if (user) {
     return <PrimaryButton title="Checkout" onClick={submitCart} disabled={submitting} />;

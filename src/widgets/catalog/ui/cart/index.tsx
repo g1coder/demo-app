@@ -5,11 +5,11 @@ import IBaseProduct from 'shared/model/IBaseProduct';
 import useData from 'shared/lib/hooks/useData';
 import Spinner from 'shared/ui/Spinner';
 
-import CartSummary from 'entities/cart/ui/cart-summary';
-import CartList from 'entities/cart/ui/cart-list';
 import {CartSubmit} from 'features';
-import {getCartDetails} from '../api/service';
-import CartStore from '../api/store';
+import {CartSummary, CartList} from 'entities/cart';
+import {getCartDetails} from '../../api/CartService';
+import CartStore from '../../store/CartStore';
+
 import {StyledContainer} from './styles';
 
 const Cart = observer(() => {
@@ -67,7 +67,7 @@ const Cart = observer(() => {
           totalPrice={totalPrice}
           shipping={shipping}
           taxes={taxes}
-          submitButton={<CartSubmit submitCart={handleSubmitCart} />}
+          submitButton={<CartSubmit submitCart={handleSubmitCart} submitting={submitting} />}
         />
       </Grid>
     </StyledContainer>

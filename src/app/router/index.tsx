@@ -5,16 +5,18 @@ import AppRoutes from 'shared/constants/AppRoutes';
 import PageNotFound from 'pages/PageNotFound';
 import ErrorPage from 'pages/ErrorPage';
 import LandingPage from 'pages/LandingPage';
-import {MainLayout, CatalogLayout} from 'widgets';
-import CatalogPage from 'pages/catalog/pages/CatalogPage';
-import CartPage from 'pages/catalog/pages/CartPage/CartPage';
+import {MainLayout} from 'widgets/main-layout';
+import {CatalogLayout} from 'widgets/catalog';
+import CatalogPage from 'pages/CatalogPage';
+import Cart from 'pages/CartPage';
+import LayoutWrapper from "../../widgets/main-layout/ui/layout-wrapper";
 
 const ContactsPage = lazy(() => import('pages/ContactsPage'));
 const AboutPage = lazy(() => import('pages/AboutPage'));
 const LoginPage = lazy(() => import('pages/LoginPage'));
 const SignupPage = lazy(() => import('pages/SignupPage'));
 
-const Index = createBrowserRouter(
+const AppRouter = createBrowserRouter(
   createRoutesFromElements([
     <Route
       path="/"
@@ -44,7 +46,9 @@ const Index = createBrowserRouter(
           path={AppRoutes.CATALOG.path}
           element={
             <Suspense>
-              <CatalogLayout />
+              <LayoutWrapper>
+                <CatalogLayout />
+              </LayoutWrapper>
             </Suspense>
           }
           children={[
@@ -62,7 +66,7 @@ const Index = createBrowserRouter(
               path={AppRoutes.CART.path}
               element={
                 <Suspense>
-                  <CartPage />
+                  <Cart />
                 </Suspense>
               }
             />,
@@ -93,4 +97,4 @@ const Index = createBrowserRouter(
   ])
 );
 
-export default Index;
+export default AppRouter;

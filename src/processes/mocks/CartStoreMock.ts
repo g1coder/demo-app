@@ -1,7 +1,7 @@
-import {Store} from 'widgets/cart/api/store';
+import {CartStore} from 'widgets/catalog/store/CartStore';
 
-const getCartStoreMock = (initial?: {products?: typeof Store.prototype.products}) => {
-  const cartStoreMock = new Store();
+const getCartStoreMock = (initial?: {products?: typeof CartStore.prototype.products}) => {
+  const cartStoreMock = new CartStore();
   if (initial?.products) {
     cartStoreMock.products = initial.products;
   }

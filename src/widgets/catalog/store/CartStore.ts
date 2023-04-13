@@ -1,10 +1,10 @@
 import {observable, action, computed, makeAutoObservable, runInAction, configure} from 'mobx';
 import IBaseProduct from 'shared/model/IBaseProduct';
-import {getCart, updateCart, submitOrder} from './service';
+import {getCart, updateCart, submitOrder} from '../api/CartService';
 
 configure({enforceActions: 'observed'});
 
-export class Store {
+export class CartStore {
   @observable products: Map<string, number> = new Map([]);
   @observable totalPrice: number = 0;
 
@@ -57,4 +57,4 @@ export class Store {
   }
 }
 
-export default new Store();
+export default new CartStore();

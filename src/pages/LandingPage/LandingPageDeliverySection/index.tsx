@@ -1,7 +1,8 @@
 import {useCallback} from 'react';
 import {Typography} from '@mui/material';
 import SecondaryButton from 'shared/ui/Button/SecondaryButton';
-import {DeliveryOrder, LayoutWrapper} from 'widgets';
+import {DeliveryOrder} from 'widgets/delivery';
+import {LayoutWrapper} from "widgets/main-layout";
 import ManImage from './presets/delivery-man.png';
 import {
   StyledConditions,
@@ -9,9 +10,9 @@ import {
   StyledInnerContainer,
   StyledTimeInfo,
   StyledWaterSeparatorImage,
-} from 'pages/LandingPage/LandingPageDeliverySection/styles';
+} from './styles';
 
-const Index = () => {
+const LandingPageDeliverySection = () => {
   const handleReadMore = useCallback(() => {}, []);
 
   return (
@@ -42,4 +43,4 @@ const Index = () => {
   );
 };
 
-export default Index;
+export default LandingPageDeliverySection;

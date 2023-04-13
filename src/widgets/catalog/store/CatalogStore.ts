@@ -1,5 +1,5 @@
 import {action, computed, makeAutoObservable, observable, runInAction} from 'mobx';
-import CatalogService from 'pages/catalog/services/CatalogService';
+import {getFavoriteIds, toggleFavorites} from "../api/CatalogService";
 
 class CatalogStore {
   @observable private _favorite: Array<string> = [];
@@ -9,7 +9,7 @@ class CatalogStore {
   }
 
   @action fetchFavoriteIds() {
-    return CatalogService.getFavoriteIds().then((response) => {
+    return getFavoriteIds().then((response) => {
       runInAction(() => {
         this._favorite = response;
       });
@@ -18,7 +18,7 @@ class CatalogStore {
 
   @action toggleFavorites(id: string) {
     const mode = this._favorite.includes(id) ? 'remove' : 'add';
-    return CatalogService.toggleFavorites(id, mode).then((response) => {
+    return toggleFavorites(id, mode).then((response) => {
       runInAction(() => {
         this._favorite = response;
       });

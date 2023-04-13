@@ -1,6 +1,17 @@
 import {useReducer} from 'react';
 import {useTransition} from '@react-spring/web';
 import useScrollTop from 'shared/lib/hooks/useScrollTop';
+import {LayoutWrapper} from "widgets/main-layout";
+import ArrowUpwardOutlinedIcon from '@mui/icons-material/ArrowUpwardOutlined';
+
+import BottleImage from '../presets/slider-dark-bottle.png';
+import SlideIcon1 from './presets/mountain1.jpg';
+import SlideIcon2 from './presets/mountain2.jpg';
+import SlideIcon3 from './presets/mountain3.jpg';
+import SlideIcon4 from './presets/mountain4.jpg';
+import AppRoutes from 'shared/constants/AppRoutes';
+import SecondaryButton from 'shared/ui/Button/SecondaryButton';
+import PrimaryButton from 'shared/ui/Button/PrimaryButton';
 import {
   StyledInnerFirstTypography,
   StyledInnerSecondTypography,
@@ -12,22 +23,11 @@ import {
   StyledSliderContainer,
   StyledTextContainer,
   StyledScrollTopButton,
-} from 'pages/LandingPage/LandingPageMainSection/styles';
-import BottleImage from 'pages/LandingPage/LandingPageMainSection/presets/slider-dark-bottle.png';
-import ArrowUpwardOutlinedIcon from '@mui/icons-material/ArrowUpwardOutlined';
-import {StyledMainLayoutWrapper} from 'pages/MainLayout/MainLayout';
-
-import SlideIcon1 from './presets/mountain1.jpg';
-import SlideIcon2 from './presets/mountain2.jpg';
-import SlideIcon3 from './presets/mountain3.jpg';
-import SlideIcon4 from './presets/mountain4.jpg';
-import AppRoutes from 'shared/constants/AppRoutes';
-import SecondaryButton from 'shared/ui/Button/SecondaryButton';
-import PrimaryButton from 'shared/ui/Button/PrimaryButton';
+} from './styles';
 
 const icons = [SlideIcon1, SlideIcon2, SlideIcon3, SlideIcon4];
 
-const Index = () => {
+const LandingPageMainSection = () => {
   const [index, setIndex] = useReducer((state) => (state + 1) % icons.length, 1);
   const transitions = useTransition(index, {
     key: index,
@@ -45,7 +45,7 @@ const Index = () => {
   const {targetRef, isTargetHidden, onScroll} = useScrollTop();
 
   return (
-    <StyledMainLayoutWrapper ref={targetRef}>
+    <LayoutWrapper ref={targetRef}>
       <StyledSectionContainer>
         <StyledSliderContainer>
           {transitions((style, i) => (
@@ -74,8 +74,8 @@ const Index = () => {
       <StyledScrollTopButton isVisible={isTargetHidden} onClick={onScroll}>
         <ArrowUpwardOutlinedIcon />
       </StyledScrollTopButton>
-    </StyledMainLayoutWrapper>
+    </LayoutWrapper>
   );
 };
 
-export default Index;
+export default LandingPageMainSection;

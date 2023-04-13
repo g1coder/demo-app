@@ -3,6 +3,7 @@ import Spinner from 'shared/ui/Spinner';
 import IBaseProduct from 'shared/model/IBaseProduct';
 import CartListItem from './cart-list-item';
 import {StyledHeader} from './styles';
+import {memo} from "react";
 
 interface IProps {
   items: Array<{product: IBaseProduct; count: number}>;
@@ -33,4 +34,4 @@ const CartList = ({items, loading}: IProps) => {
     </Grid>
   );
 };
-export default CartList;
+export default memo(CartList);

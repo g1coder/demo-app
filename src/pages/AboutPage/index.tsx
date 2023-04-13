@@ -1,7 +1,9 @@
 import {Typography, Grid} from '@mui/material';
 import {styled} from '@mui/material/styles';
 import {LANDING_PAGE_HEADER_HEIGHT} from 'shared/constants';
+import {LayoutWrapper} from 'widgets/main-layout';
 import SecondaryButton from 'shared/ui/Button/SecondaryButton';
+import AppRoutes from 'shared/constants/AppRoutes';
 
 import AboutPicture from './about-us.jpg';
 import ItemIcon1 from 'pages/LandingPage/LandingPageAboutSection/presets/icon-blue-1.png';
@@ -11,9 +13,7 @@ import ItemIcon4 from 'pages/LandingPage/LandingPageAboutSection/presets/icon-bl
 import GlassPicture from './mineral-glass-square.png';
 import {StyledSectionTextImageItem} from 'pages/LandingPage/LandingPageAboutSection/styles';
 import MineralDetails from 'pages/LandingPage/LandingPageMineralDetailsSection/MineralDetails';
-import LandingPageSectionHeader from 'pages/LandingPage/SectionHeader';
-import AppRoutes from 'shared/constants/AppRoutes';
-import {LayoutWrapper} from 'widgets';
+import SectionHeader from "../LandingPage/SectionHeader";
 
 const itemNames = [
   {name: 'Full Controll', icon: ItemIcon1},
@@ -134,7 +134,7 @@ const Index = () => {
       </StyledAnimatedGrid>
 
       <StyledGlassSection>
-        <LandingPageSectionHeader title="Mineral composition" subtitle="What inside" dark />
+        <SectionHeader title="Mineral composition" subtitle="What inside" dark />
         <MineralDetails dark>
           <StyledGlassPicture src={GlassPicture} />
         </MineralDetails>

@@ -1,8 +1,8 @@
 import {fireEvent, render} from '@testing-library/react';
 import {screen} from '@testing-library/dom';
-import CartPage from 'pages/catalog/pages/CartPage/CartPage';
 import IBaseProduct from 'shared/model/IBaseProduct';
-import CartService from 'widgets/cart/api/service';
+import Cart from '../ui/cart';
+import * as CartService from '../api/CartService';
 
 const mockProduct = {
   id: 'uid1',
@@ -20,7 +20,7 @@ describe('CartPage', () => {
   });
 
   it('should show message if there is no items', async () => {
-    render(<CartPage />);
+    render(<Cart />);
     await screen.findByText('No products in cart');
   });
 
@@ -28,7 +28,7 @@ describe('CartPage', () => {
     const submitOrderMock = jest.spyOn(CartService, 'submitOrder');
 
     cartDetails = [{product: mockProduct, count: 3}];
-    render(<CartPage />);
+    render(<Cart />);
     await screen.findByText(mockProduct.name);
     screen.getByText('Product');
     screen.getByText('Price');

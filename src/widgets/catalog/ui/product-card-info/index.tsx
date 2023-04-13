@@ -1,6 +1,6 @@
 import {memo, useCallback, useState} from 'react';
 import IBaseProduct from 'shared/model/IBaseProduct';
-import {ProductCard, ProductPrice} from 'entities';
+import {ProductCard, ProductPrice} from 'entities/product';
 import {ProductChangeFavorite, ProductChangeCount} from 'features';
 import {StyledContainer} from './styles';
 
@@ -20,12 +20,12 @@ const ProductCardInfo = ({product, orderedCount, isFavorite, toggleFavorites, in
   const handleIncrease = useCallback(() => {
     setPending(true);
     return increase(product).finally(() => setPending(false));
-  }, [product]);
+  }, [product, increase]);
 
   const handleDecrease = useCallback(() => {
     setPending(true);
     return decrease(product).finally(() => setPending(false));
-  }, [product]);
+  }, [product, decrease]);
 
   const handleClickOnFavorite = useCallback(() => {
     if (favoritePending) Promise.resolve();

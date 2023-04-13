@@ -1,14 +1,14 @@
-import LandingPageSectionHeader from 'pages/LandingPage/SectionHeader';
-import {StyledSectionContainer, StyledBottleContainer, StyledBottleBg} from 'pages/LandingPage/LandingPageMineralDetailsSection/styles';
-import MineralDetails from 'pages/LandingPage/LandingPageMineralDetailsSection/MineralDetails';
+import {LayoutWrapper} from "widgets/main-layout";
+import MineralDetails from './MineralDetails';
+import SectionHeader from '../SectionHeader';
 import BottleDark from './bottle-dark-3.png';
-import {LayoutWrapper} from 'widgets';
+import {StyledSectionContainer, StyledBottleContainer, StyledBottleBg} from './styles';
 
-const Index = () => {
+const LandingPageMineralDetailsSection = () => {
   return (
     <StyledSectionContainer>
       <LayoutWrapper>
-        <LandingPageSectionHeader title="Mineral composition" subtitle="What inside" />
+        <SectionHeader title="Mineral composition" subtitle="What inside" />
         <MineralDetails>
           <>
             <StyledBottleBg src={BottleDark} alt="bottle bg" />
@@ -20,4 +20,4 @@ const Index = () => {
   );
 };
 
-export default Index;
+export default LandingPageMineralDetailsSection;

@@ -1,4 +1,15 @@
 import {useReducer} from 'react';
+import {Typography} from '@mui/material';
+import AppRoutes from 'shared/constants/AppRoutes';
+import SecondaryButton from 'shared/ui/Button/SecondaryButton';
+import {LayoutWrapper} from 'widgets/main-layout';
+import SectionHeader from '../SectionHeader';
+
+import VideoMockImage from './presets/video-mock.png';
+import ItemIcon1 from './presets/icon-blue-1.png';
+import ItemIcon2 from './presets/icon-blue-2.png';
+import ItemIcon3 from './presets/icon-blue-3.png';
+import ItemIcon4 from './presets/icon-blue-4.png';
 import {
   StyledAboutInfoContainer,
   StyledAboutInfoText,
@@ -8,18 +19,7 @@ import {
   StyledSectionContainer,
   StyledTextImageContainer,
   StyledSectionTextImageItem,
-} from 'pages/LandingPage/LandingPageAboutSection/styles';
-import {Typography} from '@mui/material';
-import LandingPageSectionHeader from 'pages/LandingPage/SectionHeader';
-import SecondaryButton from 'shared/ui/Button/SecondaryButton';
-
-import VideoMockImage from './presets/video-mock.png';
-import ItemIcon1 from './presets/icon-blue-1.png';
-import ItemIcon2 from './presets/icon-blue-2.png';
-import ItemIcon3 from './presets/icon-blue-3.png';
-import ItemIcon4 from './presets/icon-blue-4.png';
-import AppRoutes from 'shared/constants/AppRoutes';
-import {LayoutWrapper} from 'widgets';
+} from './styles';
 
 const itemNames = [
   {name: 'Full Controll', icon: ItemIcon1},
@@ -28,13 +28,13 @@ const itemNames = [
   {name: 'Quality certificates', icon: ItemIcon4},
 ];
 
-const Index = () => {
+const LandingPageAboutSection = () => {
   const [playVideo, startVideo] = useReducer(() => true, false);
 
   return (
     <LayoutWrapper>
       <StyledSectionContainer>
-        <LandingPageSectionHeader title="About Aquaterias" subtitle="Water Skills" />
+        <SectionHeader title="About Aquaterias" subtitle="Water Skills" />
 
         <StyledAboutInfoContainer>
           <StyledAboutInfoText>
@@ -90,4 +90,4 @@ const Index = () => {
   );
 };
 
-export default Index;
+export default LandingPageAboutSection;

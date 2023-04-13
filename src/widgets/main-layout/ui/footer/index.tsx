@@ -1,13 +1,13 @@
 import AppRoutes from 'shared/constants/AppRoutes';
 import AppLogo from 'pages/LandingPage/presets/header-logo.png';
 import {Typography} from '@mui/material';
-import {StyledWrapper} from '../styles';
 import {StyledContainer, StyledAboutContainer, StyledButtonContainer, StyledAboutInfoContainer} from './styles';
+import LayoutWrapper from '../layout-wrapper';
 
 const Footer = () => {
   return (
     <StyledContainer>
-      <StyledWrapper>
+      <LayoutWrapper>
         <StyledAboutContainer>
           <a href={AppRoutes.LANDING_PAGE.url}>
             <img src={AppLogo} alt="company-logo" />
@@ -18,7 +18,7 @@ const Footer = () => {
           </Typography>
           <StyledButtonContainer />
         </StyledAboutContainer>
-      </StyledWrapper>
+      </LayoutWrapper>
       <StyledAboutInfoContainer>
         <Typography variant="body2" component="a" href="https://github.com/g1coder" target="_blank">
           vsl

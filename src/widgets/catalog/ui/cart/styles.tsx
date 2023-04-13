@@ -1,6 +1,5 @@
 import {styled} from '@mui/material/styles';
-import {Divider, Grid, GridProps, Typography} from '@mui/material';
-import IBaseProduct from 'shared/model/IBaseProduct';
+import {Grid, GridProps, Typography} from '@mui/material';
 
 export const StyledContainer = styled('section')(({theme: {spacing}}) => ({
   padding: spacing(4, 0),

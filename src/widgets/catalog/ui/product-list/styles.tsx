@@ -1,7 +1,7 @@
-import {styled} from '@mui/material/styles';
-import {Typography} from '@mui/material';
+import {styled} from "@mui/material/styles";
+import {Typography} from "@mui/material";
 
-export const StyledRoot = styled('div')(({theme: {breakpoints}}) => ({
+export const StyledContainer = styled('div')(({theme: {breakpoints}}) => ({
   position: 'relative',
   display: 'flex',
   flexDirection: 'column',
@@ -15,13 +15,7 @@ export const StyledFiltersContainer = styled('div')({
   minWidth: 320,
 });
 
-export const StyledMetaTitle = styled(Typography)({
-  position: 'absolute',
-  top: 0,
-  left: 16,
-});
-
-export const StyledCardsContainer = styled('div')(({theme: {spacing, breakpoints}}) => ({
+export const StyledCardContainer = styled('div')(({theme: {spacing, breakpoints}}) => ({
   display: 'flex',
   flexFlow: 'row wrap',
   width: '100%',
@@ -44,3 +38,9 @@ export const StyledCardsContainer = styled('div')(({theme: {spacing, breakpoints
     },
   },
 }));
+
+export const StyledTitle = styled(Typography)({
+  position: 'absolute',
+  top: 0,
+  left: 16,
+});

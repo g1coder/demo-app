@@ -1,4 +1,4 @@
-import {ReactNode} from 'react';
+import {memo, ReactNode} from 'react';
 import {Divider, Grid, Paper, Typography} from '@mui/material';
 import {StyledHeader, StyledSubheader} from './styles';
 
@@ -80,4 +80,4 @@ const CartSummary = ({totalPrice, shipping, taxes, submitButton}: IProps) => {
   );
 };
 
-export default CartSummary;
+export default memo(CartSummary);

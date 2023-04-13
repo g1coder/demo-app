@@ -1,4 +1,4 @@
-import {Login} from 'widgets';
+import Login from 'widgets/login';
 import {StyledContainer, StyledInnerContainer, StyledImageDecorator} from './styles';
 
 const LoginPage = () => {
