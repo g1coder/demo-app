@@ -1,8 +1,8 @@
 import {useCallback} from 'react';
 import {Typography} from '@mui/material';
-import SecondaryButton from 'shared/ui/Button/SecondaryButton';
-import {DeliveryOrder} from 'widgets/delivery';
-import {LayoutWrapper} from "widgets/main-layout";
+import SecondaryButton from '@shared/ui/Button/SecondaryButton';
+import {DeliveryOrder} from '@widgets/delivery';
+import {LayoutWrapper} from '@widgets/main-layout';
 import ManImage from './presets/delivery-man.png';
 import {
   StyledConditions,

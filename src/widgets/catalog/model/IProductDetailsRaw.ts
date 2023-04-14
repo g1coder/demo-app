@@ -1,4 +1,4 @@
-import IProductRaw from 'shared/model/IProductRaw';
+import IProductRaw from './IProductRaw';
 
 interface IProductDetailsRaw extends IProductRaw {}
 

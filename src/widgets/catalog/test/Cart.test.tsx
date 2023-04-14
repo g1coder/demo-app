@@ -1,6 +1,6 @@
 import {fireEvent, render} from '@testing-library/react';
 import {screen} from '@testing-library/dom';
-import IBaseProduct from 'shared/model/IBaseProduct';
+import IBaseProduct from '@entities/catalog/model/IBaseProduct';
 import Cart from '../ui/cart';
 import * as CartService from '../api/CartService';
 

@@ -1,5 +1,5 @@
-import AppRoutes from 'shared/constants/AppRoutes';
-import AppLogo from 'pages/LandingPage/presets/header-logo.png';
+import AppRoutes from '@shared/constants/AppRoutes';
+import AppLogo from '@shared/assets/header-logo.png';
 import {Typography} from '@mui/material';
 import {StyledContainer, StyledAboutContainer, StyledButtonContainer, StyledAboutInfoContainer} from './styles';
 import LayoutWrapper from '../layout-wrapper';

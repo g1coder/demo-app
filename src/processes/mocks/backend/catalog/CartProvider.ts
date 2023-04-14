@@ -1,4 +1,4 @@
-import ProductDTO from 'processes/mocks/backend/catalog/models/ProductDTO';
+import ProductDTO from '@processes/mocks/backend/catalog/models/ProductDTO';
 
 class CartProvider {
   products: {[key: string]: number} = {};

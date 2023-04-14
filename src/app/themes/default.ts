@@ -1,6 +1,6 @@
-import _ from 'lodash';
-import {Theme, ThemeOptions} from '@mui/material/styles';
 import {createTheme} from '@mui/material';
+import {Theme, ThemeOptions} from '@mui/material/styles';
+import _ from 'lodash';
 
 /**
  *

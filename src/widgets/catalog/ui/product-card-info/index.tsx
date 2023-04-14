@@ -1,8 +1,8 @@
 import {memo, useCallback, useState} from 'react';
-import IBaseProduct from 'shared/model/IBaseProduct';
-import {ProductCard, ProductPrice} from 'entities/product';
-import {ProductChangeFavorite, ProductChangeCount} from 'features';
-import {StyledContainer} from './styles';
+import IBaseProduct from '@entities/catalog/model/IBaseProduct';
+import {ProductCard, ProductPrice} from '@entities/catalog';
+import {ProductChangeFavorite, ProductChangeCount} from '@features/catalog';
+import {StyledSaleMark} from './styles';
 
 interface IProps {
   product: IBaseProduct;
@@ -34,21 +34,20 @@ const ProductCardInfo = ({product, orderedCount, isFavorite, toggleFavorites, in
   }, [favoritePending, product.id, toggleFavorites]);
 
   return (
-    <StyledContainer>
-      <ProductCard
-        product={product}
-        favoriteEl={<ProductChangeFavorite isFavorite={!!isFavorite} toggleFavorite={handleClickOnFavorite} />}
-        priceShowingEl={<ProductPrice price={product.price} discount={product.discount} />}
-        priceChangingEl={
-          <ProductChangeCount
-            orderedCount={orderedCount}
-            increase={handleIncrease}
-            decrease={handleDecrease}
-            loading={pending}
-          />
-        }
-      />
-    </StyledContainer>
+    <ProductCard
+      product={product}
+      favoriteEl={<ProductChangeFavorite isFavorite={!!isFavorite} toggleFavorite={handleClickOnFavorite} />}
+      priceShowingEl={<ProductPrice price={product.price} discount={product.discount} />}
+      priceChangingEl={
+        <ProductChangeCount
+          orderedCount={orderedCount}
+          increase={handleIncrease}
+          decrease={handleDecrease}
+          loading={pending}
+        />
+      }
+      saleMarkEl={product.discount ? <StyledSaleMark /> : undefined}
+    />
   );
 };
 

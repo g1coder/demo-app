@@ -19,7 +19,7 @@ interface IAppRouteConfig {
 type AppRoutesType = {[T in keyof typeof RouteNames]: IAppRouteConfig};
 
 const AppRoutes: AppRoutesType = {
-  [RouteNames.LOGIN]: {key: 'login', path: 'login', url: 'login'},
+  [RouteNames.LOGIN]: {key: 'login', path: 'login', url: '/login'},
   [RouteNames.SIGNUP]: {key: 'signup', path: 'signup', url: 'signup'},
   [RouteNames.PROFILE]: {key: 'profile', path: 'profile', url: 'profile', name: 'Profile'},
 

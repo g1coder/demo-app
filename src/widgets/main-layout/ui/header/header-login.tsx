@@ -3,17 +3,13 @@ import {Link, useNavigate} from 'react-router-dom';
 import {styled} from '@mui/material/styles';
 import LoginIcon from '@mui/icons-material/Login';
 import LogoutIcon from '@mui/icons-material/Logout';
-import SecondaryButton from 'shared/ui/Button/SecondaryButton';
+import SecondaryButton from '@shared/ui/Button/SecondaryButton';
 import {Typography} from '@mui/material';
-import AppRoutes from 'shared/constants/AppRoutes';
-import AppContext, {IAppContext} from 'shared/lib/AppContext';
+import AppRoutes from '@shared/constants/AppRoutes';
+import {AuthContext, IAuthContext} from "../../../auth/lib/AuthProvider";
 
 const TABLET_MODE = 'lg';
 const DESKTOP_MODE = 'xl';
-
-interface IProps {
-  inDrawer?: boolean;
-}
 
 const StyledMobileContainer = styled('div')(({theme: {palette, spacing}}) => ({
   position: 'absolute',
@@ -54,9 +50,13 @@ const StyledLoggedContainer = styled('div')({
   display: 'flex',
 });
 
+interface IProps {
+  inDrawer?: boolean;
+}
+
 const HeaderLogin = ({inDrawer}: IProps) => {
   const navigate = useNavigate();
-  const {user: loggedUser, logout} = useContext<IAppContext>(AppContext);
+  const {user: loggedUser, logout} = useContext<IAuthContext>(AuthContext);
 
   const handleOnClick = useCallback(() => {
     navigate(AppRoutes.LOGIN.url);

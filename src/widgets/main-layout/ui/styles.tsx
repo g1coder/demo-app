@@ -1,6 +1,6 @@
 import {styled} from '@mui/material/styles';
 import Box from '@mui/material/Box';
-import {LANDING_PAGE_HEADER_HEIGHT} from 'shared/constants';
+import {LANDING_PAGE_HEADER_HEIGHT} from '@shared/constants';
 
 export const StyledContainer = styled(Box)(({theme: {palette}}) => ({
   position: 'relative',

@@ -1,4 +1,4 @@
-import {ProductList} from 'widgets/catalog';
+import {ProductList} from '@widgets/catalog';
 
 const CatalogPage = () => {
   return <ProductList />;

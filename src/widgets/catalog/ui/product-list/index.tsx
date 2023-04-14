@@ -2,10 +2,10 @@ import {useMemo, useState} from 'react';
 import {observer} from 'mobx-react-lite';
 import {Grid} from '@mui/material';
 
-import useData from 'shared/lib/hooks/useData';
-import IBaseProduct from 'shared/model/IBaseProduct';
-import Spinner from 'shared/ui/Spinner';
-import List from 'shared/core/models/List';
+import useData from '@shared/lib/hooks/useData';
+import IBaseProduct from '@entities/catalog/model/IBaseProduct';
+import Spinner from '@shared/ui/Spinner';
+import List from '@shared/models/List';
 import CatalogStore from '../../store/CatalogStore';
 import CartStore from '../../store/CartStore';
 import {getList} from '../../api/CatalogService';

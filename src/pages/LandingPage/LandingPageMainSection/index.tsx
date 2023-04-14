@@ -1,7 +1,7 @@
 import {useReducer} from 'react';
 import {useTransition} from '@react-spring/web';
-import useScrollTop from 'shared/lib/hooks/useScrollTop';
-import {LayoutWrapper} from "widgets/main-layout";
+import useScrollTop from '@shared/lib/hooks/useScrollTop';
+import {LayoutWrapper} from '@widgets/main-layout';
 import ArrowUpwardOutlinedIcon from '@mui/icons-material/ArrowUpwardOutlined';
 
 import BottleImage from '../presets/slider-dark-bottle.png';
@@ -9,9 +9,9 @@ import SlideIcon1 from './presets/mountain1.jpg';
 import SlideIcon2 from './presets/mountain2.jpg';
 import SlideIcon3 from './presets/mountain3.jpg';
 import SlideIcon4 from './presets/mountain4.jpg';
-import AppRoutes from 'shared/constants/AppRoutes';
-import SecondaryButton from 'shared/ui/Button/SecondaryButton';
-import PrimaryButton from 'shared/ui/Button/PrimaryButton';
+import AppRoutes from '@shared/constants/AppRoutes';
+import SecondaryButton from '@shared/ui/Button/SecondaryButton';
+import PrimaryButton from '@shared/ui/Button/PrimaryButton';
 import {
   StyledInnerFirstTypography,
   StyledInnerSecondTypography,

@@ -1,20 +1,22 @@
-import {useCallback, useState} from 'react';
+import {useCallback, useContext, useState} from 'react';
 import {observer} from 'mobx-react-lite';
 import {Grid, Typography} from '@mui/material';
-import IBaseProduct from 'shared/model/IBaseProduct';
-import useData from 'shared/lib/hooks/useData';
-import Spinner from 'shared/ui/Spinner';
+import IBaseProduct from '@entities/catalog/model/IBaseProduct';
+import useData from '@shared/lib/hooks/useData';
+import Spinner from '@shared/ui/Spinner';
 
-import {CartSubmit} from 'features';
-import {CartSummary, CartList} from 'entities/cart';
+import {CartSubmit} from '@features/catalog';
+import {CartSummary, CartList} from '@entities/catalog';
 import {getCartDetails} from '../../api/CartService';
 import CartStore from '../../store/CartStore';
+import {AuthContext, IAuthContext} from "../../../auth/lib/AuthProvider";
 
 import {StyledContainer} from './styles';
 
 const Cart = observer(() => {
   const [successSubmitted, setSuccessSubmitted] = useState(false);
   const [submitting, setSubmitting] = useState(false);
+  const {user} = useContext<IAuthContext>(AuthContext);
 
   const [{data: productPairs, ready, loading}] = useData<Array<{product: IBaseProduct; count: number}>>(
     {
@@ -67,7 +69,7 @@ const Cart = observer(() => {
           totalPrice={totalPrice}
           shipping={shipping}
           taxes={taxes}
-          submitButton={<CartSubmit submitCart={handleSubmitCart} submitting={submitting} />}
+          submitButton={<CartSubmit submitCart={handleSubmitCart} submitting={submitting} isLoggined={!!user} />}
         />
       </Grid>
     </StyledContainer>

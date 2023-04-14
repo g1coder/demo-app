@@ -1,8 +1,8 @@
 import {styled} from '@mui/material/styles';
 import {Grid, Typography} from '@mui/material';
 import BgImage from './404-bg.png';
-import PrimaryButton from 'shared/ui/Button/PrimaryButton';
-import AppRoutes from "shared/constants/AppRoutes";
+import PrimaryButton from '@shared/ui/Button/PrimaryButton';
+import AppRoutes from '@shared/constants/AppRoutes';
 
 const StyledContainer = styled('div')({
   display: 'flex',
@@ -17,7 +17,7 @@ const StyledImage = styled('img')({
   width: '100%',
 });
 
-const Index = () => (
+const PageNotFound = () => (
   <StyledContainer>
     <Grid container direction="column" alignItems="center" justifyContent="center">
       <Grid item>
@@ -47,4 +47,4 @@ const Index = () => (
   </StyledContainer>
 );
 
-export default Index;
+export default PageNotFound;

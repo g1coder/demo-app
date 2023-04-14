@@ -1,5 +1,5 @@
-import {LayoutWrapper} from "widgets/main-layout";
-import MineralDetails from './MineralDetails';
+import {LayoutWrapper} from '@widgets/main-layout';
+import {MineralDetails} from '@entities/mineral';
 import SectionHeader from '../SectionHeader';
 import BottleDark from './bottle-dark-3.png';
 import {StyledSectionContainer, StyledBottleContainer, StyledBottleBg} from './styles';

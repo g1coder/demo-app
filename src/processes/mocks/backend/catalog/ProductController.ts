@@ -1,6 +1,6 @@
 import {uniqBy, minBy, maxBy} from 'lodash';
 import {rest} from 'msw';
-import ProductProvider from 'processes/mocks/backend/catalog/ProductProvider';
+import ProductProvider from '@processes/mocks/backend/catalog/ProductProvider';
 
 const handlers = [
   rest.get(`/api/v1/catalog/products`, async (req, res, ctx) => {

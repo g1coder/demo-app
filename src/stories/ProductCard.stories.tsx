@@ -1,8 +1,7 @@
 import {ComponentStory, ComponentMeta} from '@storybook/react';
-import IBaseProduct from 'shared/model/IBaseProduct';
-import {ProductCard as Card} from 'entities/product';
+import {ProductCard as Card} from '@entities/catalog';
 
-const product: IBaseProduct = {
+const product = {
   name: 'Product 1',
   description: 'product description',
   price: 4.99,

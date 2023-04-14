@@ -1,5 +1,5 @@
 import {observable, action, computed, makeAutoObservable, runInAction, configure} from 'mobx';
-import IBaseProduct from 'shared/model/IBaseProduct';
+import IBaseProduct from '@entities/catalog/model/IBaseProduct';
 import {getCart, updateCart, submitOrder} from '../api/CartService';
 
 configure({enforceActions: 'observed'});

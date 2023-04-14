@@ -1,15 +1,15 @@
 import {useReducer} from 'react';
 import {Typography} from '@mui/material';
-import AppRoutes from 'shared/constants/AppRoutes';
-import SecondaryButton from 'shared/ui/Button/SecondaryButton';
-import {LayoutWrapper} from 'widgets/main-layout';
+import AppRoutes from '@shared/constants/AppRoutes';
+import SecondaryButton from '@shared/ui/Button/SecondaryButton';
+import {LayoutWrapper} from '@widgets/main-layout';
 import SectionHeader from '../SectionHeader';
 
 import VideoMockImage from './presets/video-mock.png';
-import ItemIcon1 from './presets/icon-blue-1.png';
-import ItemIcon2 from './presets/icon-blue-2.png';
-import ItemIcon3 from './presets/icon-blue-3.png';
-import ItemIcon4 from './presets/icon-blue-4.png';
+import ItemIcon1 from '@shared/assets/icon-blue-1.png';
+import ItemIcon2 from '@shared/assets/icon-blue-2.png';
+import ItemIcon3 from '@shared/assets/icon-blue-3.png';
+import ItemIcon4 from '@shared/assets/icon-blue-4.png';
 import {
   StyledAboutInfoContainer,
   StyledAboutInfoText,

@@ -1,10 +1,10 @@
 import {render} from '@testing-library/react';
 import {screen} from '@testing-library/dom';
-import Index from 'pages/LandingPage/index';
+import LandingPage from '../index';
 
 describe('LoginPage', () => {
   it('should render all sections', async () => {
-    render(<Index />);
+    render(<LandingPage />);
     await screen.findByText('Mineral Water');
     screen.getByText('About Aquaterias');
     screen.getByText('Delivery Service');

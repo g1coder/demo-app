@@ -1,5 +1,5 @@
 import {v4 as uuid} from 'uuid';
-import ProductDTO from 'processes/mocks/backend/catalog/models/ProductDTO';
+import ProductDTO from '@processes/mocks/backend/catalog/models/ProductDTO';
 
 const createProduct = (name, price, image, tag?, discount?) => ({
   id: uuid(),

@@ -1,4 +1,3 @@
-import {ReactNode, useMemo, useReducer} from 'react';
 import {
   ThemeProvider as MuiThemeProvider,
   CssBaseline,
@@ -6,8 +5,9 @@ import {
   responsiveFontSizes,
   useMediaQuery,
 } from '@mui/material';
-import defaultTheme from './default';
+import {ReactNode, useMemo, useReducer} from 'react';
 import {createContext} from 'use-context-selector';
+import defaultTheme from './default';
 
 interface IProps {
   children: ReactNode;

@@ -1,8 +1,8 @@
 import {useCallback} from 'react';
 import {Form} from 'react-final-form';
 import {TextField, Typography} from '@mui/material';
-import {createValidator, required, email} from 'shared/core/services/ValidationService';
-import {LayoutWrapper} from "widgets/main-layout";
+import {createValidator, required, email} from '@shared/api/services/ValidationService';
+import {LayoutWrapper} from '@widgets/main-layout';
 import {
   StyledLandingPageFooterSection,
   StyledActionContainer,

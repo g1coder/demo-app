@@ -1,7 +1,7 @@
 import {useMemo} from 'react';
 import {Avatar, Typography} from '@mui/material';
-import {LayoutWrapper} from "widgets/main-layout";
-import Swiper from 'shared/ui/Swiper';
+import {LayoutWrapper} from '@widgets/main-layout';
+import Swiper from '@shared/ui/Swiper';
 import SectionHeader from '../SectionHeader';
 import {
   StyledAvatarContainer,

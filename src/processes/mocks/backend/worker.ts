@@ -1,8 +1,8 @@
 import {concat} from 'lodash';
 import {setupWorker} from 'msw';
 import auth from './auth';
-import catalog from 'processes/mocks/backend/catalog/ProductController';
-import cart from 'processes/mocks/backend/catalog/CartController';
+import catalog from '@processes/mocks/backend/catalog/ProductController';
+import cart from '@processes/mocks/backend/catalog/CartController';
 
 // See the example here https://mswjs.io/docs/getting-started/mocks/rest-api#response-resolver
 const handlers = concat(auth, catalog, cart);

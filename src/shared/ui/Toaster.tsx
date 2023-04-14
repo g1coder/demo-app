@@ -1,7 +1,7 @@
 import {Alert, Snackbar, SnackbarProps} from '@mui/material';
 import {useCallback, useEffect, useMemo, useState} from 'react';
-import {IToast, ToastType} from 'shared/core/services/ToastService';
-import ToastService from 'shared/core/services/ToastService';
+import {IToast, ToastType} from '@shared/api/services/ToastService';
+import ToastService from '@shared/api/services/ToastService';
 
 const SHOW_DELAY = 3000;
 

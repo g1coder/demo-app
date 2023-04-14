@@ -1,6 +1,6 @@
 import {rest} from 'msw';
-import CartProvider from 'processes/mocks/backend/catalog/CartProvider';
-import ProductProvider from 'processes/mocks/backend/catalog/ProductProvider';
+import CartProvider from '@processes/mocks/backend/catalog/CartProvider';
+import ProductProvider from '@processes/mocks/backend/catalog/ProductProvider';
 
 const getTotalPrice = () => {
   const productsInCart = ProductProvider.products.filter((p) => Object.keys(CartProvider.products).includes(p.id));

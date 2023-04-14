@@ -1,1 +1,1 @@
-export {default as ContactInfo} from 'widgets/about/ui/contact-info';
+export {default as ContactInfo} from '@widgets/about/ui/contact-info';

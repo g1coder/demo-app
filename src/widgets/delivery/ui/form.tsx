@@ -1,9 +1,9 @@
 import {Form, Field} from 'react-final-form';
-import {createValidator, required} from 'shared/core/services/ValidationService';
+import {createValidator, required} from '@shared/api/services/ValidationService';
 import {FormControl, TextField} from '@mui/material';
 import {styled} from '@mui/material/styles';
-import PrimaryButton from 'shared/ui/Button/PrimaryButton';
-import Utils from 'shared/core/services/Utils';
+import PrimaryButton from '@shared/ui/Button/PrimaryButton';
+import Utils from '@shared/helpers/Utils';
 
 const StyledForm = styled('form')(({theme: {spacing}}) => ({
   maxWidth: 390,

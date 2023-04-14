@@ -1,19 +1,18 @@
 import {Typography, Grid} from '@mui/material';
 import {styled} from '@mui/material/styles';
-import {LANDING_PAGE_HEADER_HEIGHT} from 'shared/constants';
-import {LayoutWrapper} from 'widgets/main-layout';
-import SecondaryButton from 'shared/ui/Button/SecondaryButton';
-import AppRoutes from 'shared/constants/AppRoutes';
 
+import ItemIcon1 from '@shared/assets/icon-blue-1.png';
+import ItemIcon2 from '@shared/assets/icon-blue-2.png';
+import ItemIcon3 from '@shared/assets/icon-blue-3.png';
+import ItemIcon4 from '@shared/assets/icon-blue-4.png';
+import {MineralDetails} from '@entities/mineral';
+import {LayoutWrapper} from '@widgets/main-layout';
+import {LANDING_PAGE_HEADER_HEIGHT} from '@shared/constants';
+import AppRoutes from '@shared/constants/AppRoutes';
+import SecondaryButton from '@shared/ui/Button/SecondaryButton';
+import SectionHeader from '../LandingPage/SectionHeader';
 import AboutPicture from './about-us.jpg';
-import ItemIcon1 from 'pages/LandingPage/LandingPageAboutSection/presets/icon-blue-1.png';
-import ItemIcon2 from 'pages/LandingPage/LandingPageAboutSection/presets/icon-blue-2.png';
-import ItemIcon3 from 'pages/LandingPage/LandingPageAboutSection/presets/icon-blue-3.png';
-import ItemIcon4 from 'pages/LandingPage/LandingPageAboutSection/presets/icon-blue-4.png';
 import GlassPicture from './mineral-glass-square.png';
-import {StyledSectionTextImageItem} from 'pages/LandingPage/LandingPageAboutSection/styles';
-import MineralDetails from 'pages/LandingPage/LandingPageMineralDetailsSection/MineralDetails';
-import SectionHeader from "../LandingPage/SectionHeader";
 
 const itemNames = [
   {name: 'Full Controll', icon: ItemIcon1},
@@ -30,6 +29,27 @@ const getItemAnimationSettings = (delay: number) => ({
   animationDuration: `${delay}s`,
   animationIterationCount: 'infinity',
 });
+
+export const StyledSectionTextImageItem = styled('div')(({theme: {palette, breakpoints}}) => ({
+  display: 'flex',
+  flexDirection: 'column',
+  alignItems: 'center',
+  border: 'none',
+  textAlign: 'center',
+  width: '45%',
+  margin: '32px 0',
+  '& > img': {
+    height: 80,
+    marginBottom: 16,
+  },
+  [breakpoints.up('xl')]: {
+    width: '25%',
+    borderLeft: `1px solid ${palette.secondary.dark}`,
+    '&:first-of-type': {
+      border: 'none',
+    },
+  },
+}));
 
 const StyledBackground = styled('section')({
   backgroundColor: 'white',
@@ -80,7 +100,7 @@ const StyledGlassPicture = styled('img')(({theme: {breakpoints}}) => ({
   },
 }));
 
-const Index = () => {
+const AboutPage = () => {
   return (
     <LayoutWrapper>
       <StyledBackground />
@@ -143,4 +163,4 @@ const Index = () => {
   );
 };
 
-export default Index;
+export default AboutPage;

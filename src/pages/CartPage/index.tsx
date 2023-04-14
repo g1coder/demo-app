@@ -1,4 +1,4 @@
-import {Cart} from 'widgets/catalog';
+import {Cart} from '@widgets/catalog';
 import {styled} from "@mui/material/styles";
 
 export const StyledContainer = styled('section')(({theme: {spacing}}) => ({

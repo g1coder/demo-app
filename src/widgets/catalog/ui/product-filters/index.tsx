@@ -4,12 +4,12 @@ import {useSearchParams} from 'react-router-dom';
 import {styled} from '@mui/material/styles';
 import {Grid} from '@mui/material';
 
-import {PriceFilter, TagFilter} from 'features';
-import querySerializer from 'shared/core/services/QuerySerializer';
-import useData from 'shared/lib/hooks/useData';
+import {PriceFilter, TagFilter} from '@features/catalog';
+import querySerializer from '@shared/api/services/QuerySerializer';
+import useData from '@shared/lib/hooks/useData';
 import IProductParams from '../../model/IProductParams';
 import {getOptions} from '../../api/CatalogService';
-import {FilterChips} from "entities/catalog";
+import {FilterChips} from '@entities/catalog';
 
 const StyledContainer = styled('aside')(({theme: {spacing}}) => ({
   maxWidth: 360,

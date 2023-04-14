@@ -1,12 +1,12 @@
 import {useEffect} from 'react';
 import {observer} from 'mobx-react-lite';
-import AppRoutes from 'shared/constants/AppRoutes';
-import CartStore from 'widgets/catalog/store/CartStore';
-import {CartHeader} from 'entities/cart';
-import HeaderLogin from 'widgets/main-layout/ui/header/header-login';
-import HeaderNavigation from 'widgets/main-layout/ui/header/header-navigation';
-import HeaderLogo from 'widgets/main-layout/ui/header/header-logo';
-import HeaderDrawer from 'widgets/main-layout/ui/header/header-drawer';
+import AppRoutes from '@shared/constants/AppRoutes';
+import CartStore from '@widgets/catalog/store/CartStore';
+import {CartHeader} from '@entities/catalog';
+import HeaderLogin from '@widgets/main-layout/ui/header/header-login';
+import HeaderNavigation from '@widgets/main-layout/ui/header/header-navigation';
+import HeaderLogo from '@widgets/main-layout/ui/header/header-logo';
+import HeaderDrawer from '@widgets/main-layout/ui/header/header-drawer';
 import {StyledHeader, StyledLoginContainer, StyledNavContainer} from './styles';
 
 const items = [

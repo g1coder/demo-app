@@ -1,20 +1,19 @@
 import {lazy, Suspense} from 'react';
 import {Route, createBrowserRouter, createRoutesFromElements} from 'react-router-dom';
-import AppRoutes from 'shared/constants/AppRoutes';
+import ErrorPage from '@pages/ErrorPage';
+import LandingPage from '@pages/LandingPage';
+import PageNotFound from '@pages/PageNotFound';
+import CartPage from '@pages/CartPage';
+import CatalogPage from '@pages/CatalogPage';
+import {CatalogLayout} from '@widgets/catalog';
+import {MainLayout} from '@widgets/main-layout';
+import {LayoutWrapper} from '@widgets/main-layout';
+import AppRoutes from '@shared/constants/AppRoutes';
 
-import PageNotFound from 'pages/PageNotFound';
-import ErrorPage from 'pages/ErrorPage';
-import LandingPage from 'pages/LandingPage';
-import {MainLayout} from 'widgets/main-layout';
-import {CatalogLayout} from 'widgets/catalog';
-import CatalogPage from 'pages/CatalogPage';
-import Cart from 'pages/CartPage';
-import LayoutWrapper from "../../widgets/main-layout/ui/layout-wrapper";
-
-const ContactsPage = lazy(() => import('pages/ContactsPage'));
-const AboutPage = lazy(() => import('pages/AboutPage'));
-const LoginPage = lazy(() => import('pages/LoginPage'));
-const SignupPage = lazy(() => import('pages/SignupPage'));
+const ContactsPage = lazy(() => import('@pages/ContactsPage'));
+const AboutPage = lazy(() => import('@pages/AboutPage'));
+const LoginPage = lazy(() => import('@pages/LoginPage'));
+const SignupPage = lazy(() => import('@pages/SignupPage'));
 
 const AppRouter = createBrowserRouter(
   createRoutesFromElements([
@@ -43,6 +42,7 @@ const AppRouter = createBrowserRouter(
           }
         />,
         <Route
+          key={AppRoutes.CATALOG.key}
           path={AppRoutes.CATALOG.path}
           element={
             <Suspense>
@@ -66,7 +66,7 @@ const AppRouter = createBrowserRouter(
               path={AppRoutes.CART.path}
               element={
                 <Suspense>
-                  <Cart />
+                  <CartPage />
                 </Suspense>
               }
             />,

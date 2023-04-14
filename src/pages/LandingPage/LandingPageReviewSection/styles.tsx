@@ -1,7 +1,7 @@
 import {styled} from '@mui/material/styles';
 import {Paper} from '@mui/material';
 import ReviewBg from './review-section-bg.jpg';
-import SecondaryButton from 'shared/ui/Button/SecondaryButton';
+import SecondaryButton from '@shared/ui/Button/SecondaryButton';
 
 export const StyledLandingPageReviewSection = styled('div')({
   position: 'relative',
