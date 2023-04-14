@@ -1,7 +1,7 @@
 import {ReactElement} from 'react';
+import {getMineralDetails} from '../lib';
 import MineralDetailsInfoItem from './MineralDetailsItem';
 import {StyledContentColumn, StyledContentContainer} from './styles';
-import {getMineralDetails} from '../lib';
 
 const details = getMineralDetails();
 

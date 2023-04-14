@@ -66,7 +66,7 @@ const reducer = <T>(state: IState<T>, action: Action<T>) => {
 
 export interface IUseDataConfig<T = unknown | null> {
   data: T;
-  fetch: (...args: any[]) => Promise<T>;
+  fetch: (...args: unknown[]) => Promise<T>;
 }
 
 export interface IState<T> {
@@ -74,7 +74,7 @@ export interface IState<T> {
   initialData: T;
   loading: boolean;
   ready: boolean;
-  error: any | null;
+  error: unknown | null;
 }
 
 export interface ICancelablePromise<T = unknown> {
@@ -113,7 +113,7 @@ function useData<T>(config: IUseDataConfig<T>, dependencies: unknown[] = []): [I
     ready: false,
     error: null,
   };
-  const [state, dispatch] = useReducer<Reducer<IState<T>, any>>(reducer, initialState);
+  const [state, dispatch] = useReducer<Reducer<IState<T>, Action<T>>>(reducer, initialState);
 
   const fetch = useCallback(() => {
     dispatch({type: LOAD});
@@ -125,7 +125,6 @@ function useData<T>(config: IUseDataConfig<T>, dependencies: unknown[] = []): [I
       });
 
     return cancelable;
-    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, dependencies);
 
   const reset = useCallback(() => {
@@ -139,7 +138,6 @@ function useData<T>(config: IUseDataConfig<T>, dependencies: unknown[] = []): [I
   useEffect(() => {
     const cancelableFetch = fetch();
     return cancelableFetch.cancel;
-    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, dependencies);
 
   return [state, {fetch, reset, init}];

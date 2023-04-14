@@ -1,5 +1,5 @@
-import {styled} from "@mui/material/styles";
 import {Grid, GridProps, Typography} from "@mui/material";
+import {styled} from "@mui/material/styles";
 
 export const StyledHeader = styled((props: GridProps & {title: string}) => (
   <Grid item textAlign="right" {...props}>

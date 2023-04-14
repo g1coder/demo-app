@@ -36,44 +36,8 @@
     "test": "craco test",
     "eject": "craco eject",
     "storybook": "start-storybook -p 6006 -s public",
-    "build-storybook": "build-storybook -s public"
-  },
-  "homepage": ".",
-  "eslintConfig": {
-    "extends": [
-      "react-app",
-      "react-app/jest"
-    ],
-    "rules": {
-      "import/no-anonymous-default-export": [
-        2,
-        {
-          "allowObject": true
-        }
-      ]
-    },
-    "overrides": [
-      {
-        "files": [
-          "**/*.stories.*"
-        ],
-        "rules": {
-          "import/no-anonymous-default-export": "off"
-        }
-      }
-    ]
-  },
-  "browserslist": {
-    "production": [
-      ">0.2%",
-      "not dead",
-      "not op_mini all"
-    ],
-    "development": [
-      "last 1 chrome version",
-      "last 1 firefox version",
-      "last 1 safari version"
-    ]
+    "build-storybook": "build-storybook -s public",
+    "lint": "eslint --fix --ext .ts,.tsx ."
   },
   "devDependencies": {
     "@craco/craco": "^7.1.0",
@@ -95,6 +59,7 @@
     "@types/react-router-dom": "^5.3.3",
     "babel-plugin-named-exports-order": "0.0.2",
     "cross-env": "^7.0.3",
+    "eslint-plugin-prettier": "^4.2.1",
     "moxios": "^0.4.0",
     "msw": "^0.43.1",
     "prop-types": "^15.8.1",
@@ -107,6 +72,18 @@
   "jest": {
     "transformIgnorePatterns": [
       "node_modules/(?!axios)/"
+    ]
+  },
+  "browserslist": {
+    "production": [
+      ">0.2%",
+      "not dead",
+      "not op_mini all"
+    ],
+    "development": [
+      "last 1 chrome version",
+      "last 1 firefox version",
+      "last 1 safari version"
     ]
   }
 }

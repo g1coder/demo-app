@@ -1,7 +1,7 @@
 import {useEffect} from 'react';
 import {Outlet} from 'react-router-dom';
-import {StyledContainer, StyledContent} from './styles';
 import CatalogStore from '../store/CatalogStore';
+import {StyledContainer, StyledContent} from './styles';
 
 const CatalogLayout = () => {
   useEffect(() => {

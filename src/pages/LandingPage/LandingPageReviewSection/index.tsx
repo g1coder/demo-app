@@ -1,8 +1,9 @@
-import {useMemo} from 'react';
 import {Avatar, Typography} from '@mui/material';
+import {useMemo} from 'react';
 import {LayoutWrapper} from '@widgets/main-layout';
 import Swiper from '@shared/ui/Swiper';
 import SectionHeader from '../SectionHeader';
+import AvatarMock from './avatar1.jpg';
 import {
   StyledAvatarContainer,
   StyledButtonContainer,
@@ -12,33 +13,47 @@ import {
   StyledSwiperSlideContent,
   StyledSwiperSlideInnerContainer,
 } from './styles';
-import AvatarMock from './avatar1.jpg';
 
 const reviews = [
   {
     name: 'Steven Hocking',
     position: 'scientist',
-    text: 'Nullam orci dui, dictum et magna sollicitudin, tempor blandit erat. Maecenas suscipit tellus sit amet augue placerat fringilla a id lacus. Fusce tincidunt in leo lacinia condimentum. Maecenas suscipit tellus sit amet augue placerat fringilla a id lacus. Fusce tincidunt in leo lacinia condimentum.',
+    text:
+      'Nullam orci dui, dictum et magna sollicitudin, tempor blandit erat. Maecenas suscipit ' +
+      'tellus sit amet augue placerat fringilla a id lacus. Fusce tincidunt in leo lacinia condimentum. ' +
+      'Maecenas suscipit tellus sit amet augue placerat fringilla a id lacus. Fusce tincidunt in leo lacinia condimentum.',
   },
   {
     name: 'Ivan Ivanov',
     position: 'designer',
-    text: 'Nullam orci dui, dictum et magna sollicitudin, tempor blandit erat. Maecenas suscipit tellus sit amet augue placerat fringilla a id lacus. Fusce tincidunt in leo lacinia condimentum. Maecenas suscipit tellus sit amet augue placerat fringilla a id lacus. Fusce tincidunt in leo lacinia condimentum.',
+    text:
+      'Nullam orci dui, dictum et magna sollicitudin, tempor blandit erat. Maecenas suscipit ' +
+      'tellus sit amet augue placerat fringilla a id lacus. Fusce tincidunt in leo lacinia condimentum. ' +
+      'Maecenas suscipit tellus sit amet augue placerat fringilla a id lacus. Fusce tincidunt in leo lacinia condimentum.',
   },
   {
     name: 'Bill Gates',
     position: 'programmer',
-    text: 'Nullam orci dui, dictum et magna sollicitudin, tempor blandit erat. Maecenas suscipit tellus sit amet augue placerat fringilla a id lacus. Fusce tincidunt in leo lacinia condimentum. Maecenas suscipit tellus sit amet augue placerat fringilla a id lacus. Fusce tincidunt in leo lacinia condimentum.',
+    text:
+      'Nullam orci dui, dictum et magna sollicitudin, tempor blandit erat. Maecenas suscipit tellus sit' +
+      ' amet augue placerat fringilla a id lacus. Fusce tincidunt in leo lacinia condimentum. Maecenas suscipit' +
+      ' tellus sit amet augue placerat fringilla a id lacus. Fusce tincidunt in leo lacinia condimentum.',
   },
   {
     name: 'Ilon Mask',
     position: 'blogger',
-    text: 'Nullam orci dui, dictum et magna sollicitudin, tempor blandit erat. Maecenas suscipit tellus sit amet augue placerat fringilla a id lacus. Fusce tincidunt in leo lacinia condimentum. Maecenas suscipit tellus sit amet augue placerat fringilla a id lacus. Fusce tincidunt in leo lacinia condimentum.',
+    text:
+      'Nullam orci dui, dictum et magna sollicitudin, tempor blandit erat. Maecenas suscipit tellus sit ' +
+      'amet augue placerat fringilla a id lacus. Fusce tincidunt in leo lacinia condimentum. Maecenas suscipit ' +
+      'tellus sit amet augue placerat fringilla a id lacus. Fusce tincidunt in leo lacinia condimentum.',
   },
   {
     name: 'Donald Trump',
     position: 'excommunicated',
-    text: 'Nullam orci dui, dictum et magna sollicitudin, tempor blandit erat. Maecenas suscipit tellus sit amet augue placerat fringilla a id lacus. Fusce tincidunt in leo lacinia condimentum. Maecenas suscipit tellus sit amet augue placerat fringilla a id lacus. Fusce tincidunt in leo lacinia condimentum.',
+    text:
+      'Nullam orci dui, dictum et magna sollicitudin, tempor blandit erat. Maecenas suscipit tellus sit a' +
+      'met augue placerat fringilla a id lacus. Fusce tincidunt in leo lacinia condimentum. Maecenas suscipit ' +
+      'tellus sit amet augue placerat fringilla a id lacus. Fusce tincidunt in leo lacinia condimentum.',
   },
 ];
 

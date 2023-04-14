@@ -1,8 +1,8 @@
 declare module 'moxios' {
-  function install(value?: any): void;
-  function uninstall(value?: any): void;
-  function stubRequest(path?: string, value?: any): void;
-  function wait(...args: any[]): void;
+  function install(value?: unknown): void;
+  function uninstall(value?: unknown): void;
+  function stubRequest(path?: string, value?: unknown): void;
+  function wait(...args: unknown[]): void;
 
   export = {
     install,

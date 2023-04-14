@@ -1,6 +1,6 @@
 import axios, {AxiosResponse, AxiosRequestConfig, AxiosError} from 'axios';
-import List from '../../models/List';
 import ICredential from "../../model/ICredential";
+import List from '../../models/List';
 
 const TOTAL_COUNT_HEADER = 'x-total-count';
 export const ACCESS_TOKEN_NAME = 'accessToken';
@@ -21,10 +21,10 @@ const transformResponse = (response: AxiosResponse): AxiosResponse['data'] => {
 };
 
 const proxy = (func: (url: string, config?: AxiosRequestConfig) => Promise<AxiosResponse>) => {
-  return async <T = any>(url: string, data?: AxiosRequestConfig['data'], preventRefresh?: boolean): Promise<T> => {
+  return async <T = unknown>(url: string, data?: AxiosRequestConfig['data'], preventRefresh?: boolean): Promise<T> => {
     try {
       return transformResponse(await func(url, data));
-    } catch (error: any) {
+    } catch (error: unknown) {
       if (!preventRefresh && (error as AxiosError).request.status === 401) {
         await tryRefreshToken();
         return transformResponse(await func(url, data));

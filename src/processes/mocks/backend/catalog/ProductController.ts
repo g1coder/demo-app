@@ -37,13 +37,13 @@ const handlers = [
   }),
 
   rest.post('/api/v1/catalog/products/favorites/add', async (req, res, ctx) => {
-    const {id} = req.body as any;
-    return res(ctx.status(201), ctx.delay(300), ctx.json(ProductProvider.toggleFavorites(id, 'add')));
+    const {id} = req.body as Record<string, unknown>;
+    return res(ctx.status(201), ctx.delay(300), ctx.json(ProductProvider.toggleFavorites(id as string, 'add')));
   }),
 
   rest.post('/api/v1/catalog/products/favorites/remove', async (req, res, ctx) => {
-    const {id} = req.body as any;
-    return res(ctx.status(201), ctx.delay(300), ctx.json(ProductProvider.toggleFavorites(id, 'remove')));
+    const {id} = req.body as Record<string, unknown>;
+    return res(ctx.status(201), ctx.delay(300), ctx.json(ProductProvider.toggleFavorites(id as string, 'remove')));
   }),
 ];
 

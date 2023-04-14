@@ -1,15 +1,14 @@
-import {useCallback, useReducer} from 'react';
-import {useLocation, useNavigate} from 'react-router-dom';
-import {FORM_ERROR} from 'final-form';
 import {Paper, Typography} from '@mui/material';
 import {styled} from '@mui/material/styles';
+import {FORM_ERROR} from 'final-form';
+import { useCallback, useContext, useReducer } from "react";
+import {useLocation, useNavigate} from 'react-router-dom';
 
 import AppRoutes from '@shared/constants/AppRoutes';
 import Utils from '@shared/helpers/Utils';
-import withContextSelector from '@shared/lib/HOC/withContextSelector';
+import {AuthContext, IAuthContext} from "../../lib/AuthProvider";
 import LoginForm, {IFormValues as ILoginFormValues} from './ui/login-form';
 import ResetPasswordForm from './ui/reset-pwd-form';
-import {AuthContext, IAuthContext} from "../../lib/AuthProvider";
 
 export const StyledContainer = styled(Paper)(({theme}) => ({
   width: '100%',
@@ -25,10 +24,11 @@ export const StyledSignUpContainer = styled('div')({
   marginTop: 24,
 });
 
-const LoginPage = ({login, reset}: Pick<IAuthContext, 'login' | 'reset'>) => {
-  const navigage = useNavigate();
+const Login = () => {
+  const navigate = useNavigate();
   const location = useLocation();
   const [isLoginMode, switchMode] = useReducer((state) => !state, true);
+  const {login, reset} = useContext<IAuthContext>(AuthContext);
 
   const handleLogin = useCallback(
     (data: ILoginFormValues) => {
@@ -36,14 +36,14 @@ const LoginPage = ({login, reset}: Pick<IAuthContext, 'login' | 'reset'>) => {
         .then(() => {
           const next = Utils.getNextFromUrl(location.search);
           if (next) {
-            return navigage(next);
+            return navigate(next);
           }
         })
         .catch((e: Error) => {
           return {[FORM_ERROR]: e.message};
         });
     },
-    [location.search, navigage, login]
+    [location.search, navigate, login]
   );
 
   return (
@@ -76,7 +76,4 @@ const LoginPage = ({login, reset}: Pick<IAuthContext, 'login' | 'reset'>) => {
   );
 };
 
-export default withContextSelector<unknown, IAuthContext>(LoginPage, AuthContext, {
-  login: (data) => data.login,
-  reset: (data) => data.reset,
-});
+export default Login;

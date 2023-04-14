@@ -1,9 +1,9 @@
+import {Typography} from '@mui/material';
 import {useMemo} from 'react';
 import {useLocation} from 'react-router-dom';
-import {Typography} from '@mui/material';
-import PrimaryButton from '@shared/ui/Button/PrimaryButton';
 import AppRoutes from '@shared/constants/AppRoutes';
 import Utils from '@shared/helpers/Utils';
+import PrimaryButton from '@shared/ui/Button/PrimaryButton';
 
 interface IProps {
   submitCart: () => void;

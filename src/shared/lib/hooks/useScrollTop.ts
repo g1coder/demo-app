@@ -1,12 +1,12 @@
-import {useCallback, useEffect, useRef, useState} from 'react';
 import {useSpring} from '@react-spring/web';
+import {useCallback, useEffect, useRef, useState} from 'react';
 
 interface IProps {
   duration?: number;
 }
 
 const useScrollTop = (props?: IProps) => {
-  const targetRef = useRef<any>();
+  const targetRef = useRef<HTMLElement>(null);
   const isStopped = useRef<boolean>(false);
 
   const observer = useRef<IntersectionObserver>();

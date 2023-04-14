@@ -1,9 +1,9 @@
-import {useCallback} from 'react';
-import {useSwiper} from 'swiper/react';
+import ArrowLeftIcon from '@mui/icons-material/ArrowLeft';
+import ArrowRightIcon from '@mui/icons-material/ArrowRight';
 import {Fab} from '@mui/material';
 import {styled} from '@mui/material/styles';
-import ArrowRightIcon from '@mui/icons-material/ArrowRight';
-import ArrowLeftIcon from '@mui/icons-material/ArrowLeft';
+import {useCallback} from 'react';
+import {useSwiper} from 'swiper/react';
 
 interface IProps {
   type: 'prev' | 'next';

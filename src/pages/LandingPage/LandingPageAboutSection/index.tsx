@@ -1,15 +1,15 @@
-import {useReducer} from 'react';
 import {Typography} from '@mui/material';
-import AppRoutes from '@shared/constants/AppRoutes';
-import SecondaryButton from '@shared/ui/Button/SecondaryButton';
+import {useReducer} from 'react';
 import {LayoutWrapper} from '@widgets/main-layout';
-import SectionHeader from '../SectionHeader';
 
-import VideoMockImage from './presets/video-mock.png';
 import ItemIcon1 from '@shared/assets/icon-blue-1.png';
 import ItemIcon2 from '@shared/assets/icon-blue-2.png';
 import ItemIcon3 from '@shared/assets/icon-blue-3.png';
 import ItemIcon4 from '@shared/assets/icon-blue-4.png';
+import AppRoutes from '@shared/constants/AppRoutes';
+import SecondaryButton from '@shared/ui/Button/SecondaryButton';
+import SectionHeader from '../SectionHeader';
+import VideoMockImage from './presets/video-mock.png';
 import {
   StyledAboutInfoContainer,
   StyledAboutInfoText,
@@ -67,7 +67,10 @@ const LandingPageAboutSection = () => {
               <svg viewBox="0 0 512 512">
                 <g>
                   <g>
-                    <path d="m354.2,247.4l-135.1-92.4c-4.2-3.1-15.4-3.1-16.3,8.6v184.8c1,11.7 12.4,11.9 16.3,8.6l135.1-92.4c3.5-2.1 8.3-10.7 0-17.2zm-130.5,81.3v-145.4l106.1,72.7-106.1,72.7z" />
+                    <path
+                      d="m354.2,247.4l-135.1-92.4c-4.2-3.1-15.4-3.1-16.3,8.6v184.8c1,11.7 12.4,11.9 
+                    16.3,8.6l135.1-92.4c3.5-2.1 8.3-10.7 0-17.2zm-130.5,81.3v-145.4l106.1,72.7-106.1,72.7z"
+                    />
                   </g>
                 </g>
               </svg>

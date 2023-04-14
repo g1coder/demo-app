@@ -18,7 +18,7 @@ export interface IMeta {
 }
 
 export default class List<T> {
-  #total: number = 0;
+  #total = 0;
   items: T[] = [];
   #meta: IMeta;
 

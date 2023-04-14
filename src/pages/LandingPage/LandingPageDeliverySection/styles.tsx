@@ -1,9 +1,9 @@
-import {styled} from '@mui/material/styles';
+import DoneIcon from '@mui/icons-material/Done';
 import List from '@mui/material/List';
 import ListItem from '@mui/material/ListItem';
 import ListItemIcon from '@mui/material/ListItemIcon';
 import ListItemText from '@mui/material/ListItemText';
-import DoneIcon from '@mui/icons-material/Done';
+import {styled} from '@mui/material/styles';
 import SeparatorImage from '@shared/assets/water_separator.jpg';
 
 export const StyledWaterSeparatorImage = styled('div')({

@@ -1,13 +1,13 @@
-import {ReactElement, useCallback} from 'react';
-import {Fab, Grid, Typography} from '@mui/material';
-import LocalPhoneIcon from '@mui/icons-material/LocalPhone';
+import FacebookOutlinedIcon from '@mui/icons-material/FacebookOutlined';
 import InstagramIcon from '@mui/icons-material/Instagram';
+import LocalPhoneIcon from '@mui/icons-material/LocalPhone';
 import LocationOnIcon from '@mui/icons-material/LocationOn';
 import TwitterIcon from '@mui/icons-material/Twitter';
-import FacebookOutlinedIcon from '@mui/icons-material/FacebookOutlined';
 import YouTubeIcon from '@mui/icons-material/YouTube';
-import {getWorksHours} from '../lib';
+import {Fab, Grid, Typography} from '@mui/material';
+import {ReactElement, useCallback} from 'react';
 import {sendFeedback} from '../api';
+import {getWorksHours} from '../lib';
 import ContactForm, {IFormValues} from './form';
 import {StyledContainer, StyledFormContainer, StyledLi, StyledNav} from './styles';
 
@@ -29,7 +29,7 @@ const ContactInfo = () => {
     </Grid>
   );
 
-  const renderIcon = (icon: ReactElement, bgColor: string, href: string = '#') => (
+  const renderIcon = (icon: ReactElement, bgColor: string, href = '#') => (
     <StyledLi>
       <Fab sx={{color: '#fff', backgroundColor: bgColor}} component="a" href={href}>
         {icon}

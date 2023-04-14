@@ -1,6 +1,6 @@
-import {memo} from 'react';
-import {styled} from '@mui/material/styles';
 import {Typography} from '@mui/material';
+import {styled} from '@mui/material/styles';
+import {memo} from 'react';
 import {Link} from 'react-router-dom';
 
 interface IProps {

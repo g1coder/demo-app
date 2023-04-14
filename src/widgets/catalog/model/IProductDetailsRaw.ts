@@ -1,5 +1,5 @@
 import IProductRaw from './IProductRaw';
 
-interface IProductDetailsRaw extends IProductRaw {}
+type IProductDetailsRaw = IProductRaw
 
 export default IProductDetailsRaw;

@@ -1,6 +1,6 @@
-import {memo} from 'react';
 import {Typography} from '@mui/material';
 import {styled} from '@mui/material/styles';
+import {memo} from 'react';
 import HeadingBg from './presets/heading-bg.png';
 
 interface IProps {

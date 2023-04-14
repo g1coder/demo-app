@@ -4,7 +4,7 @@ export const queryParse = (params: string) => {
   return qs.parse(params, {ignoreQueryPrefix: true});
 };
 
-const querySerializer = (params: any) => {
+const querySerializer = (params: Record<string, unknown>) => {
   return qs.stringify(params, {indices: false, skipNulls: true, encode: true});
 };
 

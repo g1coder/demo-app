@@ -1,10 +1,10 @@
+import {FormControl, FormHelperText, TextField, Typography} from '@mui/material';
 import {memo} from 'react';
 import {useFormState, useField, FormRenderProps} from 'react-final-form';
-import {FormControl, FormHelperText, TextField, Typography} from '@mui/material';
 import {createValidator, email, required} from '@shared/api/services/ValidationService';
-import PrimaryButton from '@shared/ui/Button/PrimaryButton';
 import Utils from '@shared/helpers/Utils';
 import withFinalForm from '@shared/lib/HOC/withFinalForm';
+import PrimaryButton from '@shared/ui/Button/PrimaryButton';
 import {StyledForm, StyledFieldLabel, StyledBtnContainer, StyledForgotPwdLink} from './styles'
 
 export interface IFormValues {
@@ -68,7 +68,7 @@ const LoginForm = ({handleSubmit, onForgotPassword}: IProps & FormRenderProps<IF
         />
       </FormControl>
       <FormHelperText sx={{mt: -2}} error={!!submitError}>
-        {!!submitError ? String(submitError) : ` `}
+        {submitError ? String(submitError) : ` `}
       </FormHelperText>
       <StyledBtnContainer>
         <PrimaryButton title="Sign in" disabled={submitting} type="submit" />

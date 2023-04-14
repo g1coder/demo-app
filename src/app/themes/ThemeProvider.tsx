@@ -14,7 +14,7 @@ interface IProps {
 }
 
 export const ThemeProviderContext = createContext({
-  toggleTheme: () => {},
+  toggleTheme: () => {return;},
 });
 
 const ThemeProvider = (props: IProps) => {

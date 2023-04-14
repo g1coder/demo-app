@@ -1,12 +1,12 @@
-import {memo} from 'react';
-import withFinalForm from '@shared/lib/HOC/withFinalForm';
-import {createValidator, email, required} from '@shared/api/services/ValidationService';
-import {FormRenderProps, useFormState, Field} from 'react-final-form';
 import {Card, CardActions, CardContent, FormControl, TextField, Typography} from '@mui/material';
 import {styled} from '@mui/material/styles';
 import {TextFieldProps} from '@mui/material/TextField/TextField';
-import PrimaryButton from '@shared/ui/Button/PrimaryButton';
+import {memo} from 'react';
+import {FormRenderProps, useFormState, Field} from 'react-final-form';
+import {createValidator, email, required} from '@shared/api/services/ValidationService';
 import Utils from '@shared/helpers/Utils';
+import withFinalForm from '@shared/lib/HOC/withFinalForm';
+import PrimaryButton from '@shared/ui/Button/PrimaryButton';
 
 const StyledFieldLabel = styled('div')({
   marginBottom: -12,

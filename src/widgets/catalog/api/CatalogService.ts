@@ -1,8 +1,8 @@
-import api from '@shared/api/services/ApiService';
-import List from '@shared/models/List';
+import IProductParams from '@widgets/catalog/model/IProductParams';
 import IProductRaw from '@widgets/catalog/model/IProductRaw';
 import IBaseProduct from '@entities/catalog/model/IBaseProduct';
-import IProductParams from '@widgets/catalog/model/IProductParams';
+import api from '@shared/api/services/ApiService';
+import List from '@shared/models/List';
 
 export function getList(params: IProductParams | undefined): Promise<List<IBaseProduct>> {
     return api.get<List<IProductRaw>>('/api/v1/catalog/products', {params});

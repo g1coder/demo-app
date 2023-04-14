@@ -6,7 +6,7 @@ configure({enforceActions: 'observed'});
 
 export class CartStore {
   @observable products: Map<string, number> = new Map([]);
-  @observable totalPrice: number = 0;
+  @observable totalPrice = 0;
 
   constructor() {
     makeAutoObservable(this);

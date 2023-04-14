@@ -1,11 +1,11 @@
-import {render} from '@testing-library/react';
 import {screen} from '@testing-library/dom';
-import MainLayout from '../ui';
+import {render} from '@testing-library/react';
 import {Route, Routes, MemoryRouter} from 'react-router-dom';
 import AppRoutes from '@shared/constants/AppRoutes';
+import MainLayout from '../ui';
 
 describe('MainLayout', () => {
-  const renderComponent = (route: string = '/') => {
+  const renderComponent = (route = '/') => {
     return render(
       <MemoryRouter initialEntries={[route]}>
         <Routes>

@@ -1,6 +1,6 @@
-import {memo, ReactNode, FC} from 'react';
 import {CircularProgress as MuiCircularProgress} from '@mui/material';
 import {styled} from '@mui/material/styles';
+import {memo, ReactNode, FC} from 'react';
 
 const StyledContainer = styled('div')<{fixed?: boolean}>(({theme, fixed}) => ({
   textAlign: 'center',

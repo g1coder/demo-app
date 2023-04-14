@@ -1,15 +1,15 @@
-import {useCallback, useContext, useState} from 'react';
-import {observer} from 'mobx-react-lite';
 import {Grid, Typography} from '@mui/material';
+import {observer} from 'mobx-react-lite';
+import {useCallback, useContext, useState} from 'react';
+import {CartSubmit} from '@features/catalog';
+import {CartSummary, CartList} from '@entities/catalog';
 import IBaseProduct from '@entities/catalog/model/IBaseProduct';
 import useData from '@shared/lib/hooks/useData';
 import Spinner from '@shared/ui/Spinner';
 
-import {CartSubmit} from '@features/catalog';
-import {CartSummary, CartList} from '@entities/catalog';
-import {getCartDetails} from '../../api/CartService';
-import CartStore from '../../store/CartStore';
 import {AuthContext, IAuthContext} from "../../../auth/lib/AuthProvider";
+import {getCartDetails} from '../../api/CartService';
+import { CartStore } from '../../store';
 
 import {StyledContainer} from './styles';
 

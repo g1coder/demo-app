@@ -1,12 +1,12 @@
 import {Typography, Grid} from '@mui/material';
 import {styled} from '@mui/material/styles';
 
+import {LayoutWrapper} from '@widgets/main-layout';
+import {MineralDetails} from '@entities/mineral';
 import ItemIcon1 from '@shared/assets/icon-blue-1.png';
 import ItemIcon2 from '@shared/assets/icon-blue-2.png';
 import ItemIcon3 from '@shared/assets/icon-blue-3.png';
 import ItemIcon4 from '@shared/assets/icon-blue-4.png';
-import {MineralDetails} from '@entities/mineral';
-import {LayoutWrapper} from '@widgets/main-layout';
 import {LANDING_PAGE_HEADER_HEIGHT} from '@shared/constants';
 import AppRoutes from '@shared/constants/AppRoutes';
 import SecondaryButton from '@shared/ui/Button/SecondaryButton';

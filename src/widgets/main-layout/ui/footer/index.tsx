@@ -1,8 +1,8 @@
-import AppRoutes from '@shared/constants/AppRoutes';
-import AppLogo from '@shared/assets/header-logo.png';
 import {Typography} from '@mui/material';
-import {StyledContainer, StyledAboutContainer, StyledButtonContainer, StyledAboutInfoContainer} from './styles';
+import AppLogo from '@shared/assets/header-logo.png';
+import AppRoutes from '@shared/constants/AppRoutes';
 import LayoutWrapper from '../layout-wrapper';
+import {StyledContainer, StyledAboutContainer, StyledButtonContainer, StyledAboutInfoContainer} from './styles';
 
 const Footer = () => {
   return (

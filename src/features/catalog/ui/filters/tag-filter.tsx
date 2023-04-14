@@ -1,7 +1,7 @@
+import {Typography} from '@mui/material';
 import {debounce} from 'lodash';
 import {memo, useCallback, useEffect, useMemo, useState} from 'react';
 import withBaseFilter from '@features/catalog/HOC/withBaseFilter';
-import {Typography} from '@mui/material';
 
 interface IProps {
   tags: string[] | undefined;

@@ -1,6 +1,6 @@
-import api from '@shared/api/services/ApiService';
-import IBaseProduct from '@entities/catalog/model/IBaseProduct';
 import IProductRaw from '@widgets/catalog/model/IProductRaw';
+import IBaseProduct from '@entities/catalog/model/IBaseProduct';
+import api from '@shared/api/services/ApiService';
 
 export function getCart(): Promise<{products: Record<string, number>; totalCount: number; totalPrice: number}> {
   return api

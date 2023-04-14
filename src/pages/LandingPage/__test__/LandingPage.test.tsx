@@ -1,5 +1,5 @@
-import {render} from '@testing-library/react';
 import {screen} from '@testing-library/dom';
+import {render} from '@testing-library/react';
 import LandingPage from '../index';
 
 describe('LoginPage', () => {
@@ -12,7 +12,8 @@ describe('LoginPage', () => {
     screen.getByText('What our clients say');
     screen.getByText('Recent posts');
     screen.getByText(
-      'Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Vivamus tristique ligula quis orci malesuada tincidunt.'
+      'Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula ' +
+      'eget dolor. Vivamus tristique ligula quis orci malesuada tincidunt.'
     );
     screen.getByText(' All Rights Reserved');
   });

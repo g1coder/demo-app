@@ -1,5 +1,5 @@
-import {fireEvent, render} from '@testing-library/react';
 import {screen} from '@testing-library/dom';
+import {fireEvent, render} from '@testing-library/react';
 import Login from '../ui/login';
 
 describe('login', () => {

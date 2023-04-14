@@ -1,5 +1,5 @@
-import {memo, ReactNode} from 'react';
 import {Divider, Grid, Paper, Typography} from '@mui/material';
+import {memo, ReactNode} from 'react';
 import {StyledHeader, StyledSubheader} from './styles';
 
 interface IProps {

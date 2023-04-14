@@ -1,7 +1,7 @@
-import {useRouteError} from 'react-router-dom';
-import {styled} from '@mui/material/styles';
-import Box from '@mui/material/Box';
 import {Typography} from '@mui/material';
+import Box from '@mui/material/Box';
+import {styled} from '@mui/material/styles';
+import {useRouteError} from 'react-router-dom';
 import AppRoutes from '@shared/constants/AppRoutes';
 import PrimaryButton from '@shared/ui/Button/PrimaryButton';
 
@@ -23,11 +23,10 @@ const StyledInnerContainer = styled('div')({
   textAlign: 'center',
 });
 
-type ErrorMessage = {message: string | undefined}
+type ErrorMessage = {message: string | undefined};
 
-const isErrorWithMessage = (error: unknown): error is ErrorMessage => {
-  return typeof error === 'object' && !!error?.hasOwnProperty('message');
-}
+const isErrorWithMessage = (error: unknown): error is ErrorMessage =>
+  typeof error === 'object' && !!error && 'message' in error;
 
 const ErrorPage = () => {
   const error = useRouteError();

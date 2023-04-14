@@ -1,7 +1,7 @@
 import axios from 'axios';
 import ToastService from '@shared/api/services/ToastService';
 
-function defaultHandler(error: any = {ignore: true}) {
+function defaultHandler(error: Record<string, never>) {
   if (!error || error.ignore) return;
 
   if (axios.isCancel(error)) return;

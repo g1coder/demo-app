@@ -1,10 +1,10 @@
-import {memo, useReducer} from 'react';
-import {styled} from '@mui/material/styles';
+import CloseIcon from '@mui/icons-material/Close';
 import MenuIcon from '@mui/icons-material/Menu';
 import {SwipeableDrawer} from '@mui/material';
-import CloseIcon from '@mui/icons-material/Close';
-import HeaderNavigation from '@widgets/main-layout/ui/header/header-navigation';
+import {styled} from '@mui/material/styles';
+import {memo, useReducer} from 'react';
 import HeaderLogin from '@widgets/main-layout/ui/header/header-login';
+import HeaderNavigation from '@widgets/main-layout/ui/header/header-navigation';
 
 interface IProps {
   items: Array<{name: string; url: string}>;

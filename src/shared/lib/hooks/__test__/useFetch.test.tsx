@@ -1,6 +1,6 @@
-import {useCallback} from 'react';
-import {render, fireEvent} from '@testing-library/react';
 import {screen} from '@testing-library/dom';
+import {render, fireEvent} from '@testing-library/react';
+import {useCallback} from 'react';
 import useData from '@shared/lib/hooks/useData';
 
 const users = {
@@ -12,11 +12,11 @@ interface IProps {
   userId: number;
 }
 
-const TestCase = (props: IProps) => {
-  const [user, actions] = useData<any>(
+const TestCase = (props: IProps): JSX.Element | null => {
+  const [user, actions] = useData<Record<string, unknown>>(
     {
       fetch: () => (users[props.userId] ? Promise.resolve(users[props.userId]) : Promise.reject('Not Found')),
-      data: null,
+      data: {},
     },
     [props.userId]
   );
@@ -26,16 +26,18 @@ const TestCase = (props: IProps) => {
   const refetch = useCallback(() => actions.fetch(), [actions]);
 
   if (user.loading) {
-    return 'Loading...';
+    return <span>Loading...</span>;
   }
   if (user.error) {
-    return user.error;
+    return <>{user.error}</>;
   }
   if (user.ready) {
     return (
       <div>
         <div data-qa="data">
-          {user.data.id}|{user.data.name}
+          <>
+            {user.data.id}|{user.data.name}
+          </>
         </div>
         <button type="button" data-qa="init" onClick={init}>
           Init
@@ -55,7 +57,6 @@ const TestCase = (props: IProps) => {
 describe('useData', () => {
   it('should fetch data on mount', async () => {
     render(<TestCase userId={1} />);
-    // eslint-disable-next-line testing-library/no-debugging-utils
     await screen.findByText('Loading...');
     const data = await screen.findByText(`1|${users[1].name}`);
     expect(data).toBeInTheDocument();

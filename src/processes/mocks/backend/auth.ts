@@ -1,12 +1,11 @@
 import {rest} from 'msw';
 
-const tokenMock =
-  'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiIxMjM0NTY3ODkwIiwibmFtZSI6IkpvaG4gRG9lIiwiaWF0IjoxNTE2MjM5MDIyfQ.SflKxwRJSMeKKF2QT4fwpMeJf36POk6yJV_adQssw5c';
+const tokenMock = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9';
 
 // See the example here https://mswjs.io/docs/getting-started/mocks/rest-api#response-resolver
 const handlers = [
   rest.post('/api/v1/auth/signin', (req, res, ctx) => {
-    const {email, password} = (req.body as any);
+    const {email, password} = req.body as Record<string, unknown>;
     if (email === 'user@gmail.com' && password === '123') {
       return res(
         ctx.status(200),
@@ -34,14 +33,14 @@ const handlers = [
     );
   }),
   rest.post('/api/v1/reset-password', (req, res, ctx) => {
-    const {email} = (req.body as any).params;
+    const {email} = req.body as Record<string, unknown>;
     return res(ctx.status(email === 'error@e.ee' ? 403 : 201));
   }),
   rest.post('/api/v1/register', (req, res, ctx) => {
-    const {first_name, last_name, email, password} = (req.body as any).params;
+    const {first_name, last_name, email, password} = req.body as Record<string, unknown>;
     let status = 401;
     if (first_name && last_name && email && password) {
-      sessionStorage.setItem('is-authenticated', first_name);
+      sessionStorage.setItem('is-authenticated', String(first_name));
       status = 200;
     }
     return res(

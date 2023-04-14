@@ -2,7 +2,7 @@ import _ from 'lodash';
 
 type Errors<T> = {[key in keyof T]?: string};
 type CrossFieldErrors<T> = Errors<T> & {[key in keyof T]?: Errors<T>};
-type CrossFieldValidator<T> = (data: T, errors: Errors<T>, props?: any) => Errors<T>;
+type CrossFieldValidator<T> = (data: T, errors: Errors<T>, props?: unknown) => Errors<T>;
 
 const isFalsy = (
   candidate: string | number | object | boolean | null | undefined
@@ -15,10 +15,10 @@ export function required(value) {
   return isFalsy(reqValue) ? 'Required field' : undefined;
 }
 
-export function createValidator<T extends {}>(
+export function createValidator<T extends object>(
   rules: {[key in keyof T]?: Array<(value: T[keyof T], values: T) => string | undefined>},
   crossFieldValidator?: CrossFieldValidator<T>
-): (data: T, props?: any) => CrossFieldErrors<T> {
+): (data: T, props?: Record<string, unknown>) => CrossFieldErrors<T> {
   return (data, props?) => {
     const errors = {};
     _.each(rules, (validationRules, key) => {

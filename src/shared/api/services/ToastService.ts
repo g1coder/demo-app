@@ -1,10 +1,5 @@
 import {AlertColor} from '@mui/material/Alert/Alert';
 
-export interface IOptions {
-  body: string;
-  onClose?: () => any;
-}
-
 export enum ToastType {
   NEW_MESSAGE,
   REMOVE_ALL,

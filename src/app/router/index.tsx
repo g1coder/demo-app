@@ -1,13 +1,12 @@
 import {lazy, Suspense} from 'react';
 import {Route, createBrowserRouter, createRoutesFromElements} from 'react-router-dom';
+import CartPage from '@pages/CartPage';
+import CatalogPage from '@pages/CatalogPage';
 import ErrorPage from '@pages/ErrorPage';
 import LandingPage from '@pages/LandingPage';
 import PageNotFound from '@pages/PageNotFound';
-import CartPage from '@pages/CartPage';
-import CatalogPage from '@pages/CatalogPage';
 import {CatalogLayout} from '@widgets/catalog';
-import {MainLayout} from '@widgets/main-layout';
-import {LayoutWrapper} from '@widgets/main-layout';
+import {MainLayout,LayoutWrapper} from '@widgets/main-layout';
 import AppRoutes from '@shared/constants/AppRoutes';
 
 const ContactsPage = lazy(() => import('@pages/ContactsPage'));

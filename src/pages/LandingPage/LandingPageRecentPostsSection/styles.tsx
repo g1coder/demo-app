@@ -1,5 +1,5 @@
-import {styled} from '@mui/material/styles';
 import {Box, Card, CardActions, CardMedia, Typography} from '@mui/material';
+import {styled} from '@mui/material/styles';
 import {Link} from 'react-router-dom';
 import SecondaryButton from '@shared/ui/Button/SecondaryButton';
 

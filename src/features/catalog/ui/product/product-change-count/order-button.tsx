@@ -1,8 +1,8 @@
-import {memo} from 'react';
-import {styled} from '@mui/material/styles';
-import {Box, Typography} from '@mui/material';
 import AddIcon from '@mui/icons-material/Add';
 import RemoveOutlinedIcon from '@mui/icons-material/RemoveOutlined';
+import {Box, Typography} from '@mui/material';
+import {styled} from '@mui/material/styles';
+import {memo} from 'react';
 import Spinner from '@shared/ui/Spinner';
 
 const borderRadius = 32;

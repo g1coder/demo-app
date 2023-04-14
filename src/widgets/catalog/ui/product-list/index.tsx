@@ -1,18 +1,17 @@
-import {useMemo, useState} from 'react';
-import {observer} from 'mobx-react-lite';
 import {Grid} from '@mui/material';
+import {observer} from 'mobx-react-lite';
+import {useMemo, useState} from 'react';
 
-import useData from '@shared/lib/hooks/useData';
 import IBaseProduct from '@entities/catalog/model/IBaseProduct';
-import Spinner from '@shared/ui/Spinner';
+import useData from '@shared/lib/hooks/useData';
 import List from '@shared/models/List';
-import CatalogStore from '../../store/CatalogStore';
-import CartStore from '../../store/CartStore';
+import Spinner from '@shared/ui/Spinner';
 import {getList} from '../../api/CatalogService';
 import IProductParams from '../../model/IProductParams';
+import {CartStore, CatalogStore} from '../../store';
 import ProductCardInfo from '../product-card-info';
-import {StyledContainer, StyledCardContainer, StyledFiltersContainer, StyledTitle} from './styles';
 import ProductFilters from '../product-filters';
+import {StyledContainer, StyledCardContainer, StyledFiltersContainer, StyledTitle} from './styles';
 
 const ProductList = observer(() => {
   const [filterParams, setFilterParams] = useState<IProductParams>();

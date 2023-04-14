@@ -1,14 +1,14 @@
-import {useCallback} from 'react';
-import {FORM_ERROR} from 'final-form';
-
-import withContextSelector from '@shared/lib/HOC/withContextSelector';
 import {Typography} from '@mui/material';
+import {FORM_ERROR} from 'final-form';
+import { useCallback, useContext } from "react";
 import AppRoutes from '@shared/constants/AppRoutes';
+import {AuthContext, IAuthContext} from "../../lib/AuthProvider";
 import Form, {IFormValues} from './ui/form';
 import {StyledFormContainer, StyledSignUpContainer} from './ui/styles';
-import {AuthContext, IAuthContext} from "../../lib/AuthProvider";
 
-const SignUp = ({signup}: Pick<IAuthContext, 'signup'>) => {
+const SignUp = () => {
+  const {signup} = useContext<IAuthContext>(AuthContext);
+
   const handleSubmit = useCallback(
     (formData: IFormValues) => {
       return signup(formData, 'token').catch((error: Error) => {
@@ -44,6 +44,4 @@ const SignUp = ({signup}: Pick<IAuthContext, 'signup'>) => {
   );
 };
 
-export default withContextSelector<unknown, IAuthContext>(SignUp, AuthContext, {
-  signup: (data) => data.signup,
-});
+export default SignUp;

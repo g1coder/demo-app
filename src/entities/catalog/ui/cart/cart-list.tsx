@@ -1,9 +1,9 @@
 import {Divider, Grid} from '@mui/material';
-import Spinner from '@shared/ui/Spinner';
+import {memo} from 'react';
 import IBaseProduct from '@entities/catalog/model/IBaseProduct';
+import Spinner from '@shared/ui/Spinner';
 import CartListItem from './cart-list-item';
 import {StyledHeader} from './styles';
-import {memo} from 'react';
 
 interface IProps {
   items: Array<{product: IBaseProduct; count: number}>;

@@ -1,6 +1,6 @@
+import {Typography} from '@mui/material';
 import {memo, ReactNode} from 'react';
 import IBaseProduct from '@entities/catalog/model/IBaseProduct';
-import {Typography} from '@mui/material';
 import {StyledContainer, StyledImage, StyledTitle} from './styles';
 
 interface IProps {

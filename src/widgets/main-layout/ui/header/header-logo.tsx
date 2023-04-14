@@ -1,6 +1,6 @@
 import {styled} from '@mui/material/styles';
-import AppRoutes from '@shared/constants/AppRoutes';
 import AppLogo from '@shared/assets/header-logo.png';
+import AppRoutes from '@shared/constants/AppRoutes';
 
 const StyledLogo = styled('img')(({theme: {breakpoints}}) => ({
   margin: 0,

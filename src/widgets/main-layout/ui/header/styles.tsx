@@ -5,6 +5,7 @@ import {
   LANDING_PAGE_XL_CONTAINER_WIDTH,
   MAIN_LAYOUT_HEADER_BG,
 } from '@shared/constants';
+import { Breakpoint } from "@mui/material";
 
 export const StyledHeader = styled('header')(({theme: {spacing, breakpoints}}) => ({
   height: LANDING_PAGE_HEADER_HEIGHT,
@@ -21,7 +22,7 @@ export const StyledHeader = styled('header')(({theme: {spacing, breakpoints}}) =
     margin: 'auto',
     padding: spacing(4),
   },
-  [breakpoints.up('exl' as any)]: {
+  [breakpoints.up('exl' as Breakpoint)]: {
     maxWidth: LANDING_PAGE_XL_CONTAINER_WIDTH,
   },
 }));

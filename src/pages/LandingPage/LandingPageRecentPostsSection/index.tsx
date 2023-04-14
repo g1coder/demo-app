@@ -1,8 +1,7 @@
-
-import dayjs from 'dayjs';
-import {CardContent, Typography} from '@mui/material';
-import VisibilityIcon from '@mui/icons-material/Visibility';
 import CommentOutlinedIcon from '@mui/icons-material/CommentOutlined';
+import VisibilityIcon from '@mui/icons-material/Visibility';
+import {CardContent, Typography} from '@mui/material';
+import dayjs from 'dayjs';
 import {LayoutWrapper} from '@widgets/main-layout';
 import SecondaryButton from '@shared/ui/Button/SecondaryButton';
 import SectionHeader from '../SectionHeader';
@@ -28,7 +27,10 @@ const posts = [
     id: 1,
     image: RecentImage1,
     title: 'What’s in your water?',
-    text: 'In efficitur, leo non commodo lacinia, odio metus sodales purus, sed consequat lectus mi in purus. Vivamus vitae metus et nisl egestas sollicitudin. In efficitur, leo non commodo lacinia, odio metus sodales purus, sed consequat lectus mi in purus. Vivamus vitae metus et nisl egestas sollicitudin.',
+    text:
+      'In efficitur, leo non commodo lacinia, odio metus sodales purus, sed consequat lectus mi in purus.' +
+      ' Vivamus vitae metus et nisl egestas sollicitudin. In efficitur, leo non commodo lacinia, ' +
+      'odio metus sodales purus, sed consequat lectus mi in purus. Vivamus vitae metus et nisl egestas sollicitudin.',
     date: '2017-08-22',
     viewCount: 3668,
     comments: 358,
@@ -37,7 +39,9 @@ const posts = [
     id: 2,
     image: RecentImage2,
     title: 'Why do we need to drink water?',
-    text: 'Integer maximus accumsan nunc, sit amet tempor lectus facilisis eu. Cras vel elit felis. Vestibulum convallis ipsum id aliquam varius.',
+    text:
+      'Integer maximus accumsan nunc, sit amet tempor lectus facilisis eu. ' +
+      'Cras vel elit felis. Vestibulum convallis ipsum id aliquam varius.',
     date: '2017-06-03',
     viewCount: 2584,
     comments: 265,
@@ -46,7 +50,9 @@ const posts = [
     id: 3,
     image: RecentImage3,
     title: 'Drinking Water May Prevent Headaches',
-    text: 'Cras mattis cursus tristique. Quisque maximus magna massa. Nulla id rutrum mauris. Donec finibus sit amet odio auctor faucibus.',
+    text:
+      'Cras mattis cursus tristique. Quisque maximus magna massa. ' +
+      'Nulla id rutrum mauris. Donec finibus sit amet odio auctor faucibus.',
     date: '2017-05-13',
     viewCount: 2958,
     comments: 295,
@@ -70,11 +76,7 @@ const LandingPageRecentPostsSection = () => (
           </CardContent>
           <StyledCardActions>
             <StyledTextInfoContainer>
-              <Typography
-                variant="body2"
-                color="primary.dark"
-                sx={{marginRight: 2}}
-              >
+              <Typography variant="body2" color="primary.dark" sx={{marginRight: 2}}>
                 {dayjs(p.date).format('MMMM DD, YYYY')}
               </Typography>
               <StyledIconWithText>

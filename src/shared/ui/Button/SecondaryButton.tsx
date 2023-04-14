@@ -1,8 +1,8 @@
-import {memo} from 'react';
 import {styled} from '@mui/material/styles';
+import {memo} from 'react';
 import ButtonBase, {IProps as IStyledCircleButtonBaseProps} from './ButtonBase';
 
-interface IProps extends IStyledCircleButtonBaseProps {}
+type IProps = IStyledCircleButtonBaseProps
 
 const StyledSecondaryButton = styled(ButtonBase)<IProps>(({theme: {palette}, variant = 'regular'}) => ({
   backgroundColor: palette.primary.light,

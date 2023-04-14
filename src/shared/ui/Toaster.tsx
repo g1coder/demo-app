@@ -1,7 +1,6 @@
 import {Alert, Snackbar, SnackbarProps} from '@mui/material';
 import {useCallback, useEffect, useMemo, useState} from 'react';
-import {IToast, ToastType} from '@shared/api/services/ToastService';
-import ToastService from '@shared/api/services/ToastService';
+import ToastService, {IToast, ToastType} from '@shared/api/services/ToastService';
 
 const SHOW_DELAY = 3000;
 
@@ -34,7 +33,7 @@ const Toaster = () => {
     });
   }, []);
 
-  const handleClose = useCallback((event: any, reason: string) => {
+  const handleClose = useCallback((event: unknown, reason: string) => {
     if (reason === 'clickaway') {
       return;
     }

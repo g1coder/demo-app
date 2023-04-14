@@ -1,5 +1,5 @@
-import {styled} from '@mui/material/styles';
 import Box from '@mui/material/Box';
+import {styled} from '@mui/material/styles';
 import SeparatorImage from '@shared/assets/water_separator.jpg';
 
 export const StyledContainer = styled(Box)(({theme: {palette}}) => ({

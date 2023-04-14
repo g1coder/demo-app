@@ -1,8 +1,8 @@
-import {useCallback} from 'react';
 import {Typography} from '@mui/material';
-import SecondaryButton from '@shared/ui/Button/SecondaryButton';
+import {useCallback} from 'react';
 import {DeliveryOrder} from '@widgets/delivery';
 import {LayoutWrapper} from '@widgets/main-layout';
+import SecondaryButton from '@shared/ui/Button/SecondaryButton';
 import ManImage from './presets/delivery-man.png';
 import {
   StyledConditions,
@@ -13,7 +13,9 @@ import {
 } from './styles';
 
 const LandingPageDeliverySection = () => {
-  const handleReadMore = useCallback(() => {}, []);
+  const handleReadMore = useCallback(() => {
+    return;
+  }, []);
 
   return (
     <LayoutWrapper>

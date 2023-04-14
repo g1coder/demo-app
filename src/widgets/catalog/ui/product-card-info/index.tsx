@@ -1,7 +1,7 @@
 import {memo, useCallback, useState} from 'react';
-import IBaseProduct from '@entities/catalog/model/IBaseProduct';
-import {ProductCard, ProductPrice} from '@entities/catalog';
 import {ProductChangeFavorite, ProductChangeCount} from '@features/catalog';
+import {ProductCard, ProductPrice} from '@entities/catalog';
+import IBaseProduct from '@entities/catalog/model/IBaseProduct';
 import {StyledSaleMark} from './styles';
 
 interface IProps {

@@ -2,8 +2,8 @@ import {createContext, ReactNode, useCallback, useMemo, useState} from 'react';
 import ErrorService from '@shared/api/services/ErrorService';
 import useData from '@shared/lib/hooks/useData';
 import Spinner from '@shared/ui/Spinner';
-import IUser from '../model/IUser';
 import AuthService from '../api/AuthService';
+import IUser from '../model/IUser';
 
 export interface IAuthContext {
   user: IUser | undefined;
@@ -15,10 +15,16 @@ export interface IAuthContext {
 
 export const AuthContext = createContext<IAuthContext>({
   user: undefined,
+  // eslint-disable-next-line @typescript-eslint/no-unused-vars
   login: (params: {email: string; password: string}) => Promise.resolve(),
+  // eslint-disable-next-line @typescript-eslint/no-unused-vars
   signup: (params: {email: string; password: string}, token: string) => Promise.resolve(),
-  logout: () => {},
-  reset: () => {},
+  logout: () => {
+    return;
+  },
+  reset: () => {
+    return;
+  },
 });
 
 interface IProps {

@@ -1,10 +1,10 @@
+import {FormControl, FormHelperText, TextField, Typography} from '@mui/material';
 import {memo} from 'react';
 import {FormRenderProps, useFormState, useField} from 'react-final-form';
-import {FormControl, FormHelperText, TextField, Typography} from '@mui/material';
 import {createValidator, email, required} from '@shared/api/services/ValidationService';
-import PrimaryButton from '@shared/ui/Button/PrimaryButton';
-import withFinalForm from '@shared/lib/HOC/withFinalForm';
 import Utils from '@shared/helpers/Utils';
+import withFinalForm from '@shared/lib/HOC/withFinalForm';
+import PrimaryButton from '@shared/ui/Button/PrimaryButton';
 import {StyledForm, StyledFieldLabel, StyledBtnContainer, StyledBackButton} from './styles'
 
 export interface IFormValues {
@@ -47,7 +47,7 @@ const ResetPasswordForm = ({handleSubmit, onBack}: IProps & FormRenderProps<IFor
           aria-label="email for reset"
         />
       </FormControl>
-      <FormHelperText error={!!submitErrors}>{!!submitErrors ? String(submitErrors) : ` `}</FormHelperText>
+      <FormHelperText error={!!submitErrors}>{submitErrors ? String(submitErrors) : ` `}</FormHelperText>
       <FormHelperText sx={{color: (theme) => theme.palette.primary.light}}>
         {submitSucceeded ? 'We sent a message on your email' : ` `}
       </FormHelperText>

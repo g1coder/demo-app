@@ -1,5 +1,5 @@
-import {styled} from '@mui/material/styles';
 import {Button, ButtonProps} from '@mui/material';
+import {styled} from '@mui/material/styles';
 
 export interface IProps extends ButtonProps {
   buttonType?: 'regular' | 'action';

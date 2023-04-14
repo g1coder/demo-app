@@ -1,5 +1,4 @@
-import api from '@shared/api/services/ApiService';
-import {applyCredentials} from '@shared/api/services/ApiService';
+import api, {applyCredentials} from '@shared/api/services/ApiService';
 import ICredential from '@shared/model/ICredential';
 import IUser from '../model/IUser';
 
@@ -12,8 +11,9 @@ const register = (params: {firstName: string; lastName: string; email: string; p
 
 const resetPwd = (params: {email: string}) => api.post(`/api/reset-password`, {params});
 
-function logout(): Promise<void> {
-  return api.post(`/api/v1/auth/logout`, null, true).finally(applyCredentials);
+async function logout(): Promise<void> {
+  await api.post(`/api/v1/auth/logout`, null, true);
+  void applyCredentials();
 }
 
 function signup(params: {email: string; password: string}, token: string): Promise<void> {

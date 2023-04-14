@@ -1,12 +1,12 @@
-import {isEmpty, keys} from 'lodash';
 import {Chip} from '@mui/material';
+import {isEmpty, keys} from 'lodash';
 
 interface IProps<T> {
   filters: T;
-  onDelete: (key: keyof T) => void;
+  onDelete: (key: string) => void;
 }
 
-const AppliedFilters = <T extends Record<string, any>>({filters, onDelete}: IProps<T>) => {
+const AppliedFilters = <T extends object>({filters, onDelete}: IProps<T>) => {
   if (isEmpty(filters)) return null;
 
   return (

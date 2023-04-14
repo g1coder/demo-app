@@ -1,11 +1,11 @@
-import {useCallback, useContext} from 'react';
-import {Link, useNavigate} from 'react-router-dom';
-import {styled} from '@mui/material/styles';
 import LoginIcon from '@mui/icons-material/Login';
 import LogoutIcon from '@mui/icons-material/Logout';
-import SecondaryButton from '@shared/ui/Button/SecondaryButton';
 import {Typography} from '@mui/material';
+import {styled} from '@mui/material/styles';
+import {useCallback, useContext} from 'react';
+import {Link, useNavigate} from 'react-router-dom';
 import AppRoutes from '@shared/constants/AppRoutes';
+import SecondaryButton from '@shared/ui/Button/SecondaryButton';
 import {AuthContext, IAuthContext} from "../../../auth/lib/AuthProvider";
 
 const TABLET_MODE = 'lg';

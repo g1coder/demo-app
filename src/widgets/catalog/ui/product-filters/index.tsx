@@ -1,15 +1,15 @@
+import {Grid} from '@mui/material';
+import {styled} from '@mui/material/styles';
 import {pickBy, isNil} from 'lodash';
 import {memo, useCallback, useEffect, useState} from 'react';
 import {useSearchParams} from 'react-router-dom';
-import {styled} from '@mui/material/styles';
-import {Grid} from '@mui/material';
 
 import {PriceFilter, TagFilter} from '@features/catalog';
+import {FilterChips} from '@entities/catalog';
 import querySerializer from '@shared/api/services/QuerySerializer';
 import useData from '@shared/lib/hooks/useData';
-import IProductParams from '../../model/IProductParams';
 import {getOptions} from '../../api/CatalogService';
-import {FilterChips} from '@entities/catalog';
+import IProductParams from '../../model/IProductParams';
 
 const StyledContainer = styled('aside')(({theme: {spacing}}) => ({
   maxWidth: 360,
@@ -63,7 +63,7 @@ const FilterPanel = ({onChange}: IProps) => {
   );
 
   const handleResetFilter = useCallback(
-    (property: keyof IProductParams) => {
+    (property: string) => {
       const param = searchParams.get(property);
       if (param) {
         searchParams.delete(property);

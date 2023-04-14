@@ -1,8 +1,8 @@
-import {FormRenderProps, useField, useFormState} from 'react-final-form';
 import {FormControl, FormHelperText, TextField, Typography} from '@mui/material';
-import withFinalForm from '@shared/lib/HOC/withFinalForm';
+import {FormRenderProps, useField, useFormState} from 'react-final-form';
 import {createValidator, email, required} from '@shared/api/services/ValidationService';
 import Utils from '@shared/helpers/Utils';
+import withFinalForm from '@shared/lib/HOC/withFinalForm';
 import PrimaryButton from '@shared/ui/Button/PrimaryButton';
 import {StyledForm, StyledFieldLabel, StyledBtnContainer} from './styles';
 
@@ -57,7 +57,7 @@ const SignupForm = ({handleSubmit}: IProps & FormRenderProps<IFormValues>) => {
       {renderField(lastNameInput, lastNameMeta, 'Last name')}
       {renderField(emailInput, emailMeta, 'Email')}
       {renderField(passwordInput, passwordMeta, 'Password')}
-      <FormHelperText error={!!submitErrors}>{!!submitErrors ? String(submitErrors) : ` `}</FormHelperText>
+      <FormHelperText error={!!submitErrors}>{submitErrors ? String(submitErrors) : ` `}</FormHelperText>
       <StyledBtnContainer>
         <PrimaryButton title="Sign up" disabled={submitting} type="submit" />
       </StyledBtnContainer>

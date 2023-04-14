@@ -1,9 +1,9 @@
+import {ValidationErrors} from 'final-form';
 import {noop} from 'lodash';
 import {ComponentType} from 'react';
 import {Form, FormProps, FormRenderProps} from 'react-final-form';
-import {ValidationErrors} from 'final-form';
 
-function withFinalForm<IProps extends FormProps<FormValues>, FormValues = Record<string, any>>(
+function withFinalForm<IProps extends FormProps<FormValues>, FormValues = Record<string, unknown>>(
   Component: ComponentType<IProps & FormRenderProps<FormValues>>,
   validate?: (values: FormValues) => ValidationErrors | Promise<ValidationErrors>
 ) {
