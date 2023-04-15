@@ -1,5 +1,5 @@
 import {SignUp} from '@widgets/auth';
-import {StyledContainer, StyledInnerContainer, StyledImageDecorator} from './styles';
+import {StyledContainer, StyledInnerContainer, StyledImageDecorator} from '../styles';
 const SignupPage = () => {
   return (
     <StyledContainer>

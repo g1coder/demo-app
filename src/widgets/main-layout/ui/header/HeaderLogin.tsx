@@ -4,9 +4,9 @@ import {Typography} from '@mui/material';
 import {styled} from '@mui/material/styles';
 import {useCallback, useContext} from 'react';
 import {Link, useNavigate} from 'react-router-dom';
-import AppRoutes from '@shared/constants/AppRoutes';
+import RouteConstants from '@shared/constants/route.constants';
 import SecondaryButton from '@shared/ui/Button/SecondaryButton';
-import {AuthContext, IAuthContext} from "../../../auth/lib/AuthProvider";
+import {AuthContext, IAuthContext} from '@widgets/auth/lib/AuthContext';
 
 const TABLET_MODE = 'lg';
 const DESKTOP_MODE = 'xl';
@@ -56,21 +56,25 @@ interface IProps {
 
 const HeaderLogin = ({inDrawer}: IProps) => {
   const navigate = useNavigate();
-  const {user: loggedUser, logout} = useContext<IAuthContext>(AuthContext);
+  const {user, logout} = useContext<IAuthContext>(AuthContext);
 
   const handleOnClick = useCallback(() => {
-    navigate(AppRoutes.LOGIN.url);
-  }, [navigate]);
+    if (user) {
+      logout();
+    } else {
+      navigate(RouteConstants.LOGIN.url);
+    }
+  }, [navigate, user]);
 
-  const content = loggedUser ? (
+  const content = user ? (
     <StyledLoggedContainer>
-      <Typography variant="body1">{loggedUser.name}</Typography>
+      <Typography variant="body1">{user.name}</Typography>
       <LogoutIcon sx={{marginLeft: 1, cursor: 'pointer'}} onClick={logout} />
     </StyledLoggedContainer>
   ) : (
     <>
-      <SecondaryButton title="Sign up" size="small" href={AppRoutes.SIGNUP.url} />
-      <Typography variant="body1" component={Link} to={AppRoutes.LOGIN.url}>
+      <SecondaryButton title="Sign up" size="small" href={RouteConstants.SIGNUP.url} />
+      <Typography variant="body1" component={Link} to={RouteConstants.LOGIN.url}>
         Sign in
       </Typography>
     </>
@@ -82,9 +86,7 @@ const HeaderLogin = ({inDrawer}: IProps) => {
 
   return (
     <>
-      <StyledTabletContainer onClick={handleOnClick}>
-        <LoginIcon />
-      </StyledTabletContainer>
+      <StyledTabletContainer onClick={handleOnClick}>{user ? <LogoutIcon /> : <LoginIcon />}</StyledTabletContainer>
       <StyledDesktopContainer>{content}</StyledDesktopContainer>
     </>
   );

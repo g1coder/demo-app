@@ -1,11 +1,11 @@
-import {Login} from '@widgets/auth';
-import {StyledContainer, StyledInnerContainer, StyledImageDecorator} from './styles';
+import {SignIn} from '@widgets/auth';
+import {StyledContainer, StyledInnerContainer, StyledImageDecorator} from '../styles';
 
 const LoginPage = () => {
   return (
     <StyledContainer>
       <StyledInnerContainer>
-        <Login />
+        <SignIn />
       </StyledInnerContainer>
       <StyledImageDecorator />
     </StyledContainer>

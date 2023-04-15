@@ -1,37 +1,19 @@
-import {createContext, ReactNode, useCallback, useMemo, useState} from 'react';
+import {ReactNode, useCallback, useMemo, useState} from 'react';
 import ErrorService from '@shared/api/services/ErrorService';
 import useData from '@shared/lib/hooks/useData';
 import Spinner from '@shared/ui/Spinner';
+import {useNavigate} from 'react-router-dom';
+import RouteConstants from '@shared/constants/route.constants';
 import AuthService from '../api/AuthService';
 import IUser from '../model/IUser';
-
-export interface IAuthContext {
-  user: IUser | undefined;
-  login: (params: {email: string; password: string}) => Promise<void | string>;
-  signup: (params: {email: string; password: string}, token: string) => Promise<void>;
-  logout: () => void;
-  reset: () => void;
-}
-
-export const AuthContext = createContext<IAuthContext>({
-  user: undefined,
-  // eslint-disable-next-line @typescript-eslint/no-unused-vars
-  login: (params: {email: string; password: string}) => Promise.resolve(),
-  // eslint-disable-next-line @typescript-eslint/no-unused-vars
-  signup: (params: {email: string; password: string}, token: string) => Promise.resolve(),
-  logout: () => {
-    return;
-  },
-  reset: () => {
-    return;
-  },
-});
+import {AuthContext, IAuthContext} from './AuthContext';
 
 interface IProps {
   children: ReactNode;
 }
 
 const AuthProvider = ({children}: IProps) => {
+  const navigate = useNavigate();
   const [user, setUser] = useState<IUser | undefined>();
 
   const [{ready, loading}] = useData(
@@ -42,36 +24,33 @@ const AuthProvider = ({children}: IProps) => {
     []
   );
 
-  const loadUserProfile = useCallback(() => {
-    return AuthService.getProfile().then((user) => {
-      setUser(user || {});
-    });
-  }, []);
+  const loadUserProfile = useCallback(() => AuthService.getProfile().then(setUser), []);
 
   const handleLogin = useCallback((params: {email: string; password: string}) => {
     return AuthService.login(params)
-      .then(() => {
-        window.location.replace('/users');
-      })
-      .catch((e: Error) => {
-        throw new Error(e.message);
+      .then(loadUserProfile)
+      .catch((error: Error) => {
+        throw new Error(error.message);
       });
   }, []);
 
   const handleLogout = useCallback(() => {
-    AuthService.logout().finally(() => setUser(undefined));
+    AuthService.logout().finally(() => {
+      navigate(RouteConstants.LANDING_PAGE.url);
+      setUser(undefined);
+    });
   }, []);
 
   const handleSignup = useCallback(
-    (params: {email: string; password: string}, token: string) => {
-      return AuthService.signup(params, token).then(loadUserProfile).catch(ErrorService.defaultHandler);
-    },
+    (params: {email: string; password: string}, token: string) =>
+      AuthService.signup(params, token).then(loadUserProfile).catch(ErrorService.defaultHandler),
     [loadUserProfile]
   );
 
-  const handleReset = useCallback(() => {
-    return user ? AuthService.resetPwd({email: user?.email}).finally(() => setUser(undefined)) : Promise.resolve();
-  }, [user]);
+  const handleReset = useCallback(
+    () => (user ? AuthService.resetPwd({email: user?.email}).finally(() => setUser(undefined)) : Promise.resolve()),
+    [user]
+  );
 
   const contextValue: IAuthContext = useMemo(
     () => ({

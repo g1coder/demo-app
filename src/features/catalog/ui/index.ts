@@ -1,2 +1,2 @@
-export {default as PriceFilter} from './filters/price-filter';
-export {default as TagFilter} from './filters/tag-filter';
+export {default as PriceFilter} from './filters/PriceFilter';
+export {default as TagFilter} from './filters/TagFilter';

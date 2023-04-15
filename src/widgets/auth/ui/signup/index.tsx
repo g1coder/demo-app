@@ -1,21 +1,15 @@
 import {Typography} from '@mui/material';
-import {FORM_ERROR} from 'final-form';
-import { useCallback, useContext } from "react";
-import AppRoutes from '@shared/constants/AppRoutes';
-import {AuthContext, IAuthContext} from "../../lib/AuthProvider";
-import Form, {IFormValues} from './ui/form';
+import {useCallback} from 'react';
+import RouteConstants from '@shared/constants/route.constants';
+import ErrorService from '@shared/api/services/ErrorService';
+import AuthService from '../../api/AuthService';
+import Form, {IFormValues} from './ui/SignupForm';
 import {StyledFormContainer, StyledSignUpContainer} from './ui/styles';
 
 const SignUp = () => {
-  const {signup} = useContext<IAuthContext>(AuthContext);
-
   const handleSubmit = useCallback(
-    (formData: IFormValues) => {
-      return signup(formData, 'token').catch((error: Error) => {
-        return {[FORM_ERROR]: error.message};
-      });
-    },
-    [signup]
+    (formData: IFormValues) => AuthService.signup(formData, 'token').catch(ErrorService.defaultFormHandler),
+    []
   );
 
   return (
@@ -34,7 +28,7 @@ const SignUp = () => {
             color="primary.dark"
             sx={{marginLeft: 1, cursor: 'pointer', textDecoration: 'underline'}}
             component="a"
-            href={AppRoutes.LOGIN.url}
+            href={RouteConstants.LOGIN.url}
           >
             Log in
           </Typography>

@@ -1,6 +1,6 @@
 import {ForwardedRef, forwardRef, ReactNode} from 'react';
 import {styled} from '@mui/material/styles';
-import {LANDING_PAGE_XL_CONTAINER_WIDTH} from '@shared/constants';
+import {LANDING_PAGE_XL_CONTAINER_WIDTH} from '@shared/constants/ui.constants';
 import { Box, Breakpoint } from "@mui/material";
 
 const StyledLayoutWrapper = styled(Box)(({theme: {breakpoints, spacing}}) => ({

@@ -1,7 +1,7 @@
 import {Typography} from '@mui/material';
 import AppLogo from '@shared/assets/header-logo.png';
-import AppRoutes from '@shared/constants/AppRoutes';
-import LayoutWrapper from '../layout-wrapper';
+import RouteConstants from '@shared/constants/route.constants';
+import LayoutWrapper from '../LayoutWrapper';
 import {StyledContainer, StyledAboutContainer, StyledButtonContainer, StyledAboutInfoContainer} from './styles';
 
 const Footer = () => {
@@ -9,7 +9,7 @@ const Footer = () => {
     <StyledContainer>
       <LayoutWrapper>
         <StyledAboutContainer>
-          <a href={AppRoutes.LANDING_PAGE.url}>
+          <a href={RouteConstants.LANDING_PAGE.url}>
             <img src={AppLogo} alt="company-logo" />
           </a>
           <Typography variant="body2" sx={{fontStyle: 'italic', margin: '32px 0'}}>

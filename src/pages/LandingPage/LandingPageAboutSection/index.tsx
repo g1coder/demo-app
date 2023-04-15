@@ -6,7 +6,7 @@ import ItemIcon1 from '@shared/assets/icon-blue-1.png';
 import ItemIcon2 from '@shared/assets/icon-blue-2.png';
 import ItemIcon3 from '@shared/assets/icon-blue-3.png';
 import ItemIcon4 from '@shared/assets/icon-blue-4.png';
-import AppRoutes from '@shared/constants/AppRoutes';
+import RouteConstants from '@shared/constants/route.constants';
 import SecondaryButton from '@shared/ui/Button/SecondaryButton';
 import SectionHeader from '../SectionHeader';
 import VideoMockImage from './presets/video-mock.png';
@@ -49,7 +49,7 @@ const LandingPageAboutSection = () => {
               aliquam faucibus. Pellentesque vel nisi pharetra, euismod sapien et, volutpat nulla. In congue maximus
               malesuada.
             </Typography>
-            <SecondaryButton title="Read more" href={AppRoutes.ABOUT.url} />
+            <SecondaryButton title="Read more" href={RouteConstants.ABOUT.url} />
           </StyledAboutInfoText>
 
           <StyledAboutVideoContainer>

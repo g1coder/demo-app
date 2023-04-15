@@ -15,6 +15,7 @@
     "axios": "^0.27.2",
     "dayjs": "^1.11.4",
     "final-form": "^4.20.7",
+    "husky": "^8.0.3",
     "lodash": "^4.17.21",
     "mobx": "^6.6.1",
     "mobx-react-lite": "^3.4.0",
@@ -37,7 +38,9 @@
     "eject": "craco eject",
     "storybook": "start-storybook -p 6006 -s public",
     "build-storybook": "build-storybook -s public",
-    "lint": "eslint --fix --ext .ts,.tsx ."
+    "lint": "eslint --fix --ext .ts,.tsx .",
+    "check-types": "tsc",
+    "lint-staged": "lint-staged"
   },
   "devDependencies": {
     "@craco/craco": "^7.1.0",
@@ -72,6 +75,11 @@
   "jest": {
     "transformIgnorePatterns": [
       "node_modules/(?!axios)/"
+    ]
+  },
+  "lint-staged": {
+    "{src,cypress}/**/*.{js,ts,tsx,css}": [
+      "prettier --write"
     ]
   },
   "browserslist": {

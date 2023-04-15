@@ -6,8 +6,7 @@ import {CartSummary, CartList} from '@entities/catalog';
 import IBaseProduct from '@entities/catalog/model/IBaseProduct';
 import useData from '@shared/lib/hooks/useData';
 import Spinner from '@shared/ui/Spinner';
-
-import {AuthContext, IAuthContext} from "../../../auth/lib/AuthProvider";
+import { AuthContext, IAuthContext } from "@widgets/auth/lib/AuthContext";
 import {getCartDetails} from '../../api/CartService';
 import { CartStore } from '../../store';
 

@@ -1,7 +1,7 @@
 import {Fab, Typography} from '@mui/material';
 import {styled} from '@mui/material/styles';
 import {animated} from '@react-spring/web';
-import {LANDING_PAGE_HEADER_HEIGHT} from '@shared/constants';
+import {LANDING_PAGE_HEADER_HEIGHT} from '@shared/constants/ui.constants';
 
 export const StyledSectionContainer = styled('div')(({theme: {breakpoints}}) => ({
   position: 'relative',

@@ -3,7 +3,7 @@ import {Fab, Typography} from '@mui/material';
 import {styled} from '@mui/material/styles';
 import {memo, useCallback} from 'react';
 import {useNavigate} from 'react-router-dom';
-import AppRoutes from '@shared/constants/AppRoutes';
+import RouteConstants from '@shared/constants/route.constants';
 
 const DESKTOP_MODE = 'xl';
 
@@ -57,7 +57,7 @@ const CartHeader = ({count}: IProps) => {
   const navigate = useNavigate();
 
   const handleCartClick = useCallback(() => {
-    navigate(AppRoutes.CART.url);
+    navigate(RouteConstants.CART.url);
   }, [navigate]);
 
   return (

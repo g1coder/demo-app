@@ -36,6 +36,9 @@ const handlers = [
     const {email} = req.body as Record<string, unknown>;
     return res(ctx.status(email === 'error@e.ee' ? 403 : 201));
   }),
+  rest.post('/api/v1/auth/logout', (req, res, ctx) => {
+    return res(ctx.status(200));
+  }),
   rest.post('/api/v1/register', (req, res, ctx) => {
     const {first_name, last_name, email, password} = req.body as Record<string, unknown>;
     let status = 401;

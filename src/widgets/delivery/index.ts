@@ -1,1 +1,1 @@
-export {default as DeliveryOrder} from './ui/delivery-order';
+export {default as DeliveryOrder} from './ui/DeliveryOrder';

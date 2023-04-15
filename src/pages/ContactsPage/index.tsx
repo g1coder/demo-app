@@ -1,7 +1,7 @@
 import {styled} from '@mui/material/styles';
 import {ContactInfo} from '@widgets/about';
 import {LayoutWrapper} from '@widgets/main-layout';
-import {LANDING_PAGE_HEADER_HEIGHT} from '@shared/constants';
+import {LANDING_PAGE_HEADER_HEIGHT} from '@shared/constants/ui.constants';
 
 const StyledBackground = styled('section')({
   backgroundColor: 'white',

@@ -35,8 +35,8 @@ const StyledNavigationMenu = styled(({items, ...rest}: IProps) => (
   },
 }));
 
-const HeaderNavigation = ({items}: IProps) => {
+const HeaderVavigation = ({items}: IProps) => {
   return <StyledNavigationMenu items={items} />;
 };
 
-export default memo(HeaderNavigation);
+export default memo(HeaderVavigation);

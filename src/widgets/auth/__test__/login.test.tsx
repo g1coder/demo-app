@@ -1,6 +1,6 @@
 import {screen} from '@testing-library/dom';
 import {fireEvent, render} from '@testing-library/react';
-import Login from '../ui/login';
+import Login from '../ui/signin';
 
 describe('login', () => {
   let props;
@@ -42,7 +42,7 @@ describe('login', () => {
   });
 
   describe('LoginForm', () => {
-    it('should disable login button if user input not email string', async () => {
+    it('should disable signin button if user input not email string', async () => {
       render(<Login {...props} />);
       await screen.findByText('Email address');
 
@@ -52,7 +52,7 @@ describe('login', () => {
       expect(screen.getByText('Sign in')).toHaveAttribute('disabled');
     });
 
-    it('should call login handler by click on Sign in', async () => {
+    it('should call signin handler by click on Sign in', async () => {
       render(<Login {...props} />);
       await screen.findByText('Email address');
 

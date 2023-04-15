@@ -1,4 +1,5 @@
 import axios from 'axios';
+import {FORM_ERROR} from 'final-form';
 import ToastService from '@shared/api/services/ToastService';
 
 function defaultHandler(error: Record<string, never>) {
@@ -14,6 +15,18 @@ function defaultHandler(error: Record<string, never>) {
   }
 }
 
+const hasMessage = (obj: unknown): obj is {message: string} => {
+  return typeof obj === 'object' && obj !== null && 'message' in obj;
+}
+
+function defaultFormHandler(error: unknown) {
+  if (hasMessage(error)) {
+    return {[FORM_ERROR]: error.message};
+  }
+  return Error('Something went wrong');
+}
+
 export default {
   defaultHandler,
+  defaultFormHandler
 };

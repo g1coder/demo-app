@@ -6,17 +6,19 @@ import TwitterIcon from '@mui/icons-material/Twitter';
 import YouTubeIcon from '@mui/icons-material/YouTube';
 import {Fab, Grid, Typography} from '@mui/material';
 import {ReactElement, useCallback} from 'react';
-import {sendFeedback} from '../api';
+import ErrorService from '@shared/api/services/ErrorService';
+import ContactService from '../api/ContactService';
 import {getWorksHours} from '../lib';
-import ContactForm, {IFormValues} from './form';
+import ContactForm, {IFormValues} from './ContactForm';
 import {StyledContainer, StyledFormContainer, StyledLi, StyledNav} from './styles';
 
 const workHours = getWorksHours();
 
 const ContactInfo = () => {
-  const handleSendFeedback = useCallback((values: IFormValues) => {
-      return sendFeedback(values);
-  }, []);
+  const handleSendFeedback = useCallback(
+    (values: IFormValues) => ContactService.sendFeedback(values).catch(ErrorService.defaultFormHandler),
+    []
+  );
 
   const renderOfficeInfo = (icon, label) => (
     <Grid item container spacing={1} key={label} sx={{flexFlow: 'nowrap'}}>

@@ -11,9 +11,8 @@ const register = (params: {firstName: string; lastName: string; email: string; p
 
 const resetPwd = (params: {email: string}) => api.post(`/api/reset-password`, {params});
 
-async function logout(): Promise<void> {
-  await api.post(`/api/v1/auth/logout`, null, true);
-  void applyCredentials();
+function logout(): Promise<void> {
+  return api.post<void>(`/api/v1/auth/logout`, null, true).finally(applyCredentials);
 }
 
 function signup(params: {email: string; password: string}, token: string): Promise<void> {

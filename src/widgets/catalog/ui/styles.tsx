@@ -1,5 +1,5 @@
 import {styled} from '@mui/material/styles';
-import {LANDING_PAGE_HEADER_HEIGHT, MAIN_LAYOUT_HEADER_ORDER} from '@shared/constants';
+import {LANDING_PAGE_HEADER_HEIGHT, MAIN_LAYOUT_HEADER_ORDER} from '@shared/constants/ui.constants';
 
 export const StyledContainer = styled('div')({
     background: '#fff',

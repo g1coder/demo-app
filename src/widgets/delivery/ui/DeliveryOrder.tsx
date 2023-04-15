@@ -2,7 +2,7 @@ import {Typography} from '@mui/material';
 import Paper from '@mui/material/Paper';
 import {styled} from '@mui/material/styles';
 import {makeDeliveryOrder} from '../api';
-import DeliveryForm from './form';
+import DeliveryForm from './ContactForm';
 
 export const StyledFormContainer = styled(Paper)(({theme: {spacing}}) => ({
   position: 'relative',

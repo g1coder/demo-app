@@ -1,19 +1,19 @@
 import {observer} from 'mobx-react-lite';
 import {useEffect} from 'react';
 import CartStore from '@widgets/catalog/store/CartStore';
-import HeaderDrawer from '@widgets/main-layout/ui/header/header-drawer';
-import HeaderLogin from '@widgets/main-layout/ui/header/header-login';
-import HeaderLogo from '@widgets/main-layout/ui/header/header-logo';
-import HeaderNavigation from '@widgets/main-layout/ui/header/header-navigation';
+import HeaderDrawer from '@widgets/main-layout/ui/header/HeaderDrawer';
+import HeaderLogin from '@widgets/main-layout/ui/header/HeaderLogin';
+import HeaderLogo from '@widgets/main-layout/ui/header/HeaderLogo';
+import HeaderNavigation from '@widgets/main-layout/ui/header/HeaderVavigation';
 import {CartHeader} from '@entities/catalog';
-import AppRoutes from '@shared/constants/AppRoutes';
+import RouteConstants from '@shared/constants/route.constants';
 import {StyledHeader, StyledLoginContainer, StyledNavContainer} from './styles';
 
 const items = [
-  {name: 'Home', url: AppRoutes.LANDING_PAGE.url},
-  {name: 'Catalog', url: AppRoutes.CATALOG.url},
-  {name: 'About us', url: AppRoutes.ABOUT.url},
-  {name: 'Contacts', url: AppRoutes.CONTACTS.url},
+  {name: 'Home', url: RouteConstants.LANDING_PAGE.url},
+  {name: 'Catalog', url: RouteConstants.CATALOG.url},
+  {name: 'About us', url: RouteConstants.ABOUT.url},
+  {name: 'Contacts', url: RouteConstants.CONTACTS.url},
 ];
 
 const Header = observer(() => {

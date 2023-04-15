@@ -1,3 +1,24 @@
+export enum RoutePublic {
+  SIGN_IN,
+  SIGN_UP,
+  LADING_PAGE,
+  CART,
+  CATALOG,
+  ABOUT,
+  CONTACTS
+}
+
+export enum RoutePrivate {
+  PROFILE,
+}
+
+type RouteType = {[T in keyof typeof RouteNames]: {
+  key: string;
+  url: string;
+  path: string;
+  name?: string;
+}};
+
 export enum RouteNames {
   LOGIN = 'LOGIN',
   SIGNUP = 'SIGNUP',
@@ -18,8 +39,8 @@ interface IAppRouteConfig {
 
 type AppRoutesType = {[T in keyof typeof RouteNames]: IAppRouteConfig};
 
-const AppRoutes: AppRoutesType = {
-  [RouteNames.LOGIN]: {key: 'login', path: 'login', url: '/login'},
+const RouteConstants: AppRoutesType = {
+  [RouteNames.LOGIN]: {key: 'login', path: 'login', url: 'login'},
   [RouteNames.SIGNUP]: {key: 'signup', path: 'signup', url: 'signup'},
   [RouteNames.PROFILE]: {key: 'profile', path: 'profile', url: 'profile', name: 'Profile'},
 
@@ -31,4 +52,4 @@ const AppRoutes: AppRoutesType = {
   [RouteNames.CART]: {key: 'cart', path: 'cart', url: '/catalog/cart'},
 };
 
-export default AppRoutes;
+export default RouteConstants;

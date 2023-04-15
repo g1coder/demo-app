@@ -1,2 +1,3 @@
-export {default as MainLayout} from './ui';
-export {default as LayoutWrapper} from './ui/layout-wrapper';
+export {default as Header} from './ui/header';
+export {default as Footer} from './ui/footer';
+export {default as LayoutWrapper} from './ui/LayoutWrapper';

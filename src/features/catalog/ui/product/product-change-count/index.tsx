@@ -1,7 +1,7 @@
 import CartIcon from '@mui/icons-material/ShoppingCartOutlined';
 import {styled} from '@mui/material/styles';
 import PrimaryButton from '@shared/ui/Button/PrimaryButton';
-import OrderButton from './order-button';
+import OrderButton from './OrderButton';
 
 const StyledAddCardButton = styled(PrimaryButton)(({theme: {spacing}}) => ({
   marginTop: spacing(3),

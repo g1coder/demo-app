@@ -1,6 +1,6 @@
 import {Grid, Typography} from '@mui/material';
 import {styled} from '@mui/material/styles';
-import AppRoutes from '@shared/constants/AppRoutes';
+import RouteConstants from '@shared/constants/route.constants';
 import PrimaryButton from '@shared/ui/Button/PrimaryButton';
 import BgImage from './404-bg.png';
 
@@ -41,7 +41,7 @@ const PageNotFound = () => (
         </Typography>
       </Grid>
       <Grid item marginTop={4}>
-        <PrimaryButton title="Back" size="small" href={AppRoutes.LANDING_PAGE.url} />
+        <PrimaryButton title="Back" size="small" href={RouteConstants.LANDING_PAGE.url} />
       </Grid>
     </Grid>
   </StyledContainer>

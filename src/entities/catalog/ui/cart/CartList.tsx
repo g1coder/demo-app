@@ -2,7 +2,7 @@ import {Divider, Grid} from '@mui/material';
 import {memo} from 'react';
 import IBaseProduct from '@entities/catalog/model/IBaseProduct';
 import Spinner from '@shared/ui/Spinner';
-import CartListItem from './cart-list-item';
+import CartListItem from './CartListItem';
 import {StyledHeader} from './styles';
 
 interface IProps {

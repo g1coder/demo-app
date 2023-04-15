@@ -2,7 +2,7 @@ import ArrowUpwardOutlinedIcon from '@mui/icons-material/ArrowUpwardOutlined';
 import {useTransition} from '@react-spring/web';
 import {useReducer} from 'react';
 import {LayoutWrapper} from '@widgets/main-layout';
-import AppRoutes from '@shared/constants/AppRoutes';
+import RouteConstants from '@shared/constants/route.constants';
 import useScrollTop from '@shared/lib/hooks/useScrollTop';
 
 import PrimaryButton from '@shared/ui/Button/PrimaryButton';
@@ -66,7 +66,7 @@ const LandingPageMainSection = () => {
 
             <StyledInnerButtonContainer>
               <SecondaryButton title="Read more" />
-              <PrimaryButton title="Make order" href={AppRoutes.CATALOG.url} />
+              <PrimaryButton title="Make order" href={RouteConstants.CATALOG.url} />
             </StyledInnerButtonContainer>
           </div>
         </StyledTextContainer>

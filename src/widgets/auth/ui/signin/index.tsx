@@ -1,14 +1,14 @@
 import {Paper, Typography} from '@mui/material';
 import {styled} from '@mui/material/styles';
-import {FORM_ERROR} from 'final-form';
-import { useCallback, useContext, useReducer } from "react";
+import {useCallback, useReducer} from 'react';
 import {useLocation, useNavigate} from 'react-router-dom';
 
-import AppRoutes from '@shared/constants/AppRoutes';
+import RouteConstants from '@shared/constants/route.constants';
 import Utils from '@shared/helpers/Utils';
-import {AuthContext, IAuthContext} from "../../lib/AuthProvider";
-import LoginForm, {IFormValues as ILoginFormValues} from './ui/login-form';
-import ResetPasswordForm from './ui/reset-pwd-form';
+import AuthService from '@widgets/auth/api/AuthService';
+import ErrorService from '@shared/api/services/ErrorService';
+import LoginForm, {IFormValues as ILoginFormValues} from './ui/LoginForm';
+import ResetPasswordForm from './ui/ResetPasswordForm';
 
 export const StyledContainer = styled(Paper)(({theme}) => ({
   width: '100%',
@@ -24,34 +24,30 @@ export const StyledSignUpContainer = styled('div')({
   marginTop: 24,
 });
 
-const Login = () => {
+const SignIn = () => {
   const navigate = useNavigate();
   const location = useLocation();
-  const [isLoginMode, switchMode] = useReducer((state) => !state, true);
-  const {login, reset} = useContext<IAuthContext>(AuthContext);
+  const [showLogin, switchMode] = useReducer((state) => !state, true);
 
   const handleLogin = useCallback(
-    (data: ILoginFormValues) => {
-      return login(data)
-        .then(() => {
-          const next = Utils.getNextFromUrl(location.search);
-          if (next) {
-            return navigate(next);
-          }
-        })
-        .catch((e: Error) => {
-          return {[FORM_ERROR]: e.message};
-        });
+    async (values: ILoginFormValues) => {
+      try {
+        await AuthService.login(values);
+        const next = Utils.getNextFromUrl(location.search);
+        navigate(next || RouteConstants.LANDING_PAGE.url);
+      } catch (error) {
+        return ErrorService.defaultFormHandler(error);
+      }
     },
-    [location.search, navigate, login]
+    [location.search, navigate]
   );
 
   return (
     <StyledContainer elevation={3}>
       <Typography variant="h4" sx={{textAlign: 'center', marginBottom: 3, textTransform: 'uppercase'}}>
-        {isLoginMode ? 'Sign in' : 'Reset password'}
+        {showLogin ? 'Sign in' : 'Reset password'}
       </Typography>
-      {isLoginMode ? (
+      {showLogin ? (
         <>
           <LoginForm onSubmit={handleLogin} onForgotPassword={switchMode} />
           <StyledSignUpContainer>
@@ -63,17 +59,17 @@ const Login = () => {
               color="primary.dark"
               sx={{marginLeft: 1, cursor: 'pointer', textDecoration: 'underline'}}
               component="a"
-              href={AppRoutes.SIGNUP.url}
+              href={RouteConstants.SIGNUP.url}
             >
               Sign up
             </Typography>
           </StyledSignUpContainer>
         </>
       ) : (
-        <ResetPasswordForm onSubmit={reset} onBack={switchMode} />
+        <ResetPasswordForm onSubmit={AuthService.resetPwd} onBack={switchMode} />
       )}
     </StyledContainer>
   );
 };
 
-export default Login;
+export default SignIn;
