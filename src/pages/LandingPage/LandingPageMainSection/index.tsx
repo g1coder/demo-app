@@ -2,11 +2,11 @@ import ArrowUpwardOutlinedIcon from '@mui/icons-material/ArrowUpwardOutlined';
 import {useTransition} from '@react-spring/web';
 import {useReducer} from 'react';
 import {LayoutWrapper} from '@widgets/main-layout';
-import RouteConstants from '@shared/constants/route.constants';
+import Routes from '@shared/constants/routes.constants';
 import useScrollTop from '@shared/lib/hooks/useScrollTop';
 
-import PrimaryButton from '@shared/ui/Button/PrimaryButton';
-import SecondaryButton from '@shared/ui/Button/SecondaryButton';
+import PrimaryButton from '@shared/ui-kit/Button/PrimaryButton';
+import SecondaryButton from '@shared/ui-kit/Button/SecondaryButton';
 import BottleImage from '../presets/slider-dark-bottle.png';
 import SlideIcon1 from './presets/mountain1.jpg';
 import SlideIcon2 from './presets/mountain2.jpg';
@@ -66,7 +66,7 @@ const LandingPageMainSection = () => {
 
             <StyledInnerButtonContainer>
               <SecondaryButton title="Read more" />
-              <PrimaryButton title="Make order" href={RouteConstants.CATALOG.url} />
+              <PrimaryButton title="Make order" href={Routes.CATALOG.url} />
             </StyledInnerButtonContainer>
           </div>
         </StyledTextContainer>

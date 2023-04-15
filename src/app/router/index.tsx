@@ -9,7 +9,7 @@ import PageNotFound from '@pages/PageNotFound';
 import {CatalogLayout} from '@widgets/catalog';
 import {LayoutWrapper} from '@widgets/main-layout';
 import MainLayout from '@pages/MainLayout';
-import RouteConstants from '@shared/constants/route.constants';
+import Routes from '@shared/constants/routes.constants';
 import PrivateRoute from './PrivateRoute';
 
 const ContactsPage = lazy(() => import('@pages/ContactsPage'));
@@ -25,13 +25,13 @@ const AppRouter = createBrowserRouter(
       errorElement={<ErrorPage />}
       children={[
         <Route
-          key={RouteConstants.LANDING_PAGE.key}
-          path={RouteConstants.LANDING_PAGE.path}
+          key={Routes.LANDING_PAGE.key}
+          path={Routes.LANDING_PAGE.path}
           element={<LandingPage />}
         />,
         <Route
-          key={RouteConstants.CONTACTS.key}
-          path={RouteConstants.CONTACTS.path}
+          key={Routes.CONTACTS.key}
+          path={Routes.CONTACTS.path}
           element={
             <Suspense>
               <ContactsPage />
@@ -39,8 +39,8 @@ const AppRouter = createBrowserRouter(
           }
         />,
         <Route
-          key={RouteConstants.ABOUT.key}
-          path={RouteConstants.ABOUT.path}
+          key={Routes.ABOUT.key}
+          path={Routes.ABOUT.path}
           element={
             <Suspense>
               <AboutPage />
@@ -48,25 +48,25 @@ const AppRouter = createBrowserRouter(
           }
         />,
         <Route
-          key={RouteConstants.CATALOG.key}
-          path={RouteConstants.CATALOG.path}
+          key={Routes.CATALOG.key}
+          path={Routes.CATALOG.path}
           element={
             <LayoutWrapper>
               <CatalogLayout />
             </LayoutWrapper>
           }
           children={[
-            <Route index key={RouteConstants.CATALOG.key} element={<CatalogPage />} />,
-            <Route path={RouteConstants.CART.path} element={<PrivateRoute />}>
-              <Route key={RouteConstants.CART.key} path={RouteConstants.CART.path} element={<CartPage />} />,
+            <Route index key={Routes.CATALOG.key} element={<CatalogPage />} />,
+            <Route path={Routes.CART.path} element={<PrivateRoute />}>
+              <Route key={Routes.CART.key} path={Routes.CART.path} element={<CartPage />} />,
             </Route>,
           ]}
         />,
       ]}
     />,
     <Route
-      key={RouteConstants.LOGIN.key}
-      path={RouteConstants.LOGIN.path}
+      key={Routes.SIGN_IN.key}
+      path={Routes.SIGN_IN.path}
       element={
         <Suspense>
           <LoginPage />
@@ -74,8 +74,8 @@ const AppRouter = createBrowserRouter(
       }
     />,
     <Route
-      key={RouteConstants.SIGNUP.key}
-      path={RouteConstants.SIGNUP.path}
+      key={Routes.SIGN_UP.key}
+      path={Routes.SIGN_UP.path}
       element={
         <Suspense>
           <SignupPage />

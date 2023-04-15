@@ -5,8 +5,8 @@ import {styled} from '@mui/material/styles';
 import {useCallback, useContext} from 'react';
 import {Link, useNavigate} from 'react-router-dom';
 import {AuthContext, IAuthContext} from '@widgets/auth';
-import RouteConstants from '@shared/constants/route.constants';
-import SecondaryButton from '@shared/ui/Button/SecondaryButton';
+import Routes from '@shared/constants/routes.constants';
+import SecondaryButton from '@shared/ui-kit/Button/SecondaryButton';
 
 const TABLET_MODE = 'lg';
 const DESKTOP_MODE = 'xl';
@@ -62,7 +62,7 @@ const HeaderLogin = ({inDrawer}: IProps) => {
     if (user) {
       logout();
     } else {
-      navigate(RouteConstants.LOGIN.url);
+      navigate(Routes.SIGN_IN.url);
     }
   }, [navigate, user]);
 
@@ -73,8 +73,8 @@ const HeaderLogin = ({inDrawer}: IProps) => {
     </StyledLoggedContainer>
   ) : (
     <>
-      <SecondaryButton title="Sign up" size="small" href={RouteConstants.SIGNUP.url} />
-      <Typography variant="body1" component={Link} to={RouteConstants.LOGIN.url}>
+      <SecondaryButton title="Sign up" size="small" href={Routes.SIGN_UP.url} />
+      <Typography variant="body1" component={Link} to={Routes.SIGN_IN.url}>
         Sign in
       </Typography>
     </>

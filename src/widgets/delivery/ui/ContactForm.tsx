@@ -3,7 +3,7 @@ import {styled} from '@mui/material/styles';
 import {Form, Field} from 'react-final-form';
 import {createValidator, required} from '@shared/api/services/ValidationService';
 import Utils from '@shared/helpers/Utils';
-import PrimaryButton from '@shared/ui/Button/PrimaryButton';
+import PrimaryButton from '@shared/ui-kit/Button/PrimaryButton';
 
 const StyledForm = styled('form')(({theme: {spacing}}) => ({
   maxWidth: 390,

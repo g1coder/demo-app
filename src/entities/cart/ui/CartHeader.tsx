@@ -4,9 +4,8 @@ import {styled} from '@mui/material/styles';
 import {memo, useCallback} from 'react';
 import {useNavigate} from 'react-router-dom';
 import {observer} from 'mobx-react-lite';
-import RouteConstants from '@shared/constants/route.constants';
-// eslint-disable-next-line import/no-named-as-default
-import CartStore from '../store/CartStore';
+import Routes from '@shared/constants/routes.constants';
+import {CartStore} from '../store';
 
 const DESKTOP_MODE = 'xl';
 
@@ -57,7 +56,7 @@ const CartHeader = observer(() => {
   const count = CartStore.count;
 
   const handleCartClick = useCallback(() => {
-    navigate(RouteConstants.CART.url);
+    navigate(Routes.CART.url);
   }, [navigate]);
 
   return (

@@ -3,7 +3,7 @@ import {styled} from '@mui/material/styles';
 import {useCallback, useReducer} from 'react';
 import {useLocation, useNavigate} from 'react-router-dom';
 
-import RouteConstants from '@shared/constants/route.constants';
+import Routes from '@shared/constants/routes.constants';
 import Utils from '@shared/helpers/Utils';
 import ErrorService from '@shared/api/services/ErrorService';
 import AuthService from '../../api/AuthService';
@@ -34,7 +34,7 @@ const SignIn = () => {
       try {
         await AuthService.login(values);
         const next = Utils.getNextFromUrl(location.search);
-        navigate(next || RouteConstants.LANDING_PAGE.url);
+        navigate(next || Routes.LANDING_PAGE.url);
       } catch (error) {
         return ErrorService.defaultFormHandler(error);
       }
@@ -59,7 +59,7 @@ const SignIn = () => {
               color="primary.dark"
               sx={{marginLeft: 1, cursor: 'pointer', textDecoration: 'underline'}}
               component="a"
-              href={RouteConstants.SIGNUP.url}
+              href={Routes.SIGN_UP.url}
             >
               Sign up
             </Typography>

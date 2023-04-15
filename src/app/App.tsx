@@ -1,7 +1,7 @@
 import CssBaseline from '@mui/material/CssBaseline';
 import {RouterProvider} from 'react-router-dom';
-import Spinner from '@shared/ui/Spinner';
-import Toaster from '@shared/ui/Toaster';
+import Spinner from '@shared/ui-kit/Spinner';
+import Toaster from '@shared/ui-kit/Toaster';
 import AppRouter from './router';
 import ThemeProvider from './themes/ThemeProvider';
 

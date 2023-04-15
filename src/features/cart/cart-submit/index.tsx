@@ -1,9 +1,9 @@
 import {Typography} from '@mui/material';
 import {useMemo} from 'react';
 import {useLocation} from 'react-router-dom';
-import RouteConstants from '@shared/constants/route.constants';
+import Routes from '@shared/constants/routes.constants';
 import Utils from '@shared/helpers/Utils';
-import PrimaryButton from '@shared/ui/Button/PrimaryButton';
+import PrimaryButton from '@shared/ui-kit/Button/PrimaryButton';
 
 interface IProps {
   submitCart: () => void;
@@ -13,7 +13,7 @@ interface IProps {
 
 const CartSubmit = ({submitCart, submitting, isLoggined}: IProps) => {
   const location = useLocation();
-  const loginUrl = useMemo(() => `${RouteConstants.LOGIN.url}${Utils.getNextUrlString(location)}`, [location]);
+  const loginUrl = useMemo(() => `${Routes.SIGN_IN.url}${Utils.getNextUrlString(location)}`, [location]);
 
   if (isLoggined) {
     return <PrimaryButton title="Checkout" onClick={submitCart} disabled={submitting} />;

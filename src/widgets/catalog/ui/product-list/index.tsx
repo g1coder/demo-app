@@ -6,7 +6,7 @@ import {IBaseProduct} from '@entities/catalog';
 import {CartStore} from '@entities/cart';
 import useData from '@shared/lib/hooks/useData';
 import List from '@shared/models/List';
-import Spinner from '@shared/ui/Spinner';
+import Spinner from '@shared/ui-kit/Spinner';
 import {getList} from '../../api/CatalogService';
 import IProductParams from '../../model/IProductParams';
 import {CatalogStore} from '../../store';

@@ -1,6 +1,6 @@
 import {Typography} from '@mui/material';
 import {useCallback} from 'react';
-import RouteConstants from '@shared/constants/route.constants';
+import Routes from '@shared/constants/routes.constants';
 import ErrorService from '@shared/api/services/ErrorService';
 import AuthService from '../../api/AuthService';
 import Form, {IFormValues} from './ui/SignupForm';
@@ -28,7 +28,7 @@ const SignUp = () => {
             color="primary.dark"
             sx={{marginLeft: 1, cursor: 'pointer', textDecoration: 'underline'}}
             component="a"
-            href={RouteConstants.LOGIN.url}
+            href={Routes.SIGN_IN.url}
           >
             Log in
           </Typography>

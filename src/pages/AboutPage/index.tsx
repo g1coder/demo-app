@@ -8,8 +8,8 @@ import ItemIcon2 from '@shared/assets/icon-blue-2.png';
 import ItemIcon3 from '@shared/assets/icon-blue-3.png';
 import ItemIcon4 from '@shared/assets/icon-blue-4.png';
 import {LANDING_PAGE_HEADER_HEIGHT} from '@shared/constants/ui.constants';
-import RouteConstants from '@shared/constants/route.constants';
-import SecondaryButton from '@shared/ui/Button/SecondaryButton';
+import Routes from '@shared/constants/routes.constants';
+import SecondaryButton from '@shared/ui-kit/Button/SecondaryButton';
 import SectionHeader from '../LandingPage/SectionHeader';
 import AboutPicture from './about-us.jpg';
 import GlassPicture from './mineral-glass-square.png';
@@ -123,7 +123,7 @@ const AboutPage = () => {
             elementum sem ligula. Phasellus eleifend vel justo sit amet volutpat. Duis vitae maximus ligula, nec mattis
             libero. Donec eget felis odio.
           </Typography>
-          <SecondaryButton title="view products" href={RouteConstants.CATALOG.url} />
+          <SecondaryButton title="view products" href={Routes.CATALOG.url} />
         </Grid>
         <Grid item xs={11} md={10} lg={6}>
           <StyledPicture src={AboutPicture} />

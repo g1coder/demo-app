@@ -1,7 +1,7 @@
 import {screen} from '@testing-library/dom';
 import {render} from '@testing-library/react';
 import {Route, Routes, MemoryRouter} from 'react-router-dom';
-import RouteConstants from '@shared/constants/route.constants';
+import {default as AppRoutes} from '@shared/constants/routes.constants';
 import MainLayout from '../MainLayout';
 
 describe('MainLayout', () => {
@@ -10,7 +10,7 @@ describe('MainLayout', () => {
       <MemoryRouter initialEntries={[route]}>
         <Routes>
           <Route path="/" element={<MainLayout />}>
-            <Route path={RouteConstants.LANDING_PAGE.url} element={<div>{'Dasboard page text'}</div>} />
+            <Route path={AppRoutes.LANDING_PAGE.url} element={<div>{'Dasboard page text'}</div>} />
           </Route>
         </Routes>
       </MemoryRouter>

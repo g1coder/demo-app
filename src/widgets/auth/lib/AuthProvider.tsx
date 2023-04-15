@@ -2,8 +2,8 @@ import {ReactNode, useCallback, useMemo, useState} from 'react';
 import {useNavigate} from 'react-router-dom';
 import ErrorService from '@shared/api/services/ErrorService';
 import useData from '@shared/lib/hooks/useData';
-import Spinner from '@shared/ui/Spinner';
-import RouteConstants from '@shared/constants/route.constants';
+import Spinner from '@shared/ui-kit/Spinner';
+import Routes from '@shared/constants/routes.constants';
 import AuthService from '../api/AuthService';
 import IUser from '../model/IUser';
 import {AuthContext, IAuthContext} from './AuthContext';
@@ -36,7 +36,7 @@ const AuthProvider = ({children}: IProps) => {
 
   const handleLogout = useCallback(() => {
     AuthService.logout().finally(() => {
-      navigate(RouteConstants.LANDING_PAGE.url);
+      navigate(Routes.LANDING_PAGE.url);
       setUser(undefined);
     });
   }, []);

@@ -6,7 +6,7 @@ import {FormRenderProps, useFormState, Field} from 'react-final-form';
 import {createValidator, email, required} from '@shared/api/services/ValidationService';
 import Utils from '@shared/helpers/Utils';
 import withFinalForm from '@shared/lib/HOC/withFinalForm';
-import PrimaryButton from '@shared/ui/Button/PrimaryButton';
+import PrimaryButton from '@shared/ui-kit/Button/PrimaryButton';
 
 const StyledFieldLabel = styled('div')({
   marginBottom: -12,

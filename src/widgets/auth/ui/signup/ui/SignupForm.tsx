@@ -3,7 +3,7 @@ import {FormRenderProps, useField, useFormState} from 'react-final-form';
 import {createValidator, email, required} from '@shared/api/services/ValidationService';
 import Utils from '@shared/helpers/Utils';
 import withFinalForm from '@shared/lib/HOC/withFinalForm';
-import PrimaryButton from '@shared/ui/Button/PrimaryButton';
+import PrimaryButton from '@shared/ui-kit/Button/PrimaryButton';
 import {StyledForm, StyledFieldLabel, StyledBtnContainer} from './styles';
 
 export interface IFormValues {

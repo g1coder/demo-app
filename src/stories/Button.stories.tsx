@@ -1,6 +1,6 @@
 import {ComponentStory, ComponentMeta} from '@storybook/react';
-import PrimaryButton from '@shared/ui/Button/PrimaryButton';
-import SecondaryButton from '@shared/ui/Button/SecondaryButton';
+import PrimaryButton from '@shared/ui-kit/Button/PrimaryButton';
+import SecondaryButton from '@shared/ui-kit/Button/SecondaryButton';
 
 export default {
   title: 'api/components/CircleButton',

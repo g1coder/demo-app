@@ -1,7 +1,7 @@
 import {Box, Card, CardActions, CardMedia, Typography} from '@mui/material';
 import {styled} from '@mui/material/styles';
 import {Link} from 'react-router-dom';
-import SecondaryButton from '@shared/ui/Button/SecondaryButton';
+import SecondaryButton from '@shared/ui-kit/Button/SecondaryButton';
 
 export const StyledPostsContainer = styled('div')(({theme: {spacing, breakpoints}}) => ({
   display: 'flex',

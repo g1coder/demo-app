@@ -3,7 +3,7 @@ import VisibilityIcon from '@mui/icons-material/Visibility';
 import {CardContent, Typography} from '@mui/material';
 import dayjs from 'dayjs';
 import {LayoutWrapper} from '@widgets/main-layout';
-import SecondaryButton from '@shared/ui/Button/SecondaryButton';
+import SecondaryButton from '@shared/ui-kit/Button/SecondaryButton';
 import SectionHeader from '../SectionHeader';
 import RecentImage1 from './presets/recent_post1.jpg';
 import RecentImage2 from './presets/recent_post2.jpg';

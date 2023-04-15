@@ -1,6 +1,6 @@
 import {styled} from '@mui/material/styles';
 import AppLogo from '@shared/assets/header-logo.png';
-import RouteConstants from '@shared/constants/route.constants';
+import Routes from '@shared/constants/routes.constants';
 
 const StyledLogo = styled('img')(({theme: {breakpoints}}) => ({
   margin: 0,
@@ -12,7 +12,7 @@ const StyledLogo = styled('img')(({theme: {breakpoints}}) => ({
 }));
 
 const HeaderLogo = () => (
-  <a href={RouteConstants.LANDING_PAGE.url}>
+  <a href={Routes.LANDING_PAGE.url}>
     <StyledLogo src={AppLogo} alt="company-logo" />
   </a>
 );

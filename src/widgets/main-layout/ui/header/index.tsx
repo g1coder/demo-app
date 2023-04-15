@@ -1,5 +1,5 @@
 import {CartHeader} from '@entities/cart';
-import RouteConstants from '@shared/constants/route.constants';
+import Routes from '@shared/constants/routes.constants';
 import HeaderDrawer from './HeaderDrawer';
 import HeaderLogin from './HeaderLogin';
 import HeaderLogo from './HeaderLogo';
@@ -7,10 +7,10 @@ import HeaderNavigation from './HeaderVavigation';
 import {StyledHeader, StyledLoginContainer, StyledNavContainer} from './styles';
 
 const items = [
-  {name: 'Home', url: RouteConstants.LANDING_PAGE.url},
-  {name: 'Catalog', url: RouteConstants.CATALOG.url},
-  {name: 'About us', url: RouteConstants.ABOUT.url},
-  {name: 'Contacts', url: RouteConstants.CONTACTS.url},
+  {name: 'Home', url: Routes.LANDING_PAGE.url},
+  {name: 'Catalog', url: Routes.CATALOG.url},
+  {name: 'About us', url: Routes.ABOUT.url},
+  {name: 'Contacts', url: Routes.CONTACTS.url},
 ];
 
 const Header = () => {

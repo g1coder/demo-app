@@ -1,5 +1,5 @@
 import {styled} from '@mui/material/styles';
-import PrimaryButton from '@shared/ui/Button/PrimaryButton';
+import PrimaryButton from '@shared/ui-kit/Button/PrimaryButton';
 
 export const StyledLandingPageFooterSection = styled('section')(({theme: {breakpoints}}) => ({
   position: 'relative',
