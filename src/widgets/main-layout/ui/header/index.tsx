@@ -1,5 +1,5 @@
 import {CartHeader} from '@entities/cart';
-import Routes from '@shared/constants/routes.constants';
+import {Routes} from '@shared/constants';
 import HeaderDrawer from './HeaderDrawer';
 import HeaderLogin from './HeaderLogin';
 import HeaderLogo from './HeaderLogo';

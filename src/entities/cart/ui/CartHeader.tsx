@@ -4,7 +4,7 @@ import {styled} from '@mui/material/styles';
 import {memo, useCallback} from 'react';
 import {useNavigate} from 'react-router-dom';
 import {observer} from 'mobx-react-lite';
-import Routes from '@shared/constants/routes.constants';
+import {Routes} from '@shared/constants';
 import {CartStore} from '../store';
 
 const DESKTOP_MODE = 'xl';

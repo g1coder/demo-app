@@ -9,7 +9,7 @@ import PageNotFound from '@pages/PageNotFound';
 import {CatalogLayout} from '@widgets/catalog';
 import {LayoutWrapper} from '@widgets/main-layout';
 import MainLayout from '@pages/MainLayout';
-import Routes from '@shared/constants/routes.constants';
+import {Routes} from '@shared/constants';
 import PrivateRoute from './PrivateRoute';
 
 const ContactsPage = lazy(() => import('@pages/ContactsPage'));

@@ -1,6 +1,6 @@
 import {Typography} from '@mui/material';
 import AppLogo from '@shared/assets/header-logo.png';
-import Routes from '@shared/constants/routes.constants';
+import {Routes} from '@shared/constants';
 import LayoutWrapper from '../LayoutWrapper';
 import {StyledContainer, StyledAboutContainer, StyledButtonContainer, StyledAboutInfoContainer} from './styles';
 

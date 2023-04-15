@@ -3,7 +3,7 @@ import {useNavigate} from 'react-router-dom';
 import ErrorService from '@shared/api/services/ErrorService';
 import useData from '@shared/lib/hooks/useData';
 import Spinner from '@shared/ui-kit/Spinner';
-import Routes from '@shared/constants/routes.constants';
+import {Routes} from '@shared/constants';
 import AuthService from '../api/AuthService';
 import IUser from '../model/IUser';
 import {AuthContext, IAuthContext} from './AuthContext';

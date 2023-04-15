@@ -10,6 +10,8 @@ const DENIED_PATH_GROUPS = [
   '@features/*/**',
   '@widgets/*/**',
   '@entities/*/**',
+  '@shared/helpers/**',
+  '@shared/constants/**',
   '../**/@app',
   '../**/@pages',
   '../**/@features',

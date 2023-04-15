@@ -2,7 +2,7 @@ import {Typography} from '@mui/material';
 import Box from '@mui/material/Box';
 import {styled} from '@mui/material/styles';
 import {useRouteError} from 'react-router-dom';
-import Routes from '@shared/constants/routes.constants';
+import {Routes} from '@shared/constants';
 import PrimaryButton from '@shared/ui-kit/Button/PrimaryButton';
 
 const StyledContainer = styled(Box)(({theme: {palette, spacing, breakpoints}}) => ({

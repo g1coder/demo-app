@@ -2,9 +2,9 @@ import {FormControl, FormHelperText, TextField, Typography} from '@mui/material'
 import {memo} from 'react';
 import {FormRenderProps, useFormState, useField} from 'react-final-form';
 import {createValidator, email, required} from '@shared/api/services/ValidationService';
-import Utils from '@shared/helpers/Utils';
 import withFinalForm from '@shared/lib/HOC/withFinalForm';
 import PrimaryButton from '@shared/ui-kit/Button/PrimaryButton';
+import { UtilityHelper } from "@shared/helpers";
 import {StyledForm, StyledFieldLabel, StyledBtnContainer, StyledBackButton} from './styles'
 
 export interface IFormValues {
@@ -25,7 +25,7 @@ const ResetPasswordForm = ({handleSubmit, onBack}: IProps & FormRenderProps<IFor
     subscription: {pristine: true, submitSucceeded: true, submitErrors: true},
   });
 
-  const {input, meta} = useField(Utils.nameOf<IFormValues>('email'));
+  const {input, meta} = useField(UtilityHelper.nameOf<IFormValues>('email'));
 
   return (
     <StyledForm onSubmit={handleSubmit}>

@@ -2,7 +2,7 @@ import {FormControl, TextField} from '@mui/material';
 import {styled} from '@mui/material/styles';
 import {Form, Field} from 'react-final-form';
 import {createValidator, required} from '@shared/api/services/ValidationService';
-import Utils from '@shared/helpers/Utils';
+import {UtilityHelper} from '@shared/helpers';
 import PrimaryButton from '@shared/ui-kit/Button/PrimaryButton';
 
 const StyledForm = styled('form')(({theme: {spacing}}) => ({
@@ -45,7 +45,7 @@ const DeliveryForm = ({onSubmit}: IProps) => {
       {({handleSubmit, submitting}) => (
         <StyledForm onSubmit={handleSubmit}>
           <FormControl fullWidth margin="none">
-            <Field name={Utils.nameOf<IFormValues>('name')} type="text">
+            <Field name={UtilityHelper.nameOf<IFormValues>('name')} type="text">
               {({input, meta}) => (
                 <TextField
                   {...input}
@@ -60,7 +60,7 @@ const DeliveryForm = ({onSubmit}: IProps) => {
           </FormControl>
 
           <FormControl fullWidth margin="none">
-            <Field name={Utils.nameOf<IFormValues>('address')}>
+            <Field name={UtilityHelper.nameOf<IFormValues>('address')}>
               {({input, meta}) => (
                 <TextField
                   {...input}
@@ -75,7 +75,7 @@ const DeliveryForm = ({onSubmit}: IProps) => {
           </FormControl>
 
           <StyledOneRowContainer fullWidth margin="none">
-            <Field name={Utils.nameOf<IFormValues>('phone')}>
+            <Field name={UtilityHelper.nameOf<IFormValues>('phone')}>
               {({input, meta}) => (
                 <TextField
                   {...input}
@@ -88,7 +88,7 @@ const DeliveryForm = ({onSubmit}: IProps) => {
               )}
             </Field>
             <StyledDivider />
-            <Field name={Utils.nameOf<IFormValues>('bottles')}>
+            <Field name={UtilityHelper.nameOf<IFormValues>('bottles')}>
               {({input, meta}) => (
                 <TextField
                   {...input}

@@ -1,7 +1,7 @@
 import {FormControl, FormHelperText, TextField, Typography} from '@mui/material';
 import {FormRenderProps, useField, useFormState} from 'react-final-form';
 import {createValidator, email, required} from '@shared/api/services/ValidationService';
-import Utils from '@shared/helpers/Utils';
+import { UtilityHelper } from "@shared/helpers";
 import withFinalForm from '@shared/lib/HOC/withFinalForm';
 import PrimaryButton from '@shared/ui-kit/Button/PrimaryButton';
 import {StyledForm, StyledFieldLabel, StyledBtnContainer} from './styles';
@@ -30,10 +30,10 @@ const SignupForm = ({handleSubmit}: IProps & FormRenderProps<IFormValues>) => {
     subscription: {values: true, valid: true, pristine: true, submitErrors: true},
   });
 
-  const {input: firstNameInput, meta: firstNameMeta} = useField(Utils.nameOf<IFormValues>('firstName'));
-  const {input: lastNameInput, meta: lastNameMeta} = useField(Utils.nameOf<IFormValues>('lastName'));
-  const {input: emailInput, meta: emailMeta} = useField(Utils.nameOf<IFormValues>('email'));
-  const {input: passwordInput, meta: passwordMeta} = useField(Utils.nameOf<IFormValues>('password'));
+  const {input: firstNameInput, meta: firstNameMeta} = useField(UtilityHelper.nameOf<IFormValues>('firstName'));
+  const {input: lastNameInput, meta: lastNameMeta} = useField(UtilityHelper.nameOf<IFormValues>('lastName'));
+  const {input: emailInput, meta: emailMeta} = useField(UtilityHelper.nameOf<IFormValues>('email'));
+  const {input: passwordInput, meta: passwordMeta} = useField(UtilityHelper.nameOf<IFormValues>('password'));
 
   const renderField = (input, meta, label) => (
     <FormControl fullWidth margin="dense">

@@ -1,7 +1,7 @@
 import {screen} from '@testing-library/dom';
 import {render} from '@testing-library/react';
 import {Route, Routes, MemoryRouter} from 'react-router-dom';
-import {default as AppRoutes} from '@shared/constants/routes.constants';
+import {Routes as AppRoutes} from '@shared/constants';
 import MainLayout from '../MainLayout';
 
 describe('MainLayout', () => {

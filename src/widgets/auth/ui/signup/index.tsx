@@ -1,6 +1,6 @@
 import {Typography} from '@mui/material';
 import {useCallback} from 'react';
-import Routes from '@shared/constants/routes.constants';
+import {Routes} from '@shared/constants';
 import ErrorService from '@shared/api/services/ErrorService';
 import AuthService from '../../api/AuthService';
 import Form, {IFormValues} from './ui/SignupForm';

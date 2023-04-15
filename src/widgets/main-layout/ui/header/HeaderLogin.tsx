@@ -5,7 +5,7 @@ import {styled} from '@mui/material/styles';
 import {useCallback, useContext} from 'react';
 import {Link, useNavigate} from 'react-router-dom';
 import {AuthContext, IAuthContext} from '@widgets/auth';
-import Routes from '@shared/constants/routes.constants';
+import {Routes} from '@shared/constants';
 import SecondaryButton from '@shared/ui-kit/Button/SecondaryButton';
 
 const TABLET_MODE = 'lg';

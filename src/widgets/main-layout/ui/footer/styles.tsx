@@ -4,7 +4,7 @@ import InstagramIcon from '@mui/icons-material/Instagram';
 import TwitterIcon from '@mui/icons-material/Twitter';
 import {Fab} from '@mui/material';
 import {styled} from '@mui/material/styles';
-import {MAIN_LAYOUT_FOOTER_BG} from '@shared/constants/ui.constants';
+import {MAIN_LAYOUT_FOOTER_BG} from '@shared/constants';
 
 export const StyledContainer = styled('footer')({
   backgroundColor: MAIN_LAYOUT_FOOTER_BG,

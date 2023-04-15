@@ -2,7 +2,7 @@ import ArrowUpwardOutlinedIcon from '@mui/icons-material/ArrowUpwardOutlined';
 import {useTransition} from '@react-spring/web';
 import {useReducer} from 'react';
 import {LayoutWrapper} from '@widgets/main-layout';
-import Routes from '@shared/constants/routes.constants';
+import {Routes} from '@shared/constants';
 import useScrollTop from '@shared/lib/hooks/useScrollTop';
 
 import PrimaryButton from '@shared/ui-kit/Button/PrimaryButton';

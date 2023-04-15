@@ -3,8 +3,8 @@ import {styled} from '@mui/material/styles';
 import {useCallback, useReducer} from 'react';
 import {useLocation, useNavigate} from 'react-router-dom';
 
-import Routes from '@shared/constants/routes.constants';
-import Utils from '@shared/helpers/Utils';
+import {Routes} from '@shared/constants';
+import {RouteHelper} from '@shared/helpers';
 import ErrorService from '@shared/api/services/ErrorService';
 import AuthService from '../../api/AuthService';
 import LoginForm, {IFormValues as ILoginFormValues} from './ui/LoginForm';
@@ -33,7 +33,7 @@ const SignIn = () => {
     async (values: ILoginFormValues) => {
       try {
         await AuthService.login(values);
-        const next = Utils.getNextFromUrl(location.search);
+        const next = RouteHelper.getNextFromUrl(location.search);
         navigate(next || Routes.LANDING_PAGE.url);
       } catch (error) {
         return ErrorService.defaultFormHandler(error);

@@ -1,6 +1,6 @@
 import {Grid, Typography} from '@mui/material';
 import {styled} from '@mui/material/styles';
-import Routes from '@shared/constants/routes.constants';
+import {Routes} from '@shared/constants';
 import PrimaryButton from '@shared/ui-kit/Button/PrimaryButton';
 import BgImage from './404-bg.png';
 

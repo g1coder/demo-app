@@ -4,7 +4,7 @@ import {TextFieldProps} from '@mui/material/TextField/TextField';
 import {memo} from 'react';
 import {FormRenderProps, useFormState, Field} from 'react-final-form';
 import {createValidator, email, required} from '@shared/api/services/ValidationService';
-import Utils from '@shared/helpers/Utils';
+import {UtilityHelper} from '@shared/helpers';
 import withFinalForm from '@shared/lib/HOC/withFinalForm';
 import PrimaryButton from '@shared/ui-kit/Button/PrimaryButton';
 
@@ -60,9 +60,9 @@ const ContactForm = ({handleSubmit, submitting}: IProps & FormRenderProps<IFormV
     <form onSubmit={handleSubmit}>
       <Card sx={{padding: 2}} elevation={3}>
         <CardContent>
-          {renderFormControl('Your name', Utils.nameOf<IFormValues>('name'))}
-          {renderFormControl('Your email', Utils.nameOf<IFormValues>('email'))}
-          {renderFormControl('Message', Utils.nameOf<IFormValues>('message'), {maxRows: 4, multiline: true})}
+          {renderFormControl('Your name', UtilityHelper.nameOf<IFormValues>('name'))}
+          {renderFormControl('Your email', UtilityHelper.nameOf<IFormValues>('email'))}
+          {renderFormControl('Message', UtilityHelper.nameOf<IFormValues>('message'), {maxRows: 4, multiline: true})}
         </CardContent>
         <CardActions>
           <PrimaryButton title="Submit" disabled={submitting} type="submit" sx={{margin: 'auto'}} />

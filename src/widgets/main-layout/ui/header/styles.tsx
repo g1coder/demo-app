@@ -5,7 +5,7 @@ import {
   MAIN_LAYOUT_HEADER_ORDER,
   LANDING_PAGE_XL_CONTAINER_WIDTH,
   MAIN_LAYOUT_HEADER_BG,
-} from '@shared/constants/ui.constants';
+} from '@shared/constants';
 
 export const StyledHeader = styled('header')(({theme: {spacing, breakpoints}}) => ({
   height: LANDING_PAGE_HEADER_HEIGHT,

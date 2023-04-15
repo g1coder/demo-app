@@ -3,7 +3,7 @@ import {styled} from '@mui/material/styles';
 import Box from '@mui/material/Box';
 import {Header, Footer} from '@widgets/main-layout';
 import {AuthProvider} from '@widgets/auth';
-import {LANDING_PAGE_HEADER_HEIGHT} from '@shared/constants/ui.constants';
+import {LANDING_PAGE_HEADER_HEIGHT} from '@shared/constants';
 
 const StyledContainer = styled(Box)(({theme: {palette}}) => ({
   position: 'relative',

@@ -6,7 +6,7 @@ import ItemIcon1 from '@shared/assets/icon-blue-1.png';
 import ItemIcon2 from '@shared/assets/icon-blue-2.png';
 import ItemIcon3 from '@shared/assets/icon-blue-3.png';
 import ItemIcon4 from '@shared/assets/icon-blue-4.png';
-import Routes from '@shared/constants/routes.constants';
+import {Routes} from '@shared/constants';
 import SecondaryButton from '@shared/ui-kit/Button/SecondaryButton';
 import SectionHeader from '../SectionHeader';
 import VideoMockImage from './presets/video-mock.png';
