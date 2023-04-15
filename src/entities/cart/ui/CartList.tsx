@@ -1,6 +1,6 @@
 import {Divider, Grid} from '@mui/material';
 import {memo} from 'react';
-import IBaseProduct from '@entities/catalog/model/IBaseProduct';
+import {IBaseProduct} from '@entities/catalog';
 import Spinner from '@shared/ui/Spinner';
 import CartListItem from './CartListItem';
 import {StyledHeader} from './styles';

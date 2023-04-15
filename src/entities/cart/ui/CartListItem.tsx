@@ -1,5 +1,5 @@
 import {Divider, Grid, Typography} from '@mui/material';
-import IBaseProduct from '@entities/catalog/model/IBaseProduct';
+import {IBaseProduct} from '@entities/catalog';
 import {StyledProductImage} from "./styles";
 
 interface IProps {

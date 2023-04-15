@@ -1,5 +1,5 @@
-import IUser from '@widgets/auth/model/IUser';
-import IUserRaw from '@widgets/auth/model/IUserRaw';
+import IUser from '../model/IUser';
+import IUserRaw from '../model/IUserRaw';
 
 export default {
   hydrate,

@@ -29,7 +29,7 @@ const StyledFab = styled(Fab)(({theme: {palette, breakpoints}}) => ({
   },
   display: 'none',
   [breakpoints.up('lg')]: {
-    display: 'block'
+    display: 'flex'
   }
 }));
 

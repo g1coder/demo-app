@@ -1,4 +1,5 @@
-import {CartStore} from '@widgets/catalog/store/CartStore';
+// eslint-disable-next-line
+import {CartStore} from '@entities/cart/store/CartStore';
 
 const getCartStoreMock = (initial?: {products?: typeof CartStore.prototype.products}) => {
   const cartStoreMock = new CartStore();

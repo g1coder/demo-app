@@ -1,11 +1,11 @@
 import {styled} from '@mui/material/styles';
+import { Breakpoint } from "@mui/material";
 import {
   LANDING_PAGE_HEADER_HEIGHT,
   MAIN_LAYOUT_HEADER_ORDER,
   LANDING_PAGE_XL_CONTAINER_WIDTH,
   MAIN_LAYOUT_HEADER_BG,
 } from '@shared/constants/ui.constants';
-import { Breakpoint } from "@mui/material";
 
 export const StyledHeader = styled('header')(({theme: {spacing, breakpoints}}) => ({
   height: LANDING_PAGE_HEADER_HEIGHT,

@@ -1,8 +1,8 @@
 import {ReactNode, useCallback, useMemo, useState} from 'react';
+import {useNavigate} from 'react-router-dom';
 import ErrorService from '@shared/api/services/ErrorService';
 import useData from '@shared/lib/hooks/useData';
 import Spinner from '@shared/ui/Spinner';
-import {useNavigate} from 'react-router-dom';
 import RouteConstants from '@shared/constants/route.constants';
 import AuthService from '../api/AuthService';
 import IUser from '../model/IUser';

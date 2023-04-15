@@ -3,13 +3,12 @@ import {Fab, Typography} from '@mui/material';
 import {styled} from '@mui/material/styles';
 import {memo, useCallback} from 'react';
 import {useNavigate} from 'react-router-dom';
+import {observer} from 'mobx-react-lite';
 import RouteConstants from '@shared/constants/route.constants';
+// eslint-disable-next-line import/no-named-as-default
+import CartStore from '../store/CartStore';
 
 const DESKTOP_MODE = 'xl';
-
-interface IProps {
-  count: number;
-}
 
 const StyledMobileContainer = styled('div')(({theme: {breakpoints}}) => ({
   cursor: 'pointer',
@@ -18,7 +17,7 @@ const StyledMobileContainer = styled('div')(({theme: {breakpoints}}) => ({
   },
 }));
 
-const StyledFabCount = styled(({count, ...rest}: Omit<IProps, 'onClick'>) => (
+const StyledFabCount = styled(({count, ...rest}: {count: number}) => (
   <div {...rest}>
     <Typography variant="body1" color="primary.dark" fontWeight="bold">
       {count}
@@ -53,8 +52,9 @@ const StyledDesktopContainer = styled(Fab)(({theme: {palette, breakpoints}}) => 
   },
 }));
 
-const CartHeader = ({count}: IProps) => {
+const CartHeader = observer(() => {
   const navigate = useNavigate();
+  const count = CartStore.count;
 
   const handleCartClick = useCallback(() => {
     navigate(RouteConstants.CART.url);
@@ -71,6 +71,6 @@ const CartHeader = ({count}: IProps) => {
       </StyledDesktopContainer>
     </>
   );
-};
+});
 
 export default memo(CartHeader);

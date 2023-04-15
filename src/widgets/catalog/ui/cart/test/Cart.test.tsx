@@ -1,8 +1,8 @@
 import {screen} from '@testing-library/dom';
 import {fireEvent, render} from '@testing-library/react';
-import IBaseProduct from '@entities/catalog/model/IBaseProduct';
-import * as CartService from '../api/CartService';
-import Cart from '../ui/cart';
+import {IBaseProduct} from '@entities/catalog';
+import { CartService } from '@entities/cart';
+import Cart from '../../cart';
 
 const mockProduct = {
   id: 'uid1',

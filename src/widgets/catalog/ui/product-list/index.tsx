@@ -2,13 +2,14 @@ import {Grid} from '@mui/material';
 import {observer} from 'mobx-react-lite';
 import {useMemo, useState} from 'react';
 
-import IBaseProduct from '@entities/catalog/model/IBaseProduct';
+import {IBaseProduct} from '@entities/catalog';
+import {CartStore} from '@entities/cart';
 import useData from '@shared/lib/hooks/useData';
 import List from '@shared/models/List';
 import Spinner from '@shared/ui/Spinner';
 import {getList} from '../../api/CatalogService';
 import IProductParams from '../../model/IProductParams';
-import {CartStore, CatalogStore} from '../../store';
+import {CatalogStore} from '../../store';
 import ProductCardInfo from '../product-card-info';
 import ProductFilters from '../product-filters';
 import {StyledContainer, StyledCardContainer, StyledFiltersContainer, StyledTitle} from './styles';

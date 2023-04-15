@@ -2,7 +2,7 @@ import {Slider, Typography} from '@mui/material';
 import {styled} from '@mui/material/styles';
 import {debounce} from 'lodash';
 import {memo, useCallback, useEffect, useMemo, useState} from 'react';
-import withBaseFilter from '@features/catalog/HOC/withBaseFilter';
+import withBaseFilter from '../../HOC/withBaseFilter';
 
 const StyledSliderContainer = styled('div')(({theme: {spacing}}) => ({
   padding: spacing(0, 3, 0),

@@ -2,8 +2,8 @@ import {Outlet} from 'react-router-dom';
 import {styled} from '@mui/material/styles';
 import Box from '@mui/material/Box';
 import {Header, Footer} from '@widgets/main-layout';
-import {LANDING_PAGE_HEADER_HEIGHT} from '@shared/constants/ui.constants';
 import {AuthProvider} from '@widgets/auth';
+import {LANDING_PAGE_HEADER_HEIGHT} from '@shared/constants/ui.constants';
 
 const StyledContainer = styled(Box)(({theme: {palette}}) => ({
   position: 'relative',

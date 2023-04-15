@@ -5,8 +5,8 @@ import {useLocation, useNavigate} from 'react-router-dom';
 
 import RouteConstants from '@shared/constants/route.constants';
 import Utils from '@shared/helpers/Utils';
-import AuthService from '@widgets/auth/api/AuthService';
 import ErrorService from '@shared/api/services/ErrorService';
+import AuthService from '../../api/AuthService';
 import LoginForm, {IFormValues as ILoginFormValues} from './ui/LoginForm';
 import ResetPasswordForm from './ui/ResetPasswordForm';
 

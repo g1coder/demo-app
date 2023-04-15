@@ -1,5 +1,4 @@
-import IProductRaw from '@widgets/catalog/model/IProductRaw';
-import IBaseProduct from '@entities/catalog/model/IBaseProduct';
+import {IBaseProduct} from '@entities/catalog';
 import api from '@shared/api/services/ApiService';
 
 export function getCart(): Promise<{products: Record<string, number>; totalCount: number; totalPrice: number}> {
@@ -13,7 +12,7 @@ export function getCart(): Promise<{products: Record<string, number>; totalCount
 }
 
 export function getCartDetails(): Promise<Array<{product: IBaseProduct; count: number}>> {
-  return api.get<Array<{product: IProductRaw; count: number}>>(`/api/catalog/cart-details`);
+  return api.get<Array<{product: IBaseProduct; count: number}>>(`/api/catalog/cart-details`);
 }
 
 export function updateCart(productId: IBaseProduct['id'], mode: 'increment' | 'decrement') {
@@ -26,3 +25,10 @@ export function updateCart(productId: IBaseProduct['id'], mode: 'increment' | 'd
 export function submitOrder(): Promise<void> {
   return api.post('/api/catalog/cart/submit');
 }
+
+export default {
+  getCart,
+  getCartDetails,
+  updateCart,
+  submitOrder,
+};

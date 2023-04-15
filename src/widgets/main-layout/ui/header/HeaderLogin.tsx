@@ -4,9 +4,9 @@ import {Typography} from '@mui/material';
 import {styled} from '@mui/material/styles';
 import {useCallback, useContext} from 'react';
 import {Link, useNavigate} from 'react-router-dom';
+import {AuthContext, IAuthContext} from '@widgets/auth';
 import RouteConstants from '@shared/constants/route.constants';
 import SecondaryButton from '@shared/ui/Button/SecondaryButton';
-import {AuthContext, IAuthContext} from '@widgets/auth/lib/AuthContext';
 
 const TABLET_MODE = 'lg';
 const DESKTOP_MODE = 'xl';

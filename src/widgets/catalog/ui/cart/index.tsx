@@ -2,13 +2,11 @@ import {Grid, Typography} from '@mui/material';
 import {observer} from 'mobx-react-lite';
 import {useCallback, useContext, useState} from 'react';
 import {CartSubmit} from '@features/catalog';
-import {CartSummary, CartList} from '@entities/catalog';
-import IBaseProduct from '@entities/catalog/model/IBaseProduct';
+import {CartSummary, CartList, CartStore, CartService} from '@entities/cart';
+import {IBaseProduct} from '@entities/catalog';
+import {AuthContext, IAuthContext} from '@widgets/auth';
 import useData from '@shared/lib/hooks/useData';
 import Spinner from '@shared/ui/Spinner';
-import { AuthContext, IAuthContext } from "@widgets/auth/lib/AuthContext";
-import {getCartDetails} from '../../api/CartService';
-import { CartStore } from '../../store';
 
 import {StyledContainer} from './styles';
 
@@ -19,7 +17,7 @@ const Cart = observer(() => {
 
   const [{data: productPairs, ready, loading}] = useData<Array<{product: IBaseProduct; count: number}>>(
     {
-      fetch: () => getCartDetails(),
+      fetch: () => CartService.getCartDetails(),
       data: [],
     },
     []

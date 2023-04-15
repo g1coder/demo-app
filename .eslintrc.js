@@ -1,18 +1,19 @@
-/** Разрешенные импорты (с публичными API) */
-const ALLOWED_PATH_GROUPS = ['shared', 'shared/**', 'pages', 'features'].map((pattern) => ({
+const ALLOWED_PATH_GROUPS = ['@shared', '@shared/**', '@pages', '@features', '@widgets', '@entities'].map((pattern) => ({
   pattern,
   group: 'internal',
   position: 'after',
 }));
+
 const DENIED_PATH_GROUPS = [
-  'app/**',
-  'pages/**',
-  'features/**',
-  'shared/*/**',
-  '../**/app',
-  '../**/pages',
-  '../**/features',
-  '../**/shared',
+  '@app/**',
+  '@pages/*/**',
+  '@features/*/**',
+  '@widgets/*/**',
+  '@entities/*/**',
+  '../**/@app',
+  '../**/@pages',
+  '../**/@features',
+  '../**/@shared',
 ];
 
 module.exports = {

@@ -1,12 +1,9 @@
-import {observer} from 'mobx-react-lite';
-import {useEffect} from 'react';
-import CartStore from '@widgets/catalog/store/CartStore';
-import HeaderDrawer from '@widgets/main-layout/ui/header/HeaderDrawer';
-import HeaderLogin from '@widgets/main-layout/ui/header/HeaderLogin';
-import HeaderLogo from '@widgets/main-layout/ui/header/HeaderLogo';
-import HeaderNavigation from '@widgets/main-layout/ui/header/HeaderVavigation';
-import {CartHeader} from '@entities/catalog';
+import {CartHeader} from '@entities/cart';
 import RouteConstants from '@shared/constants/route.constants';
+import HeaderDrawer from './HeaderDrawer';
+import HeaderLogin from './HeaderLogin';
+import HeaderLogo from './HeaderLogo';
+import HeaderNavigation from './HeaderVavigation';
 import {StyledHeader, StyledLoginContainer, StyledNavContainer} from './styles';
 
 const items = [
@@ -16,11 +13,7 @@ const items = [
   {name: 'Contacts', url: RouteConstants.CONTACTS.url},
 ];
 
-const Header = observer(() => {
-  useEffect(() => {
-    CartStore.refreshCart();
-  }, []);
-
+const Header = () => {
   return (
     <StyledHeader>
       <HeaderDrawer items={items} />
@@ -31,9 +24,9 @@ const Header = observer(() => {
       <StyledLoginContainer>
         <HeaderLogin />
       </StyledLoginContainer>
-      <CartHeader count={CartStore.count} />
+      <CartHeader />
     </StyledHeader>
   );
-});
+};
 
 export default Header;

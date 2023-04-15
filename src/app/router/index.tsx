@@ -8,8 +8,8 @@ import LandingPage from '@pages/LandingPage';
 import PageNotFound from '@pages/PageNotFound';
 import {CatalogLayout} from '@widgets/catalog';
 import {LayoutWrapper} from '@widgets/main-layout';
+import MainLayout from '@pages/MainLayout';
 import RouteConstants from '@shared/constants/route.constants';
-import MainLayout from "@pages/MainLayout";
 import PrivateRoute from './PrivateRoute';
 
 const ContactsPage = lazy(() => import('@pages/ContactsPage'));
