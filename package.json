@@ -15,6 +15,7 @@
     "axios": "^0.27.2",
     "dayjs": "^1.11.4",
     "final-form": "^4.20.7",
+    "husky": "^8.0.3",
     "lodash": "^4.17.21",
     "mobx": "^6.6.1",
     "mobx-react-lite": "^3.4.0",
@@ -31,51 +32,19 @@
     "web-vitals": "^2.1.4"
   },
   "scripts": {
-    "start": "react-scripts start",
-    "build": "react-scripts build",
-    "test": "react-scripts test",
-    "eject": "react-scripts eject",
+    "start": "craco start",
+    "build": "craco build",
+    "test": "craco test",
+    "eject": "craco eject",
     "storybook": "start-storybook -p 6006 -s public",
-    "build-storybook": "build-storybook -s public"
-  },
-  "homepage": ".",
-  "eslintConfig": {
-    "extends": [
-      "react-app",
-      "react-app/jest"
-    ],
-    "rules": {
-      "import/no-anonymous-default-export": [
-        2,
-        {
-          "allowObject": true
-        }
-      ]
-    },
-    "overrides": [
-      {
-        "files": [
-          "**/*.stories.*"
-        ],
-        "rules": {
-          "import/no-anonymous-default-export": "off"
-        }
-      }
-    ]
-  },
-  "browserslist": {
-    "production": [
-      ">0.2%",
-      "not dead",
-      "not op_mini all"
-    ],
-    "development": [
-      "last 1 chrome version",
-      "last 1 firefox version",
-      "last 1 safari version"
-    ]
+    "build-storybook": "build-storybook -s public",
+    "lint": "eslint --fix --ext .ts,.tsx .",
+    "check-types": "tsc",
+    "lint-staged": "lint-staged"
   },
   "devDependencies": {
+    "@craco/craco": "^7.1.0",
+    "@feature-sliced/eslint-config": "^0.1.0-beta.6",
     "@storybook/addon-actions": "^6.5.10",
     "@storybook/addon-essentials": "^6.5.10",
     "@storybook/addon-interactions": "^6.5.10",
@@ -93,9 +62,11 @@
     "@types/react-router-dom": "^5.3.3",
     "babel-plugin-named-exports-order": "0.0.2",
     "cross-env": "^7.0.3",
+    "eslint-plugin-prettier": "^4.2.1",
     "moxios": "^0.4.0",
     "msw": "^0.43.1",
     "prop-types": "^15.8.1",
+    "react-app-alias": "^2.2.2",
     "webpack": "^5.74.0"
   },
   "msw": {
@@ -104,6 +75,23 @@
   "jest": {
     "transformIgnorePatterns": [
       "node_modules/(?!axios)/"
+    ]
+  },
+  "lint-staged": {
+    "{src,cypress}/**/*.{js,ts,tsx,css}": [
+      "prettier --write"
+    ]
+  },
+  "browserslist": {
+    "production": [
+      ">0.2%",
+      "not dead",
+      "not op_mini all"
+    ],
+    "development": [
+      "last 1 chrome version",
+      "last 1 firefox version",
+      "last 1 safari version"
     ]
   }
 }

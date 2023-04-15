@@ -1,5 +1,5 @@
-import {styled} from '@mui/material/styles';
 import {Paper, Skeleton, Typography} from '@mui/material';
+import {styled} from '@mui/material/styles';
 
 const borderRadius = 20;
 
@@ -30,7 +30,7 @@ const StyledSkeleton = styled(Skeleton)({
 
 const withBaseFilter =
   (Component) =>
-  <T extends any>({title, loading, ...rest}: {title: string; loading: boolean} & T) => {
+  <T extends object>({title, loading, ...rest}: {title: string; loading: boolean} & T) => {
     return (
       <StyledContainer elevation={3} square variant="elevation">
         <StyledTitleContainer>
