@@ -1,4 +1,5 @@
 import axios, {AxiosResponse, AxiosRequestConfig, AxiosError} from 'axios';
+import { Routes } from "@shared/constants";
 import ICredential from "../../model/ICredential";
 import List from '../../models/List';
 
@@ -65,7 +66,7 @@ async function tryRefreshToken(): Promise<void> {
       });
   } catch (error) {
     applyCredentials();
-    window.location.replace('/login');
+    window.location.replace(Routes.SIGN_IN.url);
     throw error;
   }
 }
