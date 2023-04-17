@@ -1,4 +1,4 @@
-import INamedEntity from '../model/INamedEntity';
+import INamedEntity from '../models/INamedEntity';
 
 export default {
   joinNames,

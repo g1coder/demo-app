@@ -27,6 +27,7 @@ export const StyledSignUpContainer = styled('div')({
 const SignIn = () => {
   const navigate = useNavigate();
   const location = useLocation();
+
   const [showLogin, switchMode] = useReducer((state) => !state, true);
 
   const handleLogin = useCallback(

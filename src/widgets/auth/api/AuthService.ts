@@ -1,5 +1,5 @@
 import api, {applyCredentials} from '@shared/api/services/ApiService';
-import ICredential from '@shared/model/ICredential';
+import ICredential from '@shared/models/ICredential';
 import IUser from '../model/IUser';
 
 function login(params: {email: string; password: string}): Promise<void> {

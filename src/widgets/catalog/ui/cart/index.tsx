@@ -7,7 +7,6 @@ import {IBaseProduct} from '@entities/catalog';
 import {AuthContext, IAuthContext} from '@widgets/auth';
 import useData from '@shared/lib/hooks/useData';
 import Spinner from '@shared/ui-kit/Spinner';
-
 import {StyledContainer} from './styles';
 
 const Cart = observer(() => {
@@ -48,24 +47,19 @@ const Cart = observer(() => {
 
   if (successSubmitted) {
     return (
-      <Typography variant="h5" color="secondary.main" textAlign="center">
-        You cart has been successfully checked out!
-      </Typography>
+      <>
+        <Typography variant="h5" color="secondary.main" textAlign="center">
+          You cart has been successfully checked out!
+        </Typography>
+      </>
     );
   }
-
-  const totalPrice = CartStore.totalPrice;
-  const shipping = CartStore.totalPrice * 0.2;
-  const taxes = CartStore.totalPrice * 0.13;
 
   return (
     <StyledContainer>
       <Grid container columns={{xs: 1, sm: 1, md: 11, xl: 12}} spacing={2} justifyContent="space-between">
         <CartList items={productPairs} loading={loading} />
         <CartSummary
-          totalPrice={totalPrice}
-          shipping={shipping}
-          taxes={taxes}
           submitButton={<CartSubmit submitCart={handleSubmitCart} submitting={submitting} isLoggined={!!user} />}
         />
       </Grid>

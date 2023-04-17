@@ -141,7 +141,7 @@ const AboutPage = () => {
         </Grid>
 
         {itemNames.map(({name, icon}, index) => (
-          <Grid item xs={11} md={6} lg={2}>
+          <Grid key={index} item xs={11} md={6} lg={2}>
             <StyledSectionTextImageItem key={name} sx={{margin: 'auto', ...getItemAnimationSettings(index + 2.5)}}>
               <img src={icon} alt={name} />
               <Typography variant="body1" color="primary.dark" noWrap>

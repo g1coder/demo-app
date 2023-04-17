@@ -10,6 +10,7 @@ export class CartStore {
 
   constructor() {
     makeAutoObservable(this);
+    this.refreshCart();
   }
 
   @action refreshCart = () => {

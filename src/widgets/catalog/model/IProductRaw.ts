@@ -1,4 +1,4 @@
-import INamedEntity from '@shared/model/INamedEntity';
+import INamedEntity from '@shared/models/INamedEntity';
 
 interface IProductRaw extends INamedEntity {
   description: string;

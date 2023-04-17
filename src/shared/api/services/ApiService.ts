@@ -1,6 +1,6 @@
 import axios, {AxiosResponse, AxiosRequestConfig, AxiosError} from 'axios';
 import { Routes } from "@shared/constants";
-import ICredential from "../../model/ICredential";
+import ICredential from "../../models/ICredential";
 import List from '../../models/List';
 
 const TOTAL_COUNT_HEADER = 'x-total-count';

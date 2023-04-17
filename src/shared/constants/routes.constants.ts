@@ -23,8 +23,8 @@ type RouteType = {
 };
 
 const Routes: RouteType = {
-  [RoutePublic.SIGN_IN]: {key: 'signin', path: 'signin', url: 'signin'},
-  [RoutePublic.SIGN_UP]: {key: 'signup', path: 'signup', url: 'signup'},
+  [RoutePublic.SIGN_IN]: {key: 'signin', path: 'signin', url: '/signin'},
+  [RoutePublic.SIGN_UP]: {key: 'signup', path: 'signup', url: '/signup'},
   [RoutePublic.LANDING_PAGE]: {key: 'LandingPage', path: '/', url: '/'},
   [RoutePublic.CONTACTS]: {key: 'contacts', path: 'contacts', url: '/contacts', name: 'Contacts'},
   [RoutePublic.ABOUT]: {key: 'about', path: 'about', url: '/about', name: 'About Us'},

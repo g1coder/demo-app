@@ -17,7 +17,7 @@ const AboutPage = lazy(() => import('@pages/AboutPage'));
 const LoginPage = lazy(() => import('@pages/LoginPage'));
 const SignupPage = lazy(() => import('@pages/SignupPage'));
 
-const AppRouter = createBrowserRouter(
+const Router = createBrowserRouter(
   createRoutesFromElements([
     <Route
       path="/"
@@ -57,8 +57,8 @@ const AppRouter = createBrowserRouter(
           }
           children={[
             <Route index key={Routes.CATALOG.key} element={<CatalogPage />} />,
-            <Route path={Routes.CART.path} element={<PrivateRoute />}>
-              <Route key={Routes.CART.key} path={Routes.CART.path} element={<CartPage />} />,
+            <Route key={Routes.CART.key} path={Routes.CART.path} element={<PrivateRoute />}>
+              <Route index element={<CartPage />} />,
             </Route>,
           ]}
         />,
@@ -86,4 +86,4 @@ const AppRouter = createBrowserRouter(
   ])
 );
 
-export default AppRouter;
+export default Router;

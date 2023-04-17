@@ -1,15 +1,17 @@
 import {Divider, Grid, Paper, Typography} from '@mui/material';
 import {memo, ReactNode} from 'react';
+import {CartStore} from '@entities/cart';
+import {observer} from 'mobx-react-lite';
 import {StyledHeader, StyledSubheader} from './styles';
 
 interface IProps {
-  totalPrice: number;
-  shipping: number;
-  taxes: number;
   submitButton: ReactNode;
 }
 
-const CartSummary = ({totalPrice, shipping, taxes, submitButton}: IProps) => {
+const CartSummary = observer(({submitButton}: IProps) => {
+  const totalPrice = CartStore.totalPrice;
+  const shipping = CartStore.totalPrice * 0.2;
+  const taxes = CartStore.totalPrice * 0.13;
   const estimatedTotal = (totalPrice + shipping + taxes).toFixed(2);
 
   return (
@@ -78,6 +80,6 @@ const CartSummary = ({totalPrice, shipping, taxes, submitButton}: IProps) => {
       </Grid>
     </Grid>
   );
-};
+});
 
 export default memo(CartSummary);
