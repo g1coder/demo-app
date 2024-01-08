@@ -1,1 +1,1 @@
-export {default as ContactInfo} from './ui/ContactInfo';
+export {ContactInfo} from './ui/contact-info';

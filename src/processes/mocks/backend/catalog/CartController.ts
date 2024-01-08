@@ -8,7 +8,7 @@ const getTotalPrice = () => {
 };
 
 const handlers = [
-  rest.get(`/api/catalog/cart`, (req, res, ctx) => {
+  rest.get(`/api/v1/cart`, (req, res, ctx) => {
     return res(
       ctx.status(200),
       ctx.delay(500),
@@ -18,14 +18,14 @@ const handlers = [
       })
     );
   }),
-  rest.get('/api/catalog/cart-details', (req, res, ctx) => {
+  rest.get('/api/v1/cart-details', (req, res, ctx) => {
     const cartIds = Object.keys(CartProvider.products);
     const result = ProductProvider.products
       .filter((p) => cartIds.includes(p.id))
       .map((product) => ({product, count: CartProvider.products[product.id]}));
     return res(ctx.status(200), ctx.delay(500), ctx.json(result));
   }),
-  rest.post(`/api/catalog/cart/add`, (req, res, ctx) => {
+  rest.post(`/api/v1/cart/add`, (req, res, ctx) => {
     const {productId} = req.body as Record<string, unknown>;
     return res(
       ctx.status(201),
@@ -36,7 +36,7 @@ const handlers = [
       })
     );
   }),
-  rest.post(`/api/catalog/cart/remove`, (req, res, ctx) => {
+  rest.post(`/api/v1/cart/remove`, (req, res, ctx) => {
     const {productId} = req.body as Record<string, unknown>;
     return res(
       ctx.status(201),
@@ -47,7 +47,7 @@ const handlers = [
       })
     );
   }),
-  rest.post(`/api/catalog/cart/submit`, (req, res, ctx) => {
+  rest.post(`/api/v1/cart/submit`, (req, res, ctx) => {
     CartProvider.clear();
     return res(ctx.status(201), ctx.delay(1000));
   }),

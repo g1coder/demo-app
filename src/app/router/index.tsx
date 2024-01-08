@@ -1,21 +1,21 @@
 import {lazy, Suspense} from 'react';
 import {Route, createBrowserRouter, createRoutesFromElements} from 'react-router-dom';
 
-import CartPage from '@pages/CartPage';
-import CatalogPage from '@pages/CatalogPage';
-import ErrorPage from '@pages/ErrorPage';
-import LandingPage from '@pages/LandingPage';
-import PageNotFound from '@pages/PageNotFound';
+import CartPage from 'src/pages/cart-page';
+import CatalogPage from 'src/pages/catalog-page';
+import ErrorPage from 'src/pages/error-page';
+import LandingPage from 'src/pages/landing-page';
+import PageNotFound from 'src/pages/page-not-found';
 import {CatalogLayout} from '@widgets/catalog';
 import {LayoutWrapper} from '@widgets/main-layout';
-import MainLayout from '@pages/MainLayout';
+import {MainLayout} from '@pages/main-layout';
 import {Routes} from '@shared/constants';
-import PrivateRoute from './PrivateRoute';
+import PrivateRoute from './private-route';
 
-const ContactsPage = lazy(() => import('@pages/ContactsPage'));
-const AboutPage = lazy(() => import('@pages/AboutPage'));
-const LoginPage = lazy(() => import('@pages/LoginPage'));
-const SignupPage = lazy(() => import('@pages/SignupPage'));
+const ContactsPage = lazy(() => import('src/pages/contacts-page'));
+const AboutPage = lazy(() => import('src/pages/about-page'));
+const LoginPage = lazy(() => import('src/pages/login-page'));
+const SignupPage = lazy(() => import('src/pages/signup-page'));
 
 const Router = createBrowserRouter(
   createRoutesFromElements([
@@ -24,11 +24,7 @@ const Router = createBrowserRouter(
       element={<MainLayout />}
       errorElement={<ErrorPage />}
       children={[
-        <Route
-          key={Routes.LANDING_PAGE.key}
-          path={Routes.LANDING_PAGE.path}
-          element={<LandingPage />}
-        />,
+        <Route key={Routes.LANDING_PAGE.key} path={Routes.LANDING_PAGE.path} element={<LandingPage />} />,
         <Route
           key={Routes.CONTACTS.key}
           path={Routes.CONTACTS.path}

@@ -1,1 +1,1 @@
-export {default as CartSubmit} from './cart-submit';
+export {CartSubmit} from '@features/cart/submit/submit-cart';

@@ -1,6 +1,7 @@
 import Box from '@mui/material/Box';
 import {styled} from '@mui/material/styles';
-import {LANDING_PAGE_HEADER_HEIGHT} from '@shared/constants';
+import {LANDING_PAGE_XL_CONTAINER_WIDTH} from '@shared/constants';
+import {Breakpoint} from '@mui/material';
 
 export const StyledContainer = styled(Box)(({theme: {palette}}) => ({
   position: 'relative',
@@ -10,10 +11,14 @@ export const StyledContainer = styled(Box)(({theme: {palette}}) => ({
   flexDirection: 'column',
 }));
 
-export const StyledContentContainer = styled(Box)(({theme: {breakpoints}}) => ({
-  paddingTop: LANDING_PAGE_HEADER_HEIGHT,
-  flex: '1 1 auto',
+export const StyledLayoutWrapper = styled(Box)(({theme: {breakpoints, spacing}}) => ({
+  padding: spacing(5, 2),
+  height: `100%`,
   [breakpoints.up('lg')]: {
-    paddingTop: 40,
+    margin: 'auto',
+    padding: spacing(5, 4),
+  },
+  [breakpoints.up('exl' as Breakpoint)]: {
+    maxWidth: LANDING_PAGE_XL_CONTAINER_WIDTH,
   },
 }));

@@ -2,7 +2,7 @@ import {screen} from '@testing-library/dom';
 import {render} from '@testing-library/react';
 import {Route, Routes, MemoryRouter} from 'react-router-dom';
 import {Routes as AppRoutes} from '@shared/constants';
-import MainLayout from '../MainLayout';
+import MainLayout from '../main-layout';
 
 describe('MainLayout', () => {
   const renderComponent = (route = '/') => {

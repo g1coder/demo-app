@@ -1,9 +1,9 @@
 import {CartHeader} from '@entities/cart';
 import {Routes} from '@shared/constants';
-import HeaderDrawer from './HeaderDrawer';
-import HeaderLogin from './HeaderLogin';
-import HeaderLogo from './HeaderLogo';
-import HeaderNavigation from './HeaderVavigation';
+import {HeaderDrawer} from './header-drawer';
+import {HeaderLogin} from './header-login';
+import {HeaderLogo} from './header-logo';
+import {HeaderNavigation} from './header-navigation';
 import {StyledHeader, StyledLoginContainer, StyledNavContainer} from './styles';
 
 const items = [
@@ -13,20 +13,16 @@ const items = [
   {name: 'Contacts', url: Routes.CONTACTS.url},
 ];
 
-const Header = () => {
-  return (
-    <StyledHeader>
-      <HeaderDrawer items={items} />
-      <HeaderLogo />
-      <StyledNavContainer>
-        <HeaderNavigation items={items} />
-      </StyledNavContainer>
-      <StyledLoginContainer>
-        <HeaderLogin />
-      </StyledLoginContainer>
-      <CartHeader />
-    </StyledHeader>
-  );
-};
-
-export default Header;
+export const Header = () => (
+  <StyledHeader>
+    <HeaderDrawer items={items} />
+    <HeaderLogo />
+    <StyledNavContainer>
+      <HeaderNavigation items={items} />
+    </StyledNavContainer>
+    <StyledLoginContainer>
+      <HeaderLogin />
+    </StyledLoginContainer>
+    <CartHeader />
+  </StyledHeader>
+);

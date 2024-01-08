@@ -1,6 +1,6 @@
 import {screen} from '@testing-library/dom';
 import {fireEvent, render} from '@testing-library/react';
-import Login from '../ui/signin';
+import {SignIn} from '../ui/sign-in';
 
 describe('login', () => {
   let props;
@@ -12,14 +12,14 @@ describe('login', () => {
   });
 
   it('should render according rules', async () => {
-    render(<Login {...props} />);
+    render(<SignIn {...props} />);
     await screen.findByText('Email address');
     screen.getByText('Password');
   });
 
   describe('LoginResetPasswordForm', () => {
     it('should show reset password form by click on Forgot your password? and call reset', async () => {
-      render(<Login {...props} />);
+      render(<SignIn {...props} />);
       await screen.findByText('Email address');
       fireEvent.click(screen.getByText('Forgot your password?'));
       expect(screen.getByText(`We’ll help you reset it and get back on track.`)).toBeInTheDocument();
@@ -32,7 +32,7 @@ describe('login', () => {
     });
 
     it('should disable reset button on Forgot password form if user input is not email', async () => {
-      render(<Login {...props} />);
+      render(<SignIn {...props} />);
       await screen.findByText('Email address');
       fireEvent.click(screen.getByText('Forgot your password?'));
 
@@ -43,7 +43,7 @@ describe('login', () => {
 
   describe('LoginForm', () => {
     it('should disable signin button if user input not email string', async () => {
-      render(<Login {...props} />);
+      render(<SignIn {...props} />);
       await screen.findByText('Email address');
 
       fireEvent.change(screen.getByPlaceholderText('user@gmail.com'), {target: {value: 'not email text'}});
@@ -53,7 +53,7 @@ describe('login', () => {
     });
 
     it('should call signin handler by click on Sign in', async () => {
-      render(<Login {...props} />);
+      render(<SignIn {...props} />);
       await screen.findByText('Email address');
 
       fireEvent.change(screen.getByPlaceholderText('user@gmail.com'), {target: {value: 'my@email.com'}});

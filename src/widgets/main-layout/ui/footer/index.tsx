@@ -1,10 +1,10 @@
 import {Typography} from '@mui/material';
 import AppLogo from '@shared/assets/header-logo.png';
 import {Routes} from '@shared/constants';
-import LayoutWrapper from '../LayoutWrapper';
+import {LayoutWrapper} from '../layout-wrapper';
 import {StyledContainer, StyledAboutContainer, StyledButtonContainer, StyledAboutInfoContainer} from './styles';
 
-const Footer = () => {
+export const Footer = () => {
   return (
     <StyledContainer>
       <LayoutWrapper>
@@ -30,5 +30,3 @@ const Footer = () => {
     </StyledContainer>
   );
 };
-
-export default Footer;

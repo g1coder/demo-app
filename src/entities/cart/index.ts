@@ -1,5 +1,4 @@
-export {default as CartHeader} from './ui/CartHeader';
-export {default as CartSummary} from './ui/CartSummary';
-export {default as CartList} from './ui/CartList';
-export {CartStore} from './store';
-export {default as CartService} from './api/CartService';
+export {CartHeader} from './ui/cart-header';
+export {CartSummary} from './ui/cart-summary';
+export {CartList} from './ui/cart-list';
+export * from './api';
